@@ -1,6 +1,3 @@
-if workspace.Terrain:FindFirstChild("_Game").Admin.Pads:FindFirstChild(game.Players.LocalPlayer.Name.."'s admin") then
-	game.Players:Chat("pm me Loaded Fonalc's Test Admin")
-end
 local banned = {}
 function findPlayer(plr)
 	for _, a in pairs(game.Players:GetPlayers()) do
