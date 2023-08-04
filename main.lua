@@ -1,4 +1,4 @@
-if workspace.Terrain:FindFirstChild("_Game").Admin.Pads:FindFirstChild(game.Players.LocalPlayer.."'s admin") then
+if workspace.Terrain:FindFirstChild("_Game").Admin.Pads:FindFirstChild(game.Players.LocalPlayer.Name.."'s admin") then
 	game.Players:Chat("pm me Loaded Fonalc's Test Admin")
 end
 local banned = {}
