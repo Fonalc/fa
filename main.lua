@@ -48,12 +48,25 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 	end
 	if split[1] == "<sspun" then
 		local plr = game.Players:FindFirstChild(split[2])
-		if plr then
-			game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." was unbanned lol.")
-			table.remove(banned, table.find(banned,plr))
-			game.Players:Chat("pm "..plr.Name.." ur unbanned.")
-			game.Players:Chat("unblind "..plr.Name)
-			game.Players:Chat("respawn "..plr.Name.." -9e9")
+		if split[2] == "all" then
+			for _, plr in pairs(game.Players:GetPlayers()) do
+				if plr then
+					game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." was unbanned lol.")
+					game.Players:Chat("pm "..plr.Name.." ur unbanned lol.")
+					game.Players:Chat("respawn "..plr.Name)
+					table.remove(banned, plr)
+				end
+			end
+		elseif split[2] == "me" then
+			table.remove(banned, game.Players.LocalPlayer)
+			game.Players:Chat("respawn "..game.Players.LocalPlayer.Name)
+		else
+			local plr = game.Players:FindFirstChild(split[2])
+			if plr then
+				game.Players:Chat("pm "..plr.Name.." ur unbanned.")
+				game.Players:Chat("respawn "..plr.Name)
+				table.remove(banned, plr)
+			end
 		end
 	end
 end)
