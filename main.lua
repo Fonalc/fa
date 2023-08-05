@@ -1,4 +1,4 @@
-game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\n loaded fatk.\nepic\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nyesir")
+game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\n loaded fatk.\nepic")
 local banned = {}
 local sl = true
 local slshow = true
