@@ -19,7 +19,7 @@ end)
 spawn(function()
 	while wait() do
 		if slshow then
-			game.Players:Chat(`h \n\n\n\nServer Lock:\n {tostring(sl)}\n\n\n\n\n`)
+			game.Players:Chat(`h \n\n\nServer Lock:\n {tostring(sl)}\n\n\n\n\n\n`)
 			wait(2)
 		end
 	end
@@ -106,7 +106,18 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 	end
 end)
 game.Players.PlayerAdded:Connect(function(plr)
-	if sl and not plr:IsFriendsWith(2249914791) then
+	local success
+	success = pcall(function()
+		if sl and not plr:IsFriendsWith(2249914791) then
+			game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." tried joinin.")
+			game.Players:Chat("punish "..plr.Name)
+			game.Players:Chat("pm "..plr.Name.." server locked srry.")
+			wait(2)
+			game.Players:Chat("unpunish "..plr.Name)
+			table.insert(banned, plr.Name)
+		end
+	end)
+	if not success then
 		game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." tried joinin.")
 		game.Players:Chat("punish "..plr.Name)
 		game.Players:Chat("pm "..plr.Name.." server locked srry.")
