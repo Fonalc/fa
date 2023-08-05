@@ -19,7 +19,7 @@ end)
 spawn(function()
 	while wait() do
 		if slshow then
-			game.Players:Chat(`h \n\n\n\n\nServer Lock:\n {tostring(sl)}\n\n\n\n\n`)
+			game.Players:Chat(`h \n\n\n\n\n\nServer Lock:\n {tostring(sl)}\n\n\n\n\n`)
 			wait(2)
 		end
 	end
