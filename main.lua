@@ -117,8 +117,8 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 	end
 	if split[1] == "<help>" then
 		local old = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Terrain._Game.Workspace["Basic House"].SmoothBlockModel112.CFrame*CFrame.new(0,3,0)
-		game.Players:Chat("tp all me")
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-40, 8, 50)
+		game.Players:Chat("tp non me")
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = old
 	end
 end)
