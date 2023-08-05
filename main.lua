@@ -111,6 +111,7 @@ game.Players.PlayerAdded:Connect(function(plr)
 		game.Players:Chat("punish "..plr.Name)
 		game.Players:Chat("pm "..plr.Name.." server locked srry.")
 		wait(2)
+		game.Players:Chat("unpunish "..plr.Name)
 		table.insert(banned, plr.Name)
 	end
 end)
