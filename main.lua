@@ -1,5 +1,3 @@
-
-end
 repeat
 wait()
 until workspace.Terrain:FindFirstChild("_Game").Admin.Pads:FindFirstChild(game.Players.LocalPlayer.Name.."'s admin")
