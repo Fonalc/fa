@@ -1,7 +1,3 @@
-repeat
-wait()
-until workspace.Terrain:FindFirstChild("_Game").Admin.Pads:FindFirstChild(game.Players.LocalPlayer.Name.."'s admin")
-game.Players:Chat("pm me Loaded FaTK")
 local banned = {}
 
 spawn(function()
