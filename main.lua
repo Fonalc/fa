@@ -62,7 +62,11 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 			game.Players:Chat("respawn "..game.Players.LocalPlayer.Name)
 		elseif split[2] == "clear" then
 			table.clear(banned)
-		else
+		elseif split[2] == "log" then
+			for _, a in pairs(banned) do
+				print(a)
+			end
+		else	
 			local plr = game.Players:FindFirstChild(split[2])
 			if plr then
 				game.Players:Chat("pm "..plr.Name.." ur unbanned.")
