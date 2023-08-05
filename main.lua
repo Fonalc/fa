@@ -1,15 +1,7 @@
 if workspace.Terrain:FindFirstChild("_Game").Admin.Pads:FindFirstChild(game.Players.LocalPlayer.Name.."'s admin") then
-	game.Players:Chat("pm me Loaded Fonalc's Test Admin")
+	game.Players:Chat("pm me Loaded FaTK")
 end
 local banned = {}
-function findPlayer(plr)
-	for _, a in pairs(game.Players:GetPlayers()) do
-		if a.Name == plr or a.DisplayName == plr then
-			return a
-		end
-	end
-	return nil
-end
 
 spawn(function()
 	while wait() do
@@ -18,9 +10,16 @@ spawn(function()
 				game.Players:Chat("ungear "..plr.Name)
 				game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\n"..plr.DisplayName.." that VampireVanquisher aint allowed around here.")
 			end
+		end
+	end
+end)
+spawn(function()
+	while wait() do
+		for _, plr in pairs(game.Players:GetPlayers()) do
 			if table.find(banned, plr) then
 				game.Players:Chat("blind "..plr.Name)
 				game.Players:Chat("punish "..plr.Name)
+				wait(3)
 			end
 		end
 	end
