@@ -1,4 +1,4 @@
-game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\n loaded fatk.\nepic")
+game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nSuccessfully Loaded FaTK!\nEnjoy!")
 local banned = {}
 local sl = true
 local slshow = true
@@ -114,6 +114,12 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 	if split[1] == "<reload>" then
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Fonalc/fatk/main/main.lua"))()
 		return
+	end
+	if split[1] == "<help>" then
+		local old = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+		game.Players:Chat("<house>")
+		game.Players:Chat("tp all me")
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = old
 	end
 end)
 game.Players.PlayerAdded:Connect(function(plr)
