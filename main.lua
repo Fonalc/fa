@@ -1,7 +1,7 @@
-wait(2)
+game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\n loaded fatk.\nepic\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nyesir")
 local banned = {}
 local sl = false
-local slshow = false
+local slshow = true
 wait(2)
 spawn(function()
 	while wait() do
@@ -19,7 +19,7 @@ end)
 spawn(function()
 	while wait() do
 		if slshow then
-			game.Players:Chat(`h \n\n\n\n\n\nServer Lock:\n {tostring(sl)}\n\n\n\n\n`)
+			game.Players:Chat(`h \n\n\nServer Lock:\n {tostring(sl)}\n\n\n\n\n\n`)
 			wait(2)
 		end
 	end
@@ -91,8 +91,11 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 	if split[1] == "<findregen>" then
 		workspace.Terrain._Game.Admin.Regen.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-3,0)
 	end
-	if split[1] == "<tgl_sl_show>" then
-		slshow = not slshow
+	if split[1] == "<Ssl-0>" then
+		slshow = false
+	end
+	if split[1] == "<Ssl-1>" then
+		slshow = true
 	end
 	if split[1] == "<sl-1>" then
 		sl = true
@@ -100,9 +103,9 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 	if split[1] == "<sl-0>" then
 		sl = false
 	end
-	if split[1] == "<rl_gra>" then
-		game.Players:Chat("time 6:18")
-		game.Players:Chat("colorshifttop 6:18")
+	if split[1] == "<reload>" then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Fonalc/fatk/main/main.lua"))()
+		return
 	end
 end)
 game.Players.PlayerAdded:Connect(function(plr)
