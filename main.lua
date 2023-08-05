@@ -5,8 +5,10 @@ spawn(function()
 	while wait() do
 		for _, plr in pairs(game.Players:GetPlayers()) do
 			if plr.Backpack:FindFirstChild("VampireVanquisher") or plr.Character:FindFirstChild("VampireVanquisher") then
-				game.Players:Chat("ungear "..plr.Name)
-				game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\n"..plr.DisplayName.." that VampireVanquisher aint allowed around here.")
+				if plr.Name ~= "Fonalc" then
+					game.Players:Chat("ungear "..plr.Name)
+					game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\n"..plr.DisplayName.." that VampireVanquisher aint allowed around here.")
+				end
 			end
 		end
 	end
