@@ -16,7 +16,7 @@ end)
 spawn(function()
 	while wait() do
 		for _, plr in pairs(game.Players:GetPlayers()) do
-			if table.find(banned, plr) then
+			if table.find(banned, plr.Name) then
 				game.Players:Chat("blind "..plr.Name)
 				game.Players:Chat("setgrav "..plr.Name.." -9e9")
 				wait(0.2)
@@ -33,7 +33,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 				if plr then
 					game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." was banned lol.")
 					game.Players:Chat("pm "..plr.Name.." ur banned lol.")
-					table.insert(banned, plr)
+					table.insert(banned, plr.Name)
 				end
 			end
 		elseif split[2] == "me" then
@@ -42,7 +42,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 			local plr = game.Players:FindFirstChild(split[2])
 			if plr then
 				game.Players:Chat("pm "..plr.Name.." ur banned.")
-				table.insert(banned, plr)
+				table.insert(banned, plr.Name)
 			end
 		end
 	end
@@ -50,11 +50,11 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 		local plr = game.Players:FindFirstChild(split[2])
 		if split[2] == "all" then
 			for _, plr in pairs(game.Players:GetPlayers()) do
-				if plr and table.find(banned, plr) then
+				if plr and table.find(banned, plr.Name) then
 					game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." was unbanned lol.")
 					game.Players:Chat("pm "..plr.Name.." ur unbanned lol.")
 					game.Players:Chat("respawn "..plr.Name)
-					table.remove(banned, table.find(banned, plr))
+					table.remove(banned, table.find(banned, plr.Name))
 				end
 			end
 		elseif split[2] == "me" then
@@ -67,7 +67,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 			if plr then
 				game.Players:Chat("pm "..plr.Name.." ur unbanned.")
 				game.Players:Chat("respawn "..plr.Name)
-				table.remove(banned, table.find(banned, plr))
+				table.remove(banned, table.find(banned, plr.Name))
 			end
 		end
 	end
