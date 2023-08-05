@@ -1,4 +1,4 @@
-wait(2)
+wait(4)
 game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\n loaded fatk.\nepic\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nyesir")
 local banned = {}
 local sl = false
