@@ -58,7 +58,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 				end
 			end
 		elseif split[2] == "me" then
-			table.remove(banned, table.find(banned, game.Players.LocalPlayer))
+			table.remove(banned, table.find(banned, game.Players.LocalPlayer.Name))
 			game.Players:Chat("respawn "..game.Players.LocalPlayer.Name)
 		elseif split[2] == "clear" then
 			table.clear(banned)
