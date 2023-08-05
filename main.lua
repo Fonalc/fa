@@ -18,7 +18,6 @@ spawn(function()
 		for _, plr in pairs(game.Players:GetPlayers()) do
 			if table.find(banned, plr) then
 				game.Players:Chat("blind "..plr.Name)
-				game.Players:Chat("punish "..plr.Name)
 				game.Players:Chat("setgrav "..plr.Name.." -9e9")
 				wait(0.2)
 			end
@@ -54,7 +53,6 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 			table.remove(banned, table.find(banned,plr))
 			game.Players:Chat("pm "..plr.Name.." ur unbanned.")
 			game.Players:Chat("unblind "..plr.Name)
-			game.Players:Chat("unpunish "..plr.Name)
 			game.Players:Chat("respawn "..plr.Name.." -9e9")
 		end
 	end
