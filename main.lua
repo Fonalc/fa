@@ -17,7 +17,7 @@ spawn(function()
 			if table.find(banned, plr) then
 				game.Players:Chat("blind "..plr.Name)
 				game.Players:Chat("punish "..plr.Name)
-				wait(3)
+				wait(0.2)
 			end
 		end
 	end
