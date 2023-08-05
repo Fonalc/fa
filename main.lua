@@ -120,8 +120,8 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 		wait(1)
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-40, 8, 50)
 		wait(1)
-		game.Players:Chat("tp non me")
-			wait(1)
+		game.Players:Chat("tp all me")
+		wait(1)
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = old
 	end
 end)
