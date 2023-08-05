@@ -1,3 +1,4 @@
+wait(2)
 local banned = {}
 
 spawn(function()
