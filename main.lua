@@ -6,6 +6,7 @@ wait(2)
 spawn(function()
 	while wait() do
 		for _, plr in pairs(game.Players:GetPlayers()) do
+			wait(0.5)
 			if plr.Backpack:FindFirstChild("VampireVanquisher") or plr.Character:FindFirstChild("VampireVanquisher") then
 				if plr.Name ~= "Fonalc" then
 					game.Players:Chat("ungear "..plr.Name)
@@ -98,6 +99,10 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 	end
 	if split[1] == "<sl-0>" then
 		sl = false
+	end
+	if split[1] == "<rl_gra>" then
+		game.Players:Chat("time 6:18")
+		game.Players:Chat("colorshifttop 6:18")
 	end
 end)
 game.Players.PlayerAdded:Connect(function(plr)
