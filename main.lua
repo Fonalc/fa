@@ -1,3 +1,4 @@
+wait(2)
 game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\n loaded fatk.\nepic\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nyesir")
 local banned = {}
 local sl = false
@@ -102,6 +103,9 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 	end
 	if split[1] == "<sl-0>" then
 		sl = false
+	end
+	if split[1] == "<ping>" then
+		game.Players:Chat("pong")
 	end
 	if split[1] == "<reload>" then
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Fonalc/fatk/main/main.lua"))()
