@@ -71,4 +71,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 			end
 		end
 	end
+	if split[1] == "<findregen>" then
+		workspace.Terrain._Game.Admin.Regen.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-3,0)
+	end
 end)
