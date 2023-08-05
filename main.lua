@@ -1,6 +1,6 @@
 wait(2)
 local banned = {}
-
+wait(2)
 spawn(function()
 	while wait() do
 		for _, plr in pairs(game.Players:GetPlayers()) do
