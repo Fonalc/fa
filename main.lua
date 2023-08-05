@@ -117,11 +117,10 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 	end
 	if split[1] == "<help>" then
 		local old = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-		wait(1)
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-40, 8, 50)
-		wait(1)
+		wait(0.2)
 		game.Players:Chat("tp all me")
-		wait(1)
+		wait(0.2)
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = old
 	end
 end)
