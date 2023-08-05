@@ -1,6 +1,9 @@
-if workspace.Terrain:FindFirstChild("_Game").Admin.Pads:FindFirstChild(game.Players.LocalPlayer.Name.."'s admin") then
-	game.Players:Chat("pm me Loaded FaTK")
+
 end
+repeat
+wait()
+until workspace.Terrain:FindFirstChild("_Game").Admin.Pads:FindFirstChild(game.Players.LocalPlayer.Name.."'s admin")
+game.Players:Chat("pm me Loaded FaTK")
 local banned = {}
 
 spawn(function()
@@ -31,6 +34,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 		if split[2] == "all" then
 			for _, plr in pairs(game.Players:GetPlayers()) do
 				if plr then
+					game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." was banned lol.")
 					game.Players:Chat("pm "..plr.Name.." ur banned lol.")
 					table.insert(banned, plr)
 				end
@@ -48,6 +52,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 	if split[1] == "<sspun" then
 		local plr = game.Players:FindFirstChild(split[2])
 		if plr then
+			game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." was unbanned lol.")
 			table.remove(banned, table.find(banned,plr))
 			game.Players:Chat("pm "..plr.Name.." ur unbanned.")
 			game.Players:Chat("unblind "..plr.Name)
