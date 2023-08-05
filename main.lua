@@ -1,7 +1,6 @@
-wait(4)
-game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n loaded fatk.\nepic")
+game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\n loaded fatk.\nepic\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nyesir")
 local banned = {}
-local sl = false
+local sl = true
 local slshow = true
 wait(2)
 spawn(function()
@@ -49,6 +48,14 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 			end
 		elseif split[2] == "me" then
 			table.insert(banned, game.Players.LocalPlayer)
+		elseif split[2] == "others" then
+			for _, plr in pairs(game.Players:GetPlayers()) do
+				if plr and plr.Name ~= game.Players.LocalPlayer.Name then
+					game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." was banned lol.")
+					game.Players:Chat("pm "..plr.Name.." ur banned lol.")
+					table.insert(banned, plr.Name)
+				end
+			end
 		else
 			local plr = game.Players:FindFirstChild(split[2])
 			if plr then
@@ -103,9 +110,6 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 	end
 	if split[1] == "<sl-0>" then
 		sl = false
-	end
-	if split[1] == "<ping>" then
-		game.Players:Chat("pong")
 	end
 	if split[1] == "<reload>" then
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Fonalc/fatk/main/main.lua"))()
