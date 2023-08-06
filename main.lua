@@ -153,7 +153,7 @@ game.Players.PlayerAdded:Connect(function(plr)
 		end
 	end)
 	if plr.Name == plr:IsFriendsWith(2249914791) then
-		game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." has FA,\n because they are in the list")
+		game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." has FA.")
 		game.Players:Chat("pm "..plr.Name.." you have FA!")
 		plr.Chatted:Connect(function(mesg)
 			admin(mesg, plr)
