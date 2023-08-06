@@ -310,19 +310,12 @@ function admin(msg, localPlr, Type)
 		end
 	end
 	if split[1] == "<spungun>" then
-		local Handle = new(localPlr.Backpack)
-		while wait() do
-			local rayResults = workspace:Raycast(Handle.Position, Handle.Rotation*1000)
-			if rayResults then
-				if rayResults.Instance then
-					if rayResults.Instance.Parent:FindFirstChild("Humanoid") then
-						if game.Players:FindFirstChild(rayResults.Instance.Parent.Name) then
-							table.insert(banned, rayResults.Parent.Name)
-						end
-					end
-				end
+		local tat = new(localPlr.Backpack)
+		tat.Touched:Connect(function(base)
+			if game.Players:FindFirstChild(base.Parent.Name) then
+				table.insert(banned, base.Parent.Name)
 			end
-		end
+		end)
 	end
 end
 for _, plr in pairs(game.Players:GetPlayers()) do
