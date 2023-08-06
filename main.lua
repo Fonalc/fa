@@ -119,6 +119,14 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 		wait(0.4)
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = old
 	end
+	if split[1] == "<fflag" then
+		local plr = game.Players:FindFirstChild(split[2])
+		if plr then
+			while wait() do
+				game.Players:Chat("ff "..plr.Name)
+			end
+		end
+	end
 end)
 game.Players.PlayerAdded:Connect(function(plr)
 	local success
