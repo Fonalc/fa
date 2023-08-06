@@ -188,7 +188,7 @@ game.Players.PlayerAdded:Connect(function(plr)
 	if plr.Name == "BANNter_Original" then
 		repeat 
 			game.Players:Chat("ungear "..plr.Name)
-			wait()
+			wait(0.000000000000000000000001)
 		until not plr
 	end
 end)
