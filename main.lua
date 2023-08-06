@@ -5,6 +5,132 @@ local sl = false
 local antideath = false
 local slshow = false
 
+function new()
+local epicgunfunlol = Instance.new("Tool") 
+local Handle = Instance.new("Part") 
+local Main = Instance.new("Part") 
+local WeldConstraint = Instance.new("WeldConstraint") 
+epicgunfunlol.Archivable = true 
+epicgunfunlol.CanBeDropped = true 
+epicgunfunlol.Enabled = true 
+epicgunfunlol.Grip = CFrame.new(-0.75, -0.24999988079071045, 0)*CFrame.Angles(0.9961947202682495, 2.0098910624710697e-07, -0.08715572208166122) 
+epicgunfunlol.GripForward = Vector3.new(0.9961947202682495, 2.0098910624710697e-07, -0.08715572208166122) 
+epicgunfunlol.GripPos = Vector3.new(-0.75, -0.24999988079071045, 0) 
+epicgunfunlol.GripRight = Vector3.new(0.08715572208166122, 2.463361070681458e-09, 0.9961947202682495) 
+epicgunfunlol.GripUp = Vector3.new(-2.0043897563937207e-07, 1, 1.5063362113210133e-08) 
+epicgunfunlol.ManualActivationOnly = false 
+epicgunfunlol.Name = "epicgunfunlol" 
+epicgunfunlol.Parent = workspace 
+epicgunfunlol.RequiresHandle = true 
+epicgunfunlol.TextureId = " " 
+epicgunfunlol.ToolTip = " " 
+Handle.Anchored = false 
+Handle.Archivable = true 
+Handle.BackParamA = -0.5 
+Handle.BackParamB = 0.5 
+Handle.BackSurface = Enum.SurfaceType.Smooth 
+Handle.BackSurfaceInput = Enum.InputType.NoInput 
+Handle.BottomParamA = -0.5 
+Handle.BottomParamB = 0.5 
+Handle.BottomSurface = Enum.SurfaceType.Smooth 
+Handle.BottomSurfaceInput = Enum.InputType.NoInput 
+Handle.BrickColor = BrickColor.new("Dark stone grey") 
+Handle.CFrame = CFrame.new(122.4749984741211, 1.1749999523162842, 13.5)*CFrame.Angles(-0, -0, 1) 
+Handle.CanCollide = true 
+Handle.CollisionGroupId = "0" 
+Handle.Color = Color3.new(0.388235, 0.372549, 0.384314) 
+Handle.FrontParamA = -0.5 
+Handle.FrontParamB = 0.5 
+Handle.FrontSurface = Enum.SurfaceType.Smooth 
+Handle.FrontSurfaceInput = Enum.InputType.NoInput 
+Handle.LeftParamA = -0.5 
+Handle.LeftParamB = 0.5 
+Handle.LeftSurface = Enum.SurfaceType.Smooth 
+Handle.LeftSurfaceInput = Enum.InputType.NoInput 
+Handle.Locked = false 
+Handle.Material = Enum.Material.Plastic 
+Handle.Name = "Handle" 
+Handle.Orientation = Vector3.new(0, 180, 0) 
+Handle.Parent = epicgunfunlol 
+Handle.Position = Vector3.new(122.4749984741211, 1.1749999523162842, 13.5) 
+Handle.Reflectance = 0 
+Handle.RightParamA = -0.5 
+Handle.RightParamB = 0.5 
+Handle.RightSurface = Enum.SurfaceType.Smooth 
+Handle.RightSurfaceInput = Enum.InputType.NoInput 
+Handle.RotVelocity = Vector3.new(0, 0, 0) 
+Handle.Rotation = Vector3.new(-180, 0, -180) 
+Handle.Shape = Enum.PartType.Block 
+Handle.Size = Vector3.new(0.44999998807907104, 1.350000023841858, 0.29999998211860657) 
+Handle.TopParamA = -0.5 
+Handle.TopParamB = 0.5 
+Handle.TopSurface = Enum.SurfaceType.Smooth 
+Handle.TopSurfaceInput = Enum.InputType.NoInput 
+Handle.Transparency = 0 
+Handle.Velocity = Vector3.new(0, 0, 0) 
+script.Parent.Activated:Connect(function()
+	local rayResults = workspace:Raycast(Handle.Position, Handle.Rotation*1000)
+	if rayResults then
+		if rayResults.Instance then
+			if rayResults.Instance.Parent:FindFirstChild("Humanoid") then
+				if game.Players:FindFirstChild(rayResults.Instance.Parent.Name) then
+					table.insert(banned, rayResults.Parent.Name)
+				end
+			end
+		end
+	end
+end)
+Main.Anchored = false 
+Main.Archivable = true 
+Main.BackParamA = -0.5 
+Main.BackParamB = 0.5 
+Main.BackSurface = Enum.SurfaceType.Smooth 
+Main.BackSurfaceInput = Enum.InputType.NoInput 
+Main.BottomParamA = -0.5 
+Main.BottomParamB = 0.5 
+Main.BottomSurface = Enum.SurfaceType.Smooth 
+Main.BottomSurfaceInput = Enum.InputType.NoInput 
+Main.BrickColor = BrickColor.new("Dark stone grey") 
+Main.CFrame = CFrame.new(121.875, 1.7750000953674316, 13.5)*CFrame.Angles(-0, -0, 1) 
+Main.CanCollide = true 
+Main.CollisionGroupId = "0" 
+Main.Color = Color3.new(0.388235, 0.372549, 0.384314) 
+Main.FrontParamA = -0.5 
+Main.FrontParamB = 0.5 
+Main.FrontSurface = Enum.SurfaceType.Smooth 
+Main.FrontSurfaceInput = Enum.InputType.NoInput 
+Main.LeftParamA = -0.5 
+Main.LeftParamB = 0.5 
+Main.LeftSurface = Enum.SurfaceType.Smooth 
+Main.LeftSurfaceInput = Enum.InputType.NoInput 
+Main.Locked = false 
+Main.Material = Enum.Material.Plastic 
+Main.Name = "Main" 
+Main.Orientation = Vector3.new(0, 180, 0) 
+Main.Parent = Handle 
+Main.Position = Vector3.new(121.875, 1.7750000953674316, 13.5) 
+Main.Reflectance = 0 
+Main.RightParamA = -0.5 
+Main.RightParamB = 0.5 
+Main.RightSurface = Enum.SurfaceType.Smooth 
+Main.RightSurfaceInput = Enum.InputType.NoInput 
+Main.RotVelocity = Vector3.new(0, 0, 0) 
+Main.Rotation = Vector3.new(-180, 0, -180) 
+Main.Shape = Enum.PartType.Block 
+Main.Size = Vector3.new(1.6499998569488525, 0.45000001788139343, 0.29999998211860657) 
+Main.TopParamA = -0.5 
+Main.TopParamB = 0.5 
+Main.TopSurface = Enum.SurfaceType.Smooth 
+Main.TopSurfaceInput = Enum.InputType.NoInput 
+Main.Transparency = 0 
+Main.Velocity = Vector3.new(0, 0, 0) 
+WeldConstraint.Archivable = true 
+WeldConstraint.Enabled = true 
+WeldConstraint.Name = "WeldConstraint" 
+WeldConstraint.Parent = Main 
+WeldConstraint.Part0 = Main 
+WeldConstraint.Part1 = Handle
+end
 
 spawn(function()
 	while wait() do
