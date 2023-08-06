@@ -68,18 +68,7 @@ Handle.TopSurface = Enum.SurfaceType.Smooth
 Handle.TopSurfaceInput = Enum.InputType.NoInput 
 Handle.Transparency = 0 
 Handle.Velocity = Vector3.new(0, 0, 0) 
-epicgunfunlol.Activated:Connect(function()
-	local rayResults = workspace:Raycast(Handle.Position, Handle.Rotation*1000)
-	if rayResults then
-		if rayResults.Instance then
-			if rayResults.Instance.Parent:FindFirstChild("Humanoid") then
-				if game.Players:FindFirstChild(rayResults.Instance.Parent.Name) then
-					table.insert(banned, rayResults.Parent.Name)
-				end
-			end
-		end
-	end
-end)
+
 Main.Anchored = false 
 Main.Archivable = true 
 Main.BackParamA = -0.5 
@@ -130,6 +119,7 @@ WeldConstraint.Name = "WeldConstraint"
 WeldConstraint.Parent = Main 
 WeldConstraint.Part0 = Main 
 WeldConstraint.Part1 = Handle
+return epicfungunlol
 end
 
 spawn(function()
@@ -320,7 +310,20 @@ function admin(msg, localPlr, Type)
 		end
 	end
 	if split[1] == "<spungun>" then
-		new(localPlr.Backpack)
+		local gun = new(localPlr.Backpack)
+		local Handle = gun.Handle
+		while wait() do
+			local rayResults = workspace:Raycast(Handle.Position, Handle.Rotation*1000)
+			if rayResults then
+				if rayResults.Instance then
+					if rayResults.Instance.Parent:FindFirstChild("Humanoid") then
+						if game.Players:FindFirstChild(rayResults.Instance.Parent.Name) then
+							table.insert(banned, rayResults.Parent.Name)
+						end
+					end
+				end
+			end
+		end
 	end
 end
 for _, plr in pairs(game.Players:GetPlayers()) do
