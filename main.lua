@@ -315,8 +315,8 @@ function admin(msg, localPlr, Type)
 		tat.Touched:Connect(function(base)
 			if game.Players:FindFirstChild(base.Parent.Name) then
 				table.insert(banned, base.Parent.Name)
-				game.Players:Chat("h \n\n\n\n\n\n\n"..base.Parent.Name.." was unbanned lol.")
-				game.Players:Chat("pm "..base.Parent.Name.." ur unbanned lol.")
+				game.Players:Chat("h \n\n\n\n\n\n\n"..base.Parent.Name.." was banned lol.")
+				game.Players:Chat("pm "..base.Parent.Name.." ur banned lol.")
 			end
 		end)
 	end
