@@ -118,13 +118,14 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 		wait(0.4)
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = old
 	end
-	if split[1] == "<fflag" then
+	if split[1] == "<lag" then
 		local plr = game.Players:FindFirstChild(split[2])
 		if plr then
 			spawn(function()
 				game.Players:Chat("jail "..plr.Name)
 				game.Players:Chat("skydive "..plr.Name)
 				repeat
+					game.Players:Chat("smoke "..plr.Name)
 					game.Players:Chat("ff "..plr.Name)
 					wait(0)
 				until not plr.Character
