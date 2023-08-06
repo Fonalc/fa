@@ -5,7 +5,7 @@ local sl = false
 local antideath = false
 local slshow = false
 
-function new()
+function new(parent)
 local epicgunfunlol = Instance.new("Tool") 
 local Handle = Instance.new("Part") 
 local Main = Instance.new("Part") 
@@ -19,8 +19,8 @@ epicgunfunlol.GripPos = Vector3.new(-0.75, -0.24999988079071045, 0)
 epicgunfunlol.GripRight = Vector3.new(0.08715572208166122, 2.463361070681458e-09, 0.9961947202682495) 
 epicgunfunlol.GripUp = Vector3.new(-2.0043897563937207e-07, 1, 1.5063362113210133e-08) 
 epicgunfunlol.ManualActivationOnly = false 
-epicgunfunlol.Name = "epicgunfunlol" 
-epicgunfunlol.Parent = workspace 
+epicgunfunlol.Name = "epic gun fun lol" 
+epicgunfunlol.Parent = parent 
 epicgunfunlol.RequiresHandle = true 
 epicgunfunlol.TextureId = " " 
 epicgunfunlol.ToolTip = " " 
@@ -68,7 +68,7 @@ Handle.TopSurface = Enum.SurfaceType.Smooth
 Handle.TopSurfaceInput = Enum.InputType.NoInput 
 Handle.Transparency = 0 
 Handle.Velocity = Vector3.new(0, 0, 0) 
-script.Parent.Activated:Connect(function()
+epicgunfunlol.Activated:Connect(function()
 	local rayResults = workspace:Raycast(Handle.Position, Handle.Rotation*1000)
 	if rayResults then
 		if rayResults.Instance then
@@ -318,6 +318,9 @@ function admin(msg, localPlr, Type)
 		else
 			game.Players:Chat("h \n\n\n\n\n\n\nServer Count: "..#game.Players:GetPlayers().."/"..game.Players.MaxPlayers)
 		end
+	end
+	if split[1] == "<spungun>" then
+		new(localPlr.Backpack)
 	end
 end
 for _, plr in pairs(game.Players:GetPlayers()) do
