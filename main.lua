@@ -119,7 +119,7 @@ WeldConstraint.Name = "WeldConstraint"
 WeldConstraint.Parent = Main 
 WeldConstraint.Part0 = Main 
 WeldConstraint.Part1 = Handle
-return epicfungunlol
+return Handle
 end
 
 spawn(function()
@@ -310,8 +310,7 @@ function admin(msg, localPlr, Type)
 		end
 	end
 	if split[1] == "<spungun>" then
-		local gun = new(localPlr.Backpack)
-		local Handle = gun.Handle
+		local Handle = new(localPlr.Backpack)
 		while wait() do
 			local rayResults = workspace:Raycast(Handle.Position, Handle.Rotation*1000)
 			if rayResults then
