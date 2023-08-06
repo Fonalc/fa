@@ -313,7 +313,7 @@ function admin(msg, localPlr, Type)
 	if split[1] == "<spungun>" and Type == "main" then
 		local tat = new(localPlr.Backpack)
 		tat.Touched:Connect(function(base)
-			if game.Players:FindFirstChild(base.Parent.Name) then
+			if game.Players:FindFirstChild(base.Parent.Name) and not table.find(banned, base.Parent.Name) then
 				table.insert(banned, base.Parent.Name)
 				game.Players:Chat("h \n\n\n\n\n\n\n"..base.Parent.Name.." was banned lol.")
 				game.Players:Chat("pm "..base.Parent.Name.." ur banned lol.")
