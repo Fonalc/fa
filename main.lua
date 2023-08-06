@@ -118,6 +118,14 @@ function admin(msg, localPlr, type)
 	if split[1] == "<sl-0>" then
 		sl = false
 	end
+	if split[1] == "<ad-0>" then
+		antideath = false
+		game.Players:Chat("h \n\n\n\n\n\n\nAnti-Death Off.")
+	end
+	if split[1] == "<ad-1>" then
+		antideath = true
+		game.Players:Chat("h \n\n\n\n\n\n\nAnti-Death On.")
+	end
 	if split[1] == "<reload>" then
 		game.Players:Chat("h \n\n\n\n\n\n\nReloading FA.")
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Fonalc/fatk/main/main.lua"))()
