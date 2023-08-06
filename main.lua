@@ -2,7 +2,6 @@ game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nSuccessfully Loaded FA.\nEnjoy!")
 local banned = {}
 local sl = false
 local slshow = false
-wait(2)
 spawn(function()
 	while wait() do
 		for _, plr in pairs(game.Players:GetPlayers()) do
@@ -127,7 +126,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 					game.Players:Chat("skydive "..plr.Name)
 					game.Players:Chat("jail "..plr.Name)
 					game.Players:Chat("ff "..plr.Name)
-					wait()
+					wait(0)
 				until not plr.Character
 			end)
 		end
