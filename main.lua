@@ -110,10 +110,9 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 		local plr = game.Players:FindFirstChild(split[2])
 		if plr then
 			spawn(function()
-				game.Players:Chat("jail "..plr.Name)
 				game.Players:Chat("skydive "..plr.Name)
+								game.Players:Chat("jail "..plr.Name)
 				repeat
-					game.Players:Chat("skydive "..plr.Name)
 					game.Players:Chat("smoke "..plr.Name)
 					game.Players:Chat("ff "..plr.Name)
 					game.Players:Chat("speed "..plr.Name.." 0")
