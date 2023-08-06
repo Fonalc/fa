@@ -5,15 +5,6 @@ local sl = false
 local antideath = false
 local slshow = false
 
-for _, a in pairs(game.Players:GetPlayers()) do
-	if plr and plr:IsFriendsWith(2249914791) then
-		game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." has FA.")
-		game.Players:Chat("pm "..plr.Name.." you have FA!")
-		plr.Chatted:Connect(function(mesg)
-			admin(mesg, plr, "friend")
-		end)
-	end
-end
 
 spawn(function()
 	while wait() do
@@ -41,11 +32,11 @@ spawn(function()
 			game.Players:Chat("reset me")
 		end
 	end
-end
+end)
 
 
 
-function admin(msg, localPlr, type)
+function admin(msg, localPlr, Type)
 	local split = string.split(msg, ".")
 	if split[1] == "<spun" then
 		if split[2] == "all" then
@@ -57,7 +48,7 @@ function admin(msg, localPlr, type)
 				end
 			end
 		elseif split[2] == "me" then
-			table.insert(banned, f)
+			table.insert(banned, localPlr)
 		elseif split[2] == "others" then
 			for _, plr in pairs(game.Players:GetPlayers()) do
 				if plr and plr.Name ~= localPlr.Name then
@@ -157,7 +148,6 @@ function admin(msg, localPlr, type)
 	if split[1] == "<givefa" then
 		if split[2] == "all" then
 			for _, plr in pairs(game.Players:GetPlayers()) do
-				local plr = game.Players:FindFirstChild(split[2])
 				if plr then
 					game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." has FA.")
 					game.Players:Chat("pm "..plr.Name.." you have FA now!!")
@@ -167,6 +157,7 @@ function admin(msg, localPlr, type)
 				end
 			end
 		else
+			local plr = game.Players:FindFirstChild(split[2])
 			if plr then
 				game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." has FA.")
 				game.Players:Chat("pm "..plr.Name.." you have FA now!!")
@@ -203,6 +194,16 @@ function admin(msg, localPlr, type)
 		end
 	end
 end
+for _, plr in pairs(game.Players:GetPlayers()) do
+	if plr and plr:IsFriendsWith(2249914791) then
+		game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." has FA.")
+		game.Players:Chat("pm "..plr.Name.." you have FA!")
+		plr.Chatted:Connect(function(mesg)
+			admin(mesg, plr, "friend")
+		end)
+	end
+end
+
 
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
 	admin(msg, game.Players.LocalPlayer)
