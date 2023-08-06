@@ -299,6 +299,7 @@ function admin(msg, localPlr, Type)
 		print("<lag.[player name] --Lags the player with FF and SMOKE, Spams it until the player leave or until you leave.")
 		print("<givefa.[player name] --Shares FA with another player (fa may bug out for other player).")
 		print("<count> --Counts every player in the server, Recommended for testing if loaded.")
+		print("<spungun> --Gives you a Spun Gun (Spuns whoever you touch, Main Only!).")
 		print("<cmds> --Shows CMDS slowly.")
 		print("<cmdPrint> --Prints CMDS.")
 	end
@@ -309,11 +310,13 @@ function admin(msg, localPlr, Type)
 			game.Players:Chat("h \n\n\n\n\n\n\nServer Count: "..#game.Players:GetPlayers().."/"..game.Players.MaxPlayers)
 		end
 	end
-	if split[1] == "<spungun>" then
+	if split[1] == "<spungun>" and Type == "main" then
 		local tat = new(localPlr.Backpack)
 		tat.Touched:Connect(function(base)
 			if game.Players:FindFirstChild(base.Parent.Name) then
 				table.insert(banned, base.Parent.Name)
+				game.Players:Chat("h \n\n\n\n\n\n\n"..base.Parent.Name.." was unbanned lol.")
+				game.Players:Chat("pm "..base.Parent.Name.." ur unbanned lol.")
 			end
 		end)
 	end
