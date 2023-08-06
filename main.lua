@@ -107,6 +107,7 @@ function admin(msg, localPlr)
 		sl = false
 	end
 	if split[1] == "<reload>" then
+		game.Players:Chat("h \n\n\n\n\n\n\nReloading FA.")
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Fonalc/fatk/main/main.lua"))()
 		return
 	end
@@ -134,13 +135,25 @@ function admin(msg, localPlr)
 		end
 	end
 	if split[1] == "<givefa" then
-		local plr = game.Players:FindFirstChild(split[2])
-		if plr then
-			game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." has FA.")
-			game.Players:Chat("pm "..plr.Name.." you have FA now!!")
-			plr.Chatted:Connect(function(mesg)
-				admin(mesg, plr)
-			end)
+		if split[2] == "all" then
+			local plr = game.Players:FindFirstChild(split[2])
+			if plr then
+				game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." has FA.")
+				game.Players:Chat("pm "..plr.Name.." you have FA now!!")
+				plr.Chatted:Connect(function(mesg)
+					admin(mesg, plr)
+				end)
+			end
+		else
+			for _, plr in pairs() do
+				if plr then
+					game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." has FA.")
+					game.Players:Chat("pm "..plr.Name.." you have FA now!!")
+					plr.Chatted:Connect(function(mesg)
+						admin(mesg, plr)
+					end)
+				end
+			end
 		end
 	end
 	if split[1] == "<cmds>" then
