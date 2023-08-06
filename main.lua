@@ -124,9 +124,9 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 		if plr then
 			game.Players:Chat("skydive "..plr.Name)
 			game.Players:Chat("jail "..plr.Name)
-			while wait() do
+			repeat
 				game.Players:Chat("ff "..plr.Name)
-			end
+			until not plr
 		end
 	end
 end)
