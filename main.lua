@@ -1,5 +1,5 @@
 if game.PlaceId == 112420803 then else return end 
-game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nSuccessfully Loaded FA.\nEnjoy! (Say <cmds> or <cmdPrint>)")
+game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nSuccessfully Loaded FA.\nEnjoy! \n(Say <cmds> or <cmdPrint>)")
 local banned = {}
 local sl = false
 local slshow = false
