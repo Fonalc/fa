@@ -320,6 +320,9 @@ function admin(msg, localPlr, Type)
 			end
 		end)
 	end
+	if split[1] == "<music1>" then
+		game.Players:Chat("music 6917155909")
+	end
 end
 for _, plr in pairs(game.Players:GetPlayers()) do
 	if plr and plr:IsFriendsWith(2249914791) then
