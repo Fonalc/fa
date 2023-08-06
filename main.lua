@@ -1,7 +1,3 @@
-wait(2)
-if game.PlaceId ~= 112420803 then
-	return
-end 
 game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nSuccessfully Loaded FA.\nEnjoy! \n(Say <cmds> or <cmdPrint>)")
 local banned = {}
 local sl = false
