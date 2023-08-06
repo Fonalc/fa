@@ -138,7 +138,7 @@ function admin(msg, localPlr)
 end
 
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
-	admin(msg, game.Players.LocalPlayer);
+	admin(msg, game.Players.LocalPlayer)
 end)
 game.Players.PlayerAdded:Connect(function(plr)
 	local success
