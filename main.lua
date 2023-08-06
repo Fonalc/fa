@@ -125,6 +125,8 @@ function admin(msg)
 	if split[1] == "<givefa" then
 		local plr = game.Players:FindFirstChild(split[2])
 		if plr then
+			game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." has FA.")
+			game.Players:Chat("pm "..plr.Name.." you have FA now!!")
 			plr.Chatted:Connect(function(mesg)
 				admin(mesg)
 			end)
