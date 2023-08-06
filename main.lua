@@ -4,7 +4,7 @@ local sl = false
 local slshow = false
 
 for _, a in pairs(game.Players:GetPlayers()) do
-	if plr.Name == plr:IsFriendsWith(2249914791) then
+	if plr:IsFriendsWith(2249914791) then
 		game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." has FA.")
 		game.Players:Chat("pm "..plr.Name.." you have FA!")
 		plr.Chatted:Connect(function(mesg)
