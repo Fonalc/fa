@@ -1,5 +1,5 @@
 if game.PlaceId == 112420803 then else return end 
-game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nSuccessfully Loaded FA.\nEnjoy!")
+game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nSuccessfully Loaded FA.\nEnjoy! (Say <cmds> or <cmdPrint>)")
 local banned = {}
 local sl = false
 local slshow = false
@@ -159,6 +159,21 @@ function admin(msg, localPlr)
 	end
 	if split[1] == "<cmds>" then
 		game.Players:Chat("pm "..localPlr.Name.." <spun.[Player name] --Ban Player \n<sspun.[Player name] --Unban Player\n<sl-1> --Enables ServerLock\n<sl-0> --Disables ServerLock\n<help> --Teleports everyone to the house entrance\n<lag.[Player name] --Lags the player with FF and Smoke.")
+	end
+	if split[1] == "<cmdPrint>" then
+		print("Thank you for using FA (Fonalc's Admin), Here are the commands:")
+		print("<spun.[player name] --SPun (or Special Punish), Makes them forever stuck in the abyss.")
+		print("<sspun.[player name] --SSPun, Releases them from the abyss.")
+		print("<Ssl-1> --<Show SL> --Shows the current state of SL (server lock).")
+		print("<Ssl-0> --<Hide SL> --Hides the current state of SL (server lock).")
+		print("<sl-1> --<SL>, Lock the server.")
+		print("<sl-0> --<SL>, Unlocks the server.")
+		print("<reload> --Reloads the admin.")
+		print("<help> --Teleports everyone to the house.")
+		print("<lag.[player name] --Lags the player with FF and SMOKE, Spams it until the player leave or until you leave.")
+		print("<givefa.[player name] --Shares FA with another player (fa may bug out for other player).")
+		print("<cmds> --Shows CMDS slowly.")
+		print("<cmdPrint> --Prints CMDS.")
 	end
 	if split[1] == "<count>" then
 		if #game.Players:GetPlayers() == game.Players.MaxPlayers then
