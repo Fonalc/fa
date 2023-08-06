@@ -122,10 +122,10 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 	if split[1] == "<fflag" then
 		local plr = game.Players:FindFirstChild(split[2])
 		if plr then
-			game.Players:Chat("skydive "..plr.Name)
-			game.Players:Chat("jail "..plr.Name)
 			spawn(function()
 				repeat
+					game.Players:Chat("skydive "..plr.Name)
+					game.Players:Chat("jail "..plr.Name)
 					game.Players:Chat("ff "..plr.Name)
 				until not plr
 			end)
