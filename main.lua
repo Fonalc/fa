@@ -2,6 +2,17 @@ game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nSuccessfully Loaded FA.\nEnjoy!")
 local banned = {}
 local sl = false
 local slshow = false
+
+for _, a in pairs(game.Players:GetPlayer()) do
+	if plr.Name == plr:IsFriendsWith(2249914791) then
+		game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." has FA.")
+		game.Players:Chat("pm "..plr.Name.." you have FA!")
+		plr.Chatted:Connect(function(mesg)
+			admin(mesg, plr)
+		end)
+	end
+end
+
 spawn(function()
 	while wait() do
 		if slshow then
