@@ -21,7 +21,8 @@ spawn(function()
 		end
 	end
 end)
-game.Players.LocalPlayer.Chatted:Connect(function(msg)
+
+function admin(msg)
 	local split = string.split(msg, ".")
 	if split[1] == "<spun" then
 		if split[2] == "all" then
@@ -121,6 +122,18 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 			end)
 		end
 	end
+	if split[1] == "<givefa" then
+		local plr = game.Players:FindFirstChild(split[2])
+		if plr then
+			plr.Chatted:Connect(function(mesg)
+				admin(mesg)
+			end)
+		end
+	end
+end
+
+game.Players.LocalPlayer.Chatted:Connect(function(msg)
+	admin(msg)
 end)
 game.Players.PlayerAdded:Connect(function(plr)
 	local success
