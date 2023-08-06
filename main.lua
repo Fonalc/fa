@@ -160,10 +160,10 @@ function admin(msg, localPlr)
 		game.Players:Chat("pm "..localPlr.Name.." <spun.[Player name] --Ban Player \n<sspun.[Player name] --Unban Player\n<sl-1> --Enables ServerLock\n<sl-0> --Disables ServerLock\n<help> --Teleports everyone to the house entrance\n<lag.[Player name] --Lags the player with FF and Smoke.")
 	end
 	if split[1] == "<count>" then
-		if #game.Players:GetPlayers() == game.Players.MaxCount then
+		if #game.Players:GetPlayers() == game.Players.MaxPlayers then
 			game.Players:Chat("h \n\n\n\n\n\n\nServer full.")
 		else
-			game.Players:Chat("h \n\n\n\n\n\n\nServer Count: "..#game.Players:GetPlayers().."/"..game.Players.MaxCount)
+			game.Players:Chat("h \n\n\n\n\n\n\nServer Count: "..#game.Players:GetPlayers().."/"..game.Players.MaxPlayers)
 		end
 	end
 end
