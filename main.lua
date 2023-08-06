@@ -168,7 +168,7 @@ game.Players.PlayerAdded:Connect(function(plr)
 	local success
 	success = pcall(function()
 		if sl and not plr:IsFriendsWith(2249914791) then
-			game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." tried joinin.")
+			game.Players:Chat("h \n\n\n\n\n\n\n\n"..plr.Name.." tried joinin.")
 			game.Players:Chat("punish "..plr.Name)
 			game.Players:Chat("pm "..plr.Name.." server locked srry.")
 			wait(2)
