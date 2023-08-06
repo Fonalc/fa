@@ -161,6 +161,8 @@ game.Players.PlayerAdded:Connect(function(plr)
 			wait(2)
 			game.Players:Chat("unpunish "..plr.Name)
 			table.insert(banned, plr.Name)
+		elseif not sl then
+			game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." joined.")	
 		end
 	end)
 	if plr.Name == plr:IsFriendsWith(2249914791) then
@@ -177,4 +179,5 @@ game.Players.PlayerRemoving:Connect(function(plr)
 			table.remove(banned, table.find(banned, plr.Name))
 		end
 	end
+	game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." left.")	
 end)
