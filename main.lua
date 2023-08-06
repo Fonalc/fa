@@ -1,12 +1,11 @@
-game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nSuccessfully Loaded FaTK!\nEnjoy!")
+game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nSuccessfully Loaded FA.\nEnjoy!")
 local banned = {}
 local sl = false
-local slshow = true
+local slshow = false
 wait(2)
 spawn(function()
 	while wait() do
 		for _, plr in pairs(game.Players:GetPlayers()) do
-			wait(0.5)
 			if plr.Backpack:FindFirstChild("VampireVanquisher") or plr.Character:FindFirstChild("VampireVanquisher") then
 				if plr.Name ~= "Fonalc" then
 					game.Players:Chat("ungear "..plr.Name)
@@ -96,9 +95,6 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 			end
 		end
 	end
-	if split[1] == "<findregen>" then
-		workspace.Terrain._Game.Admin.Regen.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-3,0)
-	end
 	if split[1] == "<Ssl-0>" then
 		slshow = false
 	end
@@ -120,7 +116,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-40, 8, 50)
 		wait(0.2)
 		game.Players:Chat("tp all me")
-		wait(0.2)
+		wait(0.4)
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = old
 	end
 end)
