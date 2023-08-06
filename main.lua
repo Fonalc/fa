@@ -1,3 +1,4 @@
+if game.PlaceId == 112420803 then else return end 
 game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nSuccessfully Loaded FA.\nEnjoy!")
 local banned = {}
 local sl = false
