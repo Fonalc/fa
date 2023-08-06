@@ -2,6 +2,7 @@ if game.PlaceId == 112420803 then else return end
 game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nSuccessfully Loaded FA.\nEnjoy! \n(Say <cmds> or <cmdPrint>)")
 local banned = {}
 local sl = false
+local antideath = false
 local slshow = false
 
 for _, a in pairs(game.Players:GetPlayers()) do
@@ -9,7 +10,7 @@ for _, a in pairs(game.Players:GetPlayers()) do
 		game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." has FA.")
 		game.Players:Chat("pm "..plr.Name.." you have FA!")
 		plr.Chatted:Connect(function(mesg)
-			admin(mesg, plr)
+			admin(mesg, plr, "friend")
 		end)
 	end
 end
@@ -34,7 +35,17 @@ spawn(function()
 	end
 end)
 
-function admin(msg, localPlr)
+spawn(function()
+	while wait() do
+		if game.Players.LocalPlayer.Character.Humanoid.Health == 0 and antideath then
+			game.Players:Chat("reset me")
+		end
+	end
+end
+
+
+
+function admin(msg, localPlr, type)
 	local split = string.split(msg, ".")
 	if split[1] == "<spun" then
 		if split[2] == "all" then
@@ -143,7 +154,7 @@ function admin(msg, localPlr)
 					game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." has FA.")
 					game.Players:Chat("pm "..plr.Name.." you have FA now!!")
 					plr.Chatted:Connect(function(mesg)
-						admin(mesg, plr)
+						admin(mesg, plr, "given")
 					end)
 				end
 			end
@@ -152,7 +163,7 @@ function admin(msg, localPlr)
 				game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." has FA.")
 				game.Players:Chat("pm "..plr.Name.." you have FA now!!")
 				plr.Chatted:Connect(function(mesg)
-					admin(mesg, plr)
+					admin(mesg, plr, "given")
 				end)
 			end
 		end
@@ -172,6 +183,7 @@ function admin(msg, localPlr)
 		print("<help> --Teleports everyone to the house.")
 		print("<lag.[player name] --Lags the player with FF and SMOKE, Spams it until the player leave or until you leave.")
 		print("<givefa.[player name] --Shares FA with another player (fa may bug out for other player).")
+		print("<count> --Counts every player in the server, Recommended for testing if loaded.")
 		print("<cmds> --Shows CMDS slowly.")
 		print("<cmdPrint> --Prints CMDS.")
 	end
@@ -205,7 +217,7 @@ game.Players.PlayerAdded:Connect(function(plr)
 		game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." has FA.")
 		game.Players:Chat("pm "..plr.Name.." you have FA!")
 		plr.Chatted:Connect(function(mesg)
-			admin(mesg, plr)
+			admin(mesg, plr, "friend")
 		end)
 	end
 end)
