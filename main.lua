@@ -103,7 +103,7 @@ function admin(msg, localPlr)
 		local old = localPlr.Character.HumanoidRootPart.CFrame
 		localPlr.Character.HumanoidRootPart.CFrame = CFrame.new(-40, 8, 50)
 		wait(0.2)
-		game.Players:Chat("tp all me")
+		game.Players:Chat("tp all "..localPlr.Name)
 		wait(0.4)
 		localPlr.Character.HumanoidRootPart.CFrame = old
 	end
@@ -135,8 +135,15 @@ function admin(msg, localPlr)
 	if split[1] == "<cmds>" then
 		game.Players:Chat("pm "..localPlr.Name.." <spun.[Player name] --Ban Player \n<sspun.[Player name] --Unban Player\n<sl-1> --Enables ServerLock\n<sl-0> --Disables ServerLock\n<help> --Teleports everyone to the house entrance\n<lag.[Player name] --Lags the player with FF and Smoke.")
 	end
+	if split[1] == "<house>" then
+		local old = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-30, 8, 72)
+		wait(0.2)
+		game.Players:Chat("tp "..localPlr.Name.." "..game.Players.LocalPlayer.Name)
+		wait(0.8)
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = old
+	end
 end
-
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
 	admin(msg, game.Players.LocalPlayer)
 end)
