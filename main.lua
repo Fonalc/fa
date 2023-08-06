@@ -137,16 +137,8 @@ function admin(msg, localPlr)
 	end
 	if split[1] == "<givefa" then
 		if split[2] == "all" then
-			local plr = game.Players:FindFirstChild(split[2])
-			if plr then
-				game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." has FA.")
-				game.Players:Chat("pm "..plr.Name.." you have FA now!!")
-				plr.Chatted:Connect(function(mesg)
-					admin(mesg, plr)
-				end)
-			end
-		else
-			for _, plr in pairs() do
+			for _, plr in pairs(game.Players:GetPlayers()) do
+				local plr = game.Players:FindFirstChild(split[2])
 				if plr then
 					game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." has FA.")
 					game.Players:Chat("pm "..plr.Name.." you have FA now!!")
@@ -154,6 +146,14 @@ function admin(msg, localPlr)
 						admin(mesg, plr)
 					end)
 				end
+			end
+		else
+			if plr then
+				game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." has FA.")
+				game.Players:Chat("pm "..plr.Name.." you have FA now!!")
+				plr.Chatted:Connect(function(mesg)
+					admin(mesg, plr)
+				end)
 			end
 		end
 	end
