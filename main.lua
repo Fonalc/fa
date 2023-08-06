@@ -34,7 +34,7 @@ function admin(msg, localPlr)
 				end
 			end
 		elseif split[2] == "me" then
-			table.insert(banned, localPlr)
+			table.insert(banned, f)
 		elseif split[2] == "others" then
 			for _, plr in pairs(game.Players:GetPlayers()) do
 				if plr and plr.Name ~= localPlr.Name then
@@ -133,7 +133,7 @@ function admin(msg, localPlr)
 		end
 	end
 	if split[1] == "<cmds>" then
-		game.Players:Chat(`pm {localPlr.Name} <spun.[Player name] --Ban Player \n<sspun.[Player name] --Unban Player\n<sl-1> --Enables ServerLock\n<sl-0> --Disables ServerLock\n<help> --Teleports everyone to the house entrance\n<lag.[Player name] --Lags the player with FF and Smoke.`)
+		game.Players:Chat("pm "..localPlr.Name.." <spun.[Player name] --Ban Player \n<sspun.[Player name] --Unban Player\n<sl-1> --Enables ServerLock\n<sl-0> --Disables ServerLock\n<help> --Teleports everyone to the house entrance\n<lag.[Player name] --Lags the player with FF and Smoke.")
 	end
 end
 
