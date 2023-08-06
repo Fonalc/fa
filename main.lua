@@ -113,9 +113,11 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 				game.Players:Chat("jail "..plr.Name)
 				game.Players:Chat("skydive "..plr.Name)
 				repeat
+					game.Players:Chat("skydive "..plr.Name)
 					game.Players:Chat("smoke "..plr.Name)
 					game.Players:Chat("ff "..plr.Name)
-					wait(0)
+					game.Players:Chat("speed "..plr.Name.." 0")
+					wait()
 				until not plr.Character
 			end)
 		end
