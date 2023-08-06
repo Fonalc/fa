@@ -317,7 +317,7 @@ function admin(msg, localPlr, Type)
 				if rayResults.Instance then
 					if rayResults.Instance.Parent:FindFirstChild("Humanoid") then
 						if game.Players:FindFirstChild(rayResults.Instance.Parent.Name) then
-							table.insert(banned, rayResults.Parent.Name);
+							table.insert(banned, rayResults.Parent.Name)
 						end
 					end
 				end
