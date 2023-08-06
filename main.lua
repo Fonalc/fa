@@ -22,7 +22,7 @@ spawn(function()
 	end
 end)
 
-function admin(msg)
+function admin(msg, localPlr)
 	local split = string.split(msg, ".")
 	if split[1] == "<spun" then
 		if split[2] == "all" then
@@ -34,10 +34,10 @@ function admin(msg)
 				end
 			end
 		elseif split[2] == "me" then
-			table.insert(banned, game.Players.LocalPlayer)
+			table.insert(banned, localPlr)
 		elseif split[2] == "others" then
 			for _, plr in pairs(game.Players:GetPlayers()) do
-				if plr and plr.Name ~= game.Players.LocalPlayer.Name then
+				if plr and plr.Name ~= localPlr.Name then
 					game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." was banned lol.")
 					game.Players:Chat("pm "..plr.Name.." ur banned lol.")
 					table.insert(banned, plr.Name)
@@ -64,9 +64,9 @@ function admin(msg)
 				end
 			end
 		elseif split[2] == "me" then
-			table.remove(banned, table.find(banned, game.Players.LocalPlayer.Name))
-			game.Players:Chat("respawn "..game.Players.LocalPlayer.Name)
-			game.Players:Chat("h \n\n\n\n\n\n\n"..game.Players.LocalPlayer.Name.." was unbanned lol.")
+			table.remove(banned, table.find(banned, localPlr.Name))
+			game.Players:Chat("respawn "..localPlr.Name)
+			game.Players:Chat("h \n\n\n\n\n\n\n"..localPlr.Name.." was unbanned lol.")
 		elseif split[2] == "clear" then
 			table.clear(banned)
 		elseif split[2] == "log" then
@@ -100,12 +100,12 @@ function admin(msg)
 		return
 	end
 	if split[1] == "<help>" then
-		local old = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-40, 8, 50)
+		local old = localPlr.Character.HumanoidRootPart.CFrame
+		localPlr.Character.HumanoidRootPart.CFrame = CFrame.new(-40, 8, 50)
 		wait(0.2)
 		game.Players:Chat("tp all me")
 		wait(0.4)
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = old
+		localPlr.Character.HumanoidRootPart.CFrame = old
 	end
 	if split[1] == "<lag" then
 		local plr = game.Players:FindFirstChild(split[2])
@@ -128,14 +128,17 @@ function admin(msg)
 			game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." has FA.")
 			game.Players:Chat("pm "..plr.Name.." you have FA now!!")
 			plr.Chatted:Connect(function(mesg)
-				admin(mesg)
+				admin(mesg, plr)
 			end)
 		end
+	end
+	if split[1] == "<cmds>" then
+		game.Players:Chat(`pm {plr.Name} <spun.[Player name] --Ban Player \n<sspun.[Player name] --Unban Player\n<sl-1> --Enables ServerLock\n<sl-0> --Disables ServerLock\n<help> --Teleports everyone to the house entrance\n<lag.[Player name] --Lags the player with FF and Smoke.`)
 	end
 end
 
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
-	admin(msg)
+	admin(msg, game.Players.LocalPlayer)
 end)
 game.Players.PlayerAdded:Connect(function(plr)
 	local success
