@@ -127,7 +127,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 					game.Players:Chat("skydive "..plr.Name)
 					game.Players:Chat("jail "..plr.Name)
 					game.Players:Chat("ff "..plr.Name)
-				until not plr
+				until not plr.Character
 			end)
 		end
 	end
