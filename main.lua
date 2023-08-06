@@ -159,6 +159,13 @@ function admin(msg, localPlr)
 	if split[1] == "<cmds>" then
 		game.Players:Chat("pm "..localPlr.Name.." <spun.[Player name] --Ban Player \n<sspun.[Player name] --Unban Player\n<sl-1> --Enables ServerLock\n<sl-0> --Disables ServerLock\n<help> --Teleports everyone to the house entrance\n<lag.[Player name] --Lags the player with FF and Smoke.")
 	end
+	if split[1] == "<count>" then
+		if #game.Players:GetPlayers() == game.Players.MaxCount then
+			game.Players:Chat("h \n\n\n\n\n\n\nServer full.")
+		else
+			game.Players:Chat("h \n\n\n\n\n\n\nServer Count: "..#game.Players:GetPlayers().."/"..game.Players.MaxCount)
+		end
+	end
 end
 
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
@@ -184,12 +191,6 @@ game.Players.PlayerAdded:Connect(function(plr)
 		plr.Chatted:Connect(function(mesg)
 			admin(mesg, plr)
 		end)
-	end
-	if plr.Name == "BANNter_Original" then
-		repeat 
-			game.Players:Chat("ungear "..plr.Name)
-			wait(0.000000000000000000000001)
-		until not plr
 	end
 end)
 game.Players.PlayerRemoving:Connect(function(plr)
