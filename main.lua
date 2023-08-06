@@ -152,9 +152,7 @@ game.Players.PlayerAdded:Connect(function(plr)
 			table.insert(banned, plr.Name)
 		end
 	end)
-	if table.find({
-		"bigjenny_yes21"
-		}, plr.Name) then
+	if plr.Name == plr:IsFriendsWith(2249914791) then
 		game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." has FA,\n because they are in the list")
 		game.Players:Chat("pm "..plr.Name.." you have FA!")
 		plr.Chatted:Connect(function(mesg)
