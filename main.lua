@@ -11,7 +11,7 @@ game.Players.LocalPlayer.CharacterAdded:Connect(function(char)
 	game.Players:Chat("tshirt me 14351776283")
 end)
 
-local function new(parent)
+function new(parent)
 	local epicgunfunlol = Instance.new("Tool") 
 	local Handle = Instance.new("Part") 
 	local Main = Instance.new("Part") 
