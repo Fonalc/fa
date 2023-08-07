@@ -325,12 +325,18 @@ function admin(msg, localPlr, Type)
 	end
 	if split[1] == "<skybase>" then
 		game.Players:Chat("sit me")
-		wait(2)
+		wait(0.5)
 		game.Players:Chat("punish me")
 		game.Players:Chat("unpunish me")
 		for a=1, 50, 1 do
 			game.Players:Chat("skydive me")
 		end
+	end
+	if split[1] == "<attach>" then
+		game.Players:Chat("sit me")
+		wait(0.5)
+		game.Players:Chat("punish me")
+		game.Players:Chat("unpunish me")
 	end
 end
 for _, plr in pairs(game.Players:GetPlayers()) do
