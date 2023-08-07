@@ -421,9 +421,6 @@ function admin(msg, localPlr, Type)
 			end
 		end)
 	end
-	if split[1] == "<music1" then
-		game.Players:Chat("music 6917155909")
-	end
 	if split[1] == "<skybase>" then
 		game.Players:Chat("sit me")
 		wait(0.5)
@@ -438,6 +435,25 @@ function admin(msg, localPlr, Type)
 		wait(0.5)
 		game.Players:Chat("punish me")
 		game.Players:Chat("unpunish me")
+	end
+	-- Music/Sound --
+	if split[1] == "<music1>" then
+		game.Players:Chat("music 6917155909")
+	end
+	if split[1] == "<stop>" then
+		workspace.Terrain._Game.Folder.Sound:Stop()
+	end
+	if split[1] == "<play>" then
+		workspace.Terrain._Game.Folder.Sound:Play()
+	end
+	if split[1] == "<volup>" then
+		workspace.Terrain._Game.Folder.Sound.Volume += 0.25
+	end
+	if split[1] == "<voldw>" then
+		workspace.Terrain._Game.Folder.Sound.Volume -= 0.25
+	end
+	if split[1] == "<id>" then
+		game.Players:Chat("Current ID: "..workspace.Terrain._Game.Folder.Sound.SoundId)
 	end
 end
 for _, plr in pairs(game.Players:GetPlayers()) do
