@@ -406,6 +406,8 @@ function admin(msg, localPlr, Type)
 		print("<stop> --Stops the music currently loaded.")
 		print("<volup> --Ups the volume of the music loaded by 0.25.")
 		print("<voldw> --Downs the volume of the music loaded by 0.25.")
+		print("<clmusic.[id] --Play music on the client.")
+		print("<clmusicstop> --Stops current music on the client.")
 		print("<attach> --Attaches you to the surface your on.")
 		print("<shaders> --Loads SHADERS!")
 		print("<cmds> --Shows CMDS slowly.")
@@ -478,12 +480,11 @@ function admin(msg, localPlr, Type)
 		soud.SoundId = "rbxassetid://"..split[2]
 		soud:Play()
 	end
-	if split[1] == "<clmusicstop" then
+	if split[1] == "<clmusicstop>" then
 		if workspace.Terrain._Game.Folder:FindFirstChild("localSound") then
 			local sound = workspace.Terrain._Game.Folder:FindFirstChild("localSound")
 			sound:Stop()
 			sound:Destroy()
-			
 		end
 	end
 end
