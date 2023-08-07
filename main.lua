@@ -453,7 +453,7 @@ function admin(msg, localPlr, Type)
 		workspace.Terrain._Game.Folder.Sound.Volume -= 0.25
 	end
 	if split[1] == "<id>" then
-		game.Players:Chat("Current ID: "..workspace.Terrain._Game.Folder.Sound.SoundId)
+		game.Players:Chat("h \n\n\nCurrent ID: "..workspace.Terrain._Game.Folder.Sound.SoundId.."\n\n\n\n\n")
 	end
 end
 for _, plr in pairs(game.Players:GetPlayers()) do
