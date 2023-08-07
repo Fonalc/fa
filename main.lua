@@ -6,10 +6,7 @@ local antideath = true
 local slshow = false
 
 local musicList = {
-	{
-		["Name"] = "RecordScratch_1";
-		["Id"] = "6917155909";
-	};
+	6917155909;
 }
 
 function new(parent)
@@ -334,8 +331,8 @@ function admin(msg, localPlr, Type)
 		end)
 	end
 	if split[1] == "<music" then
-		game.Players:Chat("music "..musicList[split[2]].Id)
-		game.Players:Chat("h \n\n\nNow Playing:\n"..musicList[split[2]].Name..".\n\n\n\n")
+		game.Players:Chat("music "..musicList[split[2]])
+		game.Players:Chat("h \n\n\nNow Playing:\n"..game:GetService("MarketplaceService"):GetProductInfo(musicList[split[2]]).Name)
 	end
 	if split[1] == "<skybase>" then
 		game.Players:Chat("sit me")
