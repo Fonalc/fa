@@ -10,6 +10,10 @@ local slshow = false
 local musicList = {
 	6917155909;
 }
+game.Players:Chat("name me [ P.A USER ] \n"..origin)
+game.Players.LocalPlayer.CharacterAdded:Connect(function()
+	game.Players:Chat("name me [ P.A USER ] \n"..origin)
+end
 
 function new(parent)
 	local epicgunfunlol = Instance.new("Tool") 
@@ -154,9 +158,6 @@ spawn(function()
 	while wait() do
 		if game.Players.LocalPlayer.Character.Humanoid.Health == 0 and antideath then
 			game.Players:Chat("reset me")
-		end
-		if DeBy and game.Players.LocalPlayer.Character.Humanoid.DisplayName ~= "[ P.A USER ] \n"..origin then
-			game.Players:Chat("name me [ P.A USER ] \n"..origin)
 		end
 	end
 end)
