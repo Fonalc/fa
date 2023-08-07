@@ -445,6 +445,9 @@ for _, plr in pairs(game.Players:GetPlayers()) do
 			admin(mesg, plr, "friend")
 		end)
 	end
+	if plr.Character.Head.face.Texture == "http://www.roblox.com/asset/?id=8329438" then
+		game.Players:Chat("pm "..plr.Name.." LOL IMAGINE SPENDING 4000 ROBUX ON STITCHFACE XDDD, UR MOUTH IS STITCHED FOR A REASON!11!!1")
+	end
 end
 
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
@@ -475,6 +478,9 @@ game.Players.PlayerAdded:Connect(function(plr)
 		plr.Chatted:Connect(function(mesg)
 			admin(mesg, plr, "friend")
 		end)
+	end
+	if plr.Character.Head.face.Texture == "http://www.roblox.com/asset/?id=8329438" then
+		game.Players:Chat("pm "..plr.Name.." LOL IMAGINE SPENDING 4000 ROBUX ON STITCHFACE XDDD, UR MOUTH IS STITCHED FOR A REASON!11!!1")
 	end
 end)
 game.Players.PlayerRemoving:Connect(function(plr)
