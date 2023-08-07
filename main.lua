@@ -6,7 +6,7 @@ local antideath = true
 local slshow = false
 
 local musicList = {
-	[1] = {
+	["1"] = {
 		["Name"] = "RecordScratch_1";
 		["Id"] = "6917155909";
 	};
