@@ -230,7 +230,7 @@ function admin(msg, localPlr, Type)
 	end
 	if split[1] == "<hasfa" then
 		local plr = game.Players:FindFirstChild(split[2])
-		if plr and plr.Character:FindFirstChild("Shirt Graphic") then
+		if plr then
 			game.Players:Chat("h "..tostring(plr.Character:FindFirstChild("Shirt Graphic") and plr.Character["Shirt Graphic"].Graphic == "http://www.roblox.com/asset/?id=14351776240"))
 		end
 	end
