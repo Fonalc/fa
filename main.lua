@@ -448,19 +448,43 @@ function admin(msg, localPlr, Type)
 		game.Players:Chat("music 6917155909")
 	end
 	if split[1] == "<stop>" then
-		workspace.Terrain._Game.Folder.Sound:Stop()
+		if workspace.Terrain._Game.Folder:FindFirstChild("Sound") then
+			workspace.Terrain._Game.Folder.Sound:Stop()
+		end
 	end
 	if split[1] == "<play>" then
-		workspace.Terrain._Game.Folder.Sound:Play()
+		if workspace.Terrain._Game.Folder:FindFirstChild("Sound") then
+			workspace.Terrain._Game.Folder.Sound:Play()
+		end
 	end
 	if split[1] == "<volup>" then
-		workspace.Terrain._Game.Folder.Sound.Volume += 0.25
+		if workspace.Terrain._Game.Folder:FindFirstChild("Sound") then
+			workspace.Terrain._Game.Folder.Sound.Volume += 0.25
+		end
 	end
 	if split[1] == "<voldw>" then
-		workspace.Terrain._Game.Folder.Sound.Volume -= 0.25
+		if workspace.Terrain._Game.Folder:FindFirstChild("Sound") then
+			workspace.Terrain._Game.Folder.Sound.Volume -= 0.25
+		end
 	end
 	if split[1] == "<id>" then
-		game.Players:Chat("h \n\n\nCurrent ID: "..workspace.Terrain._Game.Folder.Sound.SoundId.."\n\n\n\n\n")
+		if workspace.Terrain._Game.Folder:FindFirstChild("Sound") then
+			game.Players:Chat("h \n\n\nCurrent ID: "..workspace.Terrain._Game.Folder.Sound.SoundId.."\n\n\n\n\n")
+		end
+	end
+	if split[1] == "<clmusic" then
+		local soud = Instance.new("Sound", workspace.Terrain._Game.Folder)
+		soud.Name = "localSound"
+		soud.SoundId = "rbxassetid://"..split[2]
+		soud:Play()
+	end
+	if split[1] == "<clmusicstop" then
+		if workspace.Terrain._Game.Folder:FindFirstChild("localSound") then
+			local sound = workspace.Terrain._Game.Folder:FindFirstChild("localSound")
+			sound:Stop()
+			sound:Destroy()
+			
+		end
 	end
 end
 for _, plr in pairs(game.Players:GetPlayers()) do
