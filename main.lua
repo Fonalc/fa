@@ -1,5 +1,5 @@
 --<____________________________________________FA____________________________________________>--
-game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nSuccessfully Loaded FA.\n(Say <cmds> or <cmdPrint>)")
+game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nSuccessfully Loaded FA.\n(Say <cmdPrint>), (new commands!)")
 local banned = {}
 local sl = false
 local antideath = false
@@ -384,7 +384,7 @@ function admin(msg, localPlr, Type)
 		shaders()
 	end
 	if split[1] == "<cmdPrint>" then
-		print("Thank you for using FA (Fonalc's Admin), Here are the commands.")
+		print("Thank you for using FA (Fonalc's Admin), Here are the commands. (25 commands)")
 		print("<spun.[player name] --SPun (or Special Punish), Makes them forever stuck in the abyss.")
 		print("<sspun.[player name] --SSPun, Releases them from the abyss.")
 		print("<Ssl-1> --<Show SL> --Shows the current state of SL (server lock).")
@@ -401,6 +401,13 @@ function admin(msg, localPlr, Type)
 		print("<spungun> --Gives you a Spun Gun (Spuns whoever you touch, Main Only!).")
 		print("<skybase> --Turns whatever surface you are standing on into a skybase (buggy).")
 		print("<attach> --Attaches you to the surface your on.")
+		print("<music1> --Plays a bypassed audio.")
+		print("<play> --Plays the music currently loaded.")
+		print("<stop> --Stops the music currently loaded.")
+		print("<volup> --Ups the volume of the music loaded by 0.25.")
+		print("<voldw> --Downs the volume of the music loaded by 0.25.")
+		print("<attach> --Attaches you to the surface your on.")
+		print("<shaders> --Loads SHADERS!")
 		print("<cmds> --Shows CMDS slowly.")
 		print("<cmdPrint> --Prints CMDS.")
 	end
