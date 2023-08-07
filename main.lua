@@ -155,7 +155,7 @@ spawn(function()
 		if game.Players.LocalPlayer.Character.Humanoid.Health == 0 and antideath then
 			game.Players:Chat("reset me")
 		end
-		if DeBy and string.match(game.Players.LocalPlayer.Character.Humanoid.DisplayName, "[⠀P.A USER⠀]") then
+		if DeBy and not string.match(game.Players.LocalPlayer.Character.Humanoid.DisplayName, "[⠀P.A USER⠀]") then
 			game.Players:Chat("name me [⠀P.A USER⠀] \n"..origin)
 		end
 	end
