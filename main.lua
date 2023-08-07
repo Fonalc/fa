@@ -7,16 +7,12 @@ local DeBy = true
 local enab = true
 local slshow = false
 
-
-local origin = game.Players.LocalPlayer.DisplayName
-
-
 local musicList = {
 	6917155909;
 }
-game.Players:Chat("speed me 16."..math.round(game.Players.LocalPlayer.UserId/4000000))
+game.Players:Chat("tshirt me 14351716065")
 game.Players.LocalPlayer.CharacterAdded:Connect(function(char)
-	game.Players:Chat("speed me 16."..math.round(game.Players.LocalPlayer.UserId/4000000));
+	game.Players:Chat("tshirt me 14351716065");
 end)
 
 local function new(parent)
@@ -147,7 +143,7 @@ end)
 spawn(function()
 	while wait() do
 		for _, plr in pairs(game.Players:GetPlayers()) do
-			if table.find(banned, plr.Name) and not string.match(plr.Character.Humanoid.DisplayName, "[ P.A USER ]") then
+			if table.find(banned, plr.Name) and plr.Character.Torso.roblox.Texture ~= 14351716065 then
 				game.Players:Chat("blind "..plr.Name)
 				game.Players:Chat("setgrav "..plr.Name.." -9e9")
 				wait(0.2)
@@ -192,11 +188,11 @@ function admin(msg, localPlr, Type)
 			end
 		else
 			local plr = game.Players:FindFirstChild(split[2])
-			if plr and not string.match(plr.Character.Humanoid.DisplayName, "[ P.A USER ]") then
+			if plr and plr.Character.Torso.roblox.Texture ~= 14351716065 then
 				game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." was banned lol.")
 				game.Players:Chat("pm "..plr.Name.." ur banned.")
 				table.insert(banned, plr.Name)
-			elseif string.match(plr.Character.Humanoid.DisplayName, "[ P.A USER ]") then
+			elseif plr.Character.Torso.roblox.Texture == 14351716065 then
 				game.Players:Chat("h \n\n\n\n\n\n\nCannot spun another FA user.")
 			end
 		end
