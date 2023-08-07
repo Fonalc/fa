@@ -2,7 +2,7 @@
 game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nSuccessfully Loaded FA.\nEnjoy! \n(Say <cmds> or <cmdPrint>)")
 local banned = {}
 local sl = false
-local antideath = false
+local antideath = true
 local slshow = false
 
 function new(parent)
