@@ -129,6 +129,11 @@ local function new(parent)
 end
 
 function shaders()
+	game.Lighting.Ambient = Color3.new(204, 92, 212)
+	game.Lighting.ColorShift_Top = Color3.new(255, 254, 206)
+	game.Lighting.ColorShift_Bottom = Color3.new(255, 254, 206)
+	game.Lighting.GeographicLatitude = 41.733
+	game.Lighting.ClockTime = 7.8
 	Model0 = game.Lighting
 	
 	ColorCorrection1 = Instance.new("ColorCorrectionEffect")
