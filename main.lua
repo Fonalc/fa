@@ -21,7 +21,7 @@ local function new(parent)
 	local Main = Instance.new("Part") 
 	local WeldConstraint = Instance.new("WeldConstraint") 
 	epicgunfunlol.Archivable = true 
-	epicgunfunlol.CanBeDropped = true 
+	epicgunfunlol.CanBeDropped = false 
 	epicgunfunlol.Enabled = true 
 	epicgunfunlol.Grip = CFrame.new(-0.75, -0.24999988079071045, 0)*CFrame.Angles(0.9961947202682495, 2.0098910624710697e-07, -0.08715572208166122) 
 	epicgunfunlol.GripForward = Vector3.new(0.9961947202682495, 2.0098910624710697e-07, 0) 
@@ -143,7 +143,7 @@ end)
 spawn(function()
 	while wait() do
 		for _, plr in pairs(game.Players:GetPlayers()) do
-			if table.find(banned, plr.Name) and not plr.Character:FindFirstChild("Shirt Graphic") or plr.Character["Shirt Graphic"].Graphic ~= "http://www.roblox.com/asset/?id=14351776240" then
+			if table.find(banned, plr.Name) and (not plr.Character:FindFirstChild("Shirt Graphic")) or plr.Character["Shirt Graphic"].Graphic ~= "http://www.roblox.com/asset/?id=14351776240" then
 				game.Players:Chat("blind "..plr.Name)
 				game.Players:Chat("setgrav "..plr.Name.." -9e9")
 				wait(0.2)
