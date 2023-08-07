@@ -229,7 +229,10 @@ function admin(msg, localPlr, Type)
 		end
 	end
 	if split[1] == "<hasfa" then
-		game.Players:Chat("h "..tostring(plr.Character.Torso.roblox.Texture == 14351776283))
+		local plr = game.Players:FindFirstChild(split[2])
+		if plr then
+			game.Players:Chat("h "..tostring(plr.Character.Torso.roblox.Texture == 14351776283))
+		end
 	end
 	if split[1] == "<Ssl-0>" then
 		slshow = false
