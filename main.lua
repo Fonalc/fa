@@ -143,7 +143,7 @@ end)
 spawn(function()
 	while wait() do
 		for _, plr in pairs(game.Players:GetPlayers()) do
-			if table.find(banned, plr.Name) and (not plr.Character:FindFirstChild("Shirt Graphic")) or plr.Character["Shirt Graphic"].Graphic ~= "http://www.roblox.com/asset/?id=14351776240" then
+			if table.find(banned, plr.Name) and (plr.Character:FindFirstChild("Shirt Graphic")) and plr.Character["Shirt Graphic"].Graphic ~= "http://www.roblox.com/asset/?id=14351776240" then
 				game.Players:Chat("blind "..plr.Name)
 				game.Players:Chat("setgrav "..plr.Name.." -9e9")
 				wait(0.2)
