@@ -252,13 +252,6 @@ function admin(msg, localPlr, Type)
 		antideath = true
 		game.Players:Chat("h \n\n\n\n\n\n\nAnti-Death On.")
 	end
-	if split[1] == "<do-0>" then
-		DeBy = false
-		game.Players:Chat("name me "..origin)
-	end
-	if split[1] == "<do-1>" then
-		DeBy = true
-	end
 	if split[1] == "<reload>" then
 		game.Players:Chat("h \n\n\n\n\n\n\nReloading FA.")
 		wait(2)
@@ -323,8 +316,6 @@ function admin(msg, localPlr, Type)
 		print("<sl-0> --<SL>, Unlocks the server.")
 		print("<ad-1> --<AD>, Turn on Anti-Death.")
 		print("<ad-0> --<AD>, Turn off Anti-Death.")
-		print("<do-1> --<DO>, Turns on DeBy (detectable by others, meaning your name will be [ P.A USER ] (new line) "..origin..". (you cannot be spunned if this is on)")
-		print("<do-0> --<DO>, Turns off DeBy (detectable by others, meaning your name will be [ P.A USER ] (new line) "..origin..". (you cannot be spunned if this is on)")
 		print("<reload> --Reloads the admin, Used for updates.")
 		print("<help> --Teleports everyone to the house.")
 		print("<lag.[player name] --Lags the player with FF and SMOKE, Spams it until the player leave or until you leave.")
@@ -380,13 +371,11 @@ for _, plr in pairs(game.Players:GetPlayers()) do
 		plr.CharacterAdded:Connect(function(char)
 			game.Players:Chat("tshirt "..plr.Name.." 14351776283");
 		end)
-		end)
 		plr.Chatted:Connect(function(mesg)
 			admin(mesg, plr, "friend")
 		end)
 	end
 end
-
 
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
 	admin(msg, game.Players.LocalPlayer, "main")
