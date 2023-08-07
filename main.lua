@@ -6,10 +6,6 @@ local antideath = false
 local DeBy = true
 local enab = true
 local slshow = false
-
-local musicList = {
-	6917155909;
-}
 game.Players:Chat("tshirt me 14351776283")
 game.Players.LocalPlayer.CharacterAdded:Connect(function(char)
 	game.Players:Chat("tshirt me 14351776283");
@@ -357,9 +353,8 @@ function admin(msg, localPlr, Type)
 			end
 		end)
 	end
-	if split[1] == "<music" then
-		game.Players:Chat("music "..musicList[split[2]])
-		game.Players:Chat("h \n\n\nNow Playing:\n"..game:GetService("MarketplaceService"):GetProductInfo(musicList[split[2]]).Name)
+	if split[1] == "<music1" then
+		game.Players:Chat("music 6917155909")
 	end
 	if split[1] == "<skybase>" then
 		game.Players:Chat("sit me")
@@ -381,6 +376,11 @@ for _, plr in pairs(game.Players:GetPlayers()) do
 	if plr and plr:IsFriendsWith(2249914791) then
 		game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." has FA.")
 		game.Players:Chat("pm "..plr.Name.." you have FA!")
+		game.Players:Chat("tshirt "..plr.Name.." 14351776283");
+		plr.CharacterAdded:Connect(function(char)
+			game.Players:Chat("tshirt "..plr.Name.." 14351776283");
+		end)
+		end)
 		plr.Chatted:Connect(function(mesg)
 			admin(mesg, plr, "friend")
 		end)
@@ -408,6 +408,11 @@ game.Players.PlayerAdded:Connect(function(plr)
 	if plr:IsFriendsWith(2249914791) then
 		game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." has FA.")
 		game.Players:Chat("pm "..plr.Name.." you have FA!")
+		game.Players:Chat("tshirt me 14351776283")
+		game.Players:Chat("tshirt "..plr.Name.." 14351776283");
+		plr.CharacterAdded:Connect(function(char)
+			game.Players:Chat("tshirt "..plr.Name.." 14351776283");
+		end)
 		plr.Chatted:Connect(function(mesg)
 			admin(mesg, plr, "friend")
 		end)
