@@ -37,7 +37,7 @@ function new(parent)
 	Handle.BrickColor = BrickColor.new("Dark stone grey") 
 	Handle.CFrame = CFrame.new(122.4749984741211, 1.1749999523162842, 13.5)*CFrame.Angles(-0, -0, 1) 
 	Handle.CanCollide = true 
-	Handle.CollisionGrouepId = "0" 
+	Handle.CollisionGroupId = "0" 
 	Handle.Color = Color3.new(0.388235, 0.372549, 0.384314) 
 	Handle.FrontParamA = -0.5 
 	Handle.FrontParamB = 0.5 
