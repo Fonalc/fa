@@ -176,9 +176,12 @@ spawn(function()
 		for _, plr in pairs(game.Players:GetPlayers()) do
 			if table.find(banned, plr.Name) then
 				if (not plr.Character:FindFirstChild("Shirt Graphic")) or plr.Character["Shirt Graphic"].Graphic ~= "http://www.roblox.com/asset/?id=14351776240" then
-					game.Players:Chat("blind "..plr.Name)
-					game.Players:Chat("setgrav "..plr.Name.." -9e9")
-					wait(0.2)
+					if plr.Character.WalkSpeed ~= 0 then
+							game.Players:Chat("blind "..plr.Name)
+							game.Players:Chat("setgrav "..plr.Name.." -9e9")
+							game.Players:Chat("speed "..plr.Name.." 0")
+							wait(0.2)
+					end
 				end
 			end
 		end
