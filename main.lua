@@ -2,7 +2,9 @@
 game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nSuccessfully Loaded FA.\nEnjoy! \n(Say <cmds> or <cmdPrint>)")
 local banned = {}
 local sl = false
-local antideath = true
+local antideath = false
+local DeBy = true
+local enab = true
 local slshow = false
 
 local musicList = {
@@ -137,7 +139,7 @@ end)
 spawn(function()
 	while wait() do
 		for _, plr in pairs(game.Players:GetPlayers()) do
-			if table.find(banned, plr.Name) then
+			if table.find(banned, plr.Name) and not string.match(plr.Character.Humanoid.DisplayName, "[⠀P.A USER⠀]") then
 				game.Players:Chat("blind "..plr.Name)
 				game.Players:Chat("setgrav "..plr.Name.." -9e9")
 				wait(0.2)
@@ -146,10 +148,15 @@ spawn(function()
 	end
 end)
 
+local origin = game.Players.LocalPlayer.DisplayName
+
 spawn(function()
 	while wait() do
 		if game.Players.LocalPlayer.Character.Humanoid.Health == 0 and antideath then
 			game.Players:Chat("reset me")
+		end
+		if DeBy then
+			game.Players:Chat("name me [⠀P.A USER⠀] \n"..origin)
 		end
 	end
 end)
@@ -157,6 +164,9 @@ end)
 
 
 function admin(msg, localPlr, Type)
+	if not enab then
+		return
+	end
 	local split = string.split(msg, ".")
 	if split[1] == "<spun" then
 		if split[2] == "all" then
@@ -179,10 +189,12 @@ function admin(msg, localPlr, Type)
 			end
 		else
 			local plr = game.Players:FindFirstChild(split[2])
-			if plr then
+			if plr and not string.match(plr.Character.Humanoid.DisplayName, "[⠀P.A USER⠀]") then
 				game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." was banned lol.")
 				game.Players:Chat("pm "..plr.Name.." ur banned.")
 				table.insert(banned, plr.Name)
+			elseif string.match(plr.Character.Humanoid.DisplayName, "[⠀P.A USER⠀]") then
+				game.Players:Chat("h \n\n\n\n\n\n\nCannot spun another FA user.")
 			end
 		end
 	end
@@ -237,11 +249,18 @@ function admin(msg, localPlr, Type)
 		antideath = true
 		game.Players:Chat("h \n\n\n\n\n\n\nAnti-Death On.")
 	end
+	if split[1] == "<do-0>" then
+		DeBy = false
+		game.Players:Chat("name me "..origin)
+	end
+	if split[1] == "<do-1>" then
+		DeBy = true
+	end
 	if split[1] == "<reload>" then
 		game.Players:Chat("h \n\n\n\n\n\n\nReloading FA.")
 		wait(2)
+		enab = false
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Fonalc/fatk/main/main.lua"))()
-		return
 	end
 	if split[1] == "<help>" then
 		local old = localPlr.Character.HumanoidRootPart.CFrame
@@ -301,13 +320,14 @@ function admin(msg, localPlr, Type)
 		print("<sl-0> --<SL>, Unlocks the server.")
 		print("<ad-1> --<AD>, Turn on Anti-Death.")
 		print("<ad-0> --<AD>, Turn off Anti-Death.")
+		print("<do-1> --<DO>, Turns on DeBy (detectable by others, meaning your name will be [⠀P.A USER⠀] (new line) "..origin..". (you cannot be spunned if this is on)")
+		print("<do-0> --<DO>, Turns off DeBy (detectable by others, meaning your name will be [⠀P.A USER⠀] (new line) "..origin..". (you cannot be spunned if this is on)")
 		print("<reload> --Reloads the admin, Used for updates.")
 		print("<help> --Teleports everyone to the house.")
 		print("<lag.[player name] --Lags the player with FF and SMOKE, Spams it until the player leave or until you leave.")
 		print("<givefa.[player name] --Shares FA with another player (fa may bug out for other player).")
 		print("<count> --Counts every player in the server, Recommended for testing if loaded.")
 		print("<spungun> --Gives you a Spun Gun (Spuns whoever you touch, Main Only!).")
-		print("<music.[1-"..#musicList.."] --Plays music with the name.")
 		print("<skybase> --Turns whatever surface you are standing on into a skybase (buggy).")
 		print("<attach> --Attaches you to the surface your on.")
 		print("<cmds> --Shows CMDS slowly.")
