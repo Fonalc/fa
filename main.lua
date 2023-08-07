@@ -16,7 +16,7 @@ local musicList = {
 }
 game.Players:Chat("speed me 16."..math.round(game.Players.LocalPlayer.UserId/4000000))
 game.Players.LocalPlayer.CharacterAdded:Connect(function(char)
-	game.Players:Chat("speed me 16."..math.round(game.Players.LocalPlayer.UserId/4000000))
+	game.Players:Chat("speed me 16."..math.round(game.Players.LocalPlayer.UserId/4000000));
 end)
 
 local function new(parent)
