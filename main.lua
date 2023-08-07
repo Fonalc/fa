@@ -14,7 +14,8 @@ local origin = game.Players.LocalPlayer.DisplayName
 local musicList = {
 	6917155909;
 }
-game.Players.LocalPlayer.CharacterAdded:Connect(function()
+game.Players.LocalPlayer.CharacterAdded:Connect(function(char)
+	char:WaitFor
 	game.Players:Chat("name me [ P.A USER ] \n"..origin)
 	workspace.CurrentCamera.CameraSubject = game.Players.LocalPlayer.Character.Humanoid
 	workspace.CurrentCamera.CameraType = Enum.CameraType.Follow
