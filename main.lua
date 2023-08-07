@@ -15,10 +15,7 @@ local musicList = {
 	6917155909;
 }
 game.Players.LocalPlayer.CharacterAdded:Connect(function(char)
-	game.Players:Chat("name me [ P.A USER ] \n"..origin)
-	wait(0.5)
-	workspace.CurrentCamera.CameraSubject = char.Humanoid
-	workspace.CurrentCamera.CameraType = Enum.CameraType.Follow
+	game.Players:Chat("speed me 16."..game.Players.LocalPlayer.UserId)
 end)
 
 function new(parent)
