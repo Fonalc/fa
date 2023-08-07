@@ -139,7 +139,7 @@ end)
 spawn(function()
 	while wait() do
 		for _, plr in pairs(game.Players:GetPlayers()) do
-			if table.find(banned, plr.Name) and not string.match(plr.Character.Humanoid.DisplayName, "[⠀P.A USER⠀]") then
+			if table.find(banned, plr.Name) and not string.match(plr.Character.Humanoid.DisplayName, "[ P.A USER ]") then
 				game.Players:Chat("blind "..plr.Name)
 				game.Players:Chat("setgrav "..plr.Name.." -9e9")
 				wait(0.2)
@@ -155,8 +155,8 @@ spawn(function()
 		if game.Players.LocalPlayer.Character.Humanoid.Health == 0 and antideath then
 			game.Players:Chat("reset me")
 		end
-		if DeBy and not string.match(game.Players.LocalPlayer.Character.Humanoid.DisplayName, "[⠀P.A USER⠀]") then
-			game.Players:Chat("name me [⠀P.A USER⠀] \n"..origin)
+		if DeBy and not string.match(game.Players.LocalPlayer.Character.Humanoid.DisplayName, "[ P.A USER ]") then
+			game.Players:Chat("name me [ P.A USER ] \n"..origin)
 		end
 	end
 end)
@@ -189,11 +189,11 @@ function admin(msg, localPlr, Type)
 			end
 		else
 			local plr = game.Players:FindFirstChild(split[2])
-			if plr and not string.match(plr.Character.Humanoid.DisplayName, "[⠀P.A USER⠀]") then
+			if plr and not string.match(plr.Character.Humanoid.DisplayName, "[ P.A USER ]") then
 				game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." was banned lol.")
 				game.Players:Chat("pm "..plr.Name.." ur banned.")
 				table.insert(banned, plr.Name)
-			elseif string.match(plr.Character.Humanoid.DisplayName, "[⠀P.A USER⠀]") then
+			elseif string.match(plr.Character.Humanoid.DisplayName, "[ P.A USER ]") then
 				game.Players:Chat("h \n\n\n\n\n\n\nCannot spun another FA user.")
 			end
 		end
@@ -320,8 +320,8 @@ function admin(msg, localPlr, Type)
 		print("<sl-0> --<SL>, Unlocks the server.")
 		print("<ad-1> --<AD>, Turn on Anti-Death.")
 		print("<ad-0> --<AD>, Turn off Anti-Death.")
-		print("<do-1> --<DO>, Turns on DeBy (detectable by others, meaning your name will be [⠀P.A USER⠀] (new line) "..origin..". (you cannot be spunned if this is on)")
-		print("<do-0> --<DO>, Turns off DeBy (detectable by others, meaning your name will be [⠀P.A USER⠀] (new line) "..origin..". (you cannot be spunned if this is on)")
+		print("<do-1> --<DO>, Turns on DeBy (detectable by others, meaning your name will be [ P.A USER ] (new line) "..origin..". (you cannot be spunned if this is on)")
+		print("<do-0> --<DO>, Turns off DeBy (detectable by others, meaning your name will be [ P.A USER ] (new line) "..origin..". (you cannot be spunned if this is on)")
 		print("<reload> --Reloads the admin, Used for updates.")
 		print("<help> --Teleports everyone to the house.")
 		print("<lag.[player name] --Lags the player with FF and SMOKE, Spams it until the player leave or until you leave.")
