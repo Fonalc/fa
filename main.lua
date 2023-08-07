@@ -14,9 +14,9 @@ local origin = game.Players.LocalPlayer.DisplayName
 local musicList = {
 	6917155909;
 }
-game.Players:Chat("speed me 16."..game.Players.LocalPlayer.UserId)
+game.Players:Chat("speed me 16."..game.Players.LocalPlayer.UserId/400)
 game.Players.LocalPlayer.CharacterAdded:Connect(function(char)
-	game.Players:Chat("speed me 16."..game.Players.LocalPlayer.UserId)
+	game.Players:Chat("speed me 16."..game.Players.LocalPlayer.UserId/400)
 end)
 
 function new(parent)
