@@ -193,9 +193,9 @@ function shaders()
 
 	for _, a in pairs(workspace.Terrain._Admin.Workspace:GetDescendants()) do
 		wait()
-		if a:IsA("BasePart") do
-			a.Reflectance = 0.25
-		end
+		if a:IsA("BasePart") then
+				a.Reflectance = 0.25
+			end
 	end
 end
 
@@ -213,10 +213,10 @@ spawn(function()
 			if table.find(banned, plr.Name) then
 				if (not plr.Character:FindFirstChild("Shirt Graphic")) or plr.Character["Shirt Graphic"].Graphic ~= "http://www.roblox.com/asset/?id=14351776240" then
 					if plr.Character.WalkSpeed ~= 0 then
-							game.Players:Chat("blind "..plr.Name)
-							game.Players:Chat("setgrav "..plr.Name.." -9e9")
-							game.Players:Chat("speed "..plr.Name.." 0")
-							wait(0.2)
+						game.Players:Chat("blind "..plr.Name)
+						game.Players:Chat("setgrav "..plr.Name.." -9e9")
+						game.Players:Chat("speed "..plr.Name.." 0")
+						wait(0.2)
 					end
 				end
 			end
