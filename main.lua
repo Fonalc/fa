@@ -143,7 +143,7 @@ end)
 spawn(function()
 	while wait() do
 		for _, plr in pairs(game.Players:GetPlayers()) do
-			if table.find(banned, plr.Name) and plr.Character.Torso.roblox.Texture ~= 14351776283 then
+			if table.find(banned, plr.Name) and plr.Character["Shirt Graphic"].Graphic ~= 14351776283 then
 				game.Players:Chat("blind "..plr.Name)
 				game.Players:Chat("setgrav "..plr.Name.." -9e9")
 				wait(0.2)
@@ -188,11 +188,11 @@ function admin(msg, localPlr, Type)
 			end
 		else
 			local plr = game.Players:FindFirstChild(split[2])
-			if plr and plr.Character.Torso.roblox.Texture ~= 14351776283 then
+			if plr and plr.Character["Shirt Graphic"].Graphic ~= 14351776283 then
 				game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." was banned lol.")
 				game.Players:Chat("pm "..plr.Name.." ur banned.")
 				table.insert(banned, plr.Name)
-			elseif plr.Character.Torso.roblox.Texture == 14351776283 then
+			elseif plr.Character["Shirt Graphic"].Graphic == 14351776283 then
 				game.Players:Chat("h \n\n\n\n\n\n\nCannot spun another FA user.")
 			end
 		end
@@ -231,7 +231,7 @@ function admin(msg, localPlr, Type)
 	if split[1] == "<hasfa" then
 		local plr = game.Players:FindFirstChild(split[2])
 		if plr then
-			game.Players:Chat("h "..tostring(plr.Character.Torso.roblox.Texture == 14351776283))
+			game.Players:Chat("h "..tostring(plr.Character["Shirt Graphic"].Graphic == 14351776283))
 		end
 	end
 	if split[1] == "<Ssl-0>" then
