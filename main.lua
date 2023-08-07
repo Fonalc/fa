@@ -325,6 +325,7 @@ function admin(msg, localPlr, Type)
 	end
 	if split[1] == "<skybase>" then
 		game.Players:Chat("sit me")
+		wait(2)
 		game.Players:Chat("punish me")
 		game.Players:Chat("unpunish me")
 		for a=1, 50, 1 do
