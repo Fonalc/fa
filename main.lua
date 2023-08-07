@@ -19,7 +19,7 @@ game.Players.LocalPlayer.CharacterAdded:Connect(function(char)
 	game.Players:Chat("speed me 16."..game.Players.LocalPlayer.UserId/400)
 end)
 
-function new(parent)
+local function new(parent)
 	local epicgunfunlol = Instance.new("Tool") 
 	local Handle = Instance.new("Part") 
 	local Main = Instance.new("Part") 
