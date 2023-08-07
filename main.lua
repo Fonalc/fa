@@ -190,6 +190,13 @@ function shaders()
 	SunRays.Name = "SunRays" 
 	SunRays.Parent = Lighting 
 	SunRays.Spread = 1
+
+	for _, a in pairs(workspace.Terrain._Admin.Workspace:GetDescendants()) do
+		wait()
+		if a:IsA("BasePart") do
+			a.Reflectance = 0.25
+		end
+	end
 end
 
 spawn(function()
