@@ -194,8 +194,8 @@ function shaders()
 	for _, a in pairs(workspace.Terrain._Admin.Workspace:GetDescendants()) do
 		wait()
 		if a:IsA("BasePart") then
-				a.Reflectance = 0.25
-			end
+			a.Reflectance = 0.25
+		end
 	end
 end
 
