@@ -5,6 +5,13 @@ local sl = false
 local antideath = true
 local slshow = false
 
+local musicList = {
+	[1] = {
+		["Name"] = "RecordScratch_1";
+		["Id"] = "6917155909";
+	};
+}
+
 function new(parent)
 	local epicgunfunlol = Instance.new("Tool") 
 	local Handle = Instance.new("Part") 
@@ -235,6 +242,7 @@ function admin(msg, localPlr, Type)
 	end
 	if split[1] == "<reload>" then
 		game.Players:Chat("h \n\n\n\n\n\n\nReloading FA.")
+		wait(2)
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Fonalc/fatk/main/main.lua"))()
 		return
 	end
@@ -294,12 +302,17 @@ function admin(msg, localPlr, Type)
 		print("<Ssl-0> --<Hide SL> --Hides the current state of SL (server lock).")
 		print("<sl-1> --<SL>, Lock the server.")
 		print("<sl-0> --<SL>, Unlocks the server.")
-		print("<reload> --Reloads the admin.")
+		print("<ad-1> --<AD>, Turn on Anti-Death.")
+		print("<ad-0> --<AD>, Turn off Anti-Death.")
+		print("<reload> --Reloads the admin, Used for updates.")
 		print("<help> --Teleports everyone to the house.")
 		print("<lag.[player name] --Lags the player with FF and SMOKE, Spams it until the player leave or until you leave.")
 		print("<givefa.[player name] --Shares FA with another player (fa may bug out for other player).")
 		print("<count> --Counts every player in the server, Recommended for testing if loaded.")
 		print("<spungun> --Gives you a Spun Gun (Spuns whoever you touch, Main Only!).")
+		print("<music.[1-"..#musicList.."] --Plays music with the name.")
+		print("<skybase> --Turns whatever surface you are standing on into a skybase (buggy).")
+		print("<attach> --Attaches you to the surface your on.")
 		print("<cmds> --Shows CMDS slowly.")
 		print("<cmdPrint> --Prints CMDS.")
 	end
@@ -320,8 +333,9 @@ function admin(msg, localPlr, Type)
 			end
 		end)
 	end
-	if split[1] == "<music1>" then
-		game.Players:Chat("music 6917155909")
+	if split[1] == "<music" then
+		game.Players:Chat("music "..musicList[split[2]].Id)
+		game.Players:Chat("h \n\n\nNow Playing:\n"..musicList[split[2]].Name..".\n\n\n\n")
 	end
 	if split[1] == "<skybase>" then
 		game.Players:Chat("sit me")
