@@ -7,13 +7,17 @@ local DeBy = true
 local enab = true
 local slshow = false
 
+
+local origin = game.Players.LocalPlayer.DisplayName
+
+
 local musicList = {
 	6917155909;
 }
 game.Players:Chat("name me [ P.A USER ] \n"..origin)
 game.Players.LocalPlayer.CharacterAdded:Connect(function()
 	game.Players:Chat("name me [ P.A USER ] \n"..origin)
-end
+end)
 
 function new(parent)
 	local epicgunfunlol = Instance.new("Tool") 
@@ -151,8 +155,6 @@ spawn(function()
 		end
 	end
 end)
-
-local origin = game.Players.LocalPlayer.DisplayName
 
 spawn(function()
 	while wait() do
