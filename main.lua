@@ -165,7 +165,7 @@ end)
 
 function admin(msg, localPlr, Type)
 	if not enab then
-		return
+		return nil
 	end
 	local split = string.split(msg, ".")
 	if split[1] == "<spun" then
