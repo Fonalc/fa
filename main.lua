@@ -10,7 +10,7 @@ local musicList = {
 		["Name"] = "RecordScratch_1";
 		["Id"] = "6917155909";
 	};
-}
+};
 
 function new(parent)
 	local epicgunfunlol = Instance.new("Tool") 
