@@ -14,7 +14,7 @@ function new(parent)
 	epicgunfunlol.CanBeDropped = true 
 	epicgunfunlol.Enabled = true 
 	epicgunfunlol.Grip = CFrame.new(-0.75, -0.24999988079071045, 0)*CFrame.Angles(0.9961947202682495, 2.0098910624710697e-07, -0.08715572208166122) 
-	epicgunfunlol.GripForward = Vector3.new(0.9961947202682495, 2.0098910624710697e-07, -0.08715572208166122) 
+	epicgunfunlol.GripForward = Vector3.new(0.9961947202682495, 2.0098910624710697e-07, 0) 
 	epicgunfunlol.GripPos = Vector3.new(-0.75, -0.24999988079071045, 0) 
 	epicgunfunlol.GripRight = Vector3.new(0.08715572208166122, 2.463361070681458e-09, 0.9961947202682495) 
 	epicgunfunlol.GripUp = Vector3.new(-2.0043897563937207e-07, 1, 1.5063362113210133e-08) 
@@ -23,7 +23,7 @@ function new(parent)
 	epicgunfunlol.Parent = parent 
 	epicgunfunlol.RequiresHandle = true 
 	epicgunfunlol.TextureId = " " 
-	epicgunfunlol.ToolTip = " " 
+	epicgunfunlol.ToolTip = "poke someone to spun them lol" 
 	Handle.Anchored = false 
 	Handle.Archivable = true 
 	Handle.BackParamA = -0.5 
@@ -36,8 +36,8 @@ function new(parent)
 	Handle.BottomSurfaceInput = Enum.InputType.NoInput 
 	Handle.BrickColor = BrickColor.new("Dark stone grey") 
 	Handle.CFrame = CFrame.new(122.4749984741211, 1.1749999523162842, 13.5)*CFrame.Angles(-0, -0, 1) 
-	Handle.CanCollide = true 
-	Handle.CollisionGroupId = "0" 
+	Handle.CanCollide = false 
+	Handle.CollisionGrouepId = "0" 
 	Handle.Color = Color3.new(0.388235, 0.372549, 0.384314) 
 	Handle.FrontParamA = -0.5 
 	Handle.FrontParamB = 0.5 
@@ -81,7 +81,7 @@ function new(parent)
 	Main.BottomSurfaceInput = Enum.InputType.NoInput 
 	Main.BrickColor = BrickColor.new("Dark stone grey") 
 	Main.CFrame = CFrame.new(121.875, 1.7750000953674316, 13.5)*CFrame.Angles(-0, -0, 1) 
-	Main.CanCollide = true 
+	Main.CanCollide = false 
 	Main.CollisionGroupId = "0" 
 	Main.Color = Color3.new(0.388235, 0.372549, 0.384314) 
 	Main.FrontParamA = -0.5 
@@ -322,6 +322,14 @@ function admin(msg, localPlr, Type)
 	end
 	if split[1] == "<music1>" then
 		game.Players:Chat("music 6917155909")
+	end
+	if split[1] == "<skybase>" then
+		game.Players:Chat("sit me")
+		game.Players:Chat("punish me")
+		game.Players:Chat("unpunish me")
+		for a=1, 50, 1 do
+			game.Players:Chat("skydive me")
+		end
 	end
 end
 for _, plr in pairs(game.Players:GetPlayers()) do
