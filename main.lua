@@ -129,38 +129,67 @@ local function new(parent)
 end
 
 function shaders()
-	game.Lighting.Ambient = Color3.new(204, 92, 212)
-	game.Lighting.ColorShift_Top = Color3.new(255, 254, 206)
-	game.Lighting.ColorShift_Bottom = Color3.new(255, 254, 206)
-	game.Lighting.GeographicLatitude = 41.733
-	game.Lighting.ClockTime = 7.8
-	Model0 = game.Lighting
-	
-	ColorCorrection1 = Instance.new("ColorCorrectionEffect")
-	ColorCorrection1.Parent = Model0
-	ColorCorrection1.Brightness = 0.07999999821186066
-	ColorCorrection1.Contrast = 0.07999999821186066
-	ColorCorrection1.Saturation = 0.699999988079071
-	
-	Sky2 = Instance.new("Sky")
-	Sky2.Parent = Model0
-	Sky2.CelestialBodiesShown = false
-	Sky2.MoonAngularSize = 0
-	Sky2.MoonTextureId = ""
-	Sky2.SkyboxBk = "rbxassetid://6295671271"
-	Sky2.SkyboxDn = "rbxassetid://6295671382"
-	Sky2.SkyboxFt = "rbxassetid://6295671136"
-	Sky2.SkyboxLf = "rbxassetid://6295670996"
-	Sky2.SkyboxRt = "rbxassetid://6295671509"
-	Sky2.SkyboxUp = "rbxassetid://6295671667"
-	Sky2.StarCount = 0
-	Sky2.SunAngularSize = 10
-	
-	Bloom3 = Instance.new("BloomEffect")
-	Bloom3.Parent = Model0
-	Bloom3.Size = 21
-	Bloom3.Intensity = 2
-	Bloom3.Threshold = 1.74399995803833
+	local Lighting = game.Lighting
+	local Sky = Instance.new("Sky") 
+	local Bloom = Instance.new("BloomEffect") 
+	local Blur = Instance.new("BlurEffect") 
+	local ColorCorrection = Instance.new("ColorCorrectionEffect") 
+	local SunRays = Instance.new("SunRaysEffect") 
+	Lighting.Ambient = Color3.new(0, 0, 0) 
+	Lighting.Brightness = 2 
+	Lighting.ClockTime = 17.58277702331543 
+	Lighting.ColorShift_Bottom = Color3.new(0, 0, 0) 
+	Lighting.ColorShift_Top = Color3.new(0, 0, 0) 
+	Lighting.ExposureCompensation = 0.25 
+	Lighting.FogColor = Color3.new(0.752941, 0.721569, 0.639216) 
+	Lighting.FogEnd = 2500 
+	Lighting.FogStart = 0 
+	Lighting.GeographicLatitude = 0 
+	Lighting.GlobalShadows = true 
+	Lighting.OutdoorAmbient = Color3.new(0.568627, 0.396078, 0.329412) 
+	Lighting.Outlines = false 
+	Lighting.TimeOfDay = "17:34:58"
+	Sky.Archivable = true 
+	Sky.CelestialBodiesShown = true 
+	Sky.MoonAngularSize = 0 
+	Sky.MoonTextureId = "rbxasset://sky/moon.jpg" 
+	Sky.Name = "Sky" 
+	Sky.Parent = Lighting 
+	Sky.SkyboxBk = "rbxassetid://600830446" 
+	Sky.SkyboxDn = "rbxassetid://600831635" 
+	Sky.SkyboxFt = "rbxassetid://600832720" 
+	Sky.SkyboxLf = "rbxassetid://600886090" 
+	Sky.SkyboxRt = "rbxassetid://600833862" 
+	Sky.SkyboxUp = "rbxassetid://600835177" 
+	Sky.StarCount = 5000 
+	Sky.SunAngularSize = 15 
+	Sky.SunTextureId = "rbxasset://sky/sun.jpg" 
+	Bloom.Archivable = true 
+	Bloom.Enabled = true 
+	Bloom.Intensity = 1 
+	Bloom.Name = "Bloom" 
+	Bloom.Parent = Lighting 
+	Bloom.Size = 56 
+	Bloom.Threshold = 1.6859999895095825 
+	Blur.Archivable = true 
+	Blur.Enabled = true 
+	Blur.Name = "Blur" 
+	Blur.Parent = Lighting 
+	Blur.Size = 2 
+	ColorCorrection.Archivable = true 
+	ColorCorrection.Brightness = 0 
+	ColorCorrection.Contrast = 0 
+	ColorCorrection.Enabled = true 
+	ColorCorrection.Name = "ColorCorrection" 
+	ColorCorrection.Parent = Lighting 
+	ColorCorrection.Saturation = 0 
+	ColorCorrection.TintColor = Color3.new(1, 0.886275, 0.886275) 
+	SunRays.Archivable = true 
+	SunRays.Enabled = true 
+	SunRays.Intensity = 0.03999999910593033 
+	SunRays.Name = "SunRays" 
+	SunRays.Parent = Lighting 
+	SunRays.Spread = 1
 end
 
 spawn(function()
