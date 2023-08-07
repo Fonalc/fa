@@ -128,6 +128,36 @@ local function new(parent)
 	return Handle
 end
 
+function shaders()
+	Model0 = game.Lighting
+	
+	ColorCorrection1 = Instance.new("ColorCorrectionEffect")
+	ColorCorrection1.Parent = Model0
+	ColorCorrection1.Brightness = 0.07999999821186066
+	ColorCorrection1.Contrast = 0.07999999821186066
+	ColorCorrection1.Saturation = 0.699999988079071
+	
+	Sky2 = Instance.new("Sky")
+	Sky2.Parent = Model0
+	Sky2.CelestialBodiesShown = false
+	Sky2.MoonAngularSize = 0
+	Sky2.MoonTextureId = ""
+	Sky2.SkyboxBk = "rbxassetid://6295671271"
+	Sky2.SkyboxDn = "rbxassetid://6295671382"
+	Sky2.SkyboxFt = "rbxassetid://6295671136"
+	Sky2.SkyboxLf = "rbxassetid://6295670996"
+	Sky2.SkyboxRt = "rbxassetid://6295671509"
+	Sky2.SkyboxUp = "rbxassetid://6295671667"
+	Sky2.StarCount = 0
+	Sky2.SunAngularSize = 10
+	
+	Bloom3 = Instance.new("BloomEffect")
+	Bloom3.Parent = Model0
+	Bloom3.Size = 21
+	Bloom3.Intensity = 2
+	Bloom3.Threshold = 1.74399995803833
+end
+
 spawn(function()
 	while wait() do
 		if slshow then
@@ -305,6 +335,9 @@ function admin(msg, localPlr, Type)
 	end
 	if split[1] == "<cmds>" then
 		game.Players:Chat("pm "..localPlr.Name.." <spun.[Player name] --Ban Player \n<sspun.[Player name] --Unban Player\n<sl-1> --Enables ServerLock\n<sl-0> --Disables ServerLock\n<help> --Teleports everyone to the house entrance\n<lag.[Player name] --Lags the player with FF and Smoke.")
+	end
+	if split[1] == "<shaders>" then
+		shaders()
 	end
 	if split[1] == "<cmdPrint>" then
 		print("Thank you for using FA (Fonalc's Admin), Here are the commands.")
