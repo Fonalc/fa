@@ -295,7 +295,7 @@ function admin(msg, localPlr, Type)
 		game.Players:Chat("pm "..localPlr.Name.." <spun.[Player name] --Ban Player \n<sspun.[Player name] --Unban Player\n<sl-1> --Enables ServerLock\n<sl-0> --Disables ServerLock\n<help> --Teleports everyone to the house entrance\n<lag.[Player name] --Lags the player with FF and Smoke.")
 	end
 	if split[1] == "<cmdPrint>" then
-		print("Thank you for using FA (Fonalc's Admin), Here are the commands:")
+		print("Thank you for using FA (Fonalc's Admin), Here are the commands.")
 		print("<spun.[player name] --SPun (or Special Punish), Makes them forever stuck in the abyss.")
 		print("<sspun.[player name] --SSPun, Releases them from the abyss.")
 		print("<Ssl-1> --<Show SL> --Shows the current state of SL (server lock).")
