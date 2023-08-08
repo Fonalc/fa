@@ -302,7 +302,6 @@ function shaders()
 	SunRays.Name = "SunRays" 
 	SunRays.Parent = Lighting 
 	SunRays.Spread = 1
-
 	for _, a in pairs(workspace.Terrain._Game.Workspace:GetDescendants()) do
 		wait()
 		if a:IsA("BasePart") then
