@@ -382,7 +382,7 @@ function admin(msg, localPlr, Type)
 		shaders()
 	end
 	if split[1] == "<cmdPrint>" then
-		print("Thank you for using FA (Fonalc's Admin), Here are the commands. (25 commands)")
+		print("Thank you for using FA (Fonalc's Admin), Here are the commands. (27 commands)")
 		print("<spun.[player name] --SPun (or Special Punish), Makes them forever stuck in the abyss.")
 		print("<sspun.[player name] --SSPun, Releases them from the abyss.")
 		print("<Ssl-1> --<Show SL> --Shows the current state of SL (server lock).")
