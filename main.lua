@@ -342,6 +342,16 @@ spawn(function()
 end)
 
 
+spawn(function()
+	while wait() do
+		if plr.Backpack:FindFirstChild("VampireVanquisher") then
+			game.Players:Chat("ungear "..plr.Name)
+			game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\n"..plr.DisplayName.." that VampireVanquisher makes u sus.")
+		end
+	end
+end)
+
+
 
 function admin(msg, localPlr, Type): ()
 	if not enab then
