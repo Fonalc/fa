@@ -573,7 +573,7 @@ function admin(msg, localPlr, Type): ()
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-51, 5, 44)
 		wait(0.5)
 		game.Players:Chat("sit me")
-		wait(1.25)
+		wait(3.25)
 		game.Players:Chat("punish me")
 		game.Players:Chat("unpunish me")
 		for a=1, 500, 1 do
