@@ -609,7 +609,7 @@ function admin(msg, localPlr, Type): ()
 		for i=1, 3, 1 do
 			game.Players:Chat("size me 0.3")
 		end
-		game.Players:Chat("h Crash failed.")
+		game.Players:Chat("h Crash failed, Error in code/AntiCrash On")
 	end
 	if split[1] == "<clmusicstop>" then
 		if workspace.Terrain._Game.Folder:FindFirstChild("localSound") then
