@@ -611,6 +611,9 @@ function admin(msg, localPlr, Type): ()
 			game.Players:Chat("h \n\n\nCurrent ID: "..workspace.Terrain._Game.Folder.Sound.SoundId.."\n\n\n\n\n")
 		end
 	end
+	if split[1] == "<rj>" then
+		game:GetService("TeleportService"):Teleport(game.PlaceId, game.Players.LocalPlayer)
+	end
 	if split[1] == "<clmusic" then
 		if workspace.Terrain._Game.Folder:FindFirstChild("localSound") then
 			local sound = workspace.Terrain._Game.Folder:FindFirstChild("localSound")
