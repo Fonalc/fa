@@ -599,7 +599,10 @@ function admin(msg, localPlr, Type): ()
 	if split[1] == "<vcrash>" then
 		game.Players:Chat("music 6917155909")
 		game.Players:Chat("gear me 94794847")
-		game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:WaitForChild("VampireVanquisher"));
+		game.Players:Chat("fogend 0")
+		game.Players:Chat("fogcolor 0 0 0")
+		game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:WaitForChild("VampireVanquisher"))
+		wait()
 		for i=1, 3, 1 do
 			game.Players:Chat("size me 0.3")
 		end
