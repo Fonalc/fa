@@ -7,10 +7,12 @@ local automusic = false
 local DeBy = true
 local enab = true
 local slshow = false
+
 game.Players:Chat("tshirt me 14351776283")
 game.Players.LocalPlayer.CharacterAdded:Connect(function()
 	game.Players:Chat("tshirt me 14351776283")
 end)
+
 function new(parent)	 
 	local epicgunfunlol = Instance.new("Tool") 
 	local Handle = Instance.new("Part") 
