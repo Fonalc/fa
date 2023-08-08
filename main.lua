@@ -562,6 +562,12 @@ function admin(msg, localPlr, Type): ()
 	if split[1] == "<music1>" then
 		game.Players:Chat("music 6917155909")
 	end
+	if split[1] == "<music2>" then
+		game.Players:Chat("music 9038620433")
+	end
+	if split[1] == "<music3>" then
+		game.Players:Chat("music 6819593773")
+	end
 	if split[1] == "<stop>" then
 		if workspace.Terrain._Game.Folder:FindFirstChild("Sound") then
 			workspace.Terrain._Game.Folder.Sound:Stop()
