@@ -569,11 +569,11 @@ function admin(msg, localPlr, Type): ()
 	if split[1] == "<bossfight>" then
 		game.Players:Chat("blind others")
 		game.Players:Chat("speed others 0")
-		game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBoss Fight Loading... 7.5 Seconds Expected!")
+		game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBoss Fight Loading... 8.75 Seconds Expected!")
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-51, 5, 44)
 		wait(0.5)
 		game.Players:Chat("sit me")
-		wait(0.5)
+		wait(1.25)
 		game.Players:Chat("punish me")
 		game.Players:Chat("unpunish me")
 		for a=1, 500, 1 do
