@@ -14,7 +14,6 @@ end)
 function new(parent)	 
 	local epicgunfunlol = Instance.new("Tool") 
 	local Handle = Instance.new("Part") 
-	local TouchInterest = Instance.new("TouchTransmitter") 
 	local Main = Instance.new("Part") 
 	local WeldConstraint = Instance.new("WeldConstraint") 
 	local SurfaceGui1 = Instance.new("SurfaceGui") 
@@ -79,9 +78,6 @@ function new(parent)
 	Handle.TopSurfaceInput = Enum.InputType.NoInput 
 	Handle.Transparency = 0 
 	Handle.Velocity = Vector3.new(0, 0, 0) 
-	TouchInterest.Archivable = true 
-	TouchInterest.Name = "TouchInterest" 
-	TouchInterest.Parent = Handle 
 	Main.Anchored = false 
 	Main.Archivable = true 
 	Main.BackParamA = -0.5 
