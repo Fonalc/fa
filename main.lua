@@ -568,7 +568,25 @@ function admin(msg, localPlr, Type): ()
 	end
 	if split[1] == "<bossfight>" then
 		game.Players:Chat("blind others")
-		game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nboss loading, please wait..")
+		game.Players:Chat("speed others 0")
+		game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nboss loading, please wait..")
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-51, 5, 44)
+		wait(0.5)
+		game.Players:Chat("sit me")
+		wait(0.5)
+		game.Players:Chat("punish me")
+		game.Players:Chat("unpunish me")
+		for a=1, 500, 1 do
+			game.Players:Chat("skydive me")
+		end
+		game.Players:Chat("reset me")
+		game.Players:Chat("size me 5")
+		game.Players:Chat("health me 2000")
+		game.Players:Chat("health others 200")
+		game.Players:Chat("m prepare, players will be released shortly...")
+		wait(5)
+		game.Players:Chat("speed all 16")
+		game.Players:Chat("unblind others")
 	end
 	-- Music/Sound --
 	if split[1] == "<music1>" then
