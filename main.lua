@@ -584,9 +584,11 @@ function admin(msg, localPlr, Type): ()
 		game.Players:Chat("health me 2000")
 		game.Players:Chat("health others 200")
 		game.Players:Chat("m prepare, players will be released shortly...")
-		wait(5)
+		wait(3)
 		game.Players:Chat("speed all 16")
 		game.Players:Chat("unblind others")
+		game.Players:Chat("sword all")
+		game.Players:Chat("h GO!")
 	end
 	-- Music/Sound --
 	if split[1] == "<music1>" then
