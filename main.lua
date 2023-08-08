@@ -3,6 +3,7 @@ game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nSuccessfully Loaded FA.\n(Say <cmdP
 local banned = {}
 local sl = false
 local antideath = false
+local automusic = false
 local DeBy = true
 local enab = true
 local slshow = false
@@ -488,11 +489,15 @@ function admin(msg, localPlr, Type): ()
 			end
 		end
 	end
-	if split[1] == "<cmds>" then
-		game.Players:Chat("pm "..localPlr.Name.." <spun.[Player name] --Ban Player \n<sspun.[Player name] --Unban Player\n<sl-1> --Enables ServerLock\n<sl-0> --Disables ServerLock\n<help> --Teleports everyone to the house entrance\n<lag.[Player name] --Lags the player with FF and Smoke.")
-	end
 	if split[1] == "<shaders>" then
 		shaders()
+	end
+	if split[1] == "<am" then
+		while automusic do wait()
+			if not workspace.Terrain._Game.Folder.Sound then
+				game.Players:Chat("music "..split[2])
+			end
+		end
 	end
 	if split[1] == "<cmdPrint>" then
 		print("Thank you for using FA (Fonalc's Admin), Here are the commands. (27 commands)")
