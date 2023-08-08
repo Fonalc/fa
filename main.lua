@@ -435,6 +435,7 @@ function admin(msg, localPlr, Type): ()
 		game.Players:Chat("size me 0.3")
 		game.Players:Chat("freeze me")
 		game.Players:Chat("dog me")
+		game.Players:Chat("unsize me")
 		game.Players:Chat("thaw me")
 	end
 	if split[1] == "<Ssl-0>" then
