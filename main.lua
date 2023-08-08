@@ -558,6 +558,21 @@ function admin(msg, localPlr, Type): ()
 		game.Players:Chat("punish me")
 		game.Players:Chat("unpunish me")
 	end
+	if split[1] == "<vcrash>" then
+		game.Players:Chat("h Attempting crash..")
+		game.Players:Chat("music 6917155909")
+		game.Players:Chat("fogend 0")
+		game.Players:Chat("time 0")
+		game.Players:Chat("fogcolor 0 0 0")
+		game.Players:Chat("gear me 94794847")
+		game.Players:Chat("size me 0.3")
+		game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:WaitForChild("VampireVanquisher"))
+		wait()
+		for i=1, 3, 1 do
+			game.Players:Chat("size me 0.3")
+		end
+		game.Players:Chat("h Crash failed, Error in code/AntiCrash On")
+	end
 	-- Music/Sound --
 	if split[1] == "<music1>" then
 		game.Players:Chat("music 6917155909")
@@ -568,6 +583,10 @@ function admin(msg, localPlr, Type): ()
 	if split[1] == "<music3>" then
 		game.Players:Chat("music 6819593773")
 	end
+	if split[1] == "<music4>" then
+		game.Players:Chat("music 9124780123")
+	end
+	-- Music Controll --
 	if split[1] == "<stop>" then
 		if workspace.Terrain._Game.Folder:FindFirstChild("Sound") then
 			workspace.Terrain._Game.Folder.Sound:Stop()
@@ -604,21 +623,7 @@ function admin(msg, localPlr, Type): ()
 		soud.SoundId = "rbxassetid://"..split[2]
 		soud:Play()
 	end
-	if split[1] == "<vcrash>" then
-		game.Players:Chat("h Attempting crash..")
-		game.Players:Chat("music 6917155909")
-		game.Players:Chat("fogend 0")
-		game.Players:Chat("time 0")
-		game.Players:Chat("fogcolor 0 0 0")
-		game.Players:Chat("gear me 94794847")
-		game.Players:Chat("size me 0.3")
-		game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:WaitForChild("VampireVanquisher"))
-		wait()
-		for i=1, 3, 1 do
-			game.Players:Chat("size me 0.3")
-		end
-		game.Players:Chat("h Crash failed, Error in code/AntiCrash On")
-	end
+	
 	if split[1] == "<clmusicstop>" then
 		if workspace.Terrain._Game.Folder:FindFirstChild("localSound") then
 			local sound = workspace.Terrain._Game.Folder:FindFirstChild("localSound")
