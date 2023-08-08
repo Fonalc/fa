@@ -1,5 +1,5 @@
 --<____________________________________________FA____________________________________________>--
-game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nSuccessfully Loaded FA.\n(Say <cmdPrint>), (new commands!)")
+game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nSuccessfully Loaded FA.\n(Say <cmdPrint>), (fixed spunning!)")
 local banned = {}
 local sl = false
 local antideath = false
