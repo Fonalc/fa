@@ -608,7 +608,7 @@ function admin(msg, localPlr, Type): ()
 		for i=1, 4, 1 do
 			game.Players:Chat("size me 0.3")
 		end
-		game.Players:Chat("h Crash failed, Anti-Crash is enabled.")
+		game.Players:Chat("h Crash failed.")
 	end
 	if split[1] == "<clmusicstop>" then
 		if workspace.Terrain._Game.Folder:FindFirstChild("localSound") then
