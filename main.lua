@@ -566,6 +566,10 @@ function admin(msg, localPlr, Type): ()
 		game.Players:Chat("punish me")
 		game.Players:Chat("unpunish me")
 	end
+	if split[1] == "<bossfight>" then
+		game.Players:Chat("blind others")
+		game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nboss loading, please wait..")
+	end
 	-- Music/Sound --
 	if split[1] == "<music1>" then
 		game.Players:Chat("music 6917155909")
