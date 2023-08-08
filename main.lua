@@ -581,17 +581,26 @@ function admin(msg, localPlr, Type): ()
 		end
 		wait(0.5)
 		game.Players:Chat("reset me")
-		game.Players:Chat("size me 5")
 		wait(1)
 		game.Players:Chat("health me 2000")
 		game.Players:Chat("health others 200")
 		game.Players:Chat("m prepare, players will be released shortly...")
-		wait(5)
+		wait(7)
 		game.Players:Chat("speed all 16")
 		game.Players:Chat("unblind others")
 		game.Players:Chat("sword all")
 		game.Players:Chat("tp all me")
 		game.Players:Chat("h GO!")
+		local a = 1
+		repeat 
+			wait(1)
+			a+=1
+		until game.Players.LocalPlayer.Character.Humanoid.Health == 0 or a==25
+		if a==25 then
+			game.Players:Chat("h TIME UP! BOSS WINS, PLAYERS LOSE!")
+		else
+			game.Players:Chat("h PLAYERS WIN, BOSS LOSE!")
+		end
 	end
 	-- Music/Sound --
 	if split[1] == "<music1>" then
