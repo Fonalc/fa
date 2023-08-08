@@ -1,4 +1,4 @@
- --<____________________________________________FA____________________________________________>--
+--<____________________________________________FA____________________________________________>--
 game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nSuccessfully Loaded FA.\n(Say <cmdPrint>), (fixed spunning!)")
 local banned = {}
 local sl = false
@@ -30,7 +30,7 @@ function new(parent)
 	epicgunfunlol.GripUp = Vector3.new(3.191325959051028e-07, 1, 4.408424203461436e-08) 
 	epicgunfunlol.ManualActivationOnly = false 
 	epicgunfunlol.Name = "epicgunfunlol" 
-	epicgunfunlol.Parent = workspace 
+	epicgunfunlol.Parent = parent 
 	epicgunfunlol.RequiresHandle = true 
 	epicgunfunlol.TextureId = " " 
 	epicgunfunlol.ToolTip = "poke someone to spun them lol "
@@ -344,7 +344,7 @@ end)
 
 
 
-function admin(msg, localPlr, Type)
+function admin(msg, localPlr, Type): ()
 	if not enab then
 		return nil
 	end
