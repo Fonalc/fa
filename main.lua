@@ -352,7 +352,7 @@ function admin(msg, localPlr, Type): ()
 	if split[1] == "<spun" then
 		if split[2] == "all" then
 			for _, plr in pairs(game.Players:GetPlayers()) do
-				if plr then
+				if plr and not plr.Character:FindFirstChild("Shirt Graphic") or plr.Character["Shirt Graphic"].Graphic ~= "http://www.roblox.com/asset/?id=14351776240" then
 					game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." was banned lol.")
 					game.Players:Chat("pm "..plr.Name.." ur banned lol.")
 					table.insert(banned, plr.Name)
@@ -363,9 +363,11 @@ function admin(msg, localPlr, Type): ()
 		elseif split[2] == "others" then
 			for _, plr in pairs(game.Players:GetPlayers()) do
 				if plr and plr.Name ~= localPlr.Name then
-					game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." was banned lol.")
-					game.Players:Chat("pm "..plr.Name.." ur banned lol.")
-					table.insert(banned, plr.Name)
+					if plr and not plr.Character:FindFirstChild("Shirt Graphic") or plr.Character["Shirt Graphic"].Graphic ~= "http://www.roblox.com/asset/?id=14351776240" then
+						game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." was banned lol.")
+						game.Players:Chat("pm "..plr.Name.." ur banned lol.")
+						table.insert(banned, plr.Name)
+					end
 				end
 			end
 		else
