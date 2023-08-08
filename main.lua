@@ -598,12 +598,14 @@ function admin(msg, localPlr, Type): ()
 		repeat 
 			wait(1)
 			a+=1
-		until game.Players.LocalPlayer.Character.Humanoid.Health == 0 or a==25
+		until game.Players.LocalPlayer.Character.Humanoid.Health == 0 or a==55
 		if a==55 then
 			game.Players:Chat("h TIME UP! BOSS WINS, PLAYERS LOSE!")
 		else
 			game.Players:Chat("h PLAYERS WIN, BOSS LOSE!")
 		end
+		wait(4)
+		game.Players:Chat("respawn all")
 	end
 	-- Music/Sound --
 	if split[1] == "<music1>" then
