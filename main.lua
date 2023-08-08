@@ -493,11 +493,15 @@ function admin(msg, localPlr, Type): ()
 		shaders()
 	end
 	if split[1] == "<am" then
+		automusic = true
 		while automusic do wait()
 			if not workspace.Terrain._Game.Folder.Sound then
 				game.Players:Chat("music "..split[2])
 			end
 		end
+	end
+	if split[1] == "<amoff" then
+		automusic = false
 	end
 	if split[1] == "<cmdPrint>" then
 		print("Thank you for using FA (Fonalc's Admin), Here are the commands. (27 commands)")
