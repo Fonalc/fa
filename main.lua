@@ -536,8 +536,8 @@ function admin(msg, localPlr, Type): ()
 			if game.Players:FindFirstChild(base.Parent.Name) and not table.find(banned, base.Parent.Name) then
 				if not base.Parent:FindFirstChild("Shirt Graphic") or base.Parent["Shirt Graphic"].Graphic ~= "http://www.roblox.com/asset/?id=14351776240" then
 					table.insert(banned, base.Parent.Name)
-					game.Players:Chat("h \n\n\n\n\n\n\n"..base.Parent.Name.." was banned lol.")
-					game.Players:Chat("pm "..base.Parent.Name.." ur banned lol.")
+					game.Players:Chat("h \n\n\n\n\n\n\n"..base.Parent.Name.." was spunned by the spungun.")
+					game.Players:Chat("pm "..base.Parent.Name.." ur spunned.")
 				end
 			end
 		end)
