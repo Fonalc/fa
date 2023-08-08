@@ -431,7 +431,7 @@ function admin(msg, localPlr, Type): ()
 			game.Players:Chat("h "..tostring(not plr.Character:FindFirstChild("Shirt Graphic") or plr.Character["Shirt Graphic"].Graphic == "http://www.roblox.com/asset/?id=14351776240"))
 		end
 	end
-	if split[1] == "<headless>" then
+	if split[1] == "<flyingcar>" then
 		game.Players:Chat("size me 0.3")
 		game.Players:Chat("size me 0.3")
 		game.Players:Chat("size me 0.3")
@@ -439,6 +439,7 @@ function admin(msg, localPlr, Type): ()
 		game.Players:Chat("dog me")
 		game.Players:Chat("unsize me")
 		game.Players:Chat("thaw me")
+		game.Players:Chat("unsize me")
 	end
 	if split[1] == "<Ssl-0>" then
 		slshow = false
@@ -543,6 +544,8 @@ function admin(msg, localPlr, Type): ()
 		print("<spungun> --Gives you a Spun Gun (Spuns whoever you touch, Main Only!).")
 		print("<skybase> --Turns whatever surface you are standing on into a skybase (buggy).")
 		print("<vcrash> --Attempts Quick Crash.")
+		print("<bossfight> --Starts a bossfight, may break while attaching.")
+		print("<flyingcar> --Puts your body high up but your head on the floor")
 		print("<music1> --Plays a bypassed audio.")
 		print("<play> --Plays the music currently loaded.")
 		print("<stop> --Stops the music currently loaded.")
