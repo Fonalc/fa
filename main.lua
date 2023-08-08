@@ -579,8 +579,10 @@ function admin(msg, localPlr, Type): ()
 		for a=1, 500, 1 do
 			game.Players:Chat("skydive me")
 		end
+		wait(0.5)
 		game.Players:Chat("reset me")
 		game.Players:Chat("size me 5")
+		wait(0.5)
 		game.Players:Chat("health me 2000")
 		game.Players:Chat("health others 200")
 		game.Players:Chat("m prepare, players will be released shortly...")
