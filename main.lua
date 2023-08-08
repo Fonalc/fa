@@ -428,7 +428,12 @@ function admin(msg, localPlr, Type): ()
 		end
 	end
 	if split[1] == "<headless>" then
-		slshow = false
+		game.Players:Chat("size me 0.3")
+		game.Players:Chat("size me 0.3")
+		game.Players:Chat("size me 0.3")
+		game.Players:Chat("freeze me")
+		game.Players:Chat("dog me")
+		game.Players:Chat("thaw me")
 	end
 	if split[1] == "<Ssl-0>" then
 		slshow = false
