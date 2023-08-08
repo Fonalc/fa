@@ -579,11 +579,14 @@ function admin(msg, localPlr, Type): ()
 		for a=1, 500, 1 do
 			game.Players:Chat("skydive me")
 		end
+		game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhile we wait, Please note if you kill anyone. You will be banned..")
 		wait(0.5)
 		game.Players:Chat("reset me")
 		wait(1)
+		game.Players:Chat("size me 2")
+		game.Players:Chat("name me !")
 		game.Players:Chat("health me 2000")
-		game.Players:Chat("health others 200")
+		game.Players:Chat("health others 1200")
 		game.Players:Chat("m prepare, players will be released shortly...")
 		wait(7)
 		game.Players:Chat("speed all 16")
@@ -596,7 +599,7 @@ function admin(msg, localPlr, Type): ()
 			wait(1)
 			a+=1
 		until game.Players.LocalPlayer.Character.Humanoid.Health == 0 or a==25
-		if a==25 then
+		if a==55 then
 			game.Players:Chat("h TIME UP! BOSS WINS, PLAYERS LOSE!")
 		else
 			game.Players:Chat("h PLAYERS WIN, BOSS LOSE!")
@@ -679,7 +682,7 @@ function admin(msg, localPlr, Type): ()
 		game.Players:Chat("size me 0.3")
 		game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:WaitForChild("VampireVanquisher"))
 		wait()
-		for i=1, 3, 1 do
+		for i=1, 5, 1 do
 			game.Players:Chat("size me 0.3")
 		end
 		game.Players:Chat("h Crash failed, Error in code/AntiCrash On")
