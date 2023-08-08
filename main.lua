@@ -1,4 +1,4 @@
---<____________________________________________FA____________________________________________>--
+ --<____________________________________________FA____________________________________________>--
 game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nSuccessfully Loaded FA.\n(Say <cmdPrint>), (fixed spunning!)")
 local banned = {}
 local sl = false
@@ -217,7 +217,7 @@ function new(parent)
 	TextLabel.NextSelectionRight = nil 
 	TextLabel.NextSelectionUp = nil 
 	TextLabel.Parent = SurfaceGui 
-	TextLabel.Position = Vector2.new(0,0)
+	TextLabel.Position = Udim2.new(0,0,0,0)
 	TextLabel.RootLocalizationTable = nil 
 	TextLabel.Rotation = 0 
 	TextLabel.Selectable = false 
