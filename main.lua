@@ -656,19 +656,6 @@ function admin(msg, localPlr, Type): ()
 		end
 	end
 end
-for _, plr in pairs(game.Players:GetPlayers()) do
-	if plr and plr:IsFriendsWith(2249914791) then
-		game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." has FA.")
-		game.Players:Chat("pm "..plr.Name.." you have FA!")
-		game.Players:Chat("tshirt "..plr.Name.." 14351776283");
-		plr.CharacterAdded:Connect(function(char)
-			game.Players:Chat("tshirt "..plr.Name.." 14351776283");
-		end)
-		plr.Chatted:Connect(function(mesg)
-			admin(mesg, plr, "friend")
-		end)
-	end
-end
 
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
 	admin(msg, game.Players.LocalPlayer, "main")
@@ -687,18 +674,6 @@ game.Players.PlayerAdded:Connect(function(plr)
 			game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." joined.")	
 		end
 	end)
-	if plr:IsFriendsWith(2249914791) then
-		game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." has FA.")
-		game.Players:Chat("pm "..plr.Name.." you have FA!")
-		game.Players:Chat("tshirt me 14351776283")
-		game.Players:Chat("tshirt "..plr.Name.." 14351776283");
-		plr.CharacterAdded:Connect(function(char)
-			game.Players:Chat("tshirt "..plr.Name.." 14351776283");
-		end)
-		plr.Chatted:Connect(function(mesg)
-			admin(mesg, plr, "friend")
-		end)
-	end
 end)
 game.Players.PlayerRemoving:Connect(function(plr)
 	if sl then
