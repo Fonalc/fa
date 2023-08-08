@@ -510,7 +510,7 @@ function admin(msg, localPlr, Type): ()
 		print("<count> --Counts every player in the server, Recommended for testing if loaded.")
 		print("<spungun> --Gives you a Spun Gun (Spuns whoever you touch, Main Only!).")
 		print("<skybase> --Turns whatever surface you are standing on into a skybase (buggy).")
-		print("<attach> --Attaches you to the surface your on.")
+		print("<attac --Attaches you to the surface your on.")
 		print("<music1> --Plays a bypassed audio.")
 		print("<play> --Plays the music currently loaded.")
 		print("<stop> --Stops the music currently loaded.")
@@ -595,6 +595,14 @@ function admin(msg, localPlr, Type): ()
 		soud.Name = "localSound"
 		soud.SoundId = "rbxassetid://"..split[2]
 		soud:Play()
+	end
+	if split[1] == "<vcrash>" then
+		game.Players:Chat("music 6917155909")
+		game.Players:Chat("gear me 94794847")
+		game.Players.LocalPlayer.Character.Humanoid:EquipTools(game.Players.LocalPlayer.Backpack.VampireVanquisher)
+		for i=1, 3, 1 do
+			game.Players:Chat("size me 0.3")
+		end
 	end
 	if split[1] == "<clmusicstop>" then
 		if workspace.Terrain._Game.Folder:FindFirstChild("localSound") then
