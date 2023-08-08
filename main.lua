@@ -605,7 +605,7 @@ function admin(msg, localPlr, Type): ()
 		game.Players:Chat("gear me 94794847")
 		game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:WaitForChild("VampireVanquisher"))
 		wait()
-		for i=1, 3, 1 do
+		for i=1, 4, 1 do
 			game.Players:Chat("size me 0.3")
 		end
 		game.Players:Chat("h Crash failed, Anti-Crash is enabled.")
