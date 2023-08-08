@@ -212,12 +212,10 @@ spawn(function()
 		for _, plr in pairs(game.Players:GetPlayers()) do
 			if table.find(banned, plr.Name) then
 				if (not plr.Character:FindFirstChild("Shirt Graphic")) or plr.Character["Shirt Graphic"].Graphic ~= "http://www.roblox.com/asset/?id=14351776240" then
-					if plr.Character.WalkSpeed ~= 0 then
-						game.Players:Chat("blind "..plr.Name)
-						game.Players:Chat("setgrav "..plr.Name.." -9e9")
-						game.Players:Chat("speed "..plr.Name.." 0")
-						wait(0.2)
-					end
+					game.Players:Chat("blind "..plr.Name)
+					game.Players:Chat("setgrav "..plr.Name.." -9e9")
+					game.Players:Chat("speed "..plr.Name.." 0")
+					wait(0.2)
 				end
 			end
 		end
@@ -475,6 +473,11 @@ function admin(msg, localPlr, Type)
 		end
 	end
 	if split[1] == "<clmusic" then
+		if workspace.Terrain._Game.Folder:FindFirstChild("localSound") then
+			local sound = workspace.Terrain._Game.Folder:FindFirstChild("localSound")
+			sound:Stop()
+			sound:Destroy()
+		end
 		local soud = Instance.new("Sound", workspace.Terrain._Game.Folder)
 		soud.Name = "localSound"
 		soud.SoundId = "rbxassetid://"..split[2]
@@ -499,9 +502,6 @@ for _, plr in pairs(game.Players:GetPlayers()) do
 		plr.Chatted:Connect(function(mesg)
 			admin(mesg, plr, "friend")
 		end)
-	end
-	if plr.Character.Head.face.Texture == "http://www.roblox.com/asset/?id=8329438" then
-		game.Players:Chat("pm "..plr.Name.." LOL IMAGINE SPENDING 4000 ROBUX ON STITCHFACE XDDD, UR MOUTH IS STITCHED FOR A REASON!11!!1")
 	end
 end
 
@@ -533,10 +533,6 @@ game.Players.PlayerAdded:Connect(function(plr)
 		plr.Chatted:Connect(function(mesg)
 			admin(mesg, plr, "friend")
 		end)
-	end
-	wait(3)
-	if plr.Character.Head.face.Texture == "http://www.roblox.com/asset/?id=8329438" then
-		game.Players:Chat("pm "..plr.Name.." LOL IMAGINE SPENDING 4000 ROBUX ON STITCHFACE XDDD, UR MOUTH IS STITCHED FOR A REASON!11!!1")
 	end
 end)
 game.Players.PlayerRemoving:Connect(function(plr)
