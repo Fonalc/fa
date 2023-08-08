@@ -302,8 +302,8 @@ function shaders()
 	SunRays.Name = "SunRays" 
 	SunRays.Parent = Lighting 
 	SunRays.Spread = 1
+	game.Players:Chat("h \n\n\n\n\n\n\nShining Parts, Game may lag/crash.")
 	for _, a in pairs(workspace.Terrain._Game.Workspace:GetDescendants()) do
-		wait()
 		if a:IsA("BasePart") then
 			a.Reflectance = 0.25
 		end
