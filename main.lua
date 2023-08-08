@@ -217,7 +217,7 @@ function new(parent)
 	TextLabel.NextSelectionRight = nil 
 	TextLabel.NextSelectionUp = nil 
 	TextLabel.Parent = SurfaceGui 
-	TextLabel.Position = Udim2.new(0,0,0,0)
+	TextLabel.Position = UDim2.new(0,0,0,0)
 	TextLabel.RootLocalizationTable = nil 
 	TextLabel.Rotation = 0 
 	TextLabel.Selectable = false 
