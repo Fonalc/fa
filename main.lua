@@ -787,6 +787,20 @@ function admin(msg, localPlr, Type): ()
 			sound:Destroy()
 		end
 	end
+	if split[1] == "<lua" then
+		table.remove(split, 1)
+		loadstring([[
+		local players = game.Players
+		local scripts = {
+				["iy"] = {
+					["run"] = function()
+						loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+					end,
+				};
+		}
+		
+	]]..table.concat(split, "."))()
+	end
 end
 
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
