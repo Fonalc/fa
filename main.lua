@@ -491,9 +491,15 @@ function admin(msg, localPlr, Type): ()
 		local TABLE = game:GetService("HttpService"):JSONDecode(JSON)
 		local LIST = ""
 		for v, a in pairs(TABLE.data) do
-			LIST = LIST.."\n"..a.name..","
+			if v <= 4 then
+				LIST = LIST.."\n"..a.name..","	
+			end
 		end
-		game.Players:Chat("h \n\n\n\n\n\n\nThere are "..#TABLE.data.." gears, "..LIST.."\n Which one would you like? (chat a number)")
+		if #TABLE.data <= 4 then
+			game.Players:Chat("h \n\n\n\n\n\n\nThere are "..#TABLE.data.." gears, "..LIST.."\n etc\n Which one would you like? (chat a number)")
+		else
+			game.Players:Chat("h \n\n\n\n\n\n\nThere are "..#TABLE.data.." gears, "..LIST.."\n Which one would you like? (chat a number)")
+		end
 		local number, _ = game.Players.LocalPlayer.Chatted:Wait()
 		if tonumber(number) <= #TABLE.data and tonumber(number) >= 0 then
 			local ID = TABLE.data[tonumber(number)].id
