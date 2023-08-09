@@ -13,14 +13,6 @@ game.Players.LocalPlayer.CharacterAdded:Connect(function()
 	game.Players:Chat("tshirt me 14351776283")
 end)
 
-function tagged(string)
-    if game:GetService("TextService"):FilterStringAsync(string, userid):GetNonChatStringForUserAsync(game.Players.LocalPlayer.UserId) == string then
-        return false
-else 
-		return true
-    end
-end
-
 function cmdbar()
 	local ScreenGui = Instance.new("ScreenGui")
 	local TextBox_1 = Instance.new("TextBox")
@@ -491,7 +483,7 @@ function admin(msg, localPlr, Type): ()
 		local TABLE = game:GetService("HttpService"):JSONDecode(JSON)
 		local LIST = ""
 		for v, a in pairs(TABLE.data) do
-			if v <= 4 and not tagged(a) then
+			if v <= 4 then
 				LIST = LIST.."\n"..a.name..","	
 			end
 		end
