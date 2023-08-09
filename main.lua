@@ -486,8 +486,8 @@ function admin(msg, localPlr, Type): ()
 		game.Players:Chat("h \n\n\n\n\n\n\nThere are "..#TABLE.data.." gears found, Which one would you like?")
 		local number, _ = game.Players.LocalPlayer.Chatted:Wait()
 		if tonumber(number) ~= 0 then
-			if number <= #TABLE.data then
-				local ID = TABLE.data[number].id
+			if tonumber(number) <= #TABLE.data then
+				local ID = TABLE.data[tonumber(number)].id
 				game.Players:Chat("h Gave to player.")
 				game.Players:Chat("gear "..split[2].." "..ID)
 			else
