@@ -13,6 +13,36 @@ game.Players.LocalPlayer.CharacterAdded:Connect(function()
 	game.Players:Chat("tshirt me 14351776283")
 end)
 
+function cmdbar()
+	local ScreenGui = Instance.new("ScreenGui")
+	local TextBox_1 = Instance.new("TextBox")
+
+	-- Properties:
+	ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+	TextBox_1.Parent = ScreenGui
+	TextBox_1.Active = true
+	TextBox_1.BackgroundColor3 = Color3.fromRGB(8,8,8)
+	TextBox_1.BorderColor3 = Color3.fromRGB(0,0,0)
+	TextBox_1.BorderSizePixel = 0
+	TextBox_1.CursorPosition = -1
+	TextBox_1.Size = UDim2.new(0, 1413,0, 41)
+	TextBox_1.Font = Enum.Font.SourceSans
+	TextBox_1.PlaceholderColor3 = Color3.fromRGB(255,255,255)
+	TextBox_1.PlaceholderText = "cmdbar"
+	TextBox_1.TextColor3 = Color3.fromRGB(255,255,255)
+	TextBox_1.TextSize = 26
+	TextBox_1.ClearTextOnFocus = false
+	TextBox_1.TextWrapped = true
+	TextBox_1.TextXAlignment = Enum.TextXAlignment.Left
+	TextBox_1.FocusLost:Connect(function(enter)
+		if enter then
+			game.Players:Chat(TextBox_1.Text)
+			TextBox_1.Text = nil
+		end
+	end)
+end
+
 function new(parent)	 
 	local epicgunfunlol = Instance.new("Tool") 
 	local Handle = Instance.new("Part") 
@@ -685,8 +715,8 @@ function admin(msg, localPlr, Type): ()
 			game.Players:Chat("h \n\n\nCurrent ID: "..workspace.Terrain._Game.Folder.Sound.SoundId.."\n\n\n\n\n")
 		end
 	end
-	if split[1] == "<rj>" then
-		game:GetService("TeleportService"):Teleport(game.PlaceId, game.Players.LocalPlayer)
+	if split[1] == "<cmdbar>" then
+		cmdbar()
 	end
 	if split[1] == "<clmusic" then
 		if workspace.Terrain._Game.Folder:FindFirstChild("localSound") then
