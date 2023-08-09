@@ -1,4 +1,3 @@
---<____________________________________________FA____________________________________________>--
 game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nloaded fa by fonalc, get this script at fonalc.github.io/fa.\nsay <cmdPrint> then check console by saying /console.")
 local banned = {}
 local sl = false
@@ -7,8 +6,8 @@ local automusic = false
 local DeBy = true
 local enab = true
 local slshow = false
-
 game.Players:Chat("tshirt me 14351776283")
+
 game.Players.LocalPlayer.CharacterAdded:Connect(function()
 	game.Players:Chat("tshirt me 14351776283")
 end)
