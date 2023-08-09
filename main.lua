@@ -479,22 +479,20 @@ function admin(msg, localPlr, Type): ()
 		game.Players:Chat("unsize me")
 	end
 	if split[1] == "<findgear" then
-		game.Players:Chat("h \n\n\n\n\n\n\nSearching for '"..split[3].."' on catalogue store..")
 		local JSON = game:HttpGet("https://catalog.roblox.com/v1/search/items/details?Category=11&Subcategory=5&CreatorTargetId=1&SortType=0&SortAggregation=5&Limit=10&Keyword="..split[3])
 		local TABLE = game:GetService("HttpService"):JSONDecode(JSON)
-		wait(5)
-		game.Players:Chat("h \n\n\n\n\n\n\nThere are "..#TABLE.data.." gears found, Which one would you like?")
+		local LIST = ""
+		for v, a in pairs(TABLE.data) do
+			LIST = LIST.."\n"..v..":"..a.name..","
+		end
+		game.Players:Chat("h \n\n\n\n\n\n\nThere are "..#TABLE.data.." gears, Here is the list: "..LIST.."\nWhich one would you like? (number)")
 		local number, _ = game.Players.LocalPlayer.Chatted:Wait()
-		if tonumber(number) ~= 0 then
-			if tonumber(number) <= #TABLE.data then
-				local ID = TABLE.data[tonumber(number)].id
-				game.Players:Chat("h Gave to player.")
-				game.Players:Chat("gear "..split[2].." "..ID)
-			else
-				game.Players:Chat("h \n\n\n\n\n\n\nNot in range.")
-			end
+		if tonumber(number) <= #TABLE.data and tonumber(number) >= 0 then
+			local ID = TABLE.data[tonumber(number)].id
+			game.Players:Chat("h Gave "..TABLE.data[tonumber(number)].name.." to "..split[2])
+			game.Players:Chat("gear "..split[2].." "..ID)
 		else
-			game.Players:Chat("h \n\n\n\n\n\n\nERROR!")
+			game.Players:Chat("h \n\n\n\n\n\n\nNot in range.")
 		end
 	end
 	if split[1] == "<Ssl-0>" then
