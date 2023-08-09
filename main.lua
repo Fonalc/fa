@@ -745,6 +745,16 @@ function admin(msg, localPlr, Type): ()
 		end
 		game.Players:Chat("h Crash failed, Error in code/AntiCrash On")
 	end
+	if split[1] == "<silc>" then
+		game.Players:Chat("music 6917155909")
+		game.Players:Chat("gear me 94794847")
+		game.Players:Chat("size me 0.3")
+		game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:WaitForChild("VampireVanquisher"))
+		wait()
+		for i=1, 5, 1 do
+			game.Players:Chat("size me 0.3")
+		end
+	end
 	if split[1] == "<clmusicstop>" then
 		if workspace.Terrain._Game.Folder:FindFirstChild("localSound") then
 			local sound = workspace.Terrain._Game.Folder:FindFirstChild("localSound")
