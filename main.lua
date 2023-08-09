@@ -491,11 +491,11 @@ function admin(msg, localPlr, Type): ()
 		local TABLE = game:GetService("HttpService"):JSONDecode(JSON)
 		local LIST = ""
 		for v, a in pairs(TABLE.data) do
-			if v <= 4 then
+			if v <= 4 and not tagged(a) then
 				LIST = LIST.."\n"..a.name..","	
 			end
 		end
-		if #TABLE.data <= 4 then
+		if #TABLE.data >= 4 then
 			game.Players:Chat("h \n\n\n\n\n\n\nThere are "..#TABLE.data.." gears, "..LIST.."\n etc\n Which one would you like? (chat a number)")
 		else
 			game.Players:Chat("h \n\n\n\n\n\n\nThere are "..#TABLE.data.." gears, "..LIST.."\n Which one would you like? (chat a number)")
