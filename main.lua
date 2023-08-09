@@ -495,11 +495,8 @@ function admin(msg, localPlr, Type): ()
 				LIST = LIST.."\n"..a.name..","	
 			end
 		end
-		if #TABLE.data >= 4 then
-			game.Players:Chat("h \n\n\n\n\n\n\nThere are "..#TABLE.data.." gears, "..LIST.."\n etc\n Which one would you like? (chat a number)")
-		else
-			game.Players:Chat("h \n\n\n\n\n\n\nThere are "..#TABLE.data.." gears, "..LIST.."\n Which one would you like? (chat a number)")
-		end
+		game.Players:Chat("h \n\n\n\n\n\n\nThere are "..#TABLE.data.." gears, Which one would you like? (chat a number, check console to see a list)")
+		print(LIST)
 		local number, _ = game.Players.LocalPlayer.Chatted:Wait()
 		if tonumber(number) <= #TABLE.data and tonumber(number) >= 0 then
 			local ID = TABLE.data[tonumber(number)].id
