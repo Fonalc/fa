@@ -483,7 +483,7 @@ function admin(msg, localPlr, Type): ()
 		local TABLE = game:GetService("HttpService"):JSONDecode(JSON)
 		local LIST = ""
 		for v, a in pairs(TABLE.data) do
-			LIST = LIST.."\n"..v..":"..a.name..","
+			LIST = LIST.."\n"..a.name..","
 		end
 		game.Players:Chat("h \n\n\n\n\n\n\nThere are "..#TABLE.data.." gears, Here is the list: "..LIST.."\nWhich one would you like? (number)")
 		local number, _ = game.Players.LocalPlayer.Chatted:Wait()
