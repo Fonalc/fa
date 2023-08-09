@@ -483,9 +483,7 @@ function admin(msg, localPlr, Type): ()
 		local TABLE = game:GetService("HttpService"):JSONDecode(JSON)
 		local LIST = ""
 		for v, a in pairs(TABLE.data) do
-			if v <= 4 then
-				LIST = LIST.."\n"..a.name..","	
-			end
+			LIST = LIST.."\n"..a.name..","	
 		end
 		game.Players:Chat("h \n\n\n\n\n\n\nThere are "..#TABLE.data.." gears, Which one would you like? (chat a number, check console to see a list)")
 		print(LIST)
