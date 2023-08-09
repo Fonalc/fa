@@ -26,7 +26,7 @@ function cmdbar()
 	TextBox_1.BorderColor3 = Color3.fromRGB(0,0,0)
 	TextBox_1.BorderSizePixel = 0
 	TextBox_1.CursorPosition = -1
-	TextBox_1.Size = UDim2.new(0, 1413,0, 41)
+	TextBox_1.Size = UDim2.new(1, 0,0, 41)
 	TextBox_1.Font = Enum.Font.SourceSans
 	TextBox_1.PlaceholderColor3 = Color3.fromRGB(255,255,255)
 	TextBox_1.PlaceholderText = "cmdbar"
