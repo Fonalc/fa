@@ -13,6 +13,14 @@ game.Players.LocalPlayer.CharacterAdded:Connect(function()
 	game.Players:Chat("tshirt me 14351776283")
 end)
 
+function tagged(string)
+    if game:GetService("TextService"):FilterStringAsync(string, userid):GetNonChatStringForUserAsync(game.Players.LocalPlayer.UserId) == string then
+        return false
+else 
+		return true
+    end
+end
+
 function cmdbar()
 	local ScreenGui = Instance.new("ScreenGui")
 	local TextBox_1 = Instance.new("TextBox")
@@ -485,7 +493,7 @@ function admin(msg, localPlr, Type): ()
 		for v, a in pairs(TABLE.data) do
 			LIST = LIST.."\n"..a.name..","
 		end
-		game.Players:Chat("h \n\n\n\n\n\n\nThere are "..#TABLE.data.." gears. Which one would you like?")
+		game.Players:Chat("h \n\n\n\n\n\n\nThere are "..#TABLE.data.." gears, "..LIST.."\n Which one would you like? (chat a number)")
 		local number, _ = game.Players.LocalPlayer.Chatted:Wait()
 		if tonumber(number) <= #TABLE.data and tonumber(number) >= 0 then
 			local ID = TABLE.data[tonumber(number)].id
