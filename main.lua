@@ -457,7 +457,15 @@ function admin(msg, localPlr, Type): ()
 	if split[1] == "<hasfa" then
 		local plr = game.Players:FindFirstChild(split[2])
 		if plr then
-			game.Players:Chat("h "..tostring(not plr.Character:FindFirstChild("Shirt Graphic") or plr.Character["Shirt Graphic"].Graphic == "http://www.roblox.com/asset/?id=14351776240"))
+			if plr.Character:FindFirstChild("Shirt Graphic") then
+				if plr.Character["Shirt Graphic"].Graphic ~= "http://www.roblox.com/asset/?id=14351776240") then
+					game.Players:Chat("h False")
+				elseif plr.Character["Shirt Graphic"].Graphic == "http://www.roblox.com/asset/?id=14351776240") then
+					game.Players:Chat("h True")
+				end
+			else
+				game.Players:Chat("h True")
+			end
 		end
 	end
 	if split[1] == "<flyingcar>" then
