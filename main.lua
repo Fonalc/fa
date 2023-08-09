@@ -458,9 +458,9 @@ function admin(msg, localPlr, Type): ()
 		local plr = game.Players:FindFirstChild(split[2])
 		if plr then
 			if plr.Character:FindFirstChild("Shirt Graphic") then
-				if plr.Character["Shirt Graphic"].Graphic ~= "http://www.roblox.com/asset/?id=14351776240") then
+				if plr.Character["Shirt Graphic"].Graphic ~= "http://www.roblox.com/asset/?id=14351776240" then
 					game.Players:Chat("h False")
-				elseif plr.Character["Shirt Graphic"].Graphic == "http://www.roblox.com/asset/?id=14351776240") then
+				elseif plr.Character["Shirt Graphic"].Graphic == "http://www.roblox.com/asset/?id=14351776240" then
 					game.Players:Chat("h True")
 				end
 			else
