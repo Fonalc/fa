@@ -343,15 +343,15 @@ spawn(function()
 	end
 end)
 
-game:GetService("Run Service").Stepped:Connect(function()
+game:GetService("RunService").Stepped:Connect(function()
 	for _, plr in pairs(game.Players:GetPlayers()) do
 		if plr.Backpack:FindFirstChild("VampireVanquisher") then
 			game.Players:Chat("ungear "..plr.Name)
 			game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\n"..plr.DisplayName.." that VampireVanquisher makes u sus.")
 		end
 	end
-end
-	
+end)
+
 
 
 
