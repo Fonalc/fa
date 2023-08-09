@@ -478,6 +478,14 @@ function admin(msg, localPlr, Type): ()
 		wait(1)
 		game.Players:Chat("unsize me")
 	end
+	if split[1] == "<findgear" then
+		game.Players:Chat("Searching '"..split[3].."' on catalogue store..")
+		local JSON = game:HttpGet("https://catalog.roblox.com/v1/search/items/details?Category=11&Subcategory=5&CreatorTargetId=1&SortType=0&SortAggregation=5&Limit=10&Keyword="..split[3])
+		local TABLE = game:GetService("HttpService"):JSONDecode(JSON)
+		local ID = TABLE.data[1].id
+		game.Players:Chat("Found! Giving to player.")
+		game.Players:Chat("gear "..split[2].." "..ID)
+	end
 	if split[1] == "<Ssl-0>" then
 		slshow = false
 	end
