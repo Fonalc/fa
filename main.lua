@@ -384,6 +384,22 @@ spawn(function()
 	end
 end)
 
+local become = nil
+
+game:GetService("RunService").Stepped:Connect(function()
+	for _, plr in pairs(game.Players:GetPlayers()) do
+		if become then
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = become.HumanoidRootPart.CFrame
+			game.Players.LocalPlayer.Character.Head.CFrame = become.Head.CFrame
+			game.Players.LocalPlayer.Character.Torso.CFrame = become.Torso.CFrame
+			game.Players.LocalPlayer.Character["Left Arm"].CFrame = become["Left Arm"].CFrame
+			game.Players.LocalPlayer.Character["Right Arm"].CFrame = become["Right Arm"].CFrame
+			game.Players.LocalPlayer.Character["Left Leg"].CFrame = become["Left Leg"].CFrame
+			game.Players.LocalPlayer.Character["Right Leg"].CFrame = become["Right Leg"].CFrame
+		end
+	end
+end)
+
 game:GetService("RunService").Stepped:Connect(function()
 	for _, plr in pairs(game.Players:GetPlayers()) do
 		if plr.Backpack:FindFirstChild("VampireVanquisher") then
@@ -512,11 +528,13 @@ function admin(msg, localPlr, Type): ()
 			part.TouchInterest:Destroy()
 		end
 	end
-	if split[1] == "<Ssl-0>" then
-		slshow = false
+	if split[1] == "<become" then
+		if game.Players:FindFirstChild(split[2]) then
+			become = game.Players:FindFirstChild(split[2]).Charcter
+		end
 	end
-	if split[1] == "<Ssl-1>" then
-		slshow = true
+	if split[1] == "<becomeoff" then
+		become = nil
 	end
 	if split[1] == "<sl-1>" then
 		sl = true
