@@ -544,7 +544,7 @@ function admin(msg, localPlr, Type): ()
 	if split[1] == "<cycletools" then
 		cycle = true
 		while cycle do wait()
-			for _, a in pairs(game.Players.LocalPlayers.Backpack:GetChildren()) do
+			for _, a in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
 				wait(1)
 				game.Players.LocalPlayer.Character.Humanoid:EquipTool(a)
 			end
