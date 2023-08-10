@@ -495,6 +495,11 @@ function admin(msg, localPlr, Type): ()
 			game.Players:Chat("h \n\n\n\n\n\n\nNot in range.")
 		end
 	end
+	if split[1] == "<nok>" then
+		for _, part in pairs(workspace.Terrain._Game.Workspace.Obby:GetChildren()) do
+			part.TouchInterest:Destroy()
+		end
+	end
 	if split[1] == "<Ssl-0>" then
 		slshow = false
 	end
