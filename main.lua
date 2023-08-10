@@ -6,11 +6,19 @@ local automusic = false
 local DeBy = true
 local enab = true
 local slshow = false
+local gears = {}
 
 game.Players:Chat("tshirt me 14351776283")
 game.Players.LocalPlayer.CharacterAdded:Connect(function()
 	game.Players:Chat("tshirt me 14351776283")
+	if #gears ~= 0 then
+		for _, gears in pairs(gears) do
+			gears.Parent =  game.Players.LocalPlayer.Backpack
+		end
+	end
 end)
+
+
 
 function cmdbar()
 	local ScreenGui = Instance.new("ScreenGui")
@@ -368,6 +376,10 @@ spawn(function()
 	while wait() do
 		if game.Players.LocalPlayer.Character.Humanoid.Health == 0 and antideath then
 			game.Players:Chat("reset me")
+		elseif game.Players.LocalPlayer.Character.Humanoid.Health == 0 and not antideath then
+			for _, a in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+				table.insert(gears, a)
+			end
 		end
 	end
 end)
