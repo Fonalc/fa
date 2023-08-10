@@ -20,7 +20,6 @@ game.Players.LocalPlayer.CharacterAdded:Connect(function()
 end)
 
 
-
 function cmdbar()
 	local ScreenGui = Instance.new("ScreenGui")
 	local TextBox_1 = Instance.new("TextBox")
@@ -545,7 +544,7 @@ function admin(msg, localPlr, Type): ()
 	if split[1] == "<cycletools" then
 		cycle = true
 		while cycle do wait()
-			for _, a in pairs(game.Players.Backpack:GetChildren()) do
+			for _, a in pairs(game.Players.LocalPlayers.Backpack:GetChildren()) do
 				wait(1)
 				game.Players.LocalPlayer.Character.Humanoid:EquipTool(a)
 			end
