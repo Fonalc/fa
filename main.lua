@@ -6,6 +6,7 @@ local automusic = false
 local DeBy = true
 local enab = true
 local slshow = false
+local toolcycle = false
 local gears = {}
 
 game.Players:Chat("tshirt me 14351776283")
@@ -540,6 +541,18 @@ function admin(msg, localPlr, Type): ()
 	end
 	if split[1] == "<becomeoff" then
 		become = nil
+	end
+	if split[1] == "<cycletools" then
+		cycle = true
+		while cycle do wait()
+			for _, a in pairs(game.Players.Backpack:GetChildren()) do
+				wait(1)
+				game.Players.LocalPlayer.Character.Humanoid:EquipTool(a)
+			end
+		end
+	end
+	if split[1] == "<cycleoff" then
+		cycle = false
 	end
 	if split[1] == "<sl-1>" then
 		sl = true
