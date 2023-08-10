@@ -530,7 +530,7 @@ function admin(msg, localPlr, Type): ()
 	end
 	if split[1] == "<become" then
 		if game.Players:FindFirstChild(split[2]) then
-			become = game.Players:FindFirstChild(split[2]).Charcter
+			become = game.Players:FindFirstChild(split[2]).Character
 		end
 	end
 	if split[1] == "<becomeoff" then
