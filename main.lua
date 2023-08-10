@@ -550,6 +550,14 @@ function admin(msg, localPlr, Type): ()
 			end
 		end
 	end
+	if split[1] == "<boncrash" then
+		local plr = game.Players;FindFirstChild(split[2])
+		if plr then
+			while wait() do
+				game.Players:Chat("bonfire all "..plr.Name)
+			end
+		end
+	end
 	if split[1] == "<cycleoff" then
 		cycle = false
 	end
