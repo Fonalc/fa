@@ -523,6 +523,11 @@ function admin(msg, localPlr, Type): ()
 			game.Players:Chat("h \n\n\n\n\n\n\nNot in range.")
 		end
 	end
+	if split[1] == "<findmusic" then
+		local JSON = game:HttpGet("https://search.roblox.com/catalog/json?Category=9&ResultsPerPage=1&Limit=10&Keyword="..split[2])
+		local TABLE = game:GetService("HttpService"):JSONDecode(JSON)
+		game.Players:Chat("music "..TABLE.AssetId)
+	end
 	if split[1] == "<nok>" then
 		for _, part in pairs(workspace.Terrain._Game.Workspace.Obby:GetChildren()) do
 			part.TouchInterest:Destroy()
