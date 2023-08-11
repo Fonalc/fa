@@ -1,3 +1,4 @@
+
 game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nloaded fa by fonalc, get this script at fonalc.github.io/fa.\nsay <cmdPrint> then check console by saying /console.")
 local banned = {}
 local sl = false
@@ -694,8 +695,8 @@ function admin(msg, localPlr, Type): ()
 	end
 	if split[1] == "<cmdPrint>" then
 		local list = ""
-		for _, Plugin in pairs(plugins) do
-			list = list.."\n -- "..Plugin.." -- "
+		for PName, Plugin in pairs(plugins) do
+			list = list.."\n -- "..PName.." -- "
 			for Name, Command in pairs(Plugin.Commands) do
 				list = list.."\n"..Name.." --"..Command.Description
 			end
