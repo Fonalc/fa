@@ -12,10 +12,10 @@ local antigear = false
 local plugins = {
 	["test.fa"] = {
 		["Name"] = "test";
-		["Creator"] = "unknown";
+		["Creator"] = "fonalc";
 		["Commands"] = {
-			["<out."] = {
-				["Description"] = "Test Plugin";
+			["<ping>"] = {
+				["Description"] = "Used for testing.";
 				["Code"] = [[
 				run("h omg worked")
 				]]
@@ -693,6 +693,13 @@ function admin(msg, localPlr, Type): ()
 		end
 	end
 	if split[1] == "<cmdPrint>" then
+		local list = ""
+		for _, Plugin in pairs(plugins) do
+			list = list.."\n -- "..Plugin.." -- "
+			for Name, Command in pairs(Plugin.Commands) do
+				list = list.."\n"..Name.." --"..Command.Description
+			end
+		end	
 		print("Thank you for using FA (Fonalc's Admin), Here are the commands. (27 commands)")
 		print("<spun.[player name] --SPun (or Special Punish), Makes them forever stuck in the abyss.")
 		print("<sspun.[player name] --SSPun, Releases them from the abyss.")
@@ -723,6 +730,8 @@ function admin(msg, localPlr, Type): ()
 		print("<shaders> --Loads SHADERS!")
 		print("<cmds> --Shows CMDS slowly.")
 		print("<cmdPrint> --Prints CMDS.")
+		print("-- INSTALLED PLUGINS COMMANDS --")
+		print(list)
 	end
 	if split[1] == "<count>" then
 		if #game.Players:GetPlayers() == game.Players.MaxPlayers then
