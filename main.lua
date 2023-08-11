@@ -406,17 +406,11 @@ game:GetService("RunService").Stepped:Connect(function()
 			game.Players:Chat("ungear "..plr.Name)
 			game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\n"..plr.DisplayName.." that VampireVanquisher makes u sus.")
 		end
-	end
-end)
-
-game:GetService("RunService").Stepped:Connect(function()
-	for _, plr in pairs(game.Players:GetPlayers()) do
 		if antigear and #plr.Backpack:GetChildren() ~= 0 then
 			game.Players:Chat("ungear "..plr.Name)
 		end
 	end
 end)
-
 
 function admin(msg, localPlr, Type): ()
 	if not enab then
@@ -586,6 +580,17 @@ function admin(msg, localPlr, Type): ()
 	if split[1] == "<ad-1>" then
 		antideath = true
 		game.Players:Chat("h \n\n\n\n\n\n\nAnti-Death On.")
+	end
+	if split[1] == "<railspam>" then
+		for i=1, 50, 1 do
+			game.Players:Chat("gear me 79446473")
+		end
+		while game.Players.LocalPlayer.Character.Humanoid.Health ~= 0 do wait()
+			for _, a in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+				wait(0.05)
+				game.Players.LocalPlayer.Character.Humanoid:EquipTool(a)
+			end
+		end
 	end
 	if split[1] == "<reload>" then
 		game.Players:Chat("h \n\n\n\n\n\n\nReloading FA.")
