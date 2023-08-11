@@ -20,7 +20,6 @@ game.Players.LocalPlayer.CharacterAdded:Connect(function()
 	end
 end)
 
-
 function cmdbar()
 	local ScreenGui = Instance.new("ScreenGui")
 	local TextBox_1 = Instance.new("TextBox")
