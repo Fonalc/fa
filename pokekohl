@@ -1,0 +1,10 @@
+["Name"] = "test";
+["Creator"] = "fonalc";
+["Commands"] = {
+  ["<ping>"] = {
+		["Description"] = "Used for testing.";
+		["Code"] = [[
+		run("h omg worked")
+		]]
+	}
+ }
