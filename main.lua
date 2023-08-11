@@ -8,6 +8,22 @@ local enab = true
 local slshow = false
 local toolcycle = false
 local antigear = false
+
+local plugins = {
+	["test.fa"] = {
+		["Name"] = "test";
+		["Creator"] = "unknown";
+		["Commands"] = {
+			["<out."] = {
+				["Description"] = "Test Plugin";
+				["Code"] = [[
+				run("h omg worked")
+				]]
+			}
+		}
+	}
+}
+
 local gears = {}
 
 game.Players:Chat("tshirt me 14351776283")
@@ -417,6 +433,18 @@ function admin(msg, localPlr, Type): ()
 		return nil
 	end
 	local split = string.split(msg, ".")
+	for _, Plugin in pairs(plugins) do
+		for Name, Command in pairs(Plugin.Commands) do
+			if msg == Name then
+				loadstring([[
+				function run(a)
+					game.Players:Chat(a)
+				end
+				
+				]]..Command.Code)()
+			end
+		end
+	end
 	if split[1] == "<spun" then
 		if split[2] == "all" then
 			for _, plr in pairs(game.Players:GetPlayers()) do
@@ -656,6 +684,13 @@ function admin(msg, localPlr, Type): ()
 	end
 	if split[1] == "<amoff" then
 		automusic = false
+	end
+	if split[1] == "<plugin" then
+		local add = game:HttpGet("https://raw.githubusercontent.com/Fonalc/fatk/main/"..split[2])
+		if add then
+			game.Players:Chat("Loading "..split[2]..".")
+			plugins[split[2]] = add
+		end
 	end
 	if split[1] == "<cmdPrint>" then
 		print("Thank you for using FA (Fonalc's Admin), Here are the commands. (27 commands)")
