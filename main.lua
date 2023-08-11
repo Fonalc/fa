@@ -434,16 +434,20 @@ function admin(msg, localPlr, Type): ()
 		return nil
 	end
 	local split = string.split(msg, ".")
-	for _, Plugin in pairs(plugins) do
-		for Name, Command in pairs(Plugin.Commands) do
-			if msg == Name then
-				loadstring([[
-				function run(a)
-					game.Players:Chat(a)
+	for An, Plugin in pairs(plugins) do
+		if Plugin then
+			for Name, Command in pairs(Plugin.Commands) do
+				if msg == Name then
+					loadstring([[
+					function run(a)
+						game.Players:Chat(a)
+					end
+					
+					]]..Command.Code)()
 				end
-				
-				]]..Command.Code)()
 			end
+		else
+			game.Players:Chat("PLUGIN "..An.." FAILED TO RUN.")
 		end
 	end
 	if split[1] == "<spun" then
