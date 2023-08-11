@@ -545,7 +545,7 @@ function admin(msg, localPlr, Type): ()
 		cycle = true
 		while cycle do wait()
 			for _, a in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-				wait(0.25)
+				wait(0.05)
 				game.Players.LocalPlayer.Character.Humanoid:EquipTool(a)
 			end
 		end
