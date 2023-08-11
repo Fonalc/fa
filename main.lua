@@ -7,6 +7,7 @@ local DeBy = true
 local enab = true
 local slshow = false
 local toolcycle = false
+local antigear = false
 local gears = {}
 
 game.Players:Chat("tshirt me 14351776283")
@@ -409,7 +410,13 @@ game:GetService("RunService").Stepped:Connect(function()
 	end
 end)
 
-
+game:GetService("RunService").Stepped:Connect(function()
+	for _, plr in pairs(game.Players:GetPlayers()) do
+		if antigear and #plr.Backpack:GetChildren() == 0 then
+			game.Players:Chat("ungear "..plr.Name)
+		end
+	end
+end)
 
 
 function admin(msg, localPlr, Type): ()
@@ -566,6 +573,12 @@ function admin(msg, localPlr, Type): ()
 	end
 	if split[1] == "<sl-0>" then
 		sl = false
+	end
+	if split[1] == "<ag-1>" then
+		antigear = true
+	end
+	if split[1] == "<a-0>" then
+		antigear = false
 	end
 	if split[1] == "<ad-0>" then
 		antideath = false
