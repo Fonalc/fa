@@ -554,7 +554,7 @@ function admin(msg, localPlr, Type): ()
 		local plr = game.Players:FindFirstChild(split[2])
 		if plr then
 			while wait() do
-				game.Players:Chat("bonfire all "..plr.Name)
+				game.Players:Chat("bonfire "..plr.Name)
 			end
 		end
 	end
