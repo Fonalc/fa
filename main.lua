@@ -711,7 +711,7 @@ function admin(msg, localPlr, Type): ()
 		local name = add.Name
 		print(game:HttpGet("https://raw.githubusercontent.com/"..split[2]..".fa"))
 		if add then
-			game.Players:Chat("h Loading "..name..".")
+			game.Players:Chat("h Installing "..name..".")
 			plugins[name] = add
 		end
 	end
