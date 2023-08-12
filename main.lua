@@ -710,8 +710,13 @@ function admin(msg, localPlr, Type): ()
 		local add = game:GetService("HttpService"):JSONDecode(game:HttpGet("https://raw.githubusercontent.com/"..split[2]..".fa"))[1]
 		local name = add.Name
 		if add then
-			game.Players:Chat("h Installed "..name.."! Check cmdPrint to check the commands!")
-			plugins[name] = add
+			if plugins[name] then
+				game.Players:Chat("h Installed "..name..", Check cmdPrint to check the commands!")
+				plugins[name] = add
+			else
+				game.Players:Chat("h Updated "..name..".")
+				plugins[name] = add
+			end
 		end
 	end
 	if split[1] == "<cmdPrint>" then
