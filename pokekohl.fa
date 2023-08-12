@@ -1,1 +1,1 @@
-[{"Commands":{"pk.ping":{"Description":"Pokekohl's Test Command.","Code":"\t\t\t\t\trun(\"h PONG!\")\n\t\t\t\t"}},"Name":"pokekohl","Creator":"fonalc"}]
+[{"Commands":{"pk.ping":{"Description":"Pokekohl's Test Command.","Code":"\t\t\t\t\trun(\"h PONG!\")\n\t\t\t\t"},"pk.pong":{"Description":"Pokekohl's 2nd Test Command.","Code":"\t\t\t\t\trun(\"h PING!\")\n\t\t\t\t"}},"Name":"pokekohl","Creator":"fonalc"}]
