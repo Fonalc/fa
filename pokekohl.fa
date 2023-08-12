@@ -1,10 +1,1 @@
-[
-       "Name":"pokekohl",
-       "Creator":"fonalc",
-       "Commands":{
-              "pk.ping":{
-                     "Description":"Pokekohl's Test Command.",
-                     "Code":"\t\t\t\t\trun(\"h PONG!\")\n\t\t\t\t"
-               }
-       }
-]
+[{"Commands":{"pk.ping":{"Description":"Pokekohl's Test Command.","Code":"\t\t\t\t\trun(\"h PONG!\")\n\t\t\t\t"}},"Name":"pokekohl","Creator":"fonalc"}]
