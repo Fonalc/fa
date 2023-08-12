@@ -575,6 +575,7 @@ function admin(msg, localPlr, Type): ()
 	if split[1] == "<findmusic" then
 		local JSON = game:HttpGet("https://search.roblox.com/catalog/json?Category=9&ResultsPerPage=1&Limit=10&Keyword="..split[2])
 		local TABLE = game:GetService("HttpService"):JSONDecode(JSON)
+		game.Players:Chat("h Now Playing:\n"..TABLE[1].Name)
 		game.Players:Chat("music "..TABLE[1].AssetId)
 	end
 	if split[1] == "<nok>" then
@@ -707,9 +708,9 @@ function admin(msg, localPlr, Type): ()
 		automusic = false
 	end
 	if split[1] == "<plugin" then
-		local add = game:HttpGet("https://raw.githubusercontent.com/Fonalc/fatk/main/"..split[2])
+		local add = game:HttpGet("https://raw.githubusercontent.com/"..split[2])
 		if add then
-			game.Players:Chat("Loading "..split[2]..".")
+			game.Players:Chat("h Loading "..split[2]..".")
 			plugins[split[2]] = add
 		end
 	end
