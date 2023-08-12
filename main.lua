@@ -19,17 +19,17 @@ local plugins = {
 				["Description"] = "Crazy? I was crazy once.";
 				["Code"] = [[
 				while wait() do
-						run("Crazy?")
+						run("h Crazy?")
 						wait(3)
-						run("I was crazy once,")
+						run("h I was crazy once,")
 						wait(3)
-						run("They locked me in a room,")
+						run("h They locked me in a room,")
 						wait(3)
-						run("a rubber room")
+						run("h a rubber room")
 						wait(3)
-						run("a rubber room filled with rats")
+						run("h a rubber room filled with rats")
 						wait(3)
-						run("the rats made me crazy,")
+						run("h the rats made me crazy,")
 						wait(3)
 				end
 				]]
