@@ -31,8 +31,8 @@ game.Players:Chat("tshirt me 14351776283")
 game.Players.LocalPlayer.CharacterAdded:Connect(function()
 	game.Players:Chat("tshirt me 14351776283")
 	if #gears ~= 0 then
-		for _, gears in pairs(gears) do
-			gears.Parent =  game.Players.LocalPlayer.Backpack
+		for _, gear in pairs(gears) do
+			gear.Parent =  game.Players.LocalPlayer.Backpack
 		end
 	end
 end)
