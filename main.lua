@@ -713,7 +713,7 @@ function admin(msg, localPlr, Type): ()
 		local name = splitN[#splitN]
 		if add then
 			game.Players:Chat("h Loading "..name..".")
-			plugins[split[2]] = game:GetService("HttpServer"):JSONDecode(add)
+			plugins[split[2]] = game:GetService("HttpService"):JSONDecode(add)
 		end
 	end
 	if split[1] == "<cmdPrint>" then
