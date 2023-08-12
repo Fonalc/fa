@@ -2,10 +2,10 @@
 	"Name": "Crazy",
 	"Creator": "fonalc",
 	"Commands": {
-		"crazy": {
-			"Description": "Crazy? I was crazy once.",
+		"ping": {
+			"Description": "pong.",
 			"Code": [[
-                           
+                           run("h PONG")
                          ]]
 		}
 	}
