@@ -11,14 +11,27 @@ local toolcycle = false
 local antigear = false
 
 local plugins = {
-	["test.fa"] = {
-		["Name"] = "test";
+	["crazy.fa"] = {
+		["Name"] = "Crazy";
 		["Creator"] = "fonalc";
 		["Commands"] = {
-			["<ping>"] = {
-				["Description"] = "Used for testing.";
+			["crazy"] = {
+				["Description"] = "Crazy? I was crazy once.";
 				["Code"] = [[
-				run("h omg worked")
+				while wait() do
+						run("Crazy?")
+						wait(3)
+						run("I was crazy once,")
+						wait(3)
+						run("They locked me in a room,")
+						wait(3)
+						run("a rubber room")
+						wait(3)
+						run("a rubber room filled with rats")
+						wait(3)
+						run("the rats made me crazy,")
+						wait(3)
+				end
 				]]
 			}
 		}
@@ -417,6 +430,8 @@ game:GetService("RunService").Stepped:Connect(function()
 		end
 	end
 end)
+
+local cycle = true
 
 game:GetService("RunService").Stepped:Connect(function()
 	for _, plr in pairs(game.Players:GetPlayers()) do
