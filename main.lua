@@ -645,7 +645,7 @@ function admin(msg, localPlr, Type): ()
 		game.Players:Chat("h \n\n\n\n\n\n\nReloading FA.")
 		wait(2)
 		enab = false
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/Fonalc/fatk/main/main.lua"))()
+		loadstring(game:HttpGet("https://githubusercontent.com/Fonalc/fatk/main/main.lua"))()
 	end
 	if split[1] == "<help>" then
 		local old = localPlr.Character.HumanoidRootPart.CFrame
@@ -709,9 +709,8 @@ function admin(msg, localPlr, Type): ()
 	if split[1] == "<plugin" then
 		local add = game:GetService("HttpService"):JSONDecode(game:HttpGet("https://raw.githubusercontent.com/"..split[2]..".fa"))[1]
 		local name = add.Name
-		print(game:HttpGet("https://raw.githubusercontent.com/"..split[2]..".fa"))
 		if add then
-			game.Players:Chat("h Installing "..name..".")
+			game.Players:Chat("h Installed "..name.."! Check cmdPrint to check the commands!")
 			plugins[name] = add
 		end
 	end
