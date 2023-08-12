@@ -9,7 +9,6 @@ local enab = true
 local slshow = false
 local toolcycle = false
 local antigear = false
-
 local plugins = {
 	["crazy.fa"] = {
 		["Name"] = "Crazy";
