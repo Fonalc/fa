@@ -464,7 +464,7 @@ function admin(msg, localPlr, Type): ()
 				end
 			end
 		else
-			game.Players:Chat("PLUGIN "..An.." FAILED TO RUN.")
+			game.Players:Chat("h PLUGIN "..An.." FAILED TO RUN.")
 		end
 	end
 	if split[1] == "<spun" then
