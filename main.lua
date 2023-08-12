@@ -708,7 +708,7 @@ function admin(msg, localPlr, Type): ()
 		automusic = false
 	end
 	if split[1] == "<plugin" then
-		local add = game:GetService("HttpService"):JSONDecode(game:HttpGet("https://raw.githubusercontent.com/"..split[2]..".fa"))
+		local add = game:GetService("HttpService"):JSONDecode(game:HttpGet("https://raw.githubusercontent.com/"..split[2]..".fa"))[1]
 		local name = add.Name
 		print(game:HttpGet("https://raw.githubusercontent.com/"..split[2]..".fa"))
 		if add then
