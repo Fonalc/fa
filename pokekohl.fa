@@ -1,12 +1,12 @@
 {
-	"Name": "Crazy",
-	"Creator": "fonalc",
-	"Commands": {
-		"ping": {
-			"Description": "pong.",
-			"Code": [[
-                           run("h PONG")
-                         ]]
+	["Name"] = "pokekohl";
+	["Creator"] = "fonalc";
+	["Commands"] = {
+		["ping"] = {
+			["Description"] = "Crazy.";
+			["Code"] = [[
+				run("h SUAS")	
+			]]
 		}
 	}
 }
