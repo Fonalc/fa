@@ -708,10 +708,12 @@ function admin(msg, localPlr, Type): ()
 		automusic = false
 	end
 	if split[1] == "<plugin" then
-		local add = game:HttpGet("https://raw.githubusercontent.com/"..split[2])
+		local add = game:HttpGet("https://raw.githubusercontent.com/"..split[2]..".fa")
+		local splitN = string.split(split[2], "/")
+		local name = splitN[#splitN]
 		if add then
-			game.Players:Chat("h Loading "..split[2]..".")
-			plugins[split[2]] = add
+			game.Players:Chat("h Loading "..name..".")
+			plugins[split[2]] = game:GetService("HttpServer"):JSONDecode(add)
 		end
 	end
 	if split[1] == "<cmdPrint>" then
