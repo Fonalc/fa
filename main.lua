@@ -16,7 +16,7 @@ local plugins = {
 		["Name"] = "Crazy";
 		["Creator"] = "fonalc";
 		["Commands"] = {
-			["crazy"] = {
+			["crazy.run"] = {
 				["Description"] = "Crazy? I was crazy once.";
 				["Code"] = [[
 				while wait() do
@@ -710,8 +710,8 @@ function admin(msg, localPlr, Type): ()
 	end
 	if split[1] == "<plugin" then
 		local add = game:GetService("HttpService"):JSONDecode(game:HttpGet("https://raw.githubusercontent.com/"..split[2]..".fa"))[1]
-		local name = add.Name
 		if add then
+			local name = add.Name
 			if not plugins[name] then
 				game.Players:Chat("h Installed "..name..", Check cmdPrint to check the commands!")
 				plugins[name] = add
@@ -719,6 +719,8 @@ function admin(msg, localPlr, Type): ()
 				game.Players:Chat("h Updated "..name..".")
 				plugins[name] = add
 			end
+		else
+			game.Players:Chat("h Failed to install,\n Go to 'fonalc.github.io/fa.help/plugins' to see what it should look like.")
 		end
 	end
 	if split[1] == "<cmdPrint>" then
