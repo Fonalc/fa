@@ -450,13 +450,25 @@ game:GetService("RunService").Stepped:Connect(function()
 	end
 end)
 
+local fakeLeft = false
+
 function admin(msg, localPlr, Type): ()
+	if msg == "<fakejoin" then
+		game.Players:Chat("h \n\n\n\n\n\n\n"..localPlr.Name.." joined.")
+		game.Players:Chat("visible "..localPlr.Name)
+		fakeLeft=false
+	end
 	if not enab then
 		return nil
 	end
+	if msg == "<fakeleave" then
+		game.Players:Chat("h \n\n\n\n\n\n\n"..localPlr.Name.." left.")
+		game.Players:Chat("invisible "..localPlr.Name)
+		fakeLeft=true
+	end
 	local split = string.split(msg, ".")
 	for An, Plugin in pairs(plugins) do
-		if Plugin then
+		if An and Plugin then
 			for Name, Command in pairs(Plugin.Commands) do
 				if msg == Name then
 					loadstring([[
@@ -972,7 +984,9 @@ game.Players.PlayerAdded:Connect(function(plr)
 			game.Players:Chat("unpunish "..plr.Name)
 			table.insert(banned, plr.Name)
 		elseif not sl then
-			game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." joined.")	
+			if not fakeLeft then
+				game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." joined.")	
+			end
 		end
 	end)
 end)
@@ -982,5 +996,7 @@ game.Players.PlayerRemoving:Connect(function(plr)
 			table.remove(banned, table.find(banned, plr.Name))
 		end
 	end
-	game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." left.")	
+	if not fakeLeft then
+		game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." left.")	
+	end
 end)
