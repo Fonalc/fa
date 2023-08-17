@@ -970,6 +970,10 @@ function admin(msg, localPlr, Type): ()
 					end,
 				};
 		}
+		function run(a)
+			game.Players:Chat(a)
+		end
+		
 		
 	]]..table.concat(split, "."))()
 	end
