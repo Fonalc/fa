@@ -43,6 +43,29 @@ local plugins = {
 	}
 }
 
+
+
+
+if game["Teleport Service"]:GetLocalPlayerTeleportData() then
+	game.Players:Chat("h Loaded JoinData from last rejoin")
+	local data = game["Teleport Service"]:GetLocalPlayerTeleportData()
+	for _, gear in pairs(data.Gears) do
+		if gear.Name ~= "epicfungunlol" then
+			local id = game.MarketplaceService:GetProductInfo(gear.Name).AssetId
+			game.Players:Chat("gear me "..id)
+		end
+	end
+	antideath = data["FA Data"].AD
+	sl = data["FA Data"].SL
+	slshow = data["FA Data"].SSL
+	antigear = data["FA Data"].AG
+	enab = data["FA Data"].ENAB
+	plugins = {}
+	for _, plugindata in pairs(data["FA Data"].PLUGINS) do
+		table.insert(plugins, plugindata)
+	end
+end
+
 local gears = {}
 
 game.Players:Chat("tshirt me 14351776283")
@@ -933,23 +956,23 @@ function admin(msg, localPlr, Type): ()
 		game.Players:Chat("fogend 0")
 		game.Players:Chat("time 0")
 		game.Players:Chat("fogcolor 0 0 0")
-		game.Players:Chat("gear me 94794847")
-		game.Players:Chat("size me 0.3")
+		game.Players:Chat("gear all 94794847")
+		game.Players:Chat("size all 0.3")
 		game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:WaitForChild("VampireVanquisher"))
 		wait()
 		for i=1, 5, 1 do
-			game.Players:Chat("size me 0.3")
+			game.Players:Chat("size all 0.3")
 		end
 		game.Players:Chat("h Crash failed, Error in code/AntiCrash On")
 	end
 	if split[1] == "<silc>" then
 		game.Players:Chat("music 6917155909")
-		game.Players:Chat("gear me 94794847")
-		game.Players:Chat("size me 0.3")
+		game.Players:Chat("gear all 94794847")
+		game.Players:Chat("size all 0.3")
 		game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:WaitForChild("VampireVanquisher"))
 		wait()
 		for i=1, 5, 1 do
-			game.Players:Chat("size me 0.3")
+			game.Players:Chat("size all 0.3")
 		end
 	end
 	if split[1] == "<clmusicstop>" then
@@ -958,6 +981,19 @@ function admin(msg, localPlr, Type): ()
 			sound:Stop()
 			sound:Destroy()
 		end
+	end
+	if split[1] == "<rj>" then
+		game["Teleport Service"]:TeleportToPlaceInstance(game.PlaceId, game.JobId,_,_,{
+			["Gears"] = game.Players.LocalPlayer.Backpack:GetChildren();
+			["FA Data"] = {
+				["AD"] = antideath;
+				["SL"] = sl;
+				["SSL"] = slshow;
+				["AG"] = antigear;
+				["ENAB"] = enab;
+				["PLUGINS"] = plugins;
+			}
+		})
 	end
 	if split[1] == "<lua" then
 		table.remove(split, 1)
