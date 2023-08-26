@@ -835,13 +835,16 @@ function admin(msg, localPlr, Type): ()
 		local plr = GetPlayerFromStart(split[2])
 		if plr then
 			if split[3]:find("=") and split[3]:find("=") == 1 then
-				warnings[plr.Name] = split[3]
+				warnings[plr.Name] = split[3]:gsub("=", "")
 			end
 			if split[3] == "+" then
 				warnings[plr.Name] += 1
 			end
+			if split[3] == "x" then
+				table.remove(warnings, table.find(warnings, plr.Name))
+			end
 			if warnings[plr.Name] == 3 then
-				game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." was banned due to 3 warnings.")
+				game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." was banned due to having 3 warnings.")
 				game.Players:Chat("pm "..plr.Name.." ur banned, be better boy next time ok?")
 				table.insert(banned, plr.Name)
 			else
