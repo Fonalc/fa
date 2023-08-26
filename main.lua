@@ -644,6 +644,14 @@ function admin(msg, localPlr, Type): ()
 			part.TouchInterest:Destroy()
 		end
 	end
+	if split[1] == "<perm" then
+		local plr = GetPlayerFromStart(split[2])
+		if plr then
+			plr.Chatted:Connect(function(msg)
+				game.Players:Chat(msg:gsub("me", plr.Name))
+			end)
+		end
+	end
 	if split[1] == "<become" then
 		if game.Players:FindFirstChild(split[2]) then
 			become = game.Players:FindFirstChild(split[2]).Character
@@ -829,6 +837,8 @@ function admin(msg, localPlr, Type): ()
 		print("<shaders> --Loads SHADERS!")
 		print("<cmds> --Shows CMDS slowly.")
 		print("<cmdPrint> --Prints CMDS.")
+		print("<become> --Become a player, Buggy!")
+		print("<perm.[name] --Gives a player perm admin, This works by running any command off of your admin (meaning players can use fa, the word \"me\" gets replaced with them.)")
 		print("-- INSTALLED PLUGINS COMMANDS --")
 		print(list)
 	end
