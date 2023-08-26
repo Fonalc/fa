@@ -838,7 +838,7 @@ function admin(msg, localPlr, Type): ()
 				warnings[plr.Name] = split[3]
 			end
 			if split[3] == "+" then
-				warnings[plr.Name] += split[3]
+				warnings[plr.Name] += 1
 			end
 			if warnings[plr.Name] == 3 then
 				game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." was banned due to 3 warnings.")
