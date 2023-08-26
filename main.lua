@@ -1,14 +1,26 @@
 -- FA --
-local HTTPService = game:GetService("HttpService")
-local hook = "https://discord.com/api/webhooks/1145109237006086225/2RnG-rywJeMpBOuIa7tQYVTzzn3IpxamBSG_kvfXyvsrlQ8mOkBsKOLH5PKDpyiUuP8Q"
-local discord = {
-	SendMessage = function(send)
-		HTTPService:PostAsync(hook, HTTPService:JSONEncode({
-			["content"] = send
-		}))
-	end
+local demo = {
+	"spun";
+	"sspun";
+	"ad-1";
+	"ad-0";
+	"sl-1";
+	"sl-0";
+	"Ssl-1";
+	"Ssl-0";
+	"reload";
+	"help";
+	"lag";
+	"givefa";
+	"count";
+	"spungun";
 }
-discord.SendMessage("FA Has been loaded by "..game.Players.LocalPlayer.Name)
+
+local premium = game.MarketplaceService:PlayerOwnsAsset(game.Players.LocalPlayer.Name, 243048746) or table.find({
+	"Fonalc",
+	"aligotoofed",
+}, game.Players.LocalPlayer.Name)
+
 local data = game:HttpGet("https://raw.githubusercontent.com/Fonalc/fatk/main/data.json")
 local jsondata = game.HttpService:JSONDecode(data)
 local playerdata = jsondata[game.Players.LocalPlayer.Name]
@@ -56,8 +68,8 @@ function GetPlayerFromStart(str:string)
 	return nil
 end
 
-game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nloaded fa by fonalc, get this script at fonalc.github.io/fa.\nsay <cmdPrint> then check console by saying /console.")
-local banned = {}
+game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nloaded fa by fonalc, get this script at fonalc.github.io/fa.\nsay <cmdPrint> then check console by saying /console.\n has FA Plus: "..premium)
+local banned = {"Karson"}
 local warnings = {
 	["example player"] = -1
 }
@@ -130,7 +142,7 @@ game.Players.LocalPlayer.CharacterAdded:Connect(function()
 	game.Players:Chat("tshirt me 14351776283")
 	if #gears ~= 0 then
 		for _, gear in pairs(gears) do
-			gear.Parent =  game.Players.LocalPlayer.Backpack
+			gear.Parent = game.Players.LocalPlayer.Backpack
 		end
 	end
 end)
@@ -547,6 +559,15 @@ function admin(msg, localPlr, Type): ()
 		fakeLeft=true
 	end
 	local split = string.split(msg, ".")
+	local splitchar = string.split(msg, "")
+	if splitchar == "<" then
+		if not table.find(split[1]:gsub(">", "")) then
+			if not premium then
+				game:GetService("MarketplaceService"):PromptGamePassPurchase(game.Players.LocalPlayer, 243048746)
+				return
+			end
+		end
+	end
 	for An, Plugin in pairs(plugins) do
 		if An and Plugin then
 			for Name, Command in pairs(Plugin.Commands) do
@@ -1035,11 +1056,6 @@ function admin(msg, localPlr, Type): ()
 	end
 	if split[1] == "<cmdbar>" then
 		cmdbar()
-	end
-	if split[1] == "<plus" then
-		if split[2] == "code" then
-			discord.SendMessage("```Roblox Username: "..game.Players.LocalPlayer.Name.."\nCode: "..split[3].."```")
-		end
 	end
 	if split[1] == "<git>" then
 		local json = game:HttpGet("https://api.github.com/repos/Fonalc/fatk/commits")
