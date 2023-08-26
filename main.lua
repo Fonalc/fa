@@ -4,7 +4,7 @@ local jsondata = game.HttpService:JSONDecode(data)
 local playerdata = jsondata[game.Players.LocalPlayer.Name]
 
 if playerdata then
-	game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n"..string.gsub(string.gsub(playerdata.startup, "name", game.Players.LocalPlayer.Name), "rank", playerdata.rank))
+	game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"..string.gsub(string.gsub(playerdata.startup, "name", game.Players.LocalPlayer.Name), "rank", playerdata.rank))
 end
 
 if game.PlaceId ~= 112420803 then 
