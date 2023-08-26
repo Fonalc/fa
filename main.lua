@@ -1,5 +1,4 @@
 -- FA --
-
 local HTTPService = game:GetService("HttpService")
 local hook = "https://discord.com/api/webhooks/1145109237006086225/2RnG-rywJeMpBOuIa7tQYVTzzn3IpxamBSG_kvfXyvsrlQ8mOkBsKOLH5PKDpyiUuP8Q"
 local discord = {
