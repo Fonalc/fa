@@ -15,9 +15,7 @@ end
 
 game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nloaded fa by fonalc, get this script at fonalc.github.io/fa.\nsay <cmdPrint> then check console by saying /console.")
 local banned = {}
-local warnings = {
-	["example player"] = -1
-}
+local warnings = {}
 local sl = false
 local antideath = false
 local automusic = false
