@@ -1,3 +1,11 @@
+local data = game:HttpGet("https://raw.githubusercontent.com/Fonalc/fatk/main/data.json")
+local jsondata = game.HttpService:JSONDecode(data)
+local playerdata = jsondata[game.Players.LocalPlayer.Name]
+
+if playerdata then
+	game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n"..string.gsub((string.gsub(playerdata.startup, "name", game.Players.LocalPlayer.Name), "rank", playerdata.rank)))
+end
+
 if game.PlaceId ~= 112420803 then 
 	if game.PlaceId ~= 115670532 then
 		return 
@@ -13,7 +21,7 @@ function GetPlayerFromStart(str:string)
 	return nil
 end
 
-game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nloaded fa by fonalc, get this script at fonalc.github.io/fa.\nsay <cmdPrint> then check console by saying /console.")
+game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nloaded fa by fonalc, get this script at fonalc.github.io/fa.\nsay <cmdPrint> then check console by saying /console."))
 local banned = {}
 local warnings = {
 	["example player"] = -1
@@ -980,9 +988,9 @@ function admin(msg, localPlr, Type): ()
 		local json = game:HttpGet("https://api.github.com/repos/Fonalc/fatk/commits")
 		local table = game.HttpService:JSONDecode(json)
 		local date:string = table[1].commit.author.date
-		local format = date:sub(12,16)
+		local format = date:sub(12,19)
 
-		game.Players:Chat("h FA was last commited "..format)
+		game.Players:Chat("m FA was last updated "..format)
 	end
 	if split[1] == "<clmusic" then
 		if workspace.Terrain._Game.Folder:FindFirstChild("localSound") then
