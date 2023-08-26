@@ -12,7 +12,9 @@ if game.PlaceId ~= 112420803 then
 	end
 end
 
-
+function annonymous(msg)
+	game.Players:Chat("h \n\n\n"..msg.."\n\n\n")
+end
 
 function GetPlayerFromStart(str:string)
 	for _, plr in pairs(game.Players:GetPlayers()) do
@@ -971,6 +973,12 @@ function admin(msg, localPlr, Type): ()
 	if split[1] == "<stop>" then
 		if workspace.Terrain._Game.Folder:FindFirstChild("Sound") then
 			workspace.Terrain._Game.Folder.Sound:Stop()
+		end
+	end
+	if split[1] == "<imp" then
+		local plr = GetPlayerFromStart(split[2])
+		if plr then
+			annonymous(plr.Name..": "..split[3])
 		end
 	end
 	if split[1] == "<play>" then
