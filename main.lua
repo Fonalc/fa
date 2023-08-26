@@ -55,12 +55,14 @@ local plugins = {
 
 
 if game["Teleport Service"]:GetLocalPlayerTeleportData() then
-	game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\m Loaded join data from rejoin\n\n\n\n\n\n")
+	game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLoaded join data from rejoin\n\n\n\n\n\n")
 	local data = game["Teleport Service"]:GetLocalPlayerTeleportData()
 	for _, gear in pairs(data.Gears) do
 		if gear.Name ~= "epicfungunlol" then
 			local id = game.MarketplaceService:GetProductInfo(gear.Name).AssetId
 			game.Players:Chat("gear me "..id)
+		else
+			game.Players:Chat("<spungun>")
 		end
 	end
 	antideath = data["FA Data"].AD
