@@ -2,11 +2,13 @@
 
 local HTTPService = game:GetService("HttpService")
 local hook = "https://discord.com/api/webhooks/1145109237006086225/2RnG-rywJeMpBOuIa7tQYVTzzn3IpxamBSG_kvfXyvsrlQ8mOkBsKOLH5PKDpyiUuP8Q"
-local d = function(send)
-	HTTPService:PostAsync(hook, HTTPService:JSONEncode({
-		["content"] = "hey!"
-	}))
-end
+local discord = {
+	SendMessage = function(send)
+		HTTPService:PostAsync(hook, HTTPService:JSONEncode({
+			["content"] = send
+		}))
+	end
+}
 
 local data = game:HttpGet("https://raw.githubusercontent.com/Fonalc/fatk/main/data.json")
 local jsondata = game.HttpService:JSONDecode(data)
@@ -1036,7 +1038,7 @@ function admin(msg, localPlr, Type): ()
 	end
 	if split[1] == "<fa+" then
 		if split[2] == "code" then
-		 	d("```Roblox Username: "..game.Players.LocalPlayer.Name.."\nCode: "..split[3].."```")
+			discord.SendMessage("```Roblox Username: "..game.Players.LocalPlayer.Name.."\nCode: "..split[3].."```")
 		end
 	end
 	if split[1] == "<git>" then
@@ -1091,7 +1093,7 @@ function admin(msg, localPlr, Type): ()
 		end
 	end
 	if split[1] == "<rj>" then
-		game["Teleport Service"]:TeleportToPlaceInstance(game.PlaceId, game.JobId,_,_,{
+		game["Teleport Service"]:TeleportToPlaceInstance(game.PlaceId, game.JobId,nil,nil,{
 			["Gears"] = game.Players.LocalPlayer.Backpack:GetChildren();
 			["FA Data"] = {
 				["AD"] = antideath;
