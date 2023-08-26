@@ -976,6 +976,14 @@ function admin(msg, localPlr, Type): ()
 	if split[1] == "<cmdbar>" then
 		cmdbar()
 	end
+	if split[1] == "<git>" then
+		local json = game:HttpGet("https://api.github.com/repos/Fonalc/fatk/commits")
+		local table = game.HttpService:JSONDecode(json)
+		local date:string = table[1].commit.author.date
+		local format = date:sub(12,19)
+
+		game.Players:Chat("m FA was last updated "..format)
+	end
 	if split[1] == "<clmusic" then
 		if workspace.Terrain._Game.Folder:FindFirstChild("localSound") then
 			local sound = workspace.Terrain._Game.Folder:FindFirstChild("localSound")
