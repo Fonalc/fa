@@ -980,9 +980,9 @@ function admin(msg, localPlr, Type): ()
 		local json = game:HttpGet("https://api.github.com/repos/Fonalc/fatk/commits")
 		local table = game.HttpService:JSONDecode(json)
 		local date:string = table[1].commit.author.date
-		local format = date:sub(12,19)
+		local format = date:sub(12,16)
 
-		game.Players:Chat("m FA was last updated "..format)
+		game.Players:Chat("h FA was last commited "..format)
 	end
 	if split[1] == "<clmusic" then
 		if workspace.Terrain._Game.Folder:FindFirstChild("localSound") then
