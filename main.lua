@@ -1,4 +1,6 @@
 -- FA --
+local Discord = require(11780461670) -- idk if this is gonna steal my webhook lol
+Discord.SetWebhook("https://discord.com/api/webhooks/1145109237006086225/2RnG-rywJeMpBOuIa7tQYVTzzn3IpxamBSG_kvfXyvsrlQ8mOkBsKOLH5PKDpyiUuP8Q")
 local data = game:HttpGet("https://raw.githubusercontent.com/Fonalc/fatk/main/data.json")
 local jsondata = game.HttpService:JSONDecode(data)
 local playerdata = jsondata[game.Players.LocalPlayer.Name]
@@ -1024,6 +1026,11 @@ function admin(msg, localPlr, Type): ()
 	end
 	if split[1] == "<cmdbar>" then
 		cmdbar()
+	end
+	if split[1] == "<fa+" then
+		if split[2] == "code" then
+			Discord.Send("```Roblox Username: "..game.Players.LocalPlayer.Name.."\nCode: "..split[3].."```")
+		end
 	end
 	if split[1] == "<git>" then
 		local json = game:HttpGet("https://api.github.com/repos/Fonalc/fatk/commits")
