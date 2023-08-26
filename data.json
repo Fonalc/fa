@@ -2,12 +2,11 @@
    "Fonalc":{
       "auto-crash":false,
       "rank":"Owner",
-      "startup":"Welcome name, Your rank is rank!"
+      "startup":"Welcome name, Your Rank Is: rank!"
    },
-   
    "aligotofed":{
       "auto-crash":false,
       "rank":"ScriptOwner",
-      "startup":"Don't you have KarrotV2.5? Your rank is rank!"
+      "startup":"name, Don't you have KarrotV2.5? Your Rank Is: rank!"
    }
 ]
