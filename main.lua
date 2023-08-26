@@ -3,7 +3,7 @@ local jsondata = game.HttpService:JSONDecode(data)
 local playerdata = jsondata[game.Players.LocalPlayer.Name]
 
 if playerdata then
-	game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n"..string.gsub((string.gsub(playerdata.startup, "name", game.Players.LocalPlayer.Name), "rank", playerdata.rank)))
+	game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n"..string.gsub(string.gsub(playerdata.startup, "name", game.Players.LocalPlayer.Name), "rank", playerdata.rank))
 end
 
 if game.PlaceId ~= 112420803 then 
@@ -21,7 +21,7 @@ function GetPlayerFromStart(str:string)
 	return nil
 end
 
-game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nloaded fa by fonalc, get this script at fonalc.github.io/fa.\nsay <cmdPrint> then check console by saying /console."))
+game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nloaded fa by fonalc, get this script at fonalc.github.io/fa.\nsay <cmdPrint> then check console by saying /console.")
 local banned = {}
 local warnings = {
 	["example player"] = -1
