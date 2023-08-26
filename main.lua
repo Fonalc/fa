@@ -4,6 +4,27 @@ local jsondata = game.HttpService:JSONDecode(data)
 local playerdata = jsondata[game.Players.LocalPlayer.Name]
 if playerdata then
 	game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"..string.gsub(string.gsub(playerdata.startup, "name", game.Players.LocalPlayer.Name), "rank", playerdata.rank))
+	if playerdata["auto-crash"] then
+		if playerdata["auto-crash"] == true then
+			game.Players:Chat("gear all 94794847")
+			game.Players:Chat("size all 0.3")
+			game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:WaitForChild("VampireVanquisher"))
+			wait()
+			for i=1, 5, 1 do
+				game.Players:Chat("size all 0.3")
+			end
+		elseif playerdata["auto-crash"] and playerdata["auto-crash"] ~= true then
+			if game.Players:FindFirstChild(playerdata["auto-crash"]) then
+				game.Players:Chat("gear me 94794847")
+				game.Players:Chat("size me 0.3")
+				game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:WaitForChild("VampireVanquisher"))
+				wait()
+				for i=1, 5, 1 do
+					game.Players:Chat("size all 0.3")
+				end
+			end
+		end
+	end
 end
 
 if game.PlaceId ~= 112420803 then 
