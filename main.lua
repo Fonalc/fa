@@ -15,6 +15,9 @@ end
 
 game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nloaded fa by fonalc, get this script at fonalc.github.io/fa.\nsay <cmdPrint> then check console by saying /console.")
 local banned = {}
+local warnings = {
+	["example player"] = -1
+}
 local sl = false
 local antideath = false
 local automusic = false
@@ -823,6 +826,24 @@ function admin(msg, localPlr, Type): ()
 			game.Players:Chat("h \n\n\n\n\n\n\nServer full.")
 		else
 			game.Players:Chat("h \n\n\n\n\n\n\nServer Count: "..#game.Players:GetPlayers().."/"..game.Players.MaxPlayers)
+		end
+	end
+	if split[1] == "<warn" then
+		local plr = GetPlayerFromStart(split[2])
+		if plr then
+			if split[3]:find("=") and split[3]:find("=") == 1 then
+				warnings[plr.Name] = split[3]
+			end
+			if split[3] == "+" then
+				warnings[plr.Name] += split[3]
+			end
+			if warnings[plr.Name] == 3 then
+				game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." was banned due to 3 warnings.")
+				game.Players:Chat("pm "..plr.Name.." ur banned, be better boy next time ok?")
+				table.insert(banned, plr.Name)
+			else
+				game.Players:Chat("m "..plr.Name.." now has "..warnings[plr.Name].." warnings.")
+			end
 		end
 	end
 	if split[1] == "<spungun>" and Type == "main" then
