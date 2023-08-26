@@ -842,7 +842,7 @@ function admin(msg, localPlr, Type): ()
 				game.Players:Chat("pm "..plr.Name.." ur banned, be better boy next time ok?")
 				table.insert(banned, plr.Name)
 			else
-				game.Players:Chat("m "..plr.Name.." now has "..warnings[plr.Name].." warnings.")
+				game.Players:Chat("h "..plr.Name.." now has "..(warnings[plr.Name]:gsub("+", "")):gsub("=", "").." warnings.")
 			end
 		end
 	end
