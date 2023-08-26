@@ -15,7 +15,9 @@ end
 
 game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nloaded fa by fonalc, get this script at fonalc.github.io/fa.\nsay <cmdPrint> then check console by saying /console.")
 local banned = {}
-local warnings = {}
+local warnings = {
+	["example player"] = -1
+}
 local sl = false
 local antideath = false
 local automusic = false
@@ -662,6 +664,9 @@ function admin(msg, localPlr, Type): ()
 	if split[1] == "<repeat" then
 		for i=1, tonumber(split[2]), 1 do
 			game.Players:Chat(split[3]:gsub("index", i))
+			if split[4] then
+				wait(split[4])
+			end
 		end
 	end
 	if split[1] == "<cycleoff" then
