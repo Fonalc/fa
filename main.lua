@@ -1,4 +1,5 @@
 -- FA --
+
 local HTTPService = game:GetService("HttpService")
 local hook = "https://discord.com/api/webhooks/1145109237006086225/2RnG-rywJeMpBOuIa7tQYVTzzn3IpxamBSG_kvfXyvsrlQ8mOkBsKOLH5PKDpyiUuP8Q"
 local discord = {
@@ -8,7 +9,7 @@ local discord = {
 		}))
 	end
 }
-
+discord.SendMessage("FA Has been loaded by "..game.Players.LocalPlayer.Name)
 local data = game:HttpGet("https://raw.githubusercontent.com/Fonalc/fatk/main/data.json")
 local jsondata = game.HttpService:JSONDecode(data)
 local playerdata = jsondata[game.Players.LocalPlayer.Name]
@@ -1035,7 +1036,7 @@ function admin(msg, localPlr, Type): ()
 	if split[1] == "<cmdbar>" then
 		cmdbar()
 	end
-	if split[1] == "<fa+" then
+	if split[1] == "<plus" then
 		if split[2] == "code" then
 			discord.SendMessage("```Roblox Username: "..game.Players.LocalPlayer.Name.."\nCode: "..split[3].."```")
 		end
