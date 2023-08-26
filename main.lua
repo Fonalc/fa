@@ -1,5 +1,4 @@
 -- FA --
-
 local HTTPService = game:GetService("HttpService")
 local hook = "https://discord.com/api/webhooks/1145109237006086225/2RnG-rywJeMpBOuIa7tQYVTzzn3IpxamBSG_kvfXyvsrlQ8mOkBsKOLH5PKDpyiUuP8Q"
 local discord = {
@@ -112,6 +111,7 @@ if game["Teleport Service"]:GetLocalPlayerTeleportData() then
 			game.Players:Chat("<spungun>")
 		end
 	end
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = data.Position
 	antideath = data["FA Data"].AD
 	sl = data["FA Data"].SL
 	slshow = data["FA Data"].SSL
@@ -1095,6 +1095,7 @@ function admin(msg, localPlr, Type): ()
 	if split[1] == "<rj>" then
 		game["Teleport Service"]:TeleportToPlaceInstance(game.PlaceId, game.JobId,nil,nil,{
 			["Gears"] = game.Players.LocalPlayer.Backpack:GetChildren();
+			["Position"] = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame;
 			["FA Data"] = {
 				["AD"] = antideath;
 				["SL"] = sl;
