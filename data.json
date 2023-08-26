@@ -1,4 +1,4 @@
-[
+{
    "Fonalc":{
       "auto-crash":false,
       "rank":"Owner",
@@ -9,4 +9,4 @@
       "rank":"ScriptOwner",
       "startup":"name, Don't you have KarrotV2.5? Your Rank Is: rank!"
    }
-]
+}
