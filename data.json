@@ -1,6 +1,9 @@
 {
+   "MainData":{
+      "fa-plus-free-day": false;
+   }
    "Fonalc":{
-      "auto-crash": true,
+      "auto-crash": false,
       "rank":"Owner",
       "startup":"Welcome name, Your Rank Is: rank!"
    },
