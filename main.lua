@@ -12,6 +12,8 @@ if game.PlaceId ~= 112420803 then
 	end
 end
 
+
+
 function GetPlayerFromStart(str:string)
 	for _, plr in pairs(game.Players:GetPlayers()) do
 		if plr.Name:find(str) and plr.Name:find(str) == 1 or plr.DisplayName:find(str) and plr.DisplayName:find(str) == 1 then
