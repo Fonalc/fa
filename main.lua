@@ -1,12 +1,13 @@
 -- FA --
+
 local HTTPService = game:GetService("HttpService")
 local hook = "https://discord.com/api/webhooks/1145109237006086225/2RnG-rywJeMpBOuIa7tQYVTzzn3IpxamBSG_kvfXyvsrlQ8mOkBsKOLH5PKDpyiUuP8Q"
-
 local d = function(send)
 	HTTPService:PostAsync(hook, HTTPService:JSONEncode({
 		["content"] = "hey!"
 	}))
 end
+
 local data = game:HttpGet("https://raw.githubusercontent.com/Fonalc/fatk/main/data.json")
 local jsondata = game.HttpService:JSONDecode(data)
 local playerdata = jsondata[game.Players.LocalPlayer.Name]
