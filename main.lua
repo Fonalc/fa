@@ -660,7 +660,7 @@ function admin(msg, localPlr, Type): ()
 	end
 	if split[1] == "<repeat" then
 		for i=1, tonumber(split[2]), 1 do
-			game.Players:Chat(split[3])
+			game.Players:Chat(split[3]:gsub("index", i))
 		end
 	end
 	if split[1] == "<cycleoff" then
