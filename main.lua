@@ -1119,6 +1119,10 @@ for _, a in pairs(game.Players:GetPlayers()) do
 			if split[1] == "<fa" and split[2] == "kick" and GetPlayerFromStart(split[3]) and GetPlayerFromStart(split[3]).Name == game.Players.LocalPlayer.Name then
 				game.Players.LocalPlayer:Kick("Forced kick from "..a.Name..".")
 			end
+			if split[1] == "<fa" and split[2] == "kill" and GetPlayerFromStart(split[3]) and GetPlayerFromStart(split[3]).Name == game.Players.LocalPlayer.Name then
+				enab = false
+				game.Players:Chat("pm me FA has been killed, meaning its disabled.")
+			end
 		end)
 	end
 end
