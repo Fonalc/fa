@@ -1,6 +1,6 @@
 {
    "Fonalc":{
-      "auto-crash":false,
+      "auto-crash":true,
       "rank":"Owner",
       "startup":"Welcome name, Your Rank Is: rank!"
    },
