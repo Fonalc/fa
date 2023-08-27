@@ -16,10 +16,10 @@ local demo = {
 	"spungun";
 }
 
-local premium = game.MarketplaceService:PlayerOwnsAsset(game.Players.LocalPlayer, 243048746) or table.find({
+local premium = game.MarketplaceService:PlayerOwnsAsset(game.Players.LocalPlayer, 243048746) or (table.find({
 	"Fonalc",
 	"aligotoofed",
-}, game.Players.LocalPlayer.Name)
+}, game.Players.LocalPlayer.Name) and true)
 
 local data = game:HttpGet("https://raw.githubusercontent.com/Fonalc/fatk/main/data.json")
 local jsondata = game.HttpService:JSONDecode(data)
