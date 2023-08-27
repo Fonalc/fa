@@ -17,6 +17,7 @@ local demo = {
 }
 local premium = game.MarketplaceService:PlayerOwnsAsset(game.Players.LocalPlayer, 243048746) or (table.find({
 	"Fonalc",
+	"somerandom828",
 	"aligotoofed",
 }, game.Players.LocalPlayer.Name) and true or false)
 local data = game:HttpGet("https://raw.githubusercontent.com/Fonalc/fatk/main/data.json")
