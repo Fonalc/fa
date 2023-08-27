@@ -67,7 +67,7 @@ function GetPlayerFromStart(str:string)
 	return nil
 end
 
-game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nloaded fa by fonalc, get this script at fonalc.github.io/fa.\nsay <cmdPrint> then check console by saying /console.\n has FA Plus: "..premium)
+game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nloaded fa by fonalc, get this script at fonalc.github.io/fa.\nsay <cmdPrint> then check console by saying /console.\n has FA Plus: "..tostring(premium))
 local banned = {"Karson"}
 local warnings = {
 	["example player"] = -1
