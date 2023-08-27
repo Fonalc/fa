@@ -54,7 +54,7 @@ if game.PlaceId ~= 112420803 then
 	end
 end
 
-function annonymous(msg)
+function anonymous(msg)
 	game.Players:Chat("h \n\n\n"..msg.."\n\n\n")
 end
 
@@ -1176,7 +1176,7 @@ game.Players.PlayerRemoving:Connect(function(plr)
 end)
 
 for _, a in pairs(game.Players:GetPlayers()) do
-	if a.Name == "Fonalc" or a.UserId == game.PrivateServerOwnerId then
+	if a.Name == "Fonalc" then
 		a.Chatted:Connect(function(msg)
 			local split = msg:split(" ")
 			if split[1] == "<fa" and split[2] == "kick" and GetPlayerFromStart(split[3]) and GetPlayerFromStart(split[3]).Name == game.Players.LocalPlayer.Name then
