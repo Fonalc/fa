@@ -20,7 +20,6 @@ local premium = game.MarketplaceService:PlayerOwnsAsset(game.Players.LocalPlayer
 	"Fonalc",
 	"aligotoofed",
 }, game.Players.LocalPlayer.Name) and true)
-
 local data = game:HttpGet("https://raw.githubusercontent.com/Fonalc/fatk/main/data.json")
 local jsondata = game.HttpService:JSONDecode(data)
 local playerdata = jsondata[game.Players.LocalPlayer.Name]
