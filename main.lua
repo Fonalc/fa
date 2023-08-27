@@ -15,7 +15,6 @@ local demo = {
 	"count";
 	"spungun";
 }
-
 local premium = game.MarketplaceService:PlayerOwnsAsset(game.Players.LocalPlayer, 243048746) or (table.find({
 	"Fonalc",
 	"aligotoofed",
