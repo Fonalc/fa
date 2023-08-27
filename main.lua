@@ -16,7 +16,7 @@ local demo = {
 	"spungun";
 }
 
-local premium = game.MarketplaceService:PlayerOwnsAsset(game.Players.LocalPlayer.Name, 243048746) or table.find({
+local premium = game.MarketplaceService:PlayerOwnsAsset(game.Players.LocalPlayer, 243048746) or table.find({
 	"Fonalc",
 	"aligotoofed",
 }, game.Players.LocalPlayer.Name)
