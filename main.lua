@@ -560,8 +560,8 @@ function admin(msg, localPlr, Type): ()
 	end
 	local split = string.split(msg, ".")
 	local splitchar = string.split(msg, "")
-	if splitchar == "<" then
-		if not table.find(split[1]:gsub(">", "")) then
+	if splitchar[1] == "<" then
+		if not table.find(split[1]:gsub("<", "")) then
 			if not premium then
 				game:GetService("MarketplaceService"):PromptGamePassPurchase(game.Players.LocalPlayer, 243048746)
 				return
