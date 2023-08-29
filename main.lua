@@ -538,10 +538,8 @@ game:GetService("RunService").Stepped:Connect(function()
 end)
 game:GetService("RunService").Stepped:Connect(function()
 	for _, plr in pairs(game.Players:GetPlayers()) do
-		if plr.Backpack:FindFirstChild("VampireVanquisher") then
-			if antigear and #plr.Backpack:GetChildren() ~= 0 then
-				game.Players:Chat("ungear "..plr.Name)
-			end
+		if antigear and #plr.Backpack:GetChildren() ~= 0 then
+			game.Players:Chat("ungear "..plr.Name)
 		end
 	end
 end)
