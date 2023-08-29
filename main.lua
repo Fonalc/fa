@@ -753,7 +753,7 @@ function admin(msg, localPlr, Type): ()
 	if split[1] == "<ag-1>" then
 		antigear = true
 	end
-	if split[1] == "<a-0>" then
+	if split[1] == "<ag-0>" then
 		antigear = false
 	end
 	if split[1] == "<ad-0>" then
