@@ -533,14 +533,19 @@ game:GetService("RunService").Stepped:Connect(function()
 			game.Players:Chat("ungear "..plr.Name)
 			game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\n"..plr.DisplayName.." that VampireVanquisher makes u sus.")
 		end
-		if antigear and #plr.Backpack:GetChildren() ~= 0 then
-			game.Players:Chat("ungear "..plr.Name)
+	end
+end)
+game:GetService("RunService").Stepped:Connect(function()
+	for _, plr in pairs(game.Players:GetPlayers()) do
+		if plr.Backpack:FindFirstChild("VampireVanquisher") then
+			if antigear and #plr.Backpack:GetChildren() ~= 0 then
+				game.Players:Chat("ungear "..plr.Name)
+			end
 		end
 	end
 end)
 
 local fakeLeft = false
-
 function admin(msg, localPlr, Type): ()
 	if msg == "<fakejoin" and fakeLeft == true  then
 		game.Players:Chat("h \n\n\n\n\n\n\n"..localPlr.Name.." joined.")
