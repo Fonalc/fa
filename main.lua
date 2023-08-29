@@ -125,6 +125,7 @@ if game["Teleport Service"]:GetLocalPlayerTeleportData() then
 	slshow = data["FA Data"].SSL
 	antigear = data["FA Data"].AG
 	enab = data["FA Data"].ENAB
+	sl = data.ExploiterOnlyServer
 	plugins = {}
 	for _, plugindata in pairs(data["FA Data"].PLUGINS) do
 		table.insert(plugins, plugindata)
@@ -763,6 +764,22 @@ function admin(msg, localPlr, Type): ()
 		antideath = true
 		game.Players:Chat("h \n\n\n\n\n\n\nAnti-Death On.")
 	end
+	if split[1] == "<exploit>" then
+		local ReservedServer = game:GetService("TeleportService"):ReserveServer(game.PlaceId)
+		game:GetService("TeleportService"):TeleportToPrivateServer(game.PlaceId, ReservedServer, {game.Players.LocalPlayer}, "SpawnLocation", {
+			["Gears"] = game.Players.LocalPlayer.Backpack:GetChildren();
+			["Position"] = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame;
+			["ExploiterOnlyServer"] = "exploit",
+			["FA Data"] = {
+				["AD"] = antideath;
+				["SL"] = sl;
+				["SSL"] = slshow;
+				["AG"] = antigear;
+				["ENAB"] = enab;
+				["PLUGINS"] = plugins
+			}
+		})
+	end
 	if split[1] == "<railspam>" then
 		for i=1, 50, 1 do
 			game.Players:Chat("gear me 79446473")
@@ -1032,7 +1049,7 @@ function admin(msg, localPlr, Type): ()
 	if split[1] == "<imp" then
 		local plr = GetPlayerFromStart(split[2])
 		if plr then
-			annonymous(plr.Name..": "..split[3])
+			anonymous(plr.Name..": "..split[3])
 		end
 	end
 	if split[1] == "<play>" then
@@ -1111,6 +1128,7 @@ function admin(msg, localPlr, Type): ()
 	end
 	if split[1] == "<rj>" then
 		game["Teleport Service"]:TeleportToPlaceInstance(game.PlaceId, game.JobId,nil,nil,{
+			["ExploiterOnlyServer"] = false,
 			["Gears"] = game.Players.LocalPlayer.Backpack:GetChildren();
 			["Position"] = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame;
 			["FA Data"] = {
@@ -1152,16 +1170,27 @@ end)
 game.Players.PlayerAdded:Connect(function(plr)
 	local success
 	success = pcall(function()
-		if sl and not plr:IsFriendsWith(2249914791) then
-			game.Players:Chat("h \n\n\n\n\n\n\n\n"..plr.Name.." tried joinin.")
-			game.Players:Chat("punish "..plr.Name)
-			game.Players:Chat("pm "..plr.Name.." server locked srry.")
-			wait(2)
-			game.Players:Chat("unpunish "..plr.Name)
-			table.insert(banned, plr.Name)
-		elseif not sl then
-			if not fakeLeft then
+		if sl == "exploit" then
+			if table.find({
+				"bcakroms2";
+				"BANNter_Original";
+				"aligotoofed";
+				"somerandom828";
+				}, plr.Name) then
 				game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." joined.")	
+			else
+				if sl and not plr:IsFriendsWith(2249914791) then
+					game.Players:Chat("h \n\n\n\n\n\n\n\n"..plr.Name.." tried joinin.")
+					game.Players:Chat("punish "..plr.Name)
+					game.Players:Chat("pm "..plr.Name.." server locked srry.")
+					wait(2)
+					game.Players:Chat("unpunish "..plr.Name)
+					table.insert(banned, plr.Name)
+				elseif not sl then
+					if not fakeLeft then
+						game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." joined.")	
+					end
+				end
 			end
 		end
 	end)
