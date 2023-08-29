@@ -764,22 +764,6 @@ function admin(msg, localPlr, Type): ()
 		antideath = true
 		game.Players:Chat("h \n\n\n\n\n\n\nAnti-Death On.")
 	end
-	if split[1] == "<exploit>" then
-		local ReservedServer = game:GetService("TeleportService"):ReserveServer(game.PlaceId)
-		game:GetService("TeleportService"):TeleportToPrivateServer(game.PlaceId, ReservedServer, {game.Players.LocalPlayer}, "SpawnLocation", {
-			["Gears"] = game.Players.LocalPlayer.Backpack:GetChildren();
-			["Position"] = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame;
-			["ExploiterOnlyServer"] = "exploit",
-			["FA Data"] = {
-				["AD"] = antideath;
-				["SL"] = sl;
-				["SSL"] = slshow;
-				["AG"] = antigear;
-				["ENAB"] = enab;
-				["PLUGINS"] = plugins
-			}
-		})
-	end
 	if split[1] == "<railspam>" then
 		for i=1, 50, 1 do
 			game.Players:Chat("gear me 79446473")
