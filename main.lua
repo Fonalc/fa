@@ -835,6 +835,7 @@ function admin(msg, localPlr, Type): ()
 		while automusic do wait()
 			if not Sound or Sound.SoundId ~= "http://www.roblox.com/asset/?id="..tonumber(split[2]) or not Sound.IsPlaying then
 				game.Players:Chat("music "..tonumber(split[2]))
+			elseif not Sound.IsPlaying then
 				Sound:Play()
 			end
 		end
