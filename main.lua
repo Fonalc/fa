@@ -831,9 +831,11 @@ function admin(msg, localPlr, Type): ()
 	end
 	if split[1] == "<am" then
 		automusic = true
+		local Sound=workspace.Terrain._Game.Folder:FindFirstChild("Sound")
 		while automusic do wait()
-			if not workspace.Terrain._Game.Folder:FindFirstChild("Sound") or workspace.Terrain._Game.Folder:FindFirstChild("Sound").SoundId ~= "http://www.roblox.com/asset/?id="..tonumber(split[2]) then
+			if not Sound or Sound.SoundId ~= "http://www.roblox.com/asset/?id="..tonumber(split[2]) or not Sound.IsPlaying then
 				game.Players:Chat("music "..tonumber(split[2]))
+				Sound:Play()
 			end
 		end
 	end
