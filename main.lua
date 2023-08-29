@@ -749,9 +749,11 @@ function admin(msg, localPlr, Type): ()
 	end
 	if split[1] == "<ag-1>" then
 		antigear = true
+		game.Players:Chat("h \n\n\n\n\n\n\nAnti-Gear On.")
 	end
 	if split[1] == "<ag-0>" then
 		antigear = false
+		game.Players:Chat("h \n\n\n\n\n\n\nAnti-Gear Off.")
 	end
 	if split[1] == "<ad-0>" then
 		antideath = false
