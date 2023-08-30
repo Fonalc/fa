@@ -566,6 +566,8 @@ local LogFile = ""
 for _, plr in pairs(game.Players:GetChildren()) do
 	LogFile=`{LogFile}[{plr.Name}]: \{\n UserId: {plr.UserId}\n Username: {plr.Name}\n DisplayName: {plr.DisplayName}\n}\n`
 end
+DeleteFile((ServerLogFolder.."/Players")
+DeleteFile((ServerLogFolder.."/ServerInfo")
 NewFile("Players", LogFile)
 NewFile("ServerInfo", ReadTable(SERVER, 0))
 
