@@ -48,14 +48,18 @@ function ReadTable(tablee,times, namee)
 end
 
 function NewFile(name, data)
-	writefile(ServerLogFolder.."/"..name..".txt", data)
+	if isfile(ServerLogFolder.."/"..name)
+		delfile(ServerLogFolder.."/"..name)
+		writefile(ServerLogFolder.."/"..name..".txt", data)
+	else
+		writefile(ServerLogFolder.."/"..name..".txt", data)
+	end
 end
 local LogFile = ""
 for _, plr in pairs(game.Players:GetChildren()) do
 	LogFile=`{LogFile}[{plr.Name}]: \{\n UserId: {plr.UserId}\n Username: {plr.Name}\n DisplayName: {plr.DisplayName}\n}\n`
 end
-delfile(ServerLogFolder.."/Players")
-delfile(ServerLogFolder.."/ServerInfo")
+
 NewFile("Players", LogFile)
 NewFile("ServerInfo", ReadTable(SERVER, 0))
 
