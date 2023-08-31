@@ -25,7 +25,7 @@ for _, server in pairs(TABLE["data"]) do
 		break
 	end
 end
-local ServerLogFolder = "KohlScripts/FA/"..game.JobId
+local ServerLogFolder = "KohlScripts/FA/Servers/"..game.JobId
 makefolder(ServerLogFolder)
 local data = ""
 function ReadTable(tablee,times, namee)
@@ -48,8 +48,8 @@ function ReadTable(tablee,times, namee)
 end
 
 function NewFile(name, data)
-	if isfile(ServerLogFolder.."/"..name)
-		delfile(ServerLogFolder.."/"..name)
+	if isfile(ServerLogFolder.."/"..name..".txt")
+		delfile(ServerLogFolder.."/"..name..".txt")
 		writefile(ServerLogFolder.."/"..name..".txt", data)
 	else
 		writefile(ServerLogFolder.."/"..name..".txt", data)
