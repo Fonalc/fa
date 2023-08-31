@@ -1199,7 +1199,15 @@ function admin(msg, localPlr, Type): ()
 		function run(a)
 			game.Players:Chat(a)
 		end
-		
+		function Message(text, size)
+			game.StarterGui:SetCore("ChatMakeSystemMessage", {
+				Text = "[FA]: "..text;
+				FontSize = size;
+			})
+		end
+		function Chat(text)
+			game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(text, "All")
+		end
 		
 	]]..table.concat(split, "."))()
 	end
