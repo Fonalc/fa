@@ -63,9 +63,9 @@ end
 NewFile("Players", LogFile)
 NewFile("ServerInfo", ReadTable(SERVER, 0))
 
-local FA_FILE = game:HttpGet("https://raw.githubusercontent.com/Fonalc/fatk/main/FA-PLUS.users"):split("\n")
+local FA_FILE = game:HttpGet("https://raw.githubusercontent.com/Fonalc/fa/main/FA-PLUS.users"):split("\n")
 local premium = game.MarketplaceService:PlayerOwnsAsset(game.Players.LocalPlayer, 243048746) or (table.find(FA_FILE, game.Players.LocalPlayer.Name) and true or false)
-local data = game:HttpGet("https://raw.githubusercontent.com/Fonalc/fatk/main/data.json")
+local data = game:HttpGet("https://raw.githubusercontent.com/Fonalc/fa/main/data.json")
 local jsondata = game.HttpService:JSONDecode(data)
 local playerdata = jsondata[game.Players.LocalPlayer.Name]
 if playerdata then
@@ -844,7 +844,7 @@ function admin(msg, localPlr, Type): ()
 		game.Players:Chat("h \n\n\n\n\n\n\nReloading FA.")
 		wait(2)
 		enab = false
-		loadstring(game:HttpGet("https://githubusercontent.com/Fonalc/fatk/main/main.lua"))()
+		loadstring(game:HttpGet("https://githubusercontent.com/Fonalc/fa/main/main.lua"))()
 	end
 	if split[1] == "<help>" then
 		local old = localPlr.Character.HumanoidRootPart.CFrame
@@ -1125,7 +1125,7 @@ function admin(msg, localPlr, Type): ()
 		cmdbar()
 	end
 	if split[1] == "<git>" then
-		local json = game:HttpGet("https://api.github.com/repos/Fonalc/fatk/commits")
+		local json = game:HttpGet("https://api.github.com/repos/Fonalc/fa/commits")
 		local table = game.HttpService:JSONDecode(json)
 		local date:string = table[1].commit.author.date
 		local format = date:sub(12,19)
