@@ -145,6 +145,7 @@ end)
 
 
 function cmdbar()
+	game.StarterGui:SetCore("ChatMakeSystemMessage", {Text="[FA]: Loading CMDBAR!", TextSize=25})
 	local ScreenGui = Instance.new("ScreenGui")
 	local TextBox_1 = Instance.new("TextBox")
 
@@ -175,6 +176,7 @@ function cmdbar()
 end
 
 function new(parent)	 
+	game.StarterGui:SetCore("ChatMakeSystemMessage", {Text="[FA]: Loading SPUNGUN!", TextSize=25})
 	local epicgunfunlol = Instance.new("Tool") 
 	local Handle = Instance.new("Part") 
 	local Main = Instance.new("Part") 
@@ -404,6 +406,7 @@ function new(parent)
 end
 
 function shaders()
+	game.StarterGui:SetCore("ChatMakeSystemMessage", {Text="[FA]: Loading SHADERS!", TextSize=25})
 	local Lighting = game.Lighting
 	local Sky = Instance.new("Sky") 
 	local Bloom = Instance.new("BloomEffect") 
@@ -556,6 +559,7 @@ function admin(msg, localPlr, Type): ()
 		return nil
 	end
 	if msg == "<fakeleave" then
+		
 		game.Players:Chat("h \n\n\n\n\n\n\n"..localPlr.Name.." left.")
 		game.Players:Chat("invisible "..localPlr.Name)
 		fakeLeft=true
@@ -589,6 +593,7 @@ function admin(msg, localPlr, Type): ()
 	end
 	if split[1] == "<spun" then
 		if split[2] == "all" then
+			game.StarterGui:SetCore("ChatMakeSystemMessage", {Text="[FA]: Spunned All!", TextSize=25})
 			for _, plr in pairs(game.Players:GetPlayers()) do
 				if plr and not plr.Character:FindFirstChild("Shirt Graphic") or plr.Character["Shirt Graphic"].Graphic ~= "http://www.roblox.com/asset/?id=14351776240" then
 					game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." was banned lol.")
@@ -596,12 +601,11 @@ function admin(msg, localPlr, Type): ()
 					table.insert(banned, plr.Name)
 				end
 			end
-		elseif split[2] == "me" then
-			table.insert(banned, localPlr)
 		elseif split[2] == "others" then
 			for _, plr in pairs(game.Players:GetPlayers()) do
 				if plr and plr.Name ~= localPlr.Name then
 					if plr and not plr.Character:FindFirstChild("Shirt Graphic") or plr.Character["Shirt Graphic"].Graphic ~= "http://www.roblox.com/asset/?id=14351776240" then
+						game.StarterGui:SetCore("ChatMakeSystemMessage", {Text="[FA]: Spunned Others!", TextSize=25})
 						game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." was banned lol.")
 						game.Players:Chat("pm "..plr.Name.." ur banned lol.")
 						table.insert(banned, plr.Name)
@@ -611,6 +615,7 @@ function admin(msg, localPlr, Type): ()
 		else
 			local plr = GetPlayerFromStart(split[2])
 			if plr and not plr.Character:FindFirstChild("Shirt Graphic") or plr.Character["Shirt Graphic"].Graphic ~= "http://www.roblox.com/asset/?id=14351776240" then
+				game.StarterGui:SetCore("ChatMakeSystemMessage", {Text="[FA]: Spunned "..plr.Name.."!", TextSize=25})
 				game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." was banned lol.")
 				game.Players:Chat("pm "..plr.Name.." ur banned.")
 				table.insert(banned, plr.Name)
@@ -622,6 +627,7 @@ function admin(msg, localPlr, Type): ()
 	if split[1] == "<sspun" then
 		local plr = GetPlayerFromStart(split[2])
 		if split[2] == "all" then
+			game.StarterGui:SetCore("ChatMakeSystemMessage", {Text="[FA]: SSpunned All!", TextSize=25})
 			for _, plr in pairs(game.Players:GetPlayers()) do
 				if plr and table.find(banned, plr.Name) then
 					game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." was unbanned lol.")
@@ -631,10 +637,12 @@ function admin(msg, localPlr, Type): ()
 				end
 			end
 		elseif split[2] == "me" then
+			
 			table.remove(banned, table.find(banned, localPlr.Name))
 			game.Players:Chat("respawn "..localPlr.Name)
 			game.Players:Chat("h \n\n\n\n\n\n\n"..localPlr.Name.." was unbanned lol.")
 		elseif split[2] == "clear" then
+			game.StarterGui:SetCore("ChatMakeSystemMessage", {Text="[FA]: Cleared Ban List!", TextSize=25})
 			table.clear(banned)
 		elseif split[2] == "log" then
 			for _, a in pairs(banned) do
@@ -643,6 +651,7 @@ function admin(msg, localPlr, Type): ()
 		else	
 			local plr = GetPlayerFromStart(split[2])
 			if plr then
+				game.StarterGui:SetCore("ChatMakeSystemMessage", {Text="[FA]: Spunned "..plr.Name.."!", TextSize=25})
 				game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." was unbanned lol.")
 				game.Players:Chat("pm "..plr.Name.." ur unbanned.")
 				game.Players:Chat("respawn "..plr.Name)
@@ -682,7 +691,7 @@ function admin(msg, localPlr, Type): ()
 		for v, a in pairs(TABLE.data) do
 			LIST = LIST.."\n"..a.name..","	
 		end
-		game.Players:Chat("h \n\n\n\n\n\n\nThere are "..#TABLE.data.." gears, Which one would you like? (chat a number, check console to see a list)")
+		game.StarterGui:SetCore("ChatMakeSystemMessage", {Text="[FA]: Gears: "..TABLE:concat("\n").."\nChat a number.", TextSize=25})
 		print(LIST)
 		local number, _ = game.Players.LocalPlayer.Chatted:Wait()
 		if tonumber(number) <= #TABLE.data and tonumber(number) >= 0 then
