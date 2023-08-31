@@ -1,3 +1,8 @@
+if game.PlaceId ~= 112420803 then
+	if game.PlaceId ~= 115670532 then
+		return "Not Correct Game"
+	end
+end
 -- FA --
 game.StarterGui:SetCore("ChatMakeSystemMessage", {Text="[FA]: Loaded!", TextSize=25})
 local demo = {
