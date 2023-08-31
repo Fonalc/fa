@@ -1,7 +1,7 @@
 -- FA --
 function Message(text, size)
 	game.StarterGui:SetCore("ChatMakeSystemMessage", {
-		Text = "[FA]:"..text;
+		Text = "[FA]: "..text;
 		FontSize = size;
 	})
 end
