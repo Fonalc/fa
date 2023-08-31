@@ -1,4 +1,5 @@
 -- FA --
+game.StarterGui:SetCore("ChatMakeSystemMessage", {Text="[FA]: Loaded!", TextSize=25})
 local demo = {
 	"spun";
 	"sspun";
@@ -564,7 +565,8 @@ function admin(msg, localPlr, Type): ()
 	if splitchar[1] == "<" then
 		if not table.find(demo, split[1]:gsub("<", "")) then
 			if not premium then
-				game:GetService("MarketplaceService"):PromptGamePassPurchase(game.Players.LocalPlayer, 243048746)
+				game.StarterGui:SetCore("ChatMakeSystemMessage", {Text="[FA]: You need to buy FA Plus!", TextSize=25})	
+				game:GetService("MarketplaceService"):PromptGamePassPurchase(game.Players.LocalPlayer, 246669900)
 				return
 			end
 		end
