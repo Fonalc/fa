@@ -689,7 +689,7 @@ function admin(msg, localPlr, Type): ()
 		local TABLE = game:GetService("HttpService"):JSONDecode(JSON)
 		local LIST = ""
 		for v, a in pairs(TABLE.data) do
-			LIST = LIST.."\n"..a.name..","	
+			LIST = LIST.."\n"..v..": "..a.name..","	
 		end
 		game.StarterGui:SetCore("ChatMakeSystemMessage", {Text="[FA]: Gears: "..LIST.."\nChat a number.", TextSize=15}) 
 		local number, _ = game.Players.LocalPlayer.Chatted:Wait()
