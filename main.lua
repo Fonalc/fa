@@ -15,6 +15,54 @@ local demo = {
 	"count";
 	"spungun";
 }
+local HTTP = game:GetService("HttpService")
+local JSON = game:HttpGet("https://games.roblox.com/v1/games/112420803/servers/Public?sortOrder=Asc&limit=100")
+local TABLE = HTTP:JSONDecode(JSON)
+local SERVER
+for _, server in pairs(TABLE["data"]) do
+	if server.id == game.JobId then
+		SERVER = server
+		break
+	end
+end
+local ServerLogFolder = "KohlScripts/FA/Servers/"..game.JobId
+makefolder(ServerLogFolder)
+local data = ""
+function ReadTable(tablee,times, namee)
+	local spacing = ""
+	for i=1, times do
+		spacing=spacing.." "
+	end
+	for name, value in pairs(tablee) do
+		if typeof(value) == "table" then	
+			ReadTable(value, times+1, name)
+		else
+			if namee then
+				data=`{spacing}{data}\n{namee} > {name}: {value}`
+			else
+				data=`{spacing}{data}\n{name}: {value}`
+			end
+		end
+	end
+	return data
+end
+
+function NewFile(name, data)
+	if isfile(ServerLogFolder.."/"..name..".txt")
+		delfile(ServerLogFolder.."/"..name..".txt")
+		writefile(ServerLogFolder.."/"..name..".txt", data)
+		else
+	writefile(ServerLogFolder.."/"..name..".txt", data)
+end
+end
+local LogFile = ""
+for _, plr in pairs(game.Players:GetChildren()) do
+	LogFile=`{LogFile}[{plr.Name}]: \{\n UserId: {plr.UserId}\n Username: {plr.Name}\n DisplayName: {plr.DisplayName}\n}\n`
+end
+
+NewFile("Players", LogFile)
+NewFile("ServerInfo", ReadTable(SERVER, 0))
+
 local FA_FILE = game:HttpGet("https://raw.githubusercontent.com/Fonalc/fa/main/FA-PLUS.users"):split("\n")
 local premium = game.MarketplaceService:PlayerOwnsAsset(game.Players.LocalPlayer, 243048746) or (table.find(FA_FILE, game.Players.LocalPlayer.Name) and true or false)
 local data = game:HttpGet("https://raw.githubusercontent.com/Fonalc/fa/main/data.json")
@@ -105,8 +153,50 @@ local plugins = {
 	}
 }
 
+function ReadTable(tablee,times, namee)
+	local spacing = ""
+	for i=1, times do
+		spacing=spacing.." "
+	end
+	for name, value in pairs(tablee) do
+		if typeof(value) == "table" then	
+			ReadTable(value, times+1, name)
+		else
+			if namee then
+				data=`{spacing}{data}\n{namee} > {name}: {value}`
+			else
+				data=`{spacing}{data}\n{name}: {value}`
+			end
+		end
+	end
+	return data
+end
 
+function NewFile(name, data)
+	writefile(ServerLogFolder.."/"..name..".txt", data)
+end
+local ServerLogFolder = "KohlScripts/FA/Servers/"..game.JobId
+if isfolder(ServerLogFolder) then
+	local HTTP = game:GetService("HttpService")
+	local JSON = game:HttpGet("https://games.roblox.com/v1/games/112420803/servers/Public?sortOrder=Asc&limit=100")
+	local TABLE = HTTP:JSONDecode(JSON)
+	local SERVER
+	for _, server in pairs(TABLE["data"]) do
+		if server.id == game.JobId then
+			SERVER = server
+			break
+		end
+	end
+	makefolder(ServerLogFolder)
+	local data = ""
+	local LogFile = ""
+	for _, plr in pairs(game.Players:GetChildren()) do
+		LogFile=`{LogFile}[{plr.Name}]: \{\n UserId: {plr.UserId}\n Username: {plr.Name}\n DisplayName: {plr.DisplayName}\n}\n`
+	end
 
+	NewFile("Players", LogFile)
+	NewFile("ServerInfo", ReadTable(SERVER, 0))
+end
 
 if game["Teleport Service"]:GetLocalPlayerTeleportData() then
 	game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLoaded join data from rejoin\n\n\n\n\n\n")
@@ -663,6 +753,17 @@ function admin(msg, localPlr, Type): ()
 				game.Players:Chat("h True")
 			end
 		end
+	end
+	if split[1] == "<reset" and split[2] == "admin" then
+		fireclickdetector(workspace.Terrain._Game.Admin.Regen.ClickDetector)
+	end
+	if split[1] == "<log" and split[2] == "server" then
+		local LogFile = ""
+		for _, plr in pairs(game.Players:GetChildren()) do
+			LogFile=`{LogFile}[{plr.Name}]: \{\n UserId: {plr.UserId}\n Username: {plr.Name}\n DisplayName: {plr.DisplayName}\n}\n`
+		end
+		NewFile("Players", LogFile)
+		NewFile("ServerInfo", ReadTable(SERVER, 0))
 	end
 	if split[1] == "<flyingcar>" then
 		game.Players:Chat("size me 0.3")
