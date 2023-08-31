@@ -488,7 +488,7 @@ spawn(function()
 					game.Players:Chat("blind "..plr.Name)
 					game.Players:Chat("setgrav "..plr.Name.." -9e9")
 					game.Players:Chat("speed "..plr.Name.." 0")
-					wait(0.2)
+					wait(1)
 				end
 			end
 		end
