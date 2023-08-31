@@ -664,17 +664,6 @@ function admin(msg, localPlr, Type): ()
 			end
 		end
 	end
-	if split[1] == "<reset" and split[2] == "admin" then
-		fireclickdetector(workspace.Terrain._Game.Admin.Regen.ClickDetector)
-	end
-	if split[1] == "<log" and split[2] == "server" then
-		local LogFile = ""
-		for _, plr in pairs(game.Players:GetChildren()) do
-			LogFile=`{LogFile}[{plr.Name}]: \{\n UserId: {plr.UserId}\n Username: {plr.Name}\n DisplayName: {plr.DisplayName}\n}\n`
-		end
-		NewFile("Players", LogFile)
-		NewFile("ServerInfo", ReadTable(SERVER, 0))
-	end
 	if split[1] == "<flyingcar>" then
 		game.Players:Chat("size me 0.3")
 		game.Players:Chat("size me 0.3")
