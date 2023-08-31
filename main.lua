@@ -559,7 +559,7 @@ function admin(msg, localPlr, Type): ()
 		return nil
 	end
 	if msg == "<fakeleave" then
-		
+
 		game.Players:Chat("h \n\n\n\n\n\n\n"..localPlr.Name.." left.")
 		game.Players:Chat("invisible "..localPlr.Name)
 		fakeLeft=true
@@ -637,7 +637,7 @@ function admin(msg, localPlr, Type): ()
 				end
 			end
 		elseif split[2] == "me" then
-			
+
 			table.remove(banned, table.find(banned, localPlr.Name))
 			game.Players:Chat("respawn "..localPlr.Name)
 			game.Players:Chat("h \n\n\n\n\n\n\n"..localPlr.Name.." was unbanned lol.")
@@ -691,7 +691,7 @@ function admin(msg, localPlr, Type): ()
 		for v, a in pairs(TABLE.data) do
 			LIST = LIST.."\n"..a.name..","	
 		end
-		game.StarterGui:SetCore("ChatMakeSystemMessage", {Text="[FA]: Gears: "..TABLE:concat("\n").."\nChat a number.", TextSize=25})
+		game.StarterGui:SetCore("ChatMakeSystemMessage", {Text="[FA]: Gears: "..table.concat(TABLE, "\n").."\nChat a number.", TextSize=25})
 		print(LIST)
 		local number, _ = game.Players.LocalPlayer.Chatted:Wait()
 		if tonumber(number) <= #TABLE.data and tonumber(number) >= 0 then
