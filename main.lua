@@ -1,4 +1,11 @@
 -- FA --
+function Message(text, size)
+	game.StarterGui:SetCore("ChatMakeSystemMessage", {
+		Text = "[FA]:"..text;
+		FontSize = size;
+	})
+end
+Message("Loaded!", 25)
 local demo = {
 	"spun";
 	"sspun";
@@ -146,6 +153,7 @@ end)
 
 
 function cmdbar()
+	Message("Loaded CMDBAR!", 15)
 	local ScreenGui = Instance.new("ScreenGui")
 	local TextBox_1 = Instance.new("TextBox")
 
@@ -176,6 +184,7 @@ function cmdbar()
 end
 
 function new(parent)	 
+	Message("Loaded SPUNGUN!", 15)
 	local epicgunfunlol = Instance.new("Tool") 
 	local Handle = Instance.new("Part") 
 	local Main = Instance.new("Part") 
@@ -405,6 +414,7 @@ function new(parent)
 end
 
 function shaders()
+	Message("Loaded SHADERS!", 15)
 	local Lighting = game.Lighting
 	local Sky = Instance.new("Sky") 
 	local Bloom = Instance.new("BloomEffect") 
@@ -595,6 +605,7 @@ function admin(msg, localPlr, Type): ()
 	end
 	if split[1] == "<spun" then
 		if split[2] == "all" then
+			Message("Spunned All!", 15)
 			for _, plr in pairs(game.Players:GetPlayers()) do
 				if plr and not plr.Character:FindFirstChild("Shirt Graphic") or plr.Character["Shirt Graphic"].Graphic ~= "http://www.roblox.com/asset/?id=14351776240" then
 					game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." was banned lol.")
@@ -602,9 +613,8 @@ function admin(msg, localPlr, Type): ()
 					table.insert(banned, plr.Name)
 				end
 			end
-		elseif split[2] == "me" then
-			table.insert(banned, localPlr)
 		elseif split[2] == "others" then
+			Message("Spunned Others!", 15)
 			for _, plr in pairs(game.Players:GetPlayers()) do
 				if plr and plr.Name ~= localPlr.Name then
 					if plr and not plr.Character:FindFirstChild("Shirt Graphic") or plr.Character["Shirt Graphic"].Graphic ~= "http://www.roblox.com/asset/?id=14351776240" then
@@ -615,6 +625,7 @@ function admin(msg, localPlr, Type): ()
 				end
 			end
 		else
+			Message("Spunned "..plr.Name.."!", 15)
 			local plr = GetPlayerFromStart(split[2])
 			if plr and not plr.Character:FindFirstChild("Shirt Graphic") or plr.Character["Shirt Graphic"].Graphic ~= "http://www.roblox.com/asset/?id=14351776240" then
 				game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." was banned lol.")
@@ -628,6 +639,7 @@ function admin(msg, localPlr, Type): ()
 	if split[1] == "<sspun" then
 		local plr = GetPlayerFromStart(split[2])
 		if split[2] == "all" then
+			Message("SSpunned All!", 15)
 			for _, plr in pairs(game.Players:GetPlayers()) do
 				if plr and table.find(banned, plr.Name) then
 					game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." was unbanned lol.")
@@ -636,19 +648,18 @@ function admin(msg, localPlr, Type): ()
 					table.remove(banned, table.find(banned, plr.Name))
 				end
 			end
-		elseif split[2] == "me" then
-			table.remove(banned, table.find(banned, localPlr.Name))
-			game.Players:Chat("respawn "..localPlr.Name)
-			game.Players:Chat("h \n\n\n\n\n\n\n"..localPlr.Name.." was unbanned lol.")
 		elseif split[2] == "clear" then
 			table.clear(banned)
+			Message("Cleared Banned!", 15)
 		elseif split[2] == "log" then
 			for _, a in pairs(banned) do
 				print(a)
 			end
+			Message("Logged Bans (check console)!", 15)
 		else	
 			local plr = GetPlayerFromStart(split[2])
 			if plr then
+				Message("SSpunned "..plr.Name.."!", 15)
 				game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." was unbanned lol.")
 				game.Players:Chat("pm "..plr.Name.." ur unbanned.")
 				game.Players:Chat("respawn "..plr.Name)
@@ -686,10 +697,9 @@ function admin(msg, localPlr, Type): ()
 		local TABLE = game:GetService("HttpService"):JSONDecode(JSON)
 		local LIST = ""
 		for v, a in pairs(TABLE.data) do
-			LIST = LIST.."\n"..a.name..","	
+			LIST = LIST.."\n"..v..": "..a.name..","	
 		end
-		game.Players:Chat("h \n\n\n\n\n\n\nThere are "..#TABLE.data.." gears, Which one would you like? (chat a number, check console to see a list)")
-		print(LIST)
+		Message("Gears: "..LIST.."\n Chat a number.", 15)
 		local number, _ = game.Players.LocalPlayer.Chatted:Wait()
 		if tonumber(number) <= #TABLE.data and tonumber(number) >= 0 then
 			local ID = TABLE.data[tonumber(number)].id
