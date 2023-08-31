@@ -5,6 +5,9 @@ function Message(text, size)
 		FontSize = size;
 	})
 end
+function Chat(text)
+	game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(text, "All")
+end
 Message("Loaded!", 25)
 local demo = {
 	"spun";
