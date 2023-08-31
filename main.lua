@@ -112,7 +112,7 @@ if game["Teleport Service"]:GetLocalPlayerTeleportData() then
 	local data = game["Teleport Service"]:GetLocalPlayerTeleportData()
 	for _, gear in pairs(data.Gears) do
 		if gear.Name ~= "epicfungunlol" then
-			local id = game.MarketplaceService:GetProductInfo(gear.Name).AssetId
+			local id = "000000000000000000000000000000000"..game.MarketplaceService:GetProductInfo(gear.Name).AssetId
 			game.Players:Chat("gear me "..id)
 		else
 			game.Players:Chat("<spungun>")
@@ -696,7 +696,7 @@ function admin(msg, localPlr, Type): ()
 		if tonumber(number) <= #TABLE.data and tonumber(number) >= 0 then
 			local ID = TABLE.data[tonumber(number)].id
 			game.Players:Chat("h Gave "..TABLE.data[tonumber(number)].name.." to "..split[2])
-			game.Players:Chat("gear "..split[2].." "..ID)
+			game.Players:Chat("gear "..split[2].." 000000000000000000000000000000000"..ID)
 		else
 			game.Players:Chat("h \n\n\n\n\n\n\nNot in range.")
 		end
@@ -705,7 +705,7 @@ function admin(msg, localPlr, Type): ()
 		local JSON = game:HttpGet("https://search.roblox.com/catalog/json?Category=9&ResultsPerPage=1&Limit=10&Keyword="..split[2])
 		local TABLE = game:GetService("HttpService"):JSONDecode(JSON)
 		game.Players:Chat("h Now Playing:\n"..TABLE[1].Name)
-		game.Players:Chat("music "..TABLE[1].AssetId)
+		game.Players:Chat("music 000000000000000000000000000000000"..TABLE[1].AssetId)
 	end
 	if split[1] == "<nok>" then
 		for _, part in pairs(workspace.Terrain._Game.Workspace.Obby:GetChildren()) do
