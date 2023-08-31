@@ -1,25 +1,21 @@
-if game.PlaceId ~= 112420803 then
-	if game.PlaceId ~= 115670532 then
-		return "Not Correct Game"
-	end
-end
 -- FA --
-game.StarterGui:SetCore("ChatMakeSystemMessage", {Text="[FA]: Loaded!", TextSize=25})
 local demo = {
 	"spun";
 	"sspun";
-	"ad-1";
-	"ad-0";
-	"sl-1";
-	"sl-0";
-	"Ssl-1";
-	"Ssl-0";
-	"reload";
-	"help";
+	"ad-1>";
+	"ad-0>";
+	"sl-1>";
+	"sl-0>";
+	"Ssl-1>";
+	"Ssl-0>";
+	"reload>";
+	"help>";
 	"lag";
 	"givefa";
-	"count";
-	"spungun";
+	"count>";
+	"spungun>";
+	"rj>";
+	"cmdPrint>";
 }
 local FA_FILE = game:HttpGet("https://raw.githubusercontent.com/Fonalc/fa/main/FA-PLUS.users"):split("\n")
 local premium = game.MarketplaceService:PlayerOwnsAsset(game.Players.LocalPlayer, 243048746) or (table.find(FA_FILE, game.Players.LocalPlayer.Name) and true or false)
@@ -30,8 +26,8 @@ if playerdata then
 	game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"..string.gsub(string.gsub(playerdata.startup, "name", game.Players.LocalPlayer.Name), "rank", playerdata.rank))
 	if playerdata["auto-crash"] then
 		if playerdata["auto-crash"] == true then
-			game.Players:Chat("gear me 94794847")
-			game.Players:Chat("size me 0.3")
+			game.Players:Chat("gear all 94794847")
+			game.Players:Chat("size all 0.3")
 			game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:WaitForChild("VampireVanquisher"))
 			wait()
 			for i=1, 5, 1 do
@@ -117,7 +113,7 @@ if game["Teleport Service"]:GetLocalPlayerTeleportData() then
 	local data = game["Teleport Service"]:GetLocalPlayerTeleportData()
 	for _, gear in pairs(data.Gears) do
 		if gear.Name ~= "epicfungunlol" then
-			local id = "000000000000000000000000000000000"..game.MarketplaceService:GetProductInfo(gear.Name).AssetId
+			local id = game.MarketplaceService:GetProductInfo(gear.Name).AssetId
 			game.Players:Chat("gear me "..id)
 		else
 			game.Players:Chat("<spungun>")
@@ -150,7 +146,6 @@ end)
 
 
 function cmdbar()
-	game.StarterGui:SetCore("ChatMakeSystemMessage", {Text="[FA]: Loading CMDBAR!", TextSize=25})
 	local ScreenGui = Instance.new("ScreenGui")
 	local TextBox_1 = Instance.new("TextBox")
 
@@ -181,7 +176,6 @@ function cmdbar()
 end
 
 function new(parent)	 
-	game.StarterGui:SetCore("ChatMakeSystemMessage", {Text="[FA]: Loading SPUNGUN!", TextSize=25})
 	local epicgunfunlol = Instance.new("Tool") 
 	local Handle = Instance.new("Part") 
 	local Main = Instance.new("Part") 
@@ -411,7 +405,6 @@ function new(parent)
 end
 
 function shaders()
-	game.StarterGui:SetCore("ChatMakeSystemMessage", {Text="[FA]: Loading SHADERS!", TextSize=25})
 	local Lighting = game.Lighting
 	local Sky = Instance.new("Sky") 
 	local Bloom = Instance.new("BloomEffect") 
@@ -497,7 +490,7 @@ spawn(function()
 					game.Players:Chat("blind "..plr.Name)
 					game.Players:Chat("setgrav "..plr.Name.." -9e9")
 					game.Players:Chat("speed "..plr.Name.." 0")
-					wait(1)
+					wait(0.2)
 				end
 			end
 		end
@@ -564,7 +557,6 @@ function admin(msg, localPlr, Type): ()
 		return nil
 	end
 	if msg == "<fakeleave" then
-
 		game.Players:Chat("h \n\n\n\n\n\n\n"..localPlr.Name.." left.")
 		game.Players:Chat("invisible "..localPlr.Name)
 		fakeLeft=true
@@ -574,8 +566,7 @@ function admin(msg, localPlr, Type): ()
 	if splitchar[1] == "<" then
 		if not table.find(demo, split[1]:gsub("<", "")) then
 			if not premium then
-				game.StarterGui:SetCore("ChatMakeSystemMessage", {Text="[FA]: You need to buy FA Plus!", TextSize=25})	
-				game:GetService("MarketplaceService"):PromptGamePassPurchase(game.Players.LocalPlayer, 246669900)
+				game:GetService("MarketplaceService"):PromptGamePassPurchase(game.Players.LocalPlayer, 243048746)
 				return
 			end
 		end
@@ -596,9 +587,14 @@ function admin(msg, localPlr, Type): ()
 			game.Players:Chat("h PLUGIN "..An.." FAILED TO RUN.")
 		end
 	end
+	if split[1] == "<fa_plus>" then
+		if not premium then
+			game:GetService("MarketplaceService"):PromptGamePassPurchase(game.Players.LocalPlayer, 243048746)
+			return
+		end
+	end
 	if split[1] == "<spun" then
 		if split[2] == "all" then
-			game.StarterGui:SetCore("ChatMakeSystemMessage", {Text="[FA]: Spunned All!", TextSize=25})
 			for _, plr in pairs(game.Players:GetPlayers()) do
 				if plr and not plr.Character:FindFirstChild("Shirt Graphic") or plr.Character["Shirt Graphic"].Graphic ~= "http://www.roblox.com/asset/?id=14351776240" then
 					game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." was banned lol.")
@@ -606,11 +602,12 @@ function admin(msg, localPlr, Type): ()
 					table.insert(banned, plr.Name)
 				end
 			end
+		elseif split[2] == "me" then
+			table.insert(banned, localPlr)
 		elseif split[2] == "others" then
 			for _, plr in pairs(game.Players:GetPlayers()) do
 				if plr and plr.Name ~= localPlr.Name then
 					if plr and not plr.Character:FindFirstChild("Shirt Graphic") or plr.Character["Shirt Graphic"].Graphic ~= "http://www.roblox.com/asset/?id=14351776240" then
-						game.StarterGui:SetCore("ChatMakeSystemMessage", {Text="[FA]: Spunned Others!", TextSize=25})
 						game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." was banned lol.")
 						game.Players:Chat("pm "..plr.Name.." ur banned lol.")
 						table.insert(banned, plr.Name)
@@ -620,7 +617,6 @@ function admin(msg, localPlr, Type): ()
 		else
 			local plr = GetPlayerFromStart(split[2])
 			if plr and not plr.Character:FindFirstChild("Shirt Graphic") or plr.Character["Shirt Graphic"].Graphic ~= "http://www.roblox.com/asset/?id=14351776240" then
-				game.StarterGui:SetCore("ChatMakeSystemMessage", {Text="[FA]: Spunned "..plr.Name.."!", TextSize=25})
 				game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." was banned lol.")
 				game.Players:Chat("pm "..plr.Name.." ur banned.")
 				table.insert(banned, plr.Name)
@@ -632,7 +628,6 @@ function admin(msg, localPlr, Type): ()
 	if split[1] == "<sspun" then
 		local plr = GetPlayerFromStart(split[2])
 		if split[2] == "all" then
-			game.StarterGui:SetCore("ChatMakeSystemMessage", {Text="[FA]: SSpunned All!", TextSize=25})
 			for _, plr in pairs(game.Players:GetPlayers()) do
 				if plr and table.find(banned, plr.Name) then
 					game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." was unbanned lol.")
@@ -642,12 +637,10 @@ function admin(msg, localPlr, Type): ()
 				end
 			end
 		elseif split[2] == "me" then
-
 			table.remove(banned, table.find(banned, localPlr.Name))
 			game.Players:Chat("respawn "..localPlr.Name)
 			game.Players:Chat("h \n\n\n\n\n\n\n"..localPlr.Name.." was unbanned lol.")
 		elseif split[2] == "clear" then
-			game.StarterGui:SetCore("ChatMakeSystemMessage", {Text="[FA]: Cleared Ban List!", TextSize=25})
 			table.clear(banned)
 		elseif split[2] == "log" then
 			for _, a in pairs(banned) do
@@ -656,7 +649,6 @@ function admin(msg, localPlr, Type): ()
 		else	
 			local plr = GetPlayerFromStart(split[2])
 			if plr then
-				game.StarterGui:SetCore("ChatMakeSystemMessage", {Text="[FA]: Spunned "..plr.Name.."!", TextSize=25})
 				game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." was unbanned lol.")
 				game.Players:Chat("pm "..plr.Name.." ur unbanned.")
 				game.Players:Chat("respawn "..plr.Name)
@@ -694,14 +686,15 @@ function admin(msg, localPlr, Type): ()
 		local TABLE = game:GetService("HttpService"):JSONDecode(JSON)
 		local LIST = ""
 		for v, a in pairs(TABLE.data) do
-			LIST = LIST.."\n"..v..": "..a.name..","	
+			LIST = LIST.."\n"..a.name..","	
 		end
-		game.StarterGui:SetCore("ChatMakeSystemMessage", {Text="[FA]: Gears: "..LIST.."\nChat a number.", TextSize=15}) 
+		game.Players:Chat("h \n\n\n\n\n\n\nThere are "..#TABLE.data.." gears, Which one would you like? (chat a number, check console to see a list)")
+		print(LIST)
 		local number, _ = game.Players.LocalPlayer.Chatted:Wait()
 		if tonumber(number) <= #TABLE.data and tonumber(number) >= 0 then
 			local ID = TABLE.data[tonumber(number)].id
 			game.Players:Chat("h Gave "..TABLE.data[tonumber(number)].name.." to "..split[2])
-			game.Players:Chat("gear "..split[2].." 000000000000000000000000000000000"..ID)
+			game.Players:Chat("gear "..split[2].." "..ID)
 		else
 			game.Players:Chat("h \n\n\n\n\n\n\nNot in range.")
 		end
@@ -710,7 +703,7 @@ function admin(msg, localPlr, Type): ()
 		local JSON = game:HttpGet("https://search.roblox.com/catalog/json?Category=9&ResultsPerPage=1&Limit=10&Keyword="..split[2])
 		local TABLE = game:GetService("HttpService"):JSONDecode(JSON)
 		game.Players:Chat("h Now Playing:\n"..TABLE[1].Name)
-		game.Players:Chat("music 000000000000000000000000000000000"..TABLE[1].AssetId)
+		game.Players:Chat("music "..TABLE[1].AssetId)
 	end
 	if split[1] == "<nok>" then
 		for _, part in pairs(workspace.Terrain._Game.Workspace.Obby:GetChildren()) do
@@ -877,6 +870,24 @@ function admin(msg, localPlr, Type): ()
 			game.Players:Chat("h Failed to install,\n Go to 'fonalc.github.io/fa.help/plugins' to see what it should look like.")
 		end
 	end
+	--[[
+	"spun";
+	"sspun";
+	"ad-1>";
+	"ad-0>";
+	"sl-1>";
+	"sl-0>";
+	"Ssl-1>";
+	"Ssl-0>";
+	"reload>";
+	"help>";
+	"lag";
+	"givefa";
+	"count>";
+	"spungun>";
+	"rj>";
+	"cmdPrint>";
+	]]
 	if split[1] == "<cmdPrint>" then
 		local list = ""
 		for PName, Plugin in pairs(plugins) do
@@ -885,40 +896,57 @@ function admin(msg, localPlr, Type): ()
 				list = list.."\n"..Name.." -- "..Command.Description
 			end
 		end	
-		print("Thank you for using FA (Fonalc's Admin), Here are the commands. (27 commands)")
-		print("<spun.[player name] --SPun (or Special Punish), Makes them forever stuck in the abyss.")
-		print("<sspun.[player name] --SSPun, Releases them from the abyss.")
-		print("<Ssl-1> --<Show SL> --Shows the current state of SL (server lock).")
-		print("<Ssl-0> --<Hide SL> --Hides the current state of SL (server lock).")
-		print("<sl-1> --<SL>, Lock the server.")
-		print("<sl-0> --<SL>, Unlocks the server.")
-		print("<ad-1> --<AD>, Turn on Anti-Death.")
-		print("<ad-0> --<AD>, Turn off Anti-Death.")
-		print("<reload> --Reloads the admin, Used for updates.")
-		print("<help> --Teleports everyone to the house.")
-		print("<lag.[player name] --Lags the player with FF and SMOKE, Spams it until the player leave or until you leave.")
-		print("<givefa.[player name] --Shares FA with another player (fa may bug out for other player).")
-		print("<count> --Counts every player in the server, Recommended for testing if loaded.")
-		print("<spungun> --Gives you a Spun Gun (Spuns whoever you touch, Main Only!).")
-		print("<skybase> --Turns whatever surface you are standing on into a skybase (buggy).")
-		print("<vcrash> --Attempts Quick Crash.")
-		print("<bossfight> --Starts a bossfight, may break while attaching.")
-		print("<flyingcar> --Puts your body high up but your head on the floor")
-		print("<music1> --Plays a bypassed audio.")
-		print("<play> --Plays the music currently loaded.")
-		print("<stop> --Stops the music currently loaded.")
-		print("<volup> --Ups the volume of the music loaded by 0.25.")
-		print("<voldw> --Downs the volume of the music loaded by 0.25.")
-		print("<clmusic.[id] --Play music on the client.")
-		print("<clmusicstop> --Stops current music on the client.")
-		print("<attach> --Attaches you to the surface your on.")
-		print("<shaders> --Loads SHADERS!")
-		print("<cmds> --Shows CMDS slowly.")
-		print("<cmdPrint> --Prints CMDS.")
-		print("<become> --Become a player, Buggy!")
-		print("<perm.[name] --Gives a player perm admin, This works by running any command off of your admin (meaning players can use fa, the word \"me\" gets replaced with them.)")
-		print("-- INSTALLED PLUGINS COMMANDS --")
-		print(list)
+		if not premium then
+			print("<spun.[player name] --SPun (or Special Punish), Makes them forever stuck in the abyss.")
+			print("<sspun.[player name] --SSPun, Releases them from the abyss.")
+			print("<Ssl-1> --<Show SL> --Shows the current state of SL (server lock).")
+			print("<Ssl-0> --<Hide SL> --Hides the current state of SL (server lock).")
+			print("<sl-1> --<SL>, Lock the server.")
+			print("<sl-0> --<SL>, Unlocks the server.")
+			print("<ad-1> --<AD>, Turn on Anti-Death.")
+			print("<ad-0> --<AD>, Turn off Anti-Death.")
+			print("<reload> --Reloads the admin, Used for updates.")
+			print("<help> --Teleports everyone to the house.")
+			print("<lag.[player name] --Lags the player with FF and SMOKE, Spams it until the player leave or until you leave.")
+			print("<givefa.[player name] --Shares FA with another player (fa may bug out for other player).")
+			print("<count> --Counts every player in the server, Recommended for testing if loaded.")
+			print("<rj> --Rejoin server.")
+		else
+			print("Thank you for using FA (Fonalc's Admin), Here are the commands.")
+			print("<spun.[player name] --SPun (or Special Punish), Makes them forever stuck in the abyss.")
+			print("<sspun.[player name] --SSPun, Releases them from the abyss.")
+			print("<Ssl-1> --<Show SL> --Shows the current state of SL (server lock).")
+			print("<Ssl-0> --<Hide SL> --Hides the current state of SL (server lock).")
+			print("<sl-1> --<SL>, Lock the server.")
+			print("<sl-0> --<SL>, Unlocks the server.")
+			print("<ad-1> --<AD>, Turn on Anti-Death.")
+			print("<ad-0> --<AD>, Turn off Anti-Death.")
+			print("<reload> --Reloads the admin, Used for updates.")
+			print("<help> --Teleports everyone to the house.")
+			print("<lag.[player name] --Lags the player with FF and SMOKE, Spams it until the player leave or until you leave.")
+			print("<givefa.[player name] --Shares FA with another player (fa may bug out for other player).")
+			print("<count> --Counts every player in the server, Recommended for testing if loaded.")
+			print("<spungun> --Gives you a Spun Gun (Spuns whoever you touch, Main Only!).")
+			print("<skybase> --Turns whatever surface you are standing on into a skybase (buggy).")
+			print("<vcrash> --Attempts Quick Crash.")
+			print("<bossfight> --Starts a bossfight, may break while attaching.")
+			print("<flyingcar> --Puts your body high up but your head on the floor")
+			print("<music1> --Plays a bypassed audio.")
+			print("<play> --Plays the music currently loaded.")
+			print("<stop> --Stops the music currently loaded.")
+			print("<volup> --Ups the volume of the music loaded by 0.25.")
+			print("<voldw> --Downs the volume of the music loaded by 0.25.")
+			print("<clmusic.[id] --Play music on the client.")
+			print("<clmusicstop> --Stops current music on the client.")
+			print("<attach> --Attaches you to the surface your on.")
+			print("<shaders> --Loads SHADERS!")
+			print("<cmds> --Shows CMDS slowly.")
+			print("<cmdPrint> --Prints CMDS.")
+			print("<become> --Become a player, Buggy!")
+			print("<perm.[name] --Gives a player perm admin, This works by running any command off of your admin (meaning players can use fa, the word \"me\" gets replaced with them.)")
+			print("-- INSTALLED PLUGINS COMMANDS --")
+			print(list)
+		end
 	end
 	if split[1] == "<count>" then
 		if #game.Players:GetPlayers() == game.Players.MaxPlayers then
@@ -1103,8 +1131,8 @@ function admin(msg, localPlr, Type): ()
 		game.Players:Chat("fogend 0")
 		game.Players:Chat("time 0")
 		game.Players:Chat("fogcolor 0 0 0")
-		game.Players:Chat("gear me 94794847")
-		game.Players:Chat("size me 0.3")
+		game.Players:Chat("gear all 94794847")
+		game.Players:Chat("size all 0.3")
 		game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:WaitForChild("VampireVanquisher"))
 		wait()
 		for i=1, 5, 1 do
@@ -1114,8 +1142,8 @@ function admin(msg, localPlr, Type): ()
 	end
 	if split[1] == "<silc>" then
 		game.Players:Chat("music 6917155909")
-		game.Players:Chat("gear me 94794847")
-		game.Players:Chat("size me 0.3")
+		game.Players:Chat("gear all 94794847")
+		game.Players:Chat("size all 0.3")
 		game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:WaitForChild("VampireVanquisher"))
 		wait()
 		for i=1, 5, 1 do
