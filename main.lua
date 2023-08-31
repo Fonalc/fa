@@ -691,8 +691,7 @@ function admin(msg, localPlr, Type): ()
 		for v, a in pairs(TABLE.data) do
 			LIST = LIST.."\n"..a.name..","	
 		end
-		game.StarterGui:SetCore("ChatMakeSystemMessage", {Text="[FA]: Gears: "..LIST.."\nChat a number.", TextSize=15})
-		print(LIST)
+		game.StarterGui:SetCore("ChatMakeSystemMessage", {Text="[FA]: Gears: "..LIST.."\nChat a number.", TextSize=15}) 
 		local number, _ = game.Players.LocalPlayer.Chatted:Wait()
 		if tonumber(number) <= #TABLE.data and tonumber(number) >= 0 then
 			local ID = TABLE.data[tonumber(number)].id
