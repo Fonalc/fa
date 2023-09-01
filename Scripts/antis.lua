@@ -8,4 +8,4 @@ RunService.Stepped:Connect(function()
     if Player.Character.Parent = game.Lighting then
         game.Players:Chat("unpunish me")
     end
-end)
+end) 
