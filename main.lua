@@ -6,6 +6,7 @@ function Message(text, size)
 		FontSize = size;
 	})
 end
+
 function Chat(text)
 	game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(text, "All")
 end
@@ -883,24 +884,6 @@ function admin(msg, localPlr, Type): ()
 			game.Players:Chat("h Failed to install,\n Go to 'fonalc.github.io/fa.help/plugins' to see what it should look like.")
 		end
 	end
-	--[[
-	"spun";
-	"sspun";
-	"ad-1>";
-	"ad-0>";
-	"sl-1>";
-	"sl-0>";
-	"Ssl-1>";
-	"Ssl-0>";
-	"reload>";
-	"help>";
-	"lag";
-	"givefa";
-	"count>";
-	"spungun>";
-	"rj>";
-	"cmdPrint>";
-	]]
 	if split[1] == "<cmdPrint>" then
 		local list = ""
 		for PName, Plugin in pairs(plugins) do
@@ -962,10 +945,16 @@ function admin(msg, localPlr, Type): ()
 		end
 	end
 	if split[1] == "<count>" then
-		if #game.Players:GetPlayers() == game.Players.MaxPlayers then
+		if #game.Players:GetPlayers() <= game.Players.MaxPlayers then
 			game.Players:Chat("h \n\n\n\n\n\n\nServer full.")
 		else
 			game.Players:Chat("h \n\n\n\n\n\n\nServer Count: "..#game.Players:GetPlayers().."/"..game.Players.MaxPlayers)
+		end
+	end
+	if split[1] == "<script" then
+		local script = game:HttpGet("https://raw.githubusercontent.com/Fonalc/fa/main/Scripts/"..split[2]..".lua")
+		if script then
+			loadstring(script)()
 		end
 	end
 	if split[1] == "<warn" then
