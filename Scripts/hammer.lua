@@ -16,15 +16,18 @@ local modes = {
 		wait(2)
 		game.Players:Chat("unspin "..Character.Name)
 		game.Players:Chat("seizure "..Character.Name)
-	end,
+	end;
 	["Kill"] = function(Character)
 		game.Players:Chat("kill "..Character.Name)
-	end,
+	end;
     ["Ban"] = function(Character)
         game.Players:Chat("blind "..Character.Name)
         game.Players:Chat("pm "..Character.Name.." u been banned!!!!!! (not really just reset urself lol)")
         game.Players:Chat("punish "..Character.Name)
-    end
+    end;
+    ["Fling"] = function(Character)
+        game.Players:Chat("fling "..Character.Name)
+    end;
 }
 local mode = "Stun"
 local BanHammer = game:GetService("Players").LocalPlayer.Backpack:WaitForChild("BanHammer V1.1")
