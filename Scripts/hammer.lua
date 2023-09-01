@@ -11,12 +11,9 @@ local modes = {
 		game.Players:Chat("kill "..Character.Name)
 	end,
     ["Ban"] = function(Character)
-        game.Players:Chat("music 147722910")
         game.Players:Chat("blind "..Character.Name)
         game.Players:Chat("pm "..Character.Name.." u been banned!!!!!! (not really just reset urself lol)")
         game.Players:Chat("punish "..Character.Name)
-        wait(0.5)
-        game.Players:Chat("music ")
     end
 }
 local mode = "Stun"
@@ -26,8 +23,11 @@ BanHammer.Handle.Touched:Connect(function(base)
 		BanHammer.MouseClick.Value = false
 		if base.Parent:FindFirstChild("Humanoid") then
 			if base.Parent.Name ~= game.Players.LocalPlayer.Name then
+                game.Players:Chat("music 147722910")
 				game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("BONK!", "All")
 				modes[mode](base.Parent)
+                wait(0.5)
+                game.Players:Chat("music ")
 			end
 		end
 	end

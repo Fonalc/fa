@@ -5,7 +5,4 @@ RunService.Stepped:Connect(function()
     if Player.Character:FindFirstChild("ice") then
         game.Players:Chat("thaw me")
     end
-    if Player.Character.Parent = game.Lighting then
-        game.Players:Chat("unpunish me")
-    end
 end) 
