@@ -2,14 +2,22 @@ game.Players:Chat("gear me 000000000000000000000000000010468797")
 wait(1)
 local modes = {
 	["Stun"] = function(Character)
-			game.Players:Chat("spin "..Character.Name)
-			wait(2)
-			game.Players:Chat("unspin "..Character.Name)
-			game.Players:Chat("seizure "..Character.Name)
+		game.Players:Chat("spin "..Character.Name)
+		wait(2)
+		game.Players:Chat("unspin "..Character.Name)
+		game.Players:Chat("seizure "..Character.Name)
 	end,
 	["Kill"] = function(Character)
-			game.Players:Chat("kill "..Character.Name)
+		game.Players:Chat("kill "..Character.Name)
 	end
+    ["Ban"] = function(Character)
+        game.Players:Chat("music 147722910")
+        game.Players:Chat("blind "..Character.Name)
+        game.Players:Chat("pm "..Character.Name.." u been banned!!!!!! (not really just reset urself lol)")
+        game.Players:Chat("punish "..Character.Name)
+        wait(0.5)
+        game.Players:Chat("music ")
+    end
 }
 local mode = "Stun"
 local BanHammer = game:GetService("Players").LocalPlayer.Backpack:WaitForChild("BanHammer V1.1")
