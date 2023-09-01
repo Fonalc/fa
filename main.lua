@@ -628,9 +628,9 @@ function admin(msg, localPlr, Type): ()
 				end
 			end
 		else
-			Message("Spunned "..plr.Name.."!", 15)
 			local plr = GetPlayerFromStart(split[2])
 			if plr and not plr.Character:FindFirstChild("Shirt Graphic") or plr.Character["Shirt Graphic"].Graphic ~= "http://www.roblox.com/asset/?id=14351776240" then
+				Message("Spunned "..plr.Name.."!", 15)
 				game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." was banned lol.")
 				game.Players:Chat("pm "..plr.Name.." ur banned.")
 				table.insert(banned, plr.Name)
