@@ -125,7 +125,7 @@ if game["Teleport Service"]:GetLocalPlayerTeleportData() then
 	for _, gear in pairs(data.Gears) do
 		if gear.Name ~= "epicfungunlol" then
 			local id = game.MarketplaceService:GetProductInfo(gear.Name).AssetId
-			game.Players:Chat("gear me 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"..id)
+			game.Players:Chat("gear me 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"..tostring(id))
 		else
 			game.Players:Chat("<spungun>")
 		end
