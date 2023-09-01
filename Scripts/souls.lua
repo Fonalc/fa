@@ -18,11 +18,11 @@ function message(text, size)
 end
 
 
-run("music 115377964")
-chat("FETCH ME THEIR SOULS, ")
+run("music 213087748")
+chat("FETCH ME THEIR SOULS.")
 wait(2)
 for i=1, 5000 do 
     wait()
     CHARACTER.HumanoidRootPart.CFrame = CFrame.lookAt(CHARACTER.HumanoidRootPart.Position, _G.Target.HumanoidRootPart.Position)
-    CHARACTER.HumanoidRootPart.CFrame *= CFrame.new(0,0,1)
+    CHARACTER.HumanoidRootPart.CFrame *= CFrame.new(0,0,-1)
 end
