@@ -1,4 +1,8 @@
 
+function Chat(text)
+	game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(text, "All")
+end
+
 function Message(text, size)
 	game.StarterGui:SetCore("ChatMakeSystemMessage", {
 		Text = "[FA]: "..text;
@@ -6,6 +10,7 @@ function Message(text, size)
 	})
 end
 
+Chat("Loading Fonalc's Bonker...")
 game.Players:Chat("gear me 000000000000000000000000000010468797")
 Message("Do not equip until asked!", 15)
 wait(1)
