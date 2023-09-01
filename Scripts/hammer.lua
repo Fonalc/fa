@@ -34,18 +34,21 @@ local modes = {
         game.Players:Chat("fling "..Character.Name)
     end;
 }
-local mode = _G.DefaultBonkerMode
+_G.BonkerNoise = true
+local mode = _G.BonkerDefaultMode
 local BanHammer = game:GetService("Players").LocalPlayer.Backpack:WaitForChild("BanHammer V1.1")
 BanHammer.Handle.Touched:Connect(function(base)
 	if BanHammer.MouseClick.Value == true then
 		BanHammer.MouseClick.Value = false
 		if base.Parent:FindFirstChild("Humanoid") then
 			if base.Parent.Name ~= game.Players.LocalPlayer.Name then
-                spawn(function()
-                    game.Players:Chat("music 147722910")
-                    wait(0.5)
-                    game.Players:Chat("music ")
-                end)
+                if _G.BonkerNoise == true then
+                    spawn(function()
+                        game.Players:Chat("music 147722910")
+                        wait(0.5)
+                        game.Players:Chat("music ")
+                    end)
+                end
 				game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("BONK!", "All")
 				modes[mode](base.Parent)
 			end
