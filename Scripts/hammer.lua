@@ -1,5 +1,15 @@
+
+function Message(text, size)
+	game.StarterGui:SetCore("ChatMakeSystemMessage", {
+		Text = "[FA]: "..text;
+		FontSize = size;
+	})
+end
+
 game.Players:Chat("gear me 000000000000000000000000000010468797")
+Message("Do not equip until asked!", 15)
 wait(1)
+Message("You may equip.", 15)
 local modes = {
 	["Stun"] = function(Character)
 		game.Players:Chat("spin "..Character.Name)
@@ -23,11 +33,13 @@ BanHammer.Handle.Touched:Connect(function(base)
 		BanHammer.MouseClick.Value = false
 		if base.Parent:FindFirstChild("Humanoid") then
 			if base.Parent.Name ~= game.Players.LocalPlayer.Name then
-                game.Players:Chat("music 147722910")
+                spawn(function()
+                    game.Players:Chat("music 147722910")
+                    wait(0.5)
+                    game.Players:Chat("music ")
+                end)
 				game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("BONK!", "All")
 				modes[mode](base.Parent)
-                wait(0.5)
-                game.Players:Chat("music ")
 			end
 		end
 	end
