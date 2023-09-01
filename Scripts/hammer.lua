@@ -9,7 +9,7 @@ local modes = {
 	end,
 	["Kill"] = function(Character)
 		game.Players:Chat("kill "..Character.Name)
-	end
+	end,
     ["Ban"] = function(Character)
         game.Players:Chat("music 147722910")
         game.Players:Chat("blind "..Character.Name)
