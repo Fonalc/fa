@@ -7,7 +7,7 @@ repeat
 until workspace.Terrain._Game.Folder:FindFirstChild("Sound")
 chat("Music playing!")
 while workspace.Terrain._Game.Folder:FindFirstChild("Sound") do
-	game.Players:Chat("fogend "..workspace.Terrain._Game.Folder:FindFirstChild("Sound").PlaybackLoudness)
+	game.Players:Chat("fogend "..workspace.Terrain._Game.Folder:FindFirstChild("Sound").PlaybackLoudness+100)
 	game.Players:Chat("fogcolor 255 0 0")
 	game.Players:Chat("time 0")
 	wait()
