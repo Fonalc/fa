@@ -953,9 +953,7 @@ function admin(msg, localPlr, Type): ()
 	end
 	if split[1] == "<script" then
 		local script = game:HttpGet("https://raw.githubusercontent.com/Fonalc/fa/main/Scripts/"..split[2]..".lua")
-		if script then
-			loadstring(script)()
-		end
+		loadstring(script)()
 	end
 	if split[1] == "<warn" then
 		local plr = GetPlayerFromStart(split[2])
