@@ -58,6 +58,8 @@ if playerdata then
 	end
 end
 
+_G.DefaultBonkerMode = "Stun"
+
 if game.PlaceId ~= 112420803 then 
 	if game.PlaceId ~= 115670532 then
 		return 

@@ -34,7 +34,7 @@ local modes = {
         game.Players:Chat("fling "..Character.Name)
     end;
 }
-local mode = "Stun"
+local mode = _G.DefaultBonkerMode
 local BanHammer = game:GetService("Players").LocalPlayer.Backpack:WaitForChild("BanHammer V1.1")
 BanHammer.Handle.Touched:Connect(function(base)
 	if BanHammer.MouseClick.Value == true then
