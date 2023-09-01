@@ -22,7 +22,6 @@ local demo = {
 	"reload>";
 	"help>";
 	"lag";
-	"givefa";
 	"count>";
 	"spungun>";
 	"rj>";
