@@ -54,7 +54,7 @@ local premium = game.MarketplaceService:PlayerOwnsAsset(game.Players.LocalPlayer
 local FATIME
 for number, value in pairs(FA_FILE) do
 	if value[1] == game.Players.LocalPlayer.Name then
-		if tonumber(value[2]) <= os.time() and value[2] ~= "inf" then
+		if tonumber(value[2]) >= os.time() and value[2] ~= "inf" then
 			premium = true
 			FATIME=tonumber(value[2])
 		else
