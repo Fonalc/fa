@@ -1,6 +1,7 @@
 local RunService = game:GetService("RunService")
 local Player = Player
-
+game.Players:Chat("h \n\n\nAntis loading in 2 seconds (because of AutoAnti.)\n\n\n")
+wait(2)
 RunService.Stepped:Connect(function()
     if Player.Character:FindFirstChild("ice") then
         game.Players:Chat("thaw me")
