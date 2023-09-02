@@ -2,6 +2,7 @@
 
 local spam = ""
 
+
 spawn(function()
 	while wait() do
 		if spam ~= "" then
@@ -799,10 +800,8 @@ function admin(msg, localPlr, Type): ()
 		Killer.BrickColor = BrickColor.Red()
 		Killer.Transparency = 0.5
 		Killer.Touched:Connect(function(base)
-			if base.Parent.Name ~= game.Players.LocalPlayer.Name then
-				if base.Parent:FindFirstChild("Humanoid") then
-					game.Players:Chat("kill "..base.Parent.Name)
-				end
+			if base.Parent:FindFirstChild("Humanoid") then
+				game.Players:Chat("kill "..base.Parent.Name)
 			end
 		end)
 	end
