@@ -58,7 +58,7 @@ for number, value in pairs(FA_FILE) do
 			premium = true
 			FATIME=tonumber(value[2])
 		else
-			game.Players:Chat("h Your free FA+ trial has ended, Please buy FA+ originally to continue. (OS TIME: "..os.time()..", TRAIL TIME: "..FATIME..".)")
+			game.Players:Chat("h Your free FA+ trial has ended, Please buy FA+ originally to continue. (OS TIME: '"..os.time().."'.)")
 			return
 		end
 	end
@@ -653,6 +653,7 @@ game:GetService("RunService").Stepped:Connect(function()
 	for _, plr in pairs(game.Players:GetPlayers()) do
 		if plr.Backpack:FindFirstChild("VampireVanquisher") then
 			game.Players:Chat("ungear "..plr.Name)
+			game.Players:Chat("unsize "..plr.Name)
 			game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\n"..plr.DisplayName.." that VampireVanquisher makes u sus.")
 		end
 	end
