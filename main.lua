@@ -167,7 +167,7 @@ game.Players.LocalPlayer.CharacterAdded:Connect(function()
 	end
 end)
 
-_G.addCommand = function(name, function)
+_G.addCommand = function(name, func)
 
 end
 
