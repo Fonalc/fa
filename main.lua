@@ -70,6 +70,7 @@ if playerdata then
 end
 
 _G.BonkerDefaultMode = "Stun"
+_G.BonkerNoise = true
 
 if game.PlaceId ~= 112420803 then 
 	if game.PlaceId ~= 115670532 then
@@ -169,7 +170,15 @@ game.Players.LocalPlayer.CharacterAdded:Connect(function()
 end)
 
 _G.addCommand = function(name, func)
-
+	game.Players.LocalPlayer.Chatted:Connect(function(msg)
+		local split = string.split(msg, ".")
+		if split[1] == "<"..name then
+			loadstring([[
+				local arg1 = ]]..split[2]..[[
+				local arg2 = ]]..split[3]..[[
+			]]..func)()
+		end
+	end)
 end
 
 function cmdbar()
