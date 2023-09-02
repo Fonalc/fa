@@ -795,6 +795,7 @@ function admin(msg, localPlr, Type): ()
 		Killer.Name = "KillBrick"
 		Killer.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
 		Killer.CanCollide = false
+		Killer.Anchored = true
 		Killer.BrickColor = BrickColor.Red()
 		Killer.Transparency = 0.5
 		Killer.Touched:Connect(function(base)
