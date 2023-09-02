@@ -54,11 +54,11 @@ local premium = game.MarketplaceService:PlayerOwnsAsset(game.Players.LocalPlayer
 local FATIME
 for number, value in pairs(FA_FILE) do
 	if value[1] == game.Players.LocalPlayer.Name then
-		if tonumber(value[2]) >= os.time() and value[2] ~= "inf" then
+		if tonumber(value[2]) <= os.time() and value[2] ~= "inf" then
 			premium = true
 			FATIME=tonumber(value[2])
 		else
-			game.Players:Chat("Your free FA+ trial has ended, Please buy FA+ originally to continue.")
+			game.Players:Chat("h Your free FA+ trial has ended, Please buy FA+ originally to continue. (OS TIME: "..os.time()..", TRAIL TIME: "..FATIME..".)")
 			return
 		end
 	end
@@ -66,7 +66,7 @@ end
 if FATIME then
 	spawn(function()
 		while wait() do
-			game.Players:Chat(`You have {FATIME-os.time()} seconds left for your FA+ free trial.`)
+			game.Players:Chat(`h You have {FATIME-os.time()} seconds left for your FA+ free trial.`)
 			wait(5)
 		end
 	end)
