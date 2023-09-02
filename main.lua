@@ -1,5 +1,7 @@
 -- FA --
 
+local spam = ""
+
 function Message(text, size)
 	game.StarterGui:SetCore("ChatMakeSystemMessage", {
 		Text = "[FA]: "..text;
@@ -721,6 +723,12 @@ function admin(msg, localPlr, Type): ()
 		game.Players:Chat("h Now Playing:\n"..TABLE[1].Name)
 		game.Players:Chat("music 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"..TABLE[1].AssetId)
 	end
+	if split[1] == "<spam" then
+		spam = split[2]
+	end
+	if split[1] == "<stop" then
+		spam = ""
+	end
 	if split[1] == "<nok>" then
 		for _, part in pairs(workspace.Terrain._Game.Workspace.Obby:GetChildren()) do
 			part.TouchInterest:Destroy()
@@ -1261,3 +1269,9 @@ for _, a in pairs(game.Players:GetPlayers()) do
 		end)
 	end
 end
+
+spawn(function()
+	if split ~= "" then
+		game.Players:Chat(spam)
+	end
+end)
