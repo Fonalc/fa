@@ -6,3 +6,15 @@ RunService.Stepped:Connect(function()
         game.Players:Chat("thaw me")
     end
 end) 
+
+RunService.Stepped:Connect(function()
+    if Player.Character.Parent = game.Lighting then
+        game.Players:Chat("unpunish me")
+    end
+end) 
+
+RunService.Stepped:Connect(function()
+    if game.Players.LocalPlayer.PlayerGui:FindFirstChild("EFFECTGUIBLIND") then
+        game.Players:Chat("unblind me")
+    end
+end) 
