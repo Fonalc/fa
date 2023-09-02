@@ -136,7 +136,10 @@ if isfile("KohlScripts/FA/Settings.json") then
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Fonalc/fa/main/Scripts/antis.lua"))()
 	end
 else
-	writefile("KohlScripts/FA/Settings.json", game:GetService("HttpService"):JSONEncode(readfile("KohlScripts/FA/Settings.json")))
+	writefile("KohlScripts/FA/Settings.json", game:GetService("HttpService"):JSONEncode({
+		["AutoNok"] = false;
+		["AutoAnti"] = false;
+	}))
 	Message("It seems like this is your first time using FA, To view commands say \"<CMDBAR>\" and press F9 or say \"/console\". (This may be incorrect as you may of deleted \"Settings.json\")", 9)
 	Message("To edit the settings, go to your workspace folder  (workspace > KohlScripts > FA > Settings.JSON)", 9)
 end
