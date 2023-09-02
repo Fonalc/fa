@@ -1,17 +1,6 @@
 local RunService = game:GetService("RunService")
 local Player = Player
 
-spawn(function()
-    local lastPosition
-    local lastCFrame
-    while wait() do
-        if (Player.Character.HumanoidRootPart.Position-lastPosition).Magnitude <= 25 then
-            Player.Character.HumanoidRootPart.CFrame = lastCFrame
-        end
-        lastPosition = Player.Character.HumanoidRootPart.Position
-        lastCFrame = Player.Character.HumanoidRootPart.CFrame
-    end
-end)
 
 RunService.Stepped:Connect(function()
     if Player.Character:FindFirstChild("ice") then

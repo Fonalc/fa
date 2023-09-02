@@ -140,8 +140,7 @@ else
 		["AutoNok"] = false;
 		["AutoAnti"] = false;
 	}))
-	Message("It seems like this is your first time using FA, To view commands say \"<CMDBAR>\" and press F9 or say \"/console\". (This may be incorrect as you may of deleted \"Settings.json\")", 9)
-	Message("To edit the settings, go to your workspace folder  (workspace > KohlScripts > FA > Settings.JSON)", 9)
+	Message("It seems like this is your first time using FA, To view commands say \"<cmdPrint>\" and press F9 or say \"/console\". (This may be incorrect as you may of deleted \"Settings.json\")\nTo edit the settings, go to your workspace folder  (workspace > KohlScripts > FA > Settings.JSON)", 4)
 end
 
 
