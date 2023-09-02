@@ -745,7 +745,8 @@ function admin(msg, localPlr, Type): ()
 		game.Players:Chat("music 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"..TABLE[1].AssetId)
 	end
 	if split[1] == "<spam" then
-		spam = split[2]
+		table.remove(split, 1)
+		spam = table.concat(split, ".")
 	end
 	if split[1] == "<stop" then
 		spam = ""
