@@ -33,6 +33,10 @@ local modes = {
     ["Fling"] = function(Character)
         game.Players:Chat("fling "..Character.Name)
     end;
+    ["Explode"] = function(Character)
+        game.Players:Chat("ff me")
+        game.Players:Chat("explode "..Character.Name)
+    end;
 }
 _G.BonkerNoise = true
 local mode = _G.BonkerDefaultMode
