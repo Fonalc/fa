@@ -98,8 +98,18 @@ function GetPlayerFromStart(str:string)
 	return nil
 end
 
-game:GetService("UserInputService").WindowFocused:Connect(function() game.Players:Chat("reset me") end)
-game:GetService("UserInputService").WindowFocusReleased:Connect(function() game.Players:Chat("name me [Tabbed Out]\n"..game.Players.LocalPlayer.DisplayName) game.Players:Chat("ff me") end)
+game:GetService("UserInputService").WindowFocused:Connect(function() 
+	game.Players:Chat("reset me")
+end)
+game:GetService("UserInputService").WindowFocusReleased:Connect(function()
+	game.Players:Chat("name me [Tabbed Out]\n"..game.Players.LocalPlayer.DisplayName) 
+	game.Players:Chat("ff me") 
+	for _, part in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+		if part:IsA("BasePart") then
+			part.Anchored = true
+		end
+	end
+end)
 
 for _, player in pairs(game.Players:GetPlayers()) do
 	if table.find(cos, player.Name) then
