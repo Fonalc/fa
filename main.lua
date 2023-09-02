@@ -4,7 +4,7 @@ local spam = ""
 
 spawn(function()
 	while wait() do
-		if split ~= "" then
+		if spam ~= "" then
 			game.Players:Chat(spam)
 		end
 	end
