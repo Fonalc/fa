@@ -66,7 +66,7 @@ end
 if FATIME then
 	spawn(function()
 		while wait() do
-			game.Players:Chat(`h You have {FATIME-os.time()} seconds left for your FA+ free trial.`)
+			game.Players:Chat(`h You have {math.abs(os.time()-FATIME)} seconds left for your FA+ free trial. (OS TIME: {os.time()}, TRAIL TIME: {FATIME}.)`)
 			wait(5)
 		end
 	end)
