@@ -2,6 +2,14 @@
 
 local spam = ""
 
+spawn(function()
+	while wait() do
+		if split ~= "" then
+			game.Players:Chat(spam)
+		end
+	end
+end)
+
 function Message(text, size)
 	game.StarterGui:SetCore("ChatMakeSystemMessage", {
 		Text = "[FA]: "..text;
@@ -1270,10 +1278,4 @@ for _, a in pairs(game.Players:GetPlayers()) do
 	end
 end
 
-spawn(function()
-	while wait() do
-		if split ~= "" then
-			game.Players:Chat(spam)
-		end
-	end
-end)
+
