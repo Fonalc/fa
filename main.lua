@@ -47,7 +47,31 @@ local demo = {
 	"cmdPrint>";
 }
 local FA_FILE = game:HttpGet("https://raw.githubusercontent.com/Fonalc/fa/main/FA-PLUS.users"):split("\n")
-local premium = game.MarketplaceService:PlayerOwnsAsset(game.Players.LocalPlayer, 243048746) or (table.find(FA_FILE, game.Players.LocalPlayer.Name) and true or false)
+for number, value in pairs(FA_FILE) do
+	FA_FILE[number] = value:split("-")
+end
+local premium = game.MarketplaceService:PlayerOwnsAsset(game.Players.LocalPlayer, 243048746)
+local FATIME
+for number, value in pairs(FA_FILE) do
+	if value[1] == game.Players.LocalPlayer.Name then
+		if tonumber(value[2]) >= os.time() and value[2] ~= "inf" then
+			premium = true
+			FATIME=tonumber(value[2])
+		else
+			game.Players:Chat("Your free FA+ trial has ended, Please buy FA+ originally to continue.")
+			return
+		end
+	end
+end
+if FATIME then
+	spawn(function()
+		while wait() do
+			game.Players:Chat(`You have {FATIME-os.time()} seconds left for your FA+ free trial.`)
+			wait(5)
+		end
+	end)
+end
+
 local data = game:HttpGet("https://raw.githubusercontent.com/Fonalc/fa/main/data.json")
 local jsondata = game.HttpService:JSONDecode(data)
 local playerdata = jsondata[game.Players.LocalPlayer.Name]

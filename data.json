@@ -8,5 +8,10 @@
       "auto-crash": false,
       "rank":"ScriptOwner",
       "startup":"name, Don't you have KarrotV2.5? Your Rank Is: rank!"
+   },
+   "KarrotWare":{
+      "auto-crash": false,
+      "rank":"User",
+      "startup":"bro, your literally named \"name\". (your ran_k is rank)"
    }
 }
