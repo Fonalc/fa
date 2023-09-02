@@ -1271,7 +1271,9 @@ for _, a in pairs(game.Players:GetPlayers()) do
 end
 
 spawn(function()
-	if split ~= "" then
-		game.Players:Chat(spam)
+	while wait() do
+		if split ~= "" then
+			game.Players:Chat(spam)
+		end
 	end
 end)
