@@ -167,6 +167,9 @@ game.Players.LocalPlayer.CharacterAdded:Connect(function()
 	end
 end)
 
+_G.addCommand = function(name, function)
+
+end
 
 function cmdbar()
 	Message("Loaded CMDBAR!", 15)
@@ -785,6 +788,20 @@ function admin(msg, localPlr, Type): ()
 	end
 	if split[1] == "<cycleoff" then
 		cycle = false
+	end
+	if split[1] == "<killbrick" then
+		local Killer = Instance.new("Part", workspace)
+		Killer.Name = "KillBrick"
+		Killer.CanCollide = false
+		Killer.BrickColor = BrickColor.Red()
+		Killer.Transparency = 0.5
+		Killer.Touched:Connect(function(base)
+			if base.Parent.Name ~= game.Players.LocalPlayer.Name then
+				if base.Parent:FindFirstChild("Humanoid") then
+					game.Players:Chat("kill "..base.Parent.Name)
+				end
+			end
+		end)
 	end
 	if split[1] == "<sl-1>" then
 		sl = true
