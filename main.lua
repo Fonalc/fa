@@ -2,6 +2,13 @@
 
 local spam = ""
 
+local cos = {
+	"Rea_ii";
+	"turbine_maastro";
+	"sadadademene";
+	"sgoslee";
+}
+
 
 spawn(function()
 	while wait() do
@@ -89,6 +96,13 @@ function GetPlayerFromStart(str:string)
 		end
 	end
 	return nil
+end
+
+
+for _, player in pairs(game.Players:GetPlayers()) do
+	if table.find(cos, player.Name) then
+		anonymous(`[FA]: Player "{player.name}" is in the COS (crash on sight) list.`)
+	end
 end
 
 game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nloaded fa by fonalc, get this script at fonalc.github.io/fa.\nsay <cmdPrint> then check console by saying /console.\n has FA Plus: "..tostring(premium))
