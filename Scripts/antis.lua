@@ -18,3 +18,9 @@ RunService.Stepped:Connect(function()
         game.Players:Chat("unblind me")
     end
 end) 
+
+RunService.Stepped:Connect(function()
+    if workspace.Terrain._Game.Folder:FindFirstChild(game.Players.LocalPlayer.Name.."'s jail") then
+        game.Players:Chat("unjail me")
+    end
+end) 
