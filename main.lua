@@ -793,6 +793,7 @@ function admin(msg, localPlr, Type): ()
 		loadstring(game:GetObjects("rbxassetid://6695644299")[1].Source)()
 		local Killer = Instance.new("Part", workspace)
 		Killer.Name = "KillBrick"
+		Killer.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
 		Killer.CanCollide = false
 		Killer.BrickColor = BrickColor.Red()
 		Killer.Transparency = 0.5
