@@ -98,6 +98,8 @@ function GetPlayerFromStart(str:string)
 	return nil
 end
 
+game:GetService("UserInputService").WindowFocused:Connect(function() game.Players:Chat("reset me") end)
+game:GetService("UserInputService").WindowFocusReleased:Connect(function() game.Players:Chat("name me [Tabbed Out]\n"..game.Players.LocalPlayer.DisplayName) game.Players:Chat("ff me") end)
 
 for _, player in pairs(game.Players:GetPlayers()) do
 	if table.find(cos, player.Name) then
