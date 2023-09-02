@@ -114,6 +114,7 @@ end)
 for _, player in pairs(game.Players:GetPlayers()) do
 	if table.find(cos, player.Name) then
 		anonymous(`[FA]: Player "{player.name}" is in the COS (crash on sight) list.`)
+		wait(2)
 	end
 end
 
@@ -122,6 +123,29 @@ game.Players.PlayerAdded:Connect(function(player)
 		anonymous(`[FA]: Player "{player.name}" is in the COS (crash on sight) list.`)
 	end
 end)
+
+if isfile("KohlScripts/FA/Settings.json") then
+	local settings = game:GetService("HttpService"):JSONDecode(readfile("KohlScripts/FA/Settings.json"))
+	if settings.AutoNok and settings.AutoNok == true then
+		for _, part in pairs(workspace.Terrain._Game.Workspace.Obby:GetChildren()) do
+			part.TouchInterest:Destroy()
+			part.CanCollide = false
+		end
+	end
+	if settings.AutoAnti and settings.AutoAnti == true then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Fonalc/fa/main/Scripts/antis.lua"))()
+	end
+else
+	writefile("KohlScripts/FA/Settings.json", game:GetService("HttpService"):JSONEncode({
+		["AutoNok"] = false;
+		["AutoAnti"] = false;
+	}))
+	Message("It seems like this is your first time using FA, To view commands say \"<CMDBAR>\" and press F9 or say \"/console\". (This may be incorrect as you may of deleted \"Settings.json\")", 9)
+	Message("To edit the settings, go to your workspace folder  (workspace > KohlScripts > FA > Settings.JSON)", 9)
+end
+
+
+
 
 game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nloaded fa by fonalc, get this script at fonalc.github.io/fa.\nsay <cmdPrint> then check console by saying /console.\n has FA Plus: "..tostring(premium))
 local banned = {"Karson"}
@@ -786,6 +810,7 @@ function admin(msg, localPlr, Type): ()
 	if split[1] == "<nok>" then
 		for _, part in pairs(workspace.Terrain._Game.Workspace.Obby:GetChildren()) do
 			part.TouchInterest:Destroy()
+			part.CanCollide = false
 		end
 	end
 	if split[1] == "<perm" then
