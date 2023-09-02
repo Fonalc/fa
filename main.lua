@@ -136,7 +136,7 @@ if isfile("KohlScripts/FA/Settings.json") then
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Fonalc/fa/main/Scripts/antis.lua"))()
 	end
 else
-	createfolder("KohlScripts/FA")
+	makefolder("KohlScripts/FA")
 	writefile("KohlScripts/FA/Settings.json", game:GetService("HttpService"):JSONEncode({
 		["AutoNok"] = false;
 		["AutoAnti"] = false;
