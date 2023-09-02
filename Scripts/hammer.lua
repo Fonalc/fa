@@ -16,30 +16,41 @@ Message("Do not equip until asked!", 15)
 wait(1)
 Message("You may equip.", 15)
 local modes = {
-	["Stun"] = function(Character)
+	["stun"] = function(Character)
 		game.Players:Chat("spin "..Character.Name)
 		wait(2)
 		game.Players:Chat("unspin "..Character.Name)
 		game.Players:Chat("seizure "..Character.Name)
 	end;
-	["Kill"] = function(Character)
+	["kill"] = function(Character)
 		game.Players:Chat("kill "..Character.Name)
 	end;
-    ["Ban"] = function(Character)
+    ["ban"] = function(Character)
         game.Players:Chat("blind "..Character.Name)
         game.Players:Chat("pm "..Character.Name.." u been banned!!!!!! (not really just reset urself lol)")
         game.Players:Chat("punish "..Character.Name)
     end;
-    ["Fling"] = function(Character)
+    ["fling"] = function(Character)
         game.Players:Chat("fling "..Character.Name)
     end;
-    ["Explode"] = function(Character)
+    ["explode"] = function(Character)
         game.Players:Chat("ff me")
         game.Players:Chat("explode "..Character.Name)
+        wait(1)
         game.Players:Chat("unff me")
     end;
+    ["nuke"] = function(Character)
+        game.Players:Chat("ff me")
+        game.Players:Chat("ff "..Character.name)
+        for i=1, 100 do
+			game.Players:Chat("explode "..Character.Name)
+		end
+        wait(1)
+        game.Players:Chat("unff me")
+		game.Players:Chat("unff "..Character.name)
+    end;
 }
-_G.BonkerNoise = true
+
 local mode = _G.BonkerDefaultMode
 local BanHammer = game:GetService("Players").LocalPlayer.Backpack:WaitForChild("BanHammer V1.1")
 BanHammer.Handle.Touched:Connect(function(base)
