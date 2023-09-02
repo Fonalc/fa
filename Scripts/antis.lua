@@ -1,5 +1,17 @@
 local RunService = game:GetService("RunService")
-local Player = game.Players.LocalPlayer
+local Player = Player
+
+spawn(function()
+    local lastPosition
+    local lastCFrame
+    while wait() do
+        if (Player.Character.HumanoidRootPart.Position) <= lastPosition then
+            Player.Character.HumanoidRootPart.CFrame = lastCFrame
+        end
+        lastPosition = Player.Character.HumanoidRootPart.Position
+        lastCFrame = Player.Character.HumanoidRootPart.CFrame
+    end
+end)
 
 RunService.Stepped:Connect(function()
     if Player.Character:FindFirstChild("ice") then
@@ -32,13 +44,13 @@ RunService.Stepped:Connect(function()
 end) 
 
 RunService.Stepped:Connect(function()
-    if game.Players.LocalPlayer.Character:FindFirstChild("Seizure") then
+    if Player.Character:FindFirstChild("Seizure") then
         game.Players:Chat("unseizure me")
     end
 end) 
 
 RunService.Stepped:Connect(function()
-    if not game.Players.LocalPlayer.Character:FindFirstChild("Seizure") and game.Players.LocalPlayer.Character.Humanoid:GetState().Name=="PlatformStanding" then
+    if not Player.Character:FindFirstChild("Seizure") and Player.Character.Humanoid:GetState().Name=="PlatformStanding" then
         game.Players:Chat("unfly me")
         game.Players:Chat("clip me")
     end
