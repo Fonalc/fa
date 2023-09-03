@@ -1092,6 +1092,17 @@ function admin(msg, localPlr, Type): ()
 		local script = game:HttpGet("https://raw.githubusercontent.com/Fonalc/fa/main/Scripts/"..split[2]..".lua")
 		loadstring(script)()
 	end
+	--Velocity command made by OddyNuff (@daytontalbot)
+	if split[1] == "<vel" then
+		local mapFolder = game:GetService("Workspace").Terrain._Game.Workspace
+		for _,v in pairs(mapFolder:GetDescendants()) do
+			task.spawn(function()
+				if v:IsA("Part") then
+					v.Velocity = Vector3.new(0, 0, 0)
+				end
+			end)
+		end
+	end
 	if split[1] == "<warn" then
 		local plr = GetPlayerFromStart(split[2])
 		if plr then
