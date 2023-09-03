@@ -63,6 +63,8 @@ for number, value in pairs(FA_FILE) do
 			game.Players:Chat("pm me [FA]:\nPlease check your console.")
 			print("Your free FA+ trial has ended, Please buy FA+ originally to continue. (TIME: '"..os.time().."', TRIAL TIME: '"..split[2].."')")
 			return
+		elseif value[2] == "inf" then
+			premium = true
 		end
 	end
 end
