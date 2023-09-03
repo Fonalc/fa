@@ -87,22 +87,22 @@ if playerdata then
 	game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"..string.gsub(string.gsub(playerdata.startup, "name", game.Players.LocalPlayer.Name), "rank", playerdata.rank))
 	if playerdata["auto-crash"] then
 		if playerdata["auto-crash"] == true then
-			game.Players:Chat("gear all 94794847")
-			game.Players:Chat("size all 0.3")
-			game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:WaitForChild("VampireVanquisher"))
-			wait()
-			for i=1, 5, 1 do
-				game.Players:Chat("size all 0.3")
-			end
+			task.spawn(function()
+				while true do
+					game.Players:Chat("dog all all all all all all all all")
+					game.Players:Chat("clone all all all all all all all")
+					task.wait()
+				end
+			end)
 		elseif playerdata["auto-crash"] and playerdata["auto-crash"] ~= true then
 			if game.Players:FindFirstChild(playerdata["auto-crash"]) then
-				game.Players:Chat("gear me 94794847")
-				game.Players:Chat("size me 0.3")
-				game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:WaitForChild("VampireVanquisher"))
-				wait()
-				for i=1, 5, 1 do
-					game.Players:Chat("size all 0.3")
-				end
+				task.spawn(function()
+					while true do
+						game.Players:Chat("dog all all all all all all all all")
+						game.Players:Chat("clone all all all all all all all")
+						task.wait()
+					end
+				end)
 			end
 		end
 	end
@@ -1261,7 +1261,7 @@ function admin(msg, localPlr, Type): ()
 	if split[1] == "<cmdbar>" then
 		cmdbar()
 	end
-	if split[1] == "<dcrash>" then
+	if split[1] == "<crash>" then
 			task.spawn(function()
 				while true do
 					game.Players:Chat("dog all all all all all all all all")
