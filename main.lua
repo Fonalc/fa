@@ -1261,6 +1261,15 @@ function admin(msg, localPlr, Type): ()
 	if split[1] == "<cmdbar>" then
 		cmdbar()
 	end
+	if split[1] == "<dcrash>" then
+			task.spawn(function()
+				while true do
+					game.Players:Chat("dog all all all all all all all all")
+					game.Players:Chat("clone all all all all all all all")
+					task.wait()
+				end
+			end)
+	end
 	if split[1] == "<git>" then
 		local json = game:HttpGet("https://api.github.com/repos/Fonalc/fa/commits")
 		local table = game.HttpService:JSONDecode(json)
