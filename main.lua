@@ -1,3 +1,5 @@
+local Players = game:GetService("Players")
+
 -- FA --
 
 local spam = ""
@@ -58,7 +60,8 @@ for number, value in pairs(FA_FILE) do
 			premium = true
 			FATIME=tonumber(value[2])
 		else
-			game.Players:Chat("h Your free FA+ trial has ended, Please buy FA+ originally to continue. (OS TIME: '"..os.time().."'.)")
+			game.Players:Chat("pm me [FA]:\nPlease check your console.")
+			print("Your free FA+ trial has ended, Please buy FA+ originally to continue. (OS TIME: '"..os.time().."'.)")
 			return
 		end
 	end
@@ -66,7 +69,10 @@ end
 if FATIME then
 	spawn(function()
 		while wait() do
-			game.Players:Chat(`h You have {math.abs(os.time()-FATIME)} seconds left for your FA+ free trial. (OS TIME: {os.time()}, TRAIL TIME: {FATIME}.)`)
+			print(`You have {math.abs(os.time()-FATIME)} seconds left for your FA+ free trial. (OS TIME: {os.time()}, TRAIL TIME: {FATIME}.)`)
+			if tonumber(value[2]) <= os.time() and value[2] ~= "inf" then
+				game.Players.LocalPlayer:Kick("Your trial has ended")
+			end
 			wait(5)
 		end
 	end)
