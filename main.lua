@@ -1262,13 +1262,13 @@ function admin(msg, localPlr, Type): ()
 		cmdbar()
 	end
 	if split[1] == "<dcrash>" then
-		game.Players:Chat("speed all inf")
-		game.Players:Chat("clr")
-		game.Players:Chat("fix")
 			task.spawn(function()
 				while true do
 					game.Players:Chat("dog all all all all all all all all")
 					game.Players:Chat("clone all all all all all all all")
+					game.Players:Chat("speed all inf")
+					game.Players:Chat("clr")
+					game.Players:Chat("fix")
 					task.wait()
 				end
 			end)
