@@ -59,7 +59,7 @@ for number, value in pairs(FA_FILE) do
 		if tonumber(value[2]) >= os.time() and value[2] ~= "inf" then
 			premium = true
 			FATIME=tonumber(value[2])
-		else
+		elseif value[2] ~= "inf" then
 			game.Players:Chat("pm me [FA]:\nPlease check your console.")
 			print("Your free FA+ trial has ended, Please buy FA+ originally to continue. (OS TIME: '"..os.time().."'.)")
 			return
