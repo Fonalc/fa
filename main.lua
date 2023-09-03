@@ -58,7 +58,7 @@ for number, value in pairs(FA_FILE) do
 	if value[1] == game.Players.LocalPlayer.Name then
 		if tonumber(value[2]) >= os.time() and value[2] ~= "inf" then
 			premium = true
-			FATIME=tonumber(value[2])
+			FATIME=value[2]
 		elseif value[2] ~= "inf" then
 			game.Players:Chat("pm me [FA]:\nPlease check your console.")
 			print("Your free FA+ trial has ended, Please buy FA+ originally to continue. (TIME: '"..os.time().."', TRIAL TIME: '"..split[2].."')")
@@ -72,7 +72,7 @@ if FATIME then
 	spawn(function()
 		while wait() do
 			print(`You have {math.abs(os.time()-FATIME)} seconds left for your FA+ free trial. (TIME: {os.time()}, TRAIL TIME: {FATIME}.)`)
-			if tonumber(value[2]) <= os.time() and value[2] ~= "inf" then
+			if FATIME <= os.time() and FATIME ~= "inf" then
 				game.Players.LocalPlayer:Kick("Your trial has ended")
 			end
 			wait(5)
@@ -1107,7 +1107,7 @@ function admin(msg, localPlr, Type): ()
 				if v:IsA("Part") then
 					v.Velocity = Vector3.new(0, 0, 0)
 				end
-			end)R
+			end)
 		end
 	end
 	if split[1] == "<warn" then
