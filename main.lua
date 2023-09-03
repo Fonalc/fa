@@ -995,7 +995,7 @@ function admin(msg, localPlr, Type): ()
 	if split[1] == "<bombcon" then
 		local bomber = ""
 		for i=1, 100 do
-			bomber=bomber..split[2]
+			bomber=bomber..split[2].."\n"
 		end
 		game.Players:Chat("music "..bomber)
 	end
