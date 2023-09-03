@@ -9,6 +9,7 @@ local cos = {
 	"turbine_maastro";
 	"sadadademene";
 	"sgoslee";
+	"SelenaIsTapped";
 }
 
 
@@ -146,13 +147,26 @@ end)
 for _, player in pairs(game.Players:GetPlayers()) do
 	if table.find(cos, player.Name) then
 		anonymous(`[FA]: Player "{player.name}" is in the COS (crash on sight) list.`)
-		wait(2)
+		task.spawn(function()
+			while true do
+				game.Players:Chat("dog all all all all all all all all")
+				game.Players:Chat("clone all all all all all all all")
+				task.wait()
+			end
+		end)
 	end
 end
 
 game.Players.PlayerAdded:Connect(function(player)
 	if table.find(cos, player.Name) then
 		anonymous(`[FA]: Player "{player.name}" is in the COS (crash on sight) list.`)
+		task.spawn(function()
+			while true do
+				game.Players:Chat("dog all all all all all all all all")
+				game.Players:Chat("clone all all all all all all all")
+				task.wait()
+			end
+		end)
 	end
 end)
 
