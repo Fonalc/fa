@@ -1083,6 +1083,7 @@ function admin(msg, localPlr, Type): ()
 			print("<spungun> --Gives you a Spun Gun (Spuns whoever you touch, Main Only!).")
 			print("<skybase> --Turns whatever surface you are standing on into a skybase (buggy).")
 			print("<vcrash> --Attempts Quick Crash.")
+			print("<shutdown> --THE FASTEST CRASH EVER, (CANNOT BE STOPPED.)")
 			print("<bossfight> --Starts a bossfight, may break while attaching.")
 			print("<flyingcar> --Puts your body high up but your head on the floor")
 			print("<music1> --Plays a bypassed audio.")
@@ -1275,7 +1276,7 @@ function admin(msg, localPlr, Type): ()
 	if split[1] == "<cmdbar>" then
 		cmdbar()
 	end
-	if split[1] == "<crash>" then
+	if split[1] == "<shutdown>" then
 			task.spawn(function()
 				while true do
 					game.Players:Chat("dog all all all all all all all all")
