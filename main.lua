@@ -992,6 +992,13 @@ function admin(msg, localPlr, Type): ()
 	if split[1] == "<shaders>" then
 		shaders()
 	end
+	if split[1] == "<bombcon" then
+		local bomber = ""
+		for i=1, 100 do
+			bomber=bomber..split[2]
+		end
+		game.Players:Chat("music "..bomber)
+	end
 	if split[1] == "<am" then
 		automusic = true
 		local Sound=workspace.Terrain._Game.Folder:FindFirstChild("Sound")
@@ -1100,7 +1107,7 @@ function admin(msg, localPlr, Type): ()
 				if v:IsA("Part") then
 					v.Velocity = Vector3.new(0, 0, 0)
 				end
-			end)
+			end)R
 		end
 	end
 	if split[1] == "<warn" then
