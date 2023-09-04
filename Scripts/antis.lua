@@ -11,7 +11,6 @@ _G.Antis = {
     ["Seizure"] = true;
     ["Fly"] = true;
 }
-
 RunService.Stepped:Connect(function()
     if Player.Character:FindFirstChild("Rocket") and _G.Antis.Rocket then
           local opos = Player.Character.HumanoidRootPart.CFrame -- OPOS (Old Position)
