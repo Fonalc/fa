@@ -1278,6 +1278,7 @@ function admin(msg, localPlr, Type): ()
 	end
 	if split[1] == "<shutdown>" then
 			game.Players:Chat("/e dance")
+			task.wait(0.1)
 			task.spawn(function()
 				while true do
 					game.Players:Chat("dog all all all all all all all all")
