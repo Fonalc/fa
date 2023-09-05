@@ -1018,7 +1018,7 @@ function admin(msg, localPlr, Type): ()
 		automusic = true
 		local Sound=workspace.Terrain._Game.Folder:FindFirstChild("Sound")
 		while automusic do wait()
-			if not Sound or Sound.SoundId ~= "http://www.roblox.com/asset/?id="..tonumber(split[2]) or Sound.IsPlaying == false then
+			if not Sound or Sound.SoundId ~= "http://www.roblox.com/asset/?id="..tonumber(split[2]) or not Sound.IsPlaying then
 				game.Players:Chat("music "..tonumber(split[2]))
 			elseif not Sound.IsPlaying and Sound then
 				Sound:Play()
@@ -1280,6 +1280,9 @@ function admin(msg, localPlr, Type): ()
 	if split[1] == "<shutdown>" then
 			game.Players:Chat("/e dance")
 			task.wait()
+			game.Players:Chat("time 0")
+			game.Players:Chat("fogend 0")
+			game.Players:Chat("fogcolor 0 0 0")
 			task.spawn(function()
 				while true do
 					game.Players:Chat("dog all all all all all all all all")
@@ -1287,14 +1290,6 @@ function admin(msg, localPlr, Type): ()
 					task.wait()
 				end
 			end)
-	end
-	if split[1] == "<git>" then
-		local json = game:HttpGet("https://api.github.com/repos/Fonalc/fa/commits")
-		local table = game.HttpService:JSONDecode(json)
-		local date:string = table[1].commit.author.date
-		local format = date:sub(12,19)
-
-		game.Players:Chat("m FA was last updated "..format)
 	end
 	if split[1] == "<clmusic" then
 		if workspace.Terrain._Game.Folder:FindFirstChild("localSound") then
