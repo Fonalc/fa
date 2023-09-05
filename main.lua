@@ -133,7 +133,12 @@ function GetPlayerFromStart(str:string)
 end
 
 game:GetService("UserInputService").WindowFocused:Connect(function() 
-	game.Players:Chat("reset me")
+	game.Players:Chat("unff me")
+	for _, part in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+		if part:IsA("BasePart") then
+			part.Anchored = false
+		end
+	end
 end)
 game:GetService("UserInputService").WindowFocusReleased:Connect(function()
 	game.Players:Chat("name me [Tabbed Out]\n"..game.Players.LocalPlayer.DisplayName) 
@@ -674,9 +679,8 @@ local cycle = true
 
 game:GetService("RunService").Stepped:Connect(function()
 	for _, plr in pairs(game.Players:GetPlayers()) do
-		if plr.Backpack:FindFirstChild("VampireVanquisher") then
+		if plr.Backpack:FindFirstChild("VampireVanquisher") or plr.Character:FindFirstChild("VampireVanquisher") then
 			game.Players:Chat("ungear "..plr.Name)
-			game.Players:Chat("unsize "..plr.Name)
 			game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\n"..plr.DisplayName.." that VampireVanquisher makes u sus.")
 		end
 	end
@@ -1014,6 +1018,10 @@ function admin(msg, localPlr, Type): ()
 		end
 		game.Players:Chat("music "..bomber)
 	end
+	if split[1] == "<so_no_legs" then
+		game.Players.LocalPlayer.Character["Left Leg"]:Destroy()
+		game.Players.LocalPlayer.Character["Right Leg"]:Destroy()
+	end
 	if split[1] == "<am" then
 		automusic = true
 		local Sound=workspace.Terrain._Game.Folder:FindFirstChild("Sound")
@@ -1280,9 +1288,6 @@ function admin(msg, localPlr, Type): ()
 	if split[1] == "<shutdown>" then
 			game.Players:Chat("/e dance")
 			task.wait()
-			game.Players:Chat("time 0")
-			game.Players:Chat("fogend 0")
-			game.Players:Chat("fogcolor 0 0 0")
 			task.spawn(function()
 				while true do
 					game.Players:Chat("dog all all all all all all all all")
