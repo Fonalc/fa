@@ -10,6 +10,7 @@ local cos = {
 	"sadadademene";
 	"sgoslee";
 	"SelenaIsTapped";
+	"lxebaran";
 }
 
 
