@@ -5,6 +5,11 @@ local Players = game:GetService("Players")
 --Last Counted Commands Date: 06/09/2023.
 --Last Counted Commands: 71.
 
+for a,b in pairs(workspace.Terrain._Game.Workspace["Obby Box"]:GetChildren()) do
+	b.CanCollide=false
+end
+
+
 _G.cmdPrefix = "<"
 
 local spam = ""
