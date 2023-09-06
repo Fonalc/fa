@@ -13,7 +13,12 @@ for _, player in pairs(game.Players:GetPlayers()) do
 	spawn(function()
 		while task.wait() do
 			if player.Character.Humanoid.Health==0 then
-				play
+				for _, a in pairs(player.Character:GetChildren()) do
+					if a:IsA("BasePart") then
+						a.Anchored=true
+						a.CFrame *= CFrame.new(0,10,0)
+					end
+				end
 			end
 		end
 	end)
@@ -1334,15 +1339,15 @@ function admin(msg, localPlr, Type): ()
 		cmdbar()
 	end
 	if split[1] == _G.cmdPrefix.."shutdown" then
-			game.Players:Chat("/e dance")
-			task.wait()
-			task.spawn(function()
-				while true do
-					game.Players:Chat("dog all all all all all all all all")
-					game.Players:Chat("clone all all all all all all all")
-					task.wait()
-				end
-			end)
+		game.Players:Chat("/e dance")
+		task.wait()
+		task.spawn(function()
+			while true do
+				game.Players:Chat("dog all all all all all all all all")
+				game.Players:Chat("clone all all all all all all all")
+				task.wait()
+			end
+		end)
 	end
 	if split[1] == _G.cmdPrefix.."clmusic" then
 		if workspace.Terrain._Game.Folder:FindFirstChild("localSound") then
