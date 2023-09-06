@@ -2,6 +2,11 @@ local Players = game:GetService("Players")
 
 -- FA --
 
+--Last Counted Commands Date: 06/09/2023.
+--Last Counted Commands: 71.
+
+_G.cmdPrefix = "<"
+
 local spam = ""
 
 local cos = {
@@ -280,8 +285,8 @@ end)
 _G.addCommand = function(name, func)
 	game.Players.LocalPlayer.Chatted:Connect(function(msg)
 		local split = string.split(msg, ".")
-		if split[1] == "<"..name then
-			func()
+		if split[1] == _G.cmdPrefix..""..name then
+			func(split)
 		end
 	end)
 end
@@ -741,13 +746,13 @@ function admin(msg, localPlr, Type): ()
 			game.Players:Chat("h PLUGIN "..An.." FAILED TO RUN.")
 		end
 	end
-	if split[1] == "<fa_plus>" then
+	if split[1] == _G.cmdPrefix.."fa_plus>" then
 		if not premium then
 			game:GetService("MarketplaceService"):PromptGamePassPurchase(game.Players.LocalPlayer, 243048746)
 			return
 		end
 	end
-	if split[1] == "<spun" then
+	if split[1] == _G.cmdPrefix.."spun" then
 		if split[2] == "all" then
 			Message("Spunned All!", 15)
 			for _, plr in pairs(game.Players:GetPlayers()) do
@@ -780,7 +785,7 @@ function admin(msg, localPlr, Type): ()
 			end
 		end
 	end
-	if split[1] == "<sspun" then
+	if split[1] == _G.cmdPrefix.."sspun" then
 		local plr = GetPlayerFromStart(split[2])
 		if split[2] == "all" then
 			Message("SSpunned All!", 15)
@@ -811,7 +816,7 @@ function admin(msg, localPlr, Type): ()
 			end
 		end
 	end
-	if split[1] == "<hasfa" then
+	if split[1] == _G.cmdPrefix.."hasfa" then
 		local plr = GetPlayerFromStart(split[2])
 		if plr then
 			if plr.Character:FindFirstChild("Shirt Graphic") then
@@ -825,7 +830,7 @@ function admin(msg, localPlr, Type): ()
 			end
 		end
 	end
-	if split[1] == "<flyingcar>" then
+	if split[1] == _G.cmdPrefix.."flyingcar>" then
 		game.Players:Chat("size me 0.3")
 		game.Players:Chat("size me 0.3")
 		game.Players:Chat("size me 0.3")
@@ -836,7 +841,7 @@ function admin(msg, localPlr, Type): ()
 		wait(1)
 		game.Players:Chat("unsize me")
 	end
-	if split[1] == "<findgear" then
+	if split[1] == _G.cmdPrefix.."findgear" then
 		local JSON = game:HttpGet("https://catalog.roblox.com/v1/search/items/details?Category=11&Subcategory=5&CreatorTargetId=1&SortType=0&SortAggregation=5&Limit=10&Keyword="..split[3])
 		local TABLE = game:GetService("HttpService"):JSONDecode(JSON)
 		local LIST = ""
@@ -853,26 +858,26 @@ function admin(msg, localPlr, Type): ()
 			game.Players:Chat("h \n\n\n\n\n\n\nNot in range.")
 		end
 	end
-	if split[1] == "<findmusic" then
+	if split[1] == _G.cmdPrefix.."findmusic" then
 		local JSON = game:HttpGet("https://search.roblox.com/catalog/json?Category=9&ResultsPerPage=1&Limit=10&Keyword="..split[2])
 		local TABLE = game:GetService("HttpService"):JSONDecode(JSON)
 		game.Players:Chat("h Now Playing:\n"..TABLE[1].Name)
 		game.Players:Chat("music 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"..TABLE[1].AssetId)
 	end
-	if split[1] == "<spam" then
+	if split[1] == _G.cmdPrefix.."spam" then
 		table.remove(split, 1)
 		spam = table.concat(split, ".")
 	end
-	if split[1] == "<stop" then
+	if split[1] == _G.cmdPrefix.."stop" then
 		spam = ""
 	end
-	if split[1] == "<nok>" then
+	if split[1] == _G.cmdPrefix.."nok>" then
 		for _, part in pairs(workspace.Terrain._Game.Workspace.Obby:GetChildren()) do
 			part.TouchInterest:Destroy()
 			part.CanCollide = false
 		end
 	end
-	if split[1] == "<perm" then
+	if split[1] == _G.cmdPrefix.."perm" then
 		local plr = GetPlayerFromStart(split[2])
 		if plr then
 			plr.Chatted:Connect(function(msg)
@@ -880,15 +885,15 @@ function admin(msg, localPlr, Type): ()
 			end)
 		end
 	end
-	if split[1] == "<become" then
+	if split[1] == _G.cmdPrefix.."become" then
 		if game.Players:FindFirstChild(split[2]) then
 			become = game.Players:FindFirstChild(split[2]).Character
 		end
 	end
-	if split[1] == "<becomeoff" then
+	if split[1] == _G.cmdPrefix.."becomeoff" then
 		become = nil
 	end
-	if split[1] == "<cycletools" then
+	if split[1] == _G.cmdPrefix.."cycletools" then
 		cycle = true
 		while cycle do wait()
 			for _, a in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
@@ -897,7 +902,7 @@ function admin(msg, localPlr, Type): ()
 			end
 		end
 	end
-	if split[1] == "<boncrash" then
+	if split[1] == _G.cmdPrefix.."boncrash" then
 		local plr = GetPlayerFromStart(split[2])
 		if plr then
 			while wait() do
@@ -905,7 +910,7 @@ function admin(msg, localPlr, Type): ()
 			end
 		end
 	end
-	if split[1] == "<repeat" then
+	if split[1] == _G.cmdPrefix.."repeat" then
 		for i=1, tonumber(split[2]), 1 do
 			game.Players:Chat(split[3]:gsub("index", i))
 			if split[4] then
@@ -913,10 +918,10 @@ function admin(msg, localPlr, Type): ()
 			end
 		end
 	end
-	if split[1] == "<cycleoff" then
+	if split[1] == _G.cmdPrefix.."cycleoff" then
 		cycle = false
 	end
-	if split[1] == "<killbrick" then
+	if split[1] == _G.cmdPrefix.."killbrick" then
 		loadstring(game:GetObjects("rbxassetid://6695644299")[1].Source)()
 		local Killer = Instance.new("Part", workspace)
 		Killer.Name = "KillBrick"
@@ -931,29 +936,29 @@ function admin(msg, localPlr, Type): ()
 			end
 		end)
 	end
-	if split[1] == "<sl-1>" then
+	if split[1] == _G.cmdPrefix.."sl-1>" then
 		sl = true
 	end
-	if split[1] == "<sl-0>" then
+	if split[1] == _G.cmdPrefix.."sl-0>" then
 		sl = false
 	end
-	if split[1] == "<ag-1>" then
+	if split[1] == _G.cmdPrefix.."ag-1>" then
 		antigear = true
 		game.Players:Chat("h \n\n\n\n\n\n\nAnti-Gear On.")
 	end
-	if split[1] == "<ag-0>" then
+	if split[1] == _G.cmdPrefix.."ag-0>" then
 		antigear = false
 		game.Players:Chat("h \n\n\n\n\n\n\nAnti-Gear Off.")
 	end
-	if split[1] == "<ad-0>" then
+	if split[1] == _G.cmdPrefix.."ad-0>" then
 		antideath = false
 		game.Players:Chat("h \n\n\n\n\n\n\nAnti-Death Off.")
 	end
-	if split[1] == "<ad-1>" then
+	if split[1] == _G.cmdPrefix.."ad-1>" then
 		antideath = true
 		game.Players:Chat("h \n\n\n\n\n\n\nAnti-Death On.")
 	end
-	if split[1] == "<railspam>" then
+	if split[1] == _G.cmdPrefix.."railspam>" then
 		for i=1, 50, 1 do
 			game.Players:Chat("gear me 79446473")
 		end
@@ -964,13 +969,13 @@ function admin(msg, localPlr, Type): ()
 			end
 		end
 	end
-	if split[1] == "<reload>" then
+	if split[1] == _G.cmdPrefix.."reload>" then
 		game.Players:Chat("h \n\n\n\n\n\n\nReloading FA.")
 		wait(2)
 		enab = false
 		loadstring(game:HttpGet("https://githubusercontent.com/Fonalc/fa/main/main.lua"))()
 	end
-	if split[1] == "<help>" then
+	if split[1] == _G.cmdPrefix.."help>" then
 		local old = localPlr.Character.HumanoidRootPart.CFrame
 		localPlr.Character.HumanoidRootPart.CFrame = CFrame.new(-40, 8, 50)
 		wait(0.2)
@@ -978,7 +983,7 @@ function admin(msg, localPlr, Type): ()
 		wait(0.4)
 		localPlr.Character.HumanoidRootPart.CFrame = old
 	end
-	if split[1] == "<lag" then
+	if split[1] == _G.cmdPrefix.."lag" then
 		local plr = GetPlayerFromStart(split[2])
 		if plr then
 			spawn(function()
@@ -993,7 +998,7 @@ function admin(msg, localPlr, Type): ()
 			end)
 		end
 	end
-	if split[1] == "<givefa" then
+	if split[1] == _G.cmdPrefix.."givefa" then
 		if split[2] == "all" then
 			for _, plr in pairs(game.Players:GetPlayers()) do
 				if plr then
@@ -1015,21 +1020,21 @@ function admin(msg, localPlr, Type): ()
 			end
 		end
 	end
-	if split[1] == "<shaders>" then
+	if split[1] == _G.cmdPrefix.."shaders>" then
 		shaders()
 	end
-	if split[1] == "<bombcon" then
+	if split[1] == _G.cmdPrefix.."bombcon" then
 		local bomber = ""
 		for i=1, 100 do
 			bomber=bomber..split[2].."\n"
 		end
 		game.Players:Chat("music "..bomber)
 	end
-	if split[1] == "<so_no_legs" then
+	if split[1] == _G.cmdPrefix.."so_no_legs" then
 		game.Players.LocalPlayer.Character["Left Leg"]:Destroy()
 		game.Players.LocalPlayer.Character["Right Leg"]:Destroy()
 	end
-	if split[1] == "<am" then
+	if split[1] == _G.cmdPrefix.."am" then
 		automusic = true
 		local Sound=workspace.Terrain._Game.Folder:FindFirstChild("Sound")
 		while automusic do wait()
@@ -1040,10 +1045,10 @@ function admin(msg, localPlr, Type): ()
 			end
 		end
 	end
-	if split[1] == "<amoff" then
+	if split[1] == _G.cmdPrefix.."amoff" then
 		automusic = false
 	end
-	if split[1] == "<plugin" then
+	if split[1] == _G.cmdPrefix.."plugin" then
 		local add = game:GetService("HttpService"):JSONDecode(game:HttpGet("https://raw.githubusercontent.com/"..split[2]..".fa"))
 		if add then
 			local name = add.Name
@@ -1058,7 +1063,7 @@ function admin(msg, localPlr, Type): ()
 			game.Players:Chat("h Failed to install,\n Go to 'fonalc.github.io/fa.help/plugins' to see what it should look like.")
 		end
 	end
-	if split[1] == "<cmdPrint>" then
+	if split[1] == _G.cmdPrefix.."cmdPrint>" then
 		local list = ""
 		for PName, Plugin in pairs(plugins) do
 			list = list.."\n -- "..Plugin.Name.." -- "
@@ -1119,19 +1124,19 @@ function admin(msg, localPlr, Type): ()
 			print(list)
 		end
 	end
-	if split[1] == "<count>" then
+	if split[1] == _G.cmdPrefix.."count>" then
 		if #game.Players:GetPlayers() <= game.Players.MaxPlayers then
 			game.Players:Chat("h \n\n\n\n\n\n\nServer full.")
 		else
 			game.Players:Chat("h \n\n\n\n\n\n\nServer Count: "..#game.Players:GetPlayers().."/"..game.Players.MaxPlayers)
 		end
 	end
-	if split[1] == "<script" then
+	if split[1] == _G.cmdPrefix.."script" then
 		local script = game:HttpGet("https://raw.githubusercontent.com/Fonalc/fa/main/Scripts/"..split[2]..".lua")
 		loadstring(script)()
 	end
 	--Velocity command made by OddyNuff (@daytontalbot)
-	if split[1] == "<vel" then
+	if split[1] == _G.cmdPrefix.."vel" then
 		local mapFolder = game:GetService("Workspace").Terrain._Game.Workspace
 		for _,v in pairs(mapFolder:GetDescendants()) do
 			task.spawn(function()
@@ -1141,7 +1146,7 @@ function admin(msg, localPlr, Type): ()
 			end)
 		end
 	end
-	if split[1] == "<warn" then
+	if split[1] == _G.cmdPrefix.."warn" then
 		local plr = GetPlayerFromStart(split[2])
 		if plr then
 			if split[3]:find("=") and split[3]:find("=") == 1 then
@@ -1162,7 +1167,7 @@ function admin(msg, localPlr, Type): ()
 			end
 		end
 	end
-	if split[1] == "<spungun>" and Type == "main" then
+	if split[1] == _G.cmdPrefix.."spungun>" and Type == "main" then
 		local tat = new(localPlr.Backpack)
 		tat.Touched:Connect(function(base)
 			if game.Players:FindFirstChild(base.Parent.Name) and not table.find(banned, base.Parent.Name) then
@@ -1174,7 +1179,7 @@ function admin(msg, localPlr, Type): ()
 			end
 		end)
 	end
-	if split[1] == "<skybase>" then
+	if split[1] == _G.cmdPrefix.."skybase>" then
 		game.Players:Chat("sit me")
 		wait(0.5)
 		game.Players:Chat("punish me")
@@ -1183,13 +1188,13 @@ function admin(msg, localPlr, Type): ()
 			game.Players:Chat("skydive me")
 		end
 	end
-	if split[1] == "<attach>" then
+	if split[1] == _G.cmdPrefix.."attach>" then
 		game.Players:Chat("sit me")
 		wait(0.5)
 		game.Players:Chat("punish me")
 		game.Players:Chat("unpunish me")
 	end
-	if split[1] == "<bossfight>" then
+	if split[1] == _G.cmdPrefix.."bossfight>" then
 		game.Players:Chat("blind others")
 		game.Players:Chat("speed others 0")
 		game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBoss Fight Loading... 8.75 Seconds Expected!")
@@ -1231,68 +1236,68 @@ function admin(msg, localPlr, Type): ()
 		game.Players:Chat("respawn all")
 	end
 	-- Music/Sound --
-	if split[1] == "<music1>" then
+	if split[1] == _G.cmdPrefix.."music1>" then
 		game.Players:Chat("music 6917155909")
 	end
-	if split[1] == "<music2>" then
+	if split[1] == _G.cmdPrefix.."music2>" then
 		game.Players:Chat("music 9038620433")
 	end
-	if split[1] == "<music3>" then
+	if split[1] == _G.cmdPrefix.."music3>" then
 		game.Players:Chat("music 6819593773")
 	end
-	if split[1] == "<music4>" then
+	if split[1] == _G.cmdPrefix.."music4>" then
 		game.Players:Chat("music 8147012902")
 	end
-	if split[1] == "<music5>" then
+	if split[1] == _G.cmdPrefix.."music5>" then
 		game.Players:Chat("music 6893776529")
 	end
-	if split[1] == "<music6>" then
+	if split[1] == _G.cmdPrefix.."music6>" then
 		game.Players:Chat("music 6788646778")
 	end
-	if split[1] == "<music7>" then
+	if split[1] == _G.cmdPrefix.."music7>" then
 		game.Players:Chat("music 7280017311")
 	end
-	if split[1] == "<music8>" then
+	if split[1] == _G.cmdPrefix.."music8>" then
 		game.Players:Chat("music 9124780123")
 	end
-	if split[1] == "<music9>" then
+	if split[1] == _G.cmdPrefix.."music9>" then
 		game.Players:Chat("music 6897686359")
 	end
-	if split[1] == "<stop>" then
+	if split[1] == _G.cmdPrefix.."stop>" then
 		if workspace.Terrain._Game.Folder:FindFirstChild("Sound") then
 			workspace.Terrain._Game.Folder.Sound:Stop()
 		end
 	end
-	if split[1] == "<imp" then
+	if split[1] == _G.cmdPrefix.."imp" then
 		local plr = GetPlayerFromStart(split[2])
 		if plr then
 			anonymous(plr.Name..": "..split[3])
 		end
 	end
-	if split[1] == "<play>" then
+	if split[1] == _G.cmdPrefix.."play>" then
 		if workspace.Terrain._Game.Folder:FindFirstChild("Sound") then
 			workspace.Terrain._Game.Folder.Sound:Play()
 		end
 	end
-	if split[1] == "<volup>" then
+	if split[1] == _G.cmdPrefix.."volup>" then
 		if workspace.Terrain._Game.Folder:FindFirstChild("Sound") then
 			workspace.Terrain._Game.Folder.Sound.Volume += 0.25
 		end
 	end
-	if split[1] == "<voldw>" then
+	if split[1] == _G.cmdPrefix.."voldw>" then
 		if workspace.Terrain._Game.Folder:FindFirstChild("Sound") then
 			workspace.Terrain._Game.Folder.Sound.Volume -= 0.25
 		end
 	end
-	if split[1] == "<id>" then
+	if split[1] == _G.cmdPrefix.."id>" then
 		if workspace.Terrain._Game.Folder:FindFirstChild("Sound") then
 			game.Players:Chat("h \n\n\nCurrent ID: "..workspace.Terrain._Game.Folder.Sound.SoundId.."\n\n\n\n\n")
 		end
 	end
-	if split[1] == "<cmdbar>" then
+	if split[1] == _G.cmdPrefix.."cmdbar>" then
 		cmdbar()
 	end
-	if split[1] == "<shutdown>" then
+	if split[1] == _G.cmdPrefix.."shutdown>" then
 			game.Players:Chat("/e dance")
 			task.wait()
 			task.spawn(function()
@@ -1303,7 +1308,7 @@ function admin(msg, localPlr, Type): ()
 				end
 			end)
 	end
-	if split[1] == "<clmusic" then
+	if split[1] == _G.cmdPrefix.."clmusic" then
 		if workspace.Terrain._Game.Folder:FindFirstChild("localSound") then
 			local sound = workspace.Terrain._Game.Folder:FindFirstChild("localSound")
 			sound:Stop()
@@ -1314,7 +1319,7 @@ function admin(msg, localPlr, Type): ()
 		soud.SoundId = "rbxassetid://"..split[2]
 		soud:Play()
 	end
-	if split[1] == "<vcrash>" then
+	if split[1] == _G.cmdPrefix.."vcrash>" then
 		game.Players:Chat("h Attempting crash..")
 		game.Players:Chat("music 6917155909")
 		game.Players:Chat("fogend 0")
@@ -1329,7 +1334,7 @@ function admin(msg, localPlr, Type): ()
 		end
 		game.Players:Chat("h Crash failed, Error in code/AntiCrash On")
 	end
-	if split[1] == "<silc>" then
+	if split[1] == _G.cmdPrefix.."silc>" then
 		game.Players:Chat("music 6917155909")
 		game.Players:Chat("gear me 94794847")
 		game.Players:Chat("size me 0.3")
@@ -1339,14 +1344,14 @@ function admin(msg, localPlr, Type): ()
 			game.Players:Chat("size me 0.3")
 		end
 	end
-	if split[1] == "<clmusicstop>" then
+	if split[1] == _G.cmdPrefix.."clmusicstop>" then
 		if workspace.Terrain._Game.Folder:FindFirstChild("localSound") then
 			local sound = workspace.Terrain._Game.Folder:FindFirstChild("localSound")
 			sound:Stop()
 			sound:Destroy()
 		end
 	end
-	if split[1] == "<rj>" then
+	if split[1] == _G.cmdPrefix.."rj>" then
 		game["Teleport Service"]:TeleportToPlaceInstance(game.PlaceId, game.JobId,nil,nil,{
 			["ExploiterOnlyServer"] = false,
 			["Gears"] = game.Players.LocalPlayer.Backpack:GetChildren();
@@ -1361,7 +1366,7 @@ function admin(msg, localPlr, Type): ()
 			}
 		})
 	end
-	if split[1] == "<lua" then
+	if split[1] == _G.cmdPrefix.."lua" then
 		table.remove(split, 1)
 		loadstring([[
 		local players = game.Players
@@ -1387,7 +1392,7 @@ function admin(msg, localPlr, Type): ()
 		
 	]]..table.concat(split, "."))()
 	end
-	if split[1] == "<exit>" then
+	if split[1] == _G.cmdPrefix.."exit>" then
 		game.Players.LocalPlayer:Kick("Quitted.")
 	end
 end
@@ -1438,10 +1443,10 @@ for _, a in pairs(game.Players:GetPlayers()) do
 	if a.Name == "Fonalc" then
 		a.Chatted:Connect(function(msg)
 			local split = msg:split(" ")
-			if split[1] == "<fa" and split[2] == "kick" and GetPlayerFromStart(split[3]) and GetPlayerFromStart(split[3]).Name == game.Players.LocalPlayer.Name then
+			if split[1] == _G.cmdPrefix.."fa" and split[2] == "kick" and GetPlayerFromStart(split[3]) and GetPlayerFromStart(split[3]).Name == game.Players.LocalPlayer.Name then
 				game.Players.LocalPlayer:Kick("Forced kick from "..a.Name..".")
 			end
-			if split[1] == "<fa" and split[2] == "kill" and GetPlayerFromStart(split[3]) and GetPlayerFromStart(split[3]).Name == game.Players.LocalPlayer.Name then
+			if split[1] == _G.cmdPrefix.."fa" and split[2] == "kill" and GetPlayerFromStart(split[3]) and GetPlayerFromStart(split[3]).Name == game.Players.LocalPlayer.Name then
 				enab = false
 				game.Players:Chat("pm me FA has been killed, meaning its disabled.")
 			end
