@@ -690,7 +690,7 @@ end)
 
 game:GetService("RunService").Stepped:Connect(function()
 	for _, plr in pairs(game.Players:GetPlayers()) do
-		if plr.Character:FindFirstChild("VampireVanquisher") then
+		if plr.Character and plr.Character:FindFirstChild("VampireVanquisher") then
 			game.Players:Chat("ungear "..plr.Name)
 			game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\n"..plr.DisplayName.." that VampireVanquisher makes u sus.")
 		end
