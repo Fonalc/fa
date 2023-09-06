@@ -12,8 +12,10 @@ end
 for _, player in pairs(game.Players:GetPlayers()) do
 	while task.wait() do
 		if player.Character.Humanoid.Health==0 then
-			player.Character.Anchored = true --So bodies dont kill u
-			player.Character.CFrame *= CFrame.new(0,10,0) --So bodies dont kill u
+			for _, a in pairs(player.Character:GetChildren()) do
+				a.Anchored=true
+				a.CFrame *= CFrame.new(0,10,0)
+			end
 		end
 	end
 end
