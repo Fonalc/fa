@@ -41,6 +41,7 @@ local modes = {
     end;
     ["nuke"] = function(Character)
         game.Players:Chat("ff me")
+        game.Players:Chat("freeze me")
         game.Players:Chat("ff "..Character.name)
         for i=1, 100 do
 			game.Players:Chat("explode "..Character.Name)
