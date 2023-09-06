@@ -13,8 +13,10 @@ for _, player in pairs(game.Players:GetPlayers()) do
 	while task.wait() do
 		if player.Character.Humanoid.Health==0 then
 			for _, a in pairs(player.Character:GetChildren()) do
-				a.Anchored=true
-				a.CFrame *= CFrame.new(0,10,0)
+				if a:IsA("BasePart") then
+					a.Anchored=true
+					a.CFrame *= CFrame.new(0,10,0)
+				end
 			end
 		end
 	end
