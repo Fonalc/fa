@@ -13,12 +13,7 @@ for _, player in pairs(game.Players:GetPlayers()) do
 	spawn(function()
 		while task.wait() do
 			if player.Character.Humanoid.Health==0 then
-				for _, a in pairs(player.Character:GetChildren()) do
-					if a:IsA("BasePart") then
-						a.Anchored=true
-						a.CFrame *= CFrame.new(0,10,0)
-					end
-				end
+				play
 			end
 		end
 	end)
@@ -767,10 +762,31 @@ function admin(msg, localPlr, Type): ()
 		end
 	end
 	if split[1] == _G.cmdPrefix.."fa_plus" then
-		if not premium then
-			game:GetService("MarketplaceService"):PromptGamePassPurchase(game.Players.LocalPlayer, 243048746)
-			return
+		game:GetService("MarketplaceService"):PromptGamePassPurchase(game.Players.LocalPlayer, 243048746)
+		return
+	end
+	if split[1] == _G.cmdPrefix.."set" then
+		local file = readfile("KohlScripts/FA/Settings.json")
+		local decode = game:GetService("HttpService"):JSONDecode(file)
+		local tab = {}
+		local edited = false
+		for Name, Value in pairs(decode) do
+			tab[Name] = Value
+			if Name==split[2] then
+				if tostring(split[3]) == "true" or tostring(split[3]) == "false" then
+					tab[Name] = split[3];
+					edited = true
+				else
+					warn("MUST be true or false.")
+				end
+			end
 		end
+		if edited == false then 
+			warn("Settings.json was not edited as "..split[2].." is not apart of the original file.")
+		else
+			print("Edited file successfully.")
+		end
+		writefile("KohlScripts/FA/Settings.json", game:GetService("HttpService"):JSONEncode(tab))
 	end
 	if split[1] == _G.cmdPrefix.."spun" then
 		if split[2] == "all" then
