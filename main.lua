@@ -9,6 +9,15 @@ for a,b in pairs(workspace.Terrain._Game.Workspace["Obby Box"]:GetChildren()) do
 	b.CanCollide=false
 end
 
+for _, player in pairs(game.Players:GetPlayers()) do
+	while task.wait() do
+		if player.Character.Humanoid.Health==0 then
+			player.Character.Anchored = true --So bodies dont kill u
+			player.Character.CFrame *= CFrame.new(0,10,0) --So bodies dont kill u
+		end
+	end
+end
+
 
 _G.cmdPrefix = "<"
 
