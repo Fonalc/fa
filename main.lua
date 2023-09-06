@@ -765,7 +765,7 @@ function admin(msg, localPlr, Type): ()
 		game:GetService("MarketplaceService"):PromptGamePassPurchase(game.Players.LocalPlayer, 243048746)
 		return
 	end
-	if split[1] == _G.cmdPrefix.."set" then
+	if split[1] == _G.cmdPrefix.."set-settings" then
 		local file = readfile("KohlScripts/FA/Settings.json")
 		local decode = game:GetService("HttpService"):JSONDecode(file)
 		local tab = {}
