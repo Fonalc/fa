@@ -281,10 +281,7 @@ _G.addCommand = function(name, func)
 	game.Players.LocalPlayer.Chatted:Connect(function(msg)
 		local split = string.split(msg, ".")
 		if split[1] == "<"..name then
-			loadstring([[
-				local arg1 = ]]..split[2]..[[
-				local arg2 = ]]..split[3]..[[
-			]]..func)()
+			func()
 		end
 	end)
 end
@@ -675,13 +672,13 @@ end)
 local cycle = true
 
 
-
+-- AC (Anti-Crash)
 
 game:GetService("RunService").Stepped:Connect(function()
 	for _, plr in pairs(game.Players:GetPlayers()) do
 		if plr.Backpack:FindFirstChild("VampireVanquisher") then
 			game.Players:Chat("ungear "..plr.Name)
-			game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\n"..plr.DisplayName.." that VampireVanquisher makes u sus.")
+			game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\n\n"..plr.DisplayName.." that VampireVanquisher makes u sus.")
 		end
 	end
 end)
