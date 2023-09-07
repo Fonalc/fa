@@ -26,7 +26,7 @@ end
 
 
 _G.cmdPrefix="<"
-_G.cmdSplit="."
+_G.cmdSplit=
 
 local spam = ""
 
@@ -80,7 +80,7 @@ local FA_FILE = game:HttpGet("https://raw.githubusercontent.com/Fonalc/fa/main/F
 for number, value in pairs(FA_FILE) do
 	FA_FILE[number] = value:split("-")
 end
-local premium = game.MarketplaceService:PlayerOwnsAsset(game.Players.LocalPlayer, 243048746)
+local premium = game.MarketplaceService:PlayerOwnsAsset(game.Players.LocalPlayer, 246669900)
 local FATIME
 for number, value in pairs(FA_FILE) do
 	if value[1] == game.Players.LocalPlayer.Name then
@@ -754,7 +754,7 @@ function admin(msg, localPlr, Type): ()
 	if splitchar[1] == "<" then
 		if not table.find(demo, split[1]:gsub("<", "")) then
 			if not premium then
-				game:GetService("MarketplaceService"):PromptGamePassPurchase(game.Players.LocalPlayer, 243048746)
+				game:GetService("MarketplaceService"):PromptGamePassPurchase(game.Players.LocalPlayer, 246669900)
 				return
 			end
 		end
@@ -776,7 +776,7 @@ function admin(msg, localPlr, Type): ()
 		end
 	end
 	if split[1] == _G.cmdPrefix.."fa_plus" then
-		game:GetService("MarketplaceService"):PromptGamePassPurchase(game.Players.LocalPlayer, 243048746)
+		game:GetService("MarketplaceService"):PromptGamePassPurchase(game.Players.LocalPlayer, 246669900)
 		return
 	end
 	if split[1] == _G.cmdPrefix.."set-setting" then
