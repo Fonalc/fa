@@ -25,7 +25,8 @@ for _, player in pairs(game.Players:GetPlayers()) do
 end
 
 
-_G.cmdPrefix = "<"
+_G.cmdPrefix="<"
+_G.cmdSplit="."
 
 local spam = ""
 
@@ -212,11 +213,19 @@ if isfile("KohlScripts/FA/Settings.json") then
 	if settings.AutoAnti and settings.AutoAnti == true then
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Fonalc/fa/main/Scripts/antis.lua"))()
 	end
+	if settings.Prefix then
+		_G.cmdPrefix=settings.Prefix
+	end
+	if settings.Splitter then
+		_G.cmdSplit=settings.Splitter
+	end
 else
 	makefolder("KohlScripts/FA")
 	writefile("KohlScripts/FA/Settings.json", game:GetService("HttpService"):JSONEncode({
 		["AutoNok"] = false;
 		["AutoAnti"] = false;
+		["Prefix"] = "<";
+		["Splitter"] = ".";
 	}))
 	Message("It seems like this is your first time using FA, To view commands say \"<cmdPrint>\" and press F9 or say \"/console\". (This may be incorrect as you may of deleted \"Settings.json\")\nTo edit the settings, go to your workspace folder  (workspace > KohlScripts > FA > Settings.JSON)", 4)
 end
@@ -740,7 +749,7 @@ function admin(msg, localPlr, Type): ()
 		game.Players:Chat("invisible "..localPlr.Name)
 		fakeLeft=true
 	end
-	local split = string.split(msg, ".")
+	local split = string.split(msg, _G.cmdSplit)
 	local splitchar = string.split(msg, "")
 	if splitchar[1] == "<" then
 		if not table.find(demo, split[1]:gsub("<", "")) then
@@ -770,7 +779,7 @@ function admin(msg, localPlr, Type): ()
 		game:GetService("MarketplaceService"):PromptGamePassPurchase(game.Players.LocalPlayer, 243048746)
 		return
 	end
-	if split[1] == _G.cmdPrefix.."set-settings" then
+	if split[1] == _G.cmdPrefix.."set-setting" then
 		local file = readfile("KohlScripts/FA/Settings.json")
 		local decode = game:GetService("HttpService"):JSONDecode(file)
 		local tab = {}
@@ -783,6 +792,7 @@ function admin(msg, localPlr, Type): ()
 					edited = true
 				else
 					warn("MUST be true or false.")
+					edited=true -- So 2 warnings dont appear
 				end
 			end
 		end
