@@ -787,13 +787,8 @@ function admin(msg, localPlr, Type): ()
 		for Name, Value in pairs(decode) do
 			tab[Name] = Value
 			if Name==split[2] then
-				if tostring(split[3]) == "true" or tostring(split[3]) == "false" then
-					tab[Name] = split[3];
-					edited = true
-				else
-					warn("MUST be true or false.")
-					edited=true -- So 2 warnings dont appear
-				end
+				tab[Name] = split[3];
+				edited = true
 			end
 		end
 		if edited == false then 
