@@ -967,6 +967,41 @@ function admin(msg, localPlr, Type): ()
 	if split[1] == _G.cmdPrefix.."cycleoff" then
 		cycle = false
 	end
+	if split[1] == _G.cmdPrefix.."SNAP" then
+		local Player=game.Players.LocalPlayer
+		local Character=Player.Character
+		local Animator=Character.Humanoid.Animator
+		local Animation=Instance.new("Animation")
+		Animation.AnimationId="rbxassetid://14718544995"
+		Animation.Name="SNAP.SS.CUTSCENE"
+		Animation.Parent=workspace.Terrain._Game.Folder
+		local AnimationTrack = Animator:LoadAnimation(Animation)
+		AnimationTrack:Play()
+		Lighting.Ambient=Color3.new(1, 0, 0) 
+		Lighting.Brightness=0 
+		Lighting.ClockTime=0 
+		Lighting.ColorShift_Bottom=Color3.new(0, 0, 0) 
+		Lighting.ColorShift_Top=Color3.new(0, 0, 0) 
+		Lighting.ExposureCompensation=-1.7699999809265137 
+		Lighting.FogColor=Color3.new(0, 0, 0) 
+		Lighting.FogEnd=200 
+		Lighting.FogStart=0 
+		Lighting.GeographicLatitude=2 
+		Lighting.GlobalShadows=true
+		Lighting.OutdoorAmbient=Color3.new(1, 0, 0) 
+		Lighting.Outlines=false 
+		Lighting.TimeOfDay="00:00:00"
+		AnimationTrack.Ended:Wait()
+		Character.Humanoid.WalkSpeed=8
+		spawn(function()
+			while wait() do
+				game.Players:Chat("speed others 0")
+				game.Players:Chat("time 0")
+				game.Players:Chat("Ambient 255 0 0")
+				game.Players:Chat("OutdoorAmbient 0 0 0")
+			end
+		end)
+	end
 	if split[1] == _G.cmdPrefix.."killbrick" then
 		loadstring(game:GetObjects("rbxassetid://6695644299")[1].Source)()
 		local Killer = Instance.new("Part", workspace)
