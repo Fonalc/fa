@@ -26,7 +26,7 @@ end
 
 
 _G.cmdPrefix="<"
-_G.cmdSplit=
+_G.cmdSplit="."
 
 local spam = ""
 
