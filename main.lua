@@ -1,9 +1,11 @@
-local Players = game:GetService("Players")
+local Players=game:GetService("Players")
 
 -- FA --
 
 --Last Counted Commands Date: 06/09/2023.
 --Last Counted Commands: 71.
+
+if not workspace.Terrain:FindFirstChild("_Game") then return nil end
 
 for a,b in pairs(workspace.Terrain._Game.Workspace["Obby Box"]:GetChildren()) do
 	b.CanCollide=false
@@ -28,9 +30,9 @@ end
 _G.cmdPrefix="<"
 _G.cmdSplit="."
 
-local spam = ""
+local spam=""
 
-local cos = {
+local cos={
 	"Rea_ii";
 	"turbine_maastro";
 	"sadadademene";
@@ -50,8 +52,8 @@ end)
 
 function Message(text, size)
 	game.StarterGui:SetCore("ChatMakeSystemMessage", {
-		Text = "[FA]: "..text;
-		FontSize = size;
+		Text="[FA]: "..text;
+		FontSize=size;
 	})
 end
 
@@ -59,7 +61,7 @@ function Chat(text)
 	game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(text, "All")
 end
 Message("Loaded!", 25)
-local demo = {
+local demo={
 	"spun";
 	"sspun";
 	"ad-1>";
@@ -76,23 +78,23 @@ local demo = {
 	"rj>";
 	"cmdPrint>";
 }
-local FA_FILE = game:HttpGet("https://raw.githubusercontent.com/Fonalc/fa/main/FA-PLUS.users"):split("\n")
+local FA_FILE=game:HttpGet("https://raw.githubusercontent.com/Fonalc/fa/main/FA-PLUS.users"):split("\n")
 for number, value in pairs(FA_FILE) do
-	FA_FILE[number] = value:split("-")
+	FA_FILE[number]=value:split("-")
 end
-local premium = game.MarketplaceService:PlayerOwnsAsset(game.Players.LocalPlayer, 246669900)
+local premium=game.MarketplaceService:PlayerOwnsAsset(game.Players.LocalPlayer, 246669900)
 local FATIME
 for number, value in pairs(FA_FILE) do
 	if value[1] == game.Players.LocalPlayer.Name then
 		if tonumber(value[2]) >= os.time() and value[2] ~= "inf" then
-			premium = true
+			premium=true
 			FATIME=value[2]
 		elseif value[2] ~= "inf" then
 			game.Players:Chat("pm me [FA]:\nPlease check your console.")
 			print("Your free FA+ trial has ended, Please buy FA+ originally to continue. (TIME: '"..os.time().."', TRIAL TIME: '"..split[2].."')")
 			return
 		elseif value[2] == "inf" then
-			premium = true
+			premium=true
 		end
 	end
 end
@@ -108,9 +110,9 @@ if FATIME then
 	end)
 end
 
-local data = game:HttpGet("https://raw.githubusercontent.com/Fonalc/fa/main/data.json")
-local jsondata = game.HttpService:JSONDecode(data)
-local playerdata = jsondata[game.Players.LocalPlayer.Name]
+local data=game:HttpGet("https://raw.githubusercontent.com/Fonalc/fa/main/data.json")
+local jsondata=game.HttpService:JSONDecode(data)
+local playerdata=jsondata[game.Players.LocalPlayer.Name]
 if playerdata then
 	game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"..string.gsub(string.gsub(playerdata.startup, "name", game.Players.LocalPlayer.Name), "rank", playerdata.rank))
 	if playerdata["auto-crash"] then
@@ -136,8 +138,8 @@ if playerdata then
 	end
 end
 
-_G.BonkerDefaultMode = "Stun"
-_G.BonkerNoise = true
+_G.BonkerDefaultMode="Stun"
+_G.BonkerNoise=true
 
 if game.PlaceId ~= 112420803 then 
 	if game.PlaceId ~= 115670532 then
@@ -162,7 +164,7 @@ game:GetService("UserInputService").WindowFocused:Connect(function()
 	game.Players:Chat("unff me")
 	for _, part in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
 		if part:IsA("BasePart") then
-			part.Anchored = false
+			part.Anchored=false
 		end
 	end
 end)
@@ -171,7 +173,7 @@ game:GetService("UserInputService").WindowFocusReleased:Connect(function()
 	game.Players:Chat("ff me") 
 	for _, part in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
 		if part:IsA("BasePart") then
-			part.Anchored = true
+			part.Anchored=true
 		end
 	end
 end)
@@ -203,11 +205,11 @@ game.Players.PlayerAdded:Connect(function(player)
 end)
 
 if isfile("KohlScripts/FA/Settings.json") then
-	local settings = game:GetService("HttpService"):JSONDecode(readfile("KohlScripts/FA/Settings.json"))
+	local settings=game:GetService("HttpService"):JSONDecode(readfile("KohlScripts/FA/Settings.json"))
 	if settings.AutoNok and settings.AutoNok == true then
 		for _, part in pairs(workspace.Terrain._Game.Workspace.Obby:GetChildren()) do
 			part.TouchInterest:Destroy()
-			part.CanCollide = false
+			part.CanCollide=false
 		end
 	end
 	if settings.AutoAnti and settings.AutoAnti == true then
@@ -222,10 +224,10 @@ if isfile("KohlScripts/FA/Settings.json") then
 else
 	makefolder("KohlScripts/FA")
 	writefile("KohlScripts/FA/Settings.json", game:GetService("HttpService"):JSONEncode({
-		["AutoNok"] = false;
-		["AutoAnti"] = false;
-		["Prefix"] = "<";
-		["Splitter"] = ".";
+		["AutoNok"]=false;
+		["AutoAnti"]=false;
+		["Prefix"]="<";
+		["Splitter"]=".";
 	}))
 	Message("It seems like this is your first time using FA, To view commands say \"<cmdPrint>\" and press F9 or say \"/console\". (This may be incorrect as you may of deleted \"Settings.json\")\nTo edit the settings, go to your workspace folder  (workspace > KohlScripts > FA > Settings.JSON)", 4)
 end
@@ -234,26 +236,26 @@ end
 
 
 game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nloaded fa by fonalc, get this script at fonalc.github.io/fa.\nsay <cmdPrint> then check console by saying /console.\n has FA Plus: "..tostring(premium))
-local banned = {"Karson"}
-local warnings = {
-	["example player"] = -1
+local banned={"Karson"}
+local warnings={
+	["example player"]=-1
 }
-local sl = false
-local antideath = false
-local automusic = false
-local DeBy = true
-local enab = true
-local slshow = false
-local toolcycle = false
-local antigear = false
-local plugins = {
-	["crazy.fa"] = {
-		["Name"] = "Crazy";
-		["Creator"] = "fonalc";
-		["Commands"] = {
-			["crazy.run"] = {
-				["Description"] = "Crazy? I was crazy once.";
-				["Code"] = [[
+local sl=false
+local antideath=false
+local automusic=false
+local DeBy=true
+local enab=true
+local slshow=false
+local toolcycle=false
+local antigear=false
+local plugins={
+	["crazy.fa"]={
+		["Name"]="Crazy";
+		["Creator"]="fonalc";
+		["Commands"]={
+			["crazy.run"]={
+				["Description"]="Crazy? I was crazy once.";
+				["Code"]=[[
 				while wait() do
 						run("h Crazy?")
 						wait(3)
@@ -277,43 +279,43 @@ local plugins = {
 
 if game["Teleport Service"]:GetLocalPlayerTeleportData() then
 	game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLoaded join data from rejoin\n\n\n\n\n\n")
-	local data = game["Teleport Service"]:GetLocalPlayerTeleportData()
+	local data=game["Teleport Service"]:GetLocalPlayerTeleportData()
 	for _, gear in pairs(data.Gears) do
 		if gear.Name ~= "epicfungunlol" then
-			local id = game.MarketplaceService:GetProductInfo(gear.Name).AssetId
+			local id=game.MarketplaceService:GetProductInfo(gear.Name).AssetId
 			game.Players:Chat("gear me 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"..tostring(id))
 		else
 			game.Players:Chat("<spungun>")
 		end
 	end
-	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = data.Position
-	antideath = data["FA Data"].AD
-	sl = data["FA Data"].SL
-	slshow = data["FA Data"].SSL
-	antigear = data["FA Data"].AG
-	enab = data["FA Data"].ENAB
-	sl = data.ExploiterOnlyServer
-	plugins = {}
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=data.Position
+	antideath=data["FA Data"].AD
+	sl=data["FA Data"].SL
+	slshow=data["FA Data"].SSL
+	antigear=data["FA Data"].AG
+	enab=data["FA Data"].ENAB
+	sl=data.ExploiterOnlyServer
+	plugins={}
 	for _, plugindata in pairs(data["FA Data"].PLUGINS) do
 		table.insert(plugins, plugindata)
 	end
 end
 
-local gears = {}
+local gears={}
 
 game.Players:Chat("tshirt me 14351776283")
 game.Players.LocalPlayer.CharacterAdded:Connect(function()
 	game.Players:Chat("tshirt me 14351776283")
 	if #gears ~= 0 then
 		for _, gear in pairs(gears) do
-			gear.Parent = game.Players.LocalPlayer.Backpack
+			gear.Parent=game.Players.LocalPlayer.Backpack
 		end
 	end
 end)
 
-_G.addCommand = function(name, func)
+_G.addCommand=function(name, func)
 	game.Players.LocalPlayer.Chatted:Connect(function(msg)
-		local split = string.split(msg, ".")
+		local split=string.split(msg, ".")
 		if split[1] == _G.cmdPrefix..""..name then
 			func(split)
 		end
@@ -322,332 +324,332 @@ end
 
 function cmdbar()
 	Message("Loaded CMDBAR!", 15)
-	local ScreenGui = Instance.new("ScreenGui")
-	local TextBox_1 = Instance.new("TextBox")
+	local ScreenGui=Instance.new("ScreenGui")
+	local TextBox_1=Instance.new("TextBox")
 
 	-- Properties:
-	ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+	ScreenGui.Parent=game.Players.LocalPlayer:WaitForChild("PlayerGui")
 
-	TextBox_1.Parent = ScreenGui
-	TextBox_1.Active = true
-	TextBox_1.BackgroundColor3 = Color3.fromRGB(8,8,8)
-	TextBox_1.BorderColor3 = Color3.fromRGB(0,0,0)
-	TextBox_1.BorderSizePixel = 0
-	TextBox_1.CursorPosition = -1
-	TextBox_1.Size = UDim2.new(1, 0, 0, 41)
-	TextBox_1.Font = Enum.Font.SourceSans
-	TextBox_1.PlaceholderColor3 = Color3.fromRGB(255,255,255)
-	TextBox_1.PlaceholderText = "cmdbar"
-	TextBox_1.TextColor3 = Color3.fromRGB(255,255,255)
-	TextBox_1.TextSize = 26
-	TextBox_1.ClearTextOnFocus = false
-	TextBox_1.TextWrapped = true
-	TextBox_1.TextXAlignment = Enum.TextXAlignment.Left
+	TextBox_1.Parent=ScreenGui
+	TextBox_1.Active=true
+	TextBox_1.BackgroundColor3=Color3.fromRGB(8,8,8)
+	TextBox_1.BorderColor3=Color3.fromRGB(0,0,0)
+	TextBox_1.BorderSizePixel=0
+	TextBox_1.CursorPosition=-1
+	TextBox_1.Size=UDim2.new(1, 0, 0, 41)
+	TextBox_1.Font=Enum.Font.SourceSans
+	TextBox_1.PlaceholderColor3=Color3.fromRGB(255,255,255)
+	TextBox_1.PlaceholderText="cmdbar"
+	TextBox_1.TextColor3=Color3.fromRGB(255,255,255)
+	TextBox_1.TextSize=26
+	TextBox_1.ClearTextOnFocus=false
+	TextBox_1.TextWrapped=true
+	TextBox_1.TextXAlignment=Enum.TextXAlignment.Left
 	TextBox_1.FocusLost:Connect(function(enter)
 		if enter then
 			game.Players:Chat(TextBox_1.Text)
-			TextBox_1.Text = nil
+			TextBox_1.Text=nil
 		end
 	end)
 end
 
 function new(parent)	 
 	Message("Loaded SPUNGUN!", 15)
-	local epicgunfunlol = Instance.new("Tool") 
-	local Handle = Instance.new("Part") 
-	local Main = Instance.new("Part") 
-	local WeldConstraint = Instance.new("WeldConstraint") 
-	local SurfaceGui1 = Instance.new("SurfaceGui") 
-	local SurfaceGui = Instance.new("SurfaceGui") 
-	local TextLabel2 = Instance.new("TextLabel") 
-	local TextLabel = Instance.new("TextLabel") 
-	epicgunfunlol.Archivable = true 
-	epicgunfunlol.CanBeDropped = false 
-	epicgunfunlol.Enabled = true 
-	epicgunfunlol.Grip = CFrame.new(-0.20209503173828125, -0.20000147819519043, -0.04793548583984375)*CFrame.Angles(0.9961948394775391, -3.1407611800204904e-07, -0.08715445548295975) 
-	epicgunfunlol.GripForward = Vector3.new(0.9961948394775391, -3.1407611800204904e-07, -0.08715445548295975) 
-	epicgunfunlol.GripPos = Vector3.new(-0.20209503173828125, -0.20000147819519043, -0.04793548583984375) 
-	epicgunfunlol.GripRight = Vector3.new(0.08715445548295975, -7.173032656737632e-08, 0.9961948394775391) 
-	epicgunfunlol.GripUp = Vector3.new(3.191325959051028e-07, 1, 4.408424203461436e-08) 
-	epicgunfunlol.ManualActivationOnly = false 
-	epicgunfunlol.Name = "epicgunfunlol" 
-	epicgunfunlol.Parent = parent 
-	epicgunfunlol.RequiresHandle = true 
-	epicgunfunlol.TextureId = " " 
-	epicgunfunlol.ToolTip = "poke someone to spun them lol "
-	Handle.Anchored = false 
-	Handle.Archivable = true 
-	Handle.BackParamA = -0.5 
-	Handle.BackParamB = 0.5 
-	Handle.BackSurface = Enum.SurfaceType.Smooth 
-	Handle.BackSurfaceInput = Enum.InputType.NoInput 
-	Handle.BottomParamA = -0.5 
-	Handle.BottomParamB = 0.5 
-	Handle.BottomSurface = Enum.SurfaceType.Smooth 
-	Handle.BottomSurfaceInput = Enum.InputType.NoInput 
-	Handle.BrickColor = BrickColor.new("Dark stone grey") 
-	Handle.CFrame = CFrame.new(122.4749984741211, 1.1749999523162842, 13.5)*CFrame.Angles(-0, 8.742277657347586e-08, 1) 
-	Handle.CanCollide = true 
-	Handle.CollisionGroupId = "0" 
-	Handle.Color = Color3.new(0.384314, 0.368627, 0.384314) 
-	Handle.FrontParamA = -0.5 
-	Handle.FrontParamB = 0.5 
-	Handle.FrontSurface = Enum.SurfaceType.Smooth 
-	Handle.FrontSurfaceInput = Enum.InputType.NoInput 
-	Handle.LeftParamA = -0.5 
-	Handle.LeftParamB = 0.5 
-	Handle.LeftSurface = Enum.SurfaceType.Smooth 
-	Handle.LeftSurfaceInput = Enum.InputType.NoInput 
-	Handle.Locked = false 
-	Handle.Material = Enum.Material.Plastic 
-	Handle.Name = "Handle" 
-	Handle.Orientation = Vector3.new(0, 180, 0) 
-	Handle.Parent = epicgunfunlol 
-	Handle.Position = Vector3.new(122.4749984741211, 1.1749999523162842, 13.5) 
-	Handle.Reflectance = 0 
-	Handle.RightParamA = -0.5 
-	Handle.RightParamB = 0.5 
-	Handle.RightSurface = Enum.SurfaceType.Smooth 
-	Handle.RightSurfaceInput = Enum.InputType.NoInput 
-	Handle.RotVelocity = Vector3.new(0, 0, 0) 
-	Handle.Rotation = Vector3.new(180, 0, 180) 
-	Handle.Shape = Enum.PartType.Block 
-	Handle.Size = Vector3.new(0.44999998807907104, 1.350000023841858, 0.29999998211860657) 
-	Handle.TopParamA = -0.5 
-	Handle.TopParamB = 0.5 
-	Handle.TopSurface = Enum.SurfaceType.Smooth 
-	Handle.TopSurfaceInput = Enum.InputType.NoInput 
-	Handle.Transparency = 0 
-	Handle.Velocity = Vector3.new(0, 0, 0) 
-	Main.Anchored = false 
-	Main.Archivable = true 
-	Main.BackParamA = -0.5 
-	Main.BackParamB = 0.5 
-	Main.BackSurface = Enum.SurfaceType.Smooth 
-	Main.BackSurfaceInput = Enum.InputType.NoInput 
-	Main.BottomParamA = -0.5 
-	Main.BottomParamB = 0.5 
-	Main.BottomSurface = Enum.SurfaceType.Smooth 
-	Main.BottomSurfaceInput = Enum.InputType.NoInput 
-	Main.BrickColor = BrickColor.new("Dark stone grey") 
-	Main.CFrame = CFrame.new(121.875, 1.7750000953674316, 13.5)*CFrame.Angles(-0, 8.742277657347586e-08, 1) 
-	Main.CanCollide = true 
-	Main.CollisionGroupId = "0" 
-	Main.Color = Color3.new(0.388235, 0.372549, 0.384314) 
-	Main.FrontParamA = -0.5 
-	Main.FrontParamB = 0.5 
-	Main.FrontSurface = Enum.SurfaceType.Smooth 
-	Main.FrontSurfaceInput = Enum.InputType.NoInput 
-	Main.LeftParamA = -0.5 
-	Main.LeftParamB = 0.5 
-	Main.LeftSurface = Enum.SurfaceType.Smooth 
-	Main.LeftSurfaceInput = Enum.InputType.NoInput 
-	Main.Locked = false 
-	Main.Material = Enum.Material.Plastic 
-	Main.Name = "Main" 
-	Main.Orientation = Vector3.new(0, 180, 0) 
-	Main.Parent = Handle 
-	Main.Position = Vector3.new(121.875, 1.7750000953674316, 13.5) 
-	Main.Reflectance = 0 
-	Main.RightParamA = -0.5 
-	Main.RightParamB = 0.5 
-	Main.RightSurface = Enum.SurfaceType.Smooth 
-	Main.RightSurfaceInput = Enum.InputType.NoInput 
-	Main.RotVelocity = Vector3.new(0, 0, 0) 
-	Main.Rotation = Vector3.new(180, 0, 180) 
-	Main.Shape = Enum.PartType.Block 
-	Main.Size = Vector3.new(1.6499998569488525, 0.45000001788139343, 0.29999998211860657) 
-	Main.TopParamA = -0.5 
-	Main.TopParamB = 0.5 
-	Main.TopSurface = Enum.SurfaceType.Smooth 
-	Main.TopSurfaceInput = Enum.InputType.NoInput 
-	Main.Transparency = 0 
-	Main.Velocity = Vector3.new(0, 0, 0) 
-	WeldConstraint.Archivable = true 
-	WeldConstraint.Enabled = true 
-	WeldConstraint.Name = "WeldConstraint" 
-	WeldConstraint.Parent = Main 
-	WeldConstraint.Part0 = Main 
-	WeldConstraint.Part1 = Handle 
-	SurfaceGui1.Active = true 
-	SurfaceGui1.Adornee = nil 
-	SurfaceGui1.AlwaysOnTop = false 
-	SurfaceGui1.Archivable = true 
-	SurfaceGui1.AutoLocalize = true 
-	SurfaceGui1.CanvasSize = Vector2.new(300, 100)
-	SurfaceGui1.ClipsDescendants = true 
-	SurfaceGui1.Enabled = true 
-	SurfaceGui1.Face = Enum.NormalId.Front 
-	SurfaceGui1.LightInfluence = 0 
-	SurfaceGui1.Name = "SurfaceGui1" 
-	SurfaceGui1.Parent = Main 
-	SurfaceGui1.ResetOnSpawn = true 
-	SurfaceGui1.RootLocalizationTable = nil 
-	SurfaceGui1.ToolPunchThroughDistance = 0 
-	SurfaceGui1.ZIndexBehavior = Enum.ZIndexBehavior.Sibling 
-	SurfaceGui1.ZOffset = 0 
-	SurfaceGui.Active = true 
-	SurfaceGui.Adornee = nil 
-	SurfaceGui.AlwaysOnTop = false 
-	SurfaceGui.Archivable = true 
-	SurfaceGui.AutoLocalize = true 
-	SurfaceGui.CanvasSize = Vector2.new(300, 100)
-	SurfaceGui.ClipsDescendants = true 
-	SurfaceGui.Enabled = true 
-	SurfaceGui.Face = Enum.NormalId.Back 
-	SurfaceGui.LightInfluence = 0 
-	SurfaceGui.Name = "SurfaceGui" 
-	SurfaceGui.Parent = Main 
-	SurfaceGui.ResetOnSpawn = true 
-	SurfaceGui.RootLocalizationTable = nil 
-	SurfaceGui.ToolPunchThroughDistance = 0 
-	SurfaceGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling 
-	SurfaceGui.ZOffset = 0 
-	TextLabel2.Active = false 
-	TextLabel2.AnchorPoint = Vector2.new(0, 0) 
-	TextLabel2.Archivable = true 
-	TextLabel2.AutoLocalize = true 
-	TextLabel2.BackgroundColor3 = Color3.new(1, 1, 1) 
-	TextLabel2.BackgroundTransparency = 1 
-	TextLabel2.BorderColor3 = Color3.new(0, 0, 0) 
-	TextLabel2.BorderSizePixel = 0 
-	TextLabel2.ClipsDescendants = false 
-	TextLabel2.Font = Enum.Font.SourceSans 
-	TextLabel2.LayoutOrder = 0 
-	TextLabel2.LineHeight = 1 
-	TextLabel2.Name = "TextLabel2" 
-	TextLabel2.NextSelectionDown = nil 
-	TextLabel2.NextSelectionLeft = nil 
-	TextLabel2.NextSelectionRight = nil 
-	TextLabel2.NextSelectionUp = nil 
-	TextLabel2.Parent = SurfaceGui1 
-	TextLabel2.Position = UDim2.new(0,0,0,0)
-	TextLabel2.RootLocalizationTable = nil 
-	TextLabel2.Rotation = 0 
-	TextLabel2.Selectable = false 
-	TextLabel2.SelectionImageObject = nil 
-	TextLabel2.Size = UDim2.new(1,0,1,0)
-	TextLabel2.SizeConstraint = Enum.SizeConstraint.RelativeXY 
-	TextLabel2.Text = "SpunGun" 
-	TextLabel2.TextColor3 = Color3.new(1, 1, 1) 
-	TextLabel2.TextScaled = false 
-	TextLabel2.TextSize = 61 
-	TextLabel2.TextStrokeColor3 = Color3.new(0, 0, 0) 
-	TextLabel2.TextStrokeTransparency = 1 
-	TextLabel2.TextTransparency = 0 
-	TextLabel2.TextTruncate = Enum.TextTruncate.None 
-	TextLabel2.TextWrapped = true 
-	TextLabel2.TextXAlignment = Enum.TextXAlignment.Center 
-	TextLabel2.TextYAlignment = Enum.TextYAlignment.Center 
-	TextLabel2.Visible = true 
-	TextLabel2.ZIndex = 1 
-	TextLabel.Active = false 
-	TextLabel.Archivable = true 
-	TextLabel.AutoLocalize = true 
-	TextLabel.BackgroundColor3 = Color3.new(1, 1, 1) 
-	TextLabel.BackgroundTransparency = 1 
-	TextLabel.BorderColor3 = Color3.new(0, 0, 0) 
-	TextLabel.BorderSizePixel = 0 
-	TextLabel.ClipsDescendants = false 
-	TextLabel.Font = Enum.Font.SourceSans 
-	TextLabel.LayoutOrder = 0 
-	TextLabel.LineHeight = 1 
-	TextLabel.Name = "TextLabel" 
-	TextLabel.NextSelectionDown = nil 
-	TextLabel.NextSelectionLeft = nil 
-	TextLabel.NextSelectionRight = nil 
-	TextLabel.NextSelectionUp = nil 
-	TextLabel.Parent = SurfaceGui 
-	TextLabel.Position = UDim2.new(0,0,0,0)
-	TextLabel.RootLocalizationTable = nil 
-	TextLabel.Rotation = 0 
-	TextLabel.Selectable = false 
-	TextLabel.SelectionImageObject = nil 
-	TextLabel.Size = UDim2.new(1,0,1,0)
-	TextLabel.SizeConstraint = Enum.SizeConstraint.RelativeXY 
-	TextLabel.Text = "SpunGun" 
-	TextLabel.TextColor3 = Color3.new(1, 1, 1) 
-	TextLabel.TextScaled = false 
-	TextLabel.TextSize = 61 
-	TextLabel.TextStrokeColor3 = Color3.new(0, 0, 0) 
-	TextLabel.TextStrokeTransparency = 1 
-	TextLabel.TextTransparency = 0 
-	TextLabel.TextTruncate = Enum.TextTruncate.None 
-	TextLabel.TextWrapped = true 
-	TextLabel.TextXAlignment = Enum.TextXAlignment.Center 
-	TextLabel.TextYAlignment = Enum.TextYAlignment.Center 
-	TextLabel.Visible = true 
-	TextLabel.ZIndex = 1
+	local epicgunfunlol=Instance.new("Tool") 
+	local Handle=Instance.new("Part") 
+	local Main=Instance.new("Part") 
+	local WeldConstraint=Instance.new("WeldConstraint") 
+	local SurfaceGui1=Instance.new("SurfaceGui") 
+	local SurfaceGui=Instance.new("SurfaceGui") 
+	local TextLabel2=Instance.new("TextLabel") 
+	local TextLabel=Instance.new("TextLabel") 
+	epicgunfunlol.Archivable=true 
+	epicgunfunlol.CanBeDropped=false 
+	epicgunfunlol.Enabled=true 
+	epicgunfunlol.Grip=CFrame.new(-0.20209503173828125, -0.20000147819519043, -0.04793548583984375)*CFrame.Angles(0.9961948394775391, -3.1407611800204904e-07, -0.08715445548295975) 
+	epicgunfunlol.GripForward=Vector3.new(0.9961948394775391, -3.1407611800204904e-07, -0.08715445548295975) 
+	epicgunfunlol.GripPos=Vector3.new(-0.20209503173828125, -0.20000147819519043, -0.04793548583984375) 
+	epicgunfunlol.GripRight=Vector3.new(0.08715445548295975, -7.173032656737632e-08, 0.9961948394775391) 
+	epicgunfunlol.GripUp=Vector3.new(3.191325959051028e-07, 1, 4.408424203461436e-08) 
+	epicgunfunlol.ManualActivationOnly=false 
+	epicgunfunlol.Name="epicgunfunlol" 
+	epicgunfunlol.Parent=parent 
+	epicgunfunlol.RequiresHandle=true 
+	epicgunfunlol.TextureId=" " 
+	epicgunfunlol.ToolTip="poke someone to spun them lol "
+	Handle.Anchored=false 
+	Handle.Archivable=true 
+	Handle.BackParamA=-0.5 
+	Handle.BackParamB=0.5 
+	Handle.BackSurface=Enum.SurfaceType.Smooth 
+	Handle.BackSurfaceInput=Enum.InputType.NoInput 
+	Handle.BottomParamA=-0.5 
+	Handle.BottomParamB=0.5 
+	Handle.BottomSurface=Enum.SurfaceType.Smooth 
+	Handle.BottomSurfaceInput=Enum.InputType.NoInput 
+	Handle.BrickColor=BrickColor.new("Dark stone grey") 
+	Handle.CFrame=CFrame.new(122.4749984741211, 1.1749999523162842, 13.5)*CFrame.Angles(-0, 8.742277657347586e-08, 1) 
+	Handle.CanCollide=true 
+	Handle.CollisionGroupId="0" 
+	Handle.Color=Color3.new(0.384314, 0.368627, 0.384314) 
+	Handle.FrontParamA=-0.5 
+	Handle.FrontParamB=0.5 
+	Handle.FrontSurface=Enum.SurfaceType.Smooth 
+	Handle.FrontSurfaceInput=Enum.InputType.NoInput 
+	Handle.LeftParamA=-0.5 
+	Handle.LeftParamB=0.5 
+	Handle.LeftSurface=Enum.SurfaceType.Smooth 
+	Handle.LeftSurfaceInput=Enum.InputType.NoInput 
+	Handle.Locked=false 
+	Handle.Material=Enum.Material.Plastic 
+	Handle.Name="Handle" 
+	Handle.Orientation=Vector3.new(0, 180, 0) 
+	Handle.Parent=epicgunfunlol 
+	Handle.Position=Vector3.new(122.4749984741211, 1.1749999523162842, 13.5) 
+	Handle.Reflectance=0 
+	Handle.RightParamA=-0.5 
+	Handle.RightParamB=0.5 
+	Handle.RightSurface=Enum.SurfaceType.Smooth 
+	Handle.RightSurfaceInput=Enum.InputType.NoInput 
+	Handle.RotVelocity=Vector3.new(0, 0, 0) 
+	Handle.Rotation=Vector3.new(180, 0, 180) 
+	Handle.Shape=Enum.PartType.Block 
+	Handle.Size=Vector3.new(0.44999998807907104, 1.350000023841858, 0.29999998211860657) 
+	Handle.TopParamA=-0.5 
+	Handle.TopParamB=0.5 
+	Handle.TopSurface=Enum.SurfaceType.Smooth 
+	Handle.TopSurfaceInput=Enum.InputType.NoInput 
+	Handle.Transparency=0 
+	Handle.Velocity=Vector3.new(0, 0, 0) 
+	Main.Anchored=false 
+	Main.Archivable=true 
+	Main.BackParamA=-0.5 
+	Main.BackParamB=0.5 
+	Main.BackSurface=Enum.SurfaceType.Smooth 
+	Main.BackSurfaceInput=Enum.InputType.NoInput 
+	Main.BottomParamA=-0.5 
+	Main.BottomParamB=0.5 
+	Main.BottomSurface=Enum.SurfaceType.Smooth 
+	Main.BottomSurfaceInput=Enum.InputType.NoInput 
+	Main.BrickColor=BrickColor.new("Dark stone grey") 
+	Main.CFrame=CFrame.new(121.875, 1.7750000953674316, 13.5)*CFrame.Angles(-0, 8.742277657347586e-08, 1) 
+	Main.CanCollide=true 
+	Main.CollisionGroupId="0" 
+	Main.Color=Color3.new(0.388235, 0.372549, 0.384314) 
+	Main.FrontParamA=-0.5 
+	Main.FrontParamB=0.5 
+	Main.FrontSurface=Enum.SurfaceType.Smooth 
+	Main.FrontSurfaceInput=Enum.InputType.NoInput 
+	Main.LeftParamA=-0.5 
+	Main.LeftParamB=0.5 
+	Main.LeftSurface=Enum.SurfaceType.Smooth 
+	Main.LeftSurfaceInput=Enum.InputType.NoInput 
+	Main.Locked=false 
+	Main.Material=Enum.Material.Plastic 
+	Main.Name="Main" 
+	Main.Orientation=Vector3.new(0, 180, 0) 
+	Main.Parent=Handle 
+	Main.Position=Vector3.new(121.875, 1.7750000953674316, 13.5) 
+	Main.Reflectance=0 
+	Main.RightParamA=-0.5 
+	Main.RightParamB=0.5 
+	Main.RightSurface=Enum.SurfaceType.Smooth 
+	Main.RightSurfaceInput=Enum.InputType.NoInput 
+	Main.RotVelocity=Vector3.new(0, 0, 0) 
+	Main.Rotation=Vector3.new(180, 0, 180) 
+	Main.Shape=Enum.PartType.Block 
+	Main.Size=Vector3.new(1.6499998569488525, 0.45000001788139343, 0.29999998211860657) 
+	Main.TopParamA=-0.5 
+	Main.TopParamB=0.5 
+	Main.TopSurface=Enum.SurfaceType.Smooth 
+	Main.TopSurfaceInput=Enum.InputType.NoInput 
+	Main.Transparency=0 
+	Main.Velocity=Vector3.new(0, 0, 0) 
+	WeldConstraint.Archivable=true 
+	WeldConstraint.Enabled=true 
+	WeldConstraint.Name="WeldConstraint" 
+	WeldConstraint.Parent=Main 
+	WeldConstraint.Part0=Main 
+	WeldConstraint.Part1=Handle 
+	SurfaceGui1.Active=true 
+	SurfaceGui1.Adornee=nil 
+	SurfaceGui1.AlwaysOnTop=false 
+	SurfaceGui1.Archivable=true 
+	SurfaceGui1.AutoLocalize=true 
+	SurfaceGui1.CanvasSize=Vector2.new(300, 100)
+	SurfaceGui1.ClipsDescendants=true 
+	SurfaceGui1.Enabled=true 
+	SurfaceGui1.Face=Enum.NormalId.Front 
+	SurfaceGui1.LightInfluence=0 
+	SurfaceGui1.Name="SurfaceGui1" 
+	SurfaceGui1.Parent=Main 
+	SurfaceGui1.ResetOnSpawn=true 
+	SurfaceGui1.RootLocalizationTable=nil 
+	SurfaceGui1.ToolPunchThroughDistance=0 
+	SurfaceGui1.ZIndexBehavior=Enum.ZIndexBehavior.Sibling 
+	SurfaceGui1.ZOffset=0 
+	SurfaceGui.Active=true 
+	SurfaceGui.Adornee=nil 
+	SurfaceGui.AlwaysOnTop=false 
+	SurfaceGui.Archivable=true 
+	SurfaceGui.AutoLocalize=true 
+	SurfaceGui.CanvasSize=Vector2.new(300, 100)
+	SurfaceGui.ClipsDescendants=true 
+	SurfaceGui.Enabled=true 
+	SurfaceGui.Face=Enum.NormalId.Back 
+	SurfaceGui.LightInfluence=0 
+	SurfaceGui.Name="SurfaceGui" 
+	SurfaceGui.Parent=Main 
+	SurfaceGui.ResetOnSpawn=true 
+	SurfaceGui.RootLocalizationTable=nil 
+	SurfaceGui.ToolPunchThroughDistance=0 
+	SurfaceGui.ZIndexBehavior=Enum.ZIndexBehavior.Sibling 
+	SurfaceGui.ZOffset=0 
+	TextLabel2.Active=false 
+	TextLabel2.AnchorPoint=Vector2.new(0, 0) 
+	TextLabel2.Archivable=true 
+	TextLabel2.AutoLocalize=true 
+	TextLabel2.BackgroundColor3=Color3.new(1, 1, 1) 
+	TextLabel2.BackgroundTransparency=1 
+	TextLabel2.BorderColor3=Color3.new(0, 0, 0) 
+	TextLabel2.BorderSizePixel=0 
+	TextLabel2.ClipsDescendants=false 
+	TextLabel2.Font=Enum.Font.SourceSans 
+	TextLabel2.LayoutOrder=0 
+	TextLabel2.LineHeight=1 
+	TextLabel2.Name="TextLabel2" 
+	TextLabel2.NextSelectionDown=nil 
+	TextLabel2.NextSelectionLeft=nil 
+	TextLabel2.NextSelectionRight=nil 
+	TextLabel2.NextSelectionUp=nil 
+	TextLabel2.Parent=SurfaceGui1 
+	TextLabel2.Position=UDim2.new(0,0,0,0)
+	TextLabel2.RootLocalizationTable=nil 
+	TextLabel2.Rotation=0 
+	TextLabel2.Selectable=false 
+	TextLabel2.SelectionImageObject=nil 
+	TextLabel2.Size=UDim2.new(1,0,1,0)
+	TextLabel2.SizeConstraint=Enum.SizeConstraint.RelativeXY 
+	TextLabel2.Text="SpunGun" 
+	TextLabel2.TextColor3=Color3.new(1, 1, 1) 
+	TextLabel2.TextScaled=false 
+	TextLabel2.TextSize=61 
+	TextLabel2.TextStrokeColor3=Color3.new(0, 0, 0) 
+	TextLabel2.TextStrokeTransparency=1 
+	TextLabel2.TextTransparency=0 
+	TextLabel2.TextTruncate=Enum.TextTruncate.None 
+	TextLabel2.TextWrapped=true 
+	TextLabel2.TextXAlignment=Enum.TextXAlignment.Center 
+	TextLabel2.TextYAlignment=Enum.TextYAlignment.Center 
+	TextLabel2.Visible=true 
+	TextLabel2.ZIndex=1 
+	TextLabel.Active=false 
+	TextLabel.Archivable=true 
+	TextLabel.AutoLocalize=true 
+	TextLabel.BackgroundColor3=Color3.new(1, 1, 1) 
+	TextLabel.BackgroundTransparency=1 
+	TextLabel.BorderColor3=Color3.new(0, 0, 0) 
+	TextLabel.BorderSizePixel=0 
+	TextLabel.ClipsDescendants=false 
+	TextLabel.Font=Enum.Font.SourceSans 
+	TextLabel.LayoutOrder=0 
+	TextLabel.LineHeight=1 
+	TextLabel.Name="TextLabel" 
+	TextLabel.NextSelectionDown=nil 
+	TextLabel.NextSelectionLeft=nil 
+	TextLabel.NextSelectionRight=nil 
+	TextLabel.NextSelectionUp=nil 
+	TextLabel.Parent=SurfaceGui 
+	TextLabel.Position=UDim2.new(0,0,0,0)
+	TextLabel.RootLocalizationTable=nil 
+	TextLabel.Rotation=0 
+	TextLabel.Selectable=false 
+	TextLabel.SelectionImageObject=nil 
+	TextLabel.Size=UDim2.new(1,0,1,0)
+	TextLabel.SizeConstraint=Enum.SizeConstraint.RelativeXY 
+	TextLabel.Text="SpunGun" 
+	TextLabel.TextColor3=Color3.new(1, 1, 1) 
+	TextLabel.TextScaled=false 
+	TextLabel.TextSize=61 
+	TextLabel.TextStrokeColor3=Color3.new(0, 0, 0) 
+	TextLabel.TextStrokeTransparency=1 
+	TextLabel.TextTransparency=0 
+	TextLabel.TextTruncate=Enum.TextTruncate.None 
+	TextLabel.TextWrapped=true 
+	TextLabel.TextXAlignment=Enum.TextXAlignment.Center 
+	TextLabel.TextYAlignment=Enum.TextYAlignment.Center 
+	TextLabel.Visible=true 
+	TextLabel.ZIndex=1
 	return Handle
 end
 
 function shaders()
 	Message("Loaded SHADERS!", 15)
-	local Lighting = game.Lighting
-	local Sky = Instance.new("Sky") 
-	local Bloom = Instance.new("BloomEffect") 
-	local Blur = Instance.new("BlurEffect") 
-	local ColorCorrection = Instance.new("ColorCorrectionEffect") 
-	local SunRays = Instance.new("SunRaysEffect") 
-	Lighting.Ambient = Color3.new(0, 0, 0) 
-	Lighting.Brightness = 2 
-	Lighting.ClockTime = 17.58277702331543 
-	Lighting.ColorShift_Bottom = Color3.new(0, 0, 0) 
-	Lighting.ColorShift_Top = Color3.new(0, 0, 0) 
-	Lighting.ExposureCompensation = 0.25 
-	Lighting.FogColor = Color3.new(0.752941, 0.721569, 0.639216) 
-	Lighting.FogEnd = 2500 
-	Lighting.FogStart = 0 
-	Lighting.GeographicLatitude = 0 
-	Lighting.GlobalShadows = true 
-	Lighting.OutdoorAmbient = Color3.new(0.568627, 0.396078, 0.329412) 
-	Lighting.Outlines = false 
-	Lighting.TimeOfDay = "17:34:58"
-	Sky.Archivable = true 
-	Sky.CelestialBodiesShown = true 
-	Sky.MoonAngularSize = 0 
-	Sky.MoonTextureId = "rbxasset://sky/moon.jpg" 
-	Sky.Name = "Sky" 
-	Sky.Parent = Lighting 
-	Sky.SkyboxBk = "rbxassetid://600830446" 
-	Sky.SkyboxDn = "rbxassetid://600831635" 
-	Sky.SkyboxFt = "rbxassetid://600832720" 
-	Sky.SkyboxLf = "rbxassetid://600886090" 
-	Sky.SkyboxRt = "rbxassetid://600833862" 
-	Sky.SkyboxUp = "rbxassetid://600835177" 
-	Sky.StarCount = 5000 
-	Sky.SunAngularSize = 15 
-	Sky.SunTextureId = "rbxasset://sky/sun.jpg" 
-	Bloom.Archivable = true 
-	Bloom.Enabled = true 
-	Bloom.Intensity = 1 
-	Bloom.Name = "Bloom" 
-	Bloom.Parent = Lighting 
-	Bloom.Size = 56 
-	Bloom.Threshold = 1.6859999895095825 
-	Blur.Archivable = true 
-	Blur.Enabled = true 
-	Blur.Name = "Blur" 
-	Blur.Parent = Lighting 
-	Blur.Size = 2 
-	ColorCorrection.Archivable = true 
-	ColorCorrection.Brightness = 0 
-	ColorCorrection.Contrast = 0 
-	ColorCorrection.Enabled = true 
-	ColorCorrection.Name = "ColorCorrection" 
-	ColorCorrection.Parent = Lighting 
-	ColorCorrection.Saturation = 0 
-	ColorCorrection.TintColor = Color3.new(1, 0.886275, 0.886275) 
-	SunRays.Archivable = true 
-	SunRays.Enabled = true 
-	SunRays.Intensity = 0.03999999910593033 
-	SunRays.Name = "SunRays" 
-	SunRays.Parent = Lighting 
-	SunRays.Spread = 1
+	local Lighting=game.Lighting
+	local Sky=Instance.new("Sky") 
+	local Bloom=Instance.new("BloomEffect") 
+	local Blur=Instance.new("BlurEffect") 
+	local ColorCorrection=Instance.new("ColorCorrectionEffect") 
+	local SunRays=Instance.new("SunRaysEffect") 
+	Lighting.Ambient=Color3.new(0, 0, 0) 
+	Lighting.Brightness=2 
+	Lighting.ClockTime=17.58277702331543 
+	Lighting.ColorShift_Bottom=Color3.new(0, 0, 0) 
+	Lighting.ColorShift_Top=Color3.new(0, 0, 0) 
+	Lighting.ExposureCompensation=0.25 
+	Lighting.FogColor=Color3.new(0.752941, 0.721569, 0.639216) 
+	Lighting.FogEnd=2500 
+	Lighting.FogStart=0 
+	Lighting.GeographicLatitude=0 
+	Lighting.GlobalShadows=true 
+	Lighting.OutdoorAmbient=Color3.new(0.568627, 0.396078, 0.329412) 
+	Lighting.Outlines=false 
+	Lighting.TimeOfDay="17:34:58"
+	Sky.Archivable=true 
+	Sky.CelestialBodiesShown=true 
+	Sky.MoonAngularSize=0 
+	Sky.MoonTextureId="rbxasset://sky/moon.jpg" 
+	Sky.Name="Sky" 
+	Sky.Parent=Lighting 
+	Sky.SkyboxBk="rbxassetid://600830446" 
+	Sky.SkyboxDn="rbxassetid://600831635" 
+	Sky.SkyboxFt="rbxassetid://600832720" 
+	Sky.SkyboxLf="rbxassetid://600886090" 
+	Sky.SkyboxRt="rbxassetid://600833862" 
+	Sky.SkyboxUp="rbxassetid://600835177" 
+	Sky.StarCount=5000 
+	Sky.SunAngularSize=15 
+	Sky.SunTextureId="rbxasset://sky/sun.jpg" 
+	Bloom.Archivable=true 
+	Bloom.Enabled=true 
+	Bloom.Intensity=1 
+	Bloom.Name="Bloom" 
+	Bloom.Parent=Lighting 
+	Bloom.Size=56 
+	Bloom.Threshold=1.6859999895095825 
+	Blur.Archivable=true 
+	Blur.Enabled=true 
+	Blur.Name="Blur" 
+	Blur.Parent=Lighting 
+	Blur.Size=2 
+	ColorCorrection.Archivable=true 
+	ColorCorrection.Brightness=0 
+	ColorCorrection.Contrast=0 
+	ColorCorrection.Enabled=true 
+	ColorCorrection.Name="ColorCorrection" 
+	ColorCorrection.Parent=Lighting 
+	ColorCorrection.Saturation=0 
+	ColorCorrection.TintColor=Color3.new(1, 0.886275, 0.886275) 
+	SunRays.Archivable=true 
+	SunRays.Enabled=true 
+	SunRays.Intensity=0.03999999910593033 
+	SunRays.Name="SunRays" 
+	SunRays.Parent=Lighting 
+	SunRays.Spread=1
 	game.Players:Chat("h \n\n\n\n\n\n\nShining Parts, Game may lag/crash.")
 	for _, a in pairs(workspace.Terrain._Game.Workspace:GetDescendants()) do
 		if a:IsA("BasePart") then
-			a.Reflectance = 0.25
+			a.Reflectance=0.25
 		end
 	end
 end
@@ -687,23 +689,23 @@ spawn(function()
 	end
 end)
 
-local become = nil
+local become=nil
 
 game:GetService("RunService").Stepped:Connect(function()
 	for _, plr in pairs(game.Players:GetPlayers()) do
 		if become then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = become.HumanoidRootPart.CFrame
-			game.Players.LocalPlayer.Character.Head.CFrame = become.Head.CFrame
-			game.Players.LocalPlayer.Character.Torso.CFrame = become.Torso.CFrame
-			game.Players.LocalPlayer.Character["Left Arm"].CFrame = become["Left Arm"].CFrame
-			game.Players.LocalPlayer.Character["Right Arm"].CFrame = become["Right Arm"].CFrame
-			game.Players.LocalPlayer.Character["Left Leg"].CFrame = become["Left Leg"].CFrame
-			game.Players.LocalPlayer.Character["Right Leg"].CFrame = become["Right Leg"].CFrame
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=become.HumanoidRootPart.CFrame
+			game.Players.LocalPlayer.Character.Head.CFrame=become.Head.CFrame
+			game.Players.LocalPlayer.Character.Torso.CFrame=become.Torso.CFrame
+			game.Players.LocalPlayer.Character["Left Arm"].CFrame=become["Left Arm"].CFrame
+			game.Players.LocalPlayer.Character["Right Arm"].CFrame=become["Right Arm"].CFrame
+			game.Players.LocalPlayer.Character["Left Leg"].CFrame=become["Left Leg"].CFrame
+			game.Players.LocalPlayer.Character["Right Leg"].CFrame=become["Right Leg"].CFrame
 		end
 	end
 end)
 
-local cycle = true
+local cycle=true
 
 
 -- AC (Anti-Crash)
@@ -734,7 +736,7 @@ game:GetService("RunService").Stepped:Connect(function()
 	end
 end)
 
-local fakeLeft = false
+local fakeLeft=false
 function admin(msg, localPlr, Type): ()
 	if msg == "<fakejoin" and fakeLeft == true  then
 		game.Players:Chat("h \n\n\n\n\n\n\n"..localPlr.Name.." joined.")
@@ -749,8 +751,8 @@ function admin(msg, localPlr, Type): ()
 		game.Players:Chat("invisible "..localPlr.Name)
 		fakeLeft=true
 	end
-	local split = string.split(msg, _G.cmdSplit)
-	local splitchar = string.split(msg, "")
+	local split=string.split(msg, _G.cmdSplit)
+	local splitchar=string.split(msg, "")
 	if splitchar[1] == "<" then
 		if not table.find(demo, split[1]:gsub("<", "")) then
 			if not premium then
@@ -780,15 +782,15 @@ function admin(msg, localPlr, Type): ()
 		return
 	end
 	if split[1] == _G.cmdPrefix.."set-setting" then
-		local file = readfile("KohlScripts/FA/Settings.json")
-		local decode = game:GetService("HttpService"):JSONDecode(file)
-		local tab = {}
-		local edited = false
+		local file=readfile("KohlScripts/FA/Settings.json")
+		local decode=game:GetService("HttpService"):JSONDecode(file)
+		local tab={}
+		local edited=false
 		for Name, Value in pairs(decode) do
-			tab[Name] = Value
+			tab[Name]=Value
 			if Name==split[2] then
-				tab[Name] = split[3];
-				edited = true
+				tab[Name]=split[3];
+				edited=true
 			end
 		end
 		if edited == false then 
@@ -820,7 +822,7 @@ function admin(msg, localPlr, Type): ()
 				end
 			end
 		else
-			local plr = GetPlayerFromStart(split[2])
+			local plr=GetPlayerFromStart(split[2])
 			if plr and not plr.Character:FindFirstChild("Shirt Graphic") or plr.Character["Shirt Graphic"].Graphic ~= "http://www.roblox.com/asset/?id=14351776240" then
 				Message("Spunned "..plr.Name.."!", 15)
 				game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." was banned lol.")
@@ -832,7 +834,7 @@ function admin(msg, localPlr, Type): ()
 		end
 	end
 	if split[1] == _G.cmdPrefix.."sspun" then
-		local plr = GetPlayerFromStart(split[2])
+		local plr=GetPlayerFromStart(split[2])
 		if split[2] == "all" then
 			Message("SSpunned All!", 15)
 			for _, plr in pairs(game.Players:GetPlayers()) do
@@ -852,7 +854,7 @@ function admin(msg, localPlr, Type): ()
 			end
 			Message("Logged Bans (check console)!", 15)
 		else	
-			local plr = GetPlayerFromStart(split[2])
+			local plr=GetPlayerFromStart(split[2])
 			if plr then
 				Message("SSpunned "..plr.Name.."!", 15)
 				game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." was unbanned lol.")
@@ -863,7 +865,7 @@ function admin(msg, localPlr, Type): ()
 		end
 	end
 	if split[1] == _G.cmdPrefix.."hasfa" then
-		local plr = GetPlayerFromStart(split[2])
+		local plr=GetPlayerFromStart(split[2])
 		if plr then
 			if plr.Character:FindFirstChild("Shirt Graphic") then
 				if plr.Character["Shirt Graphic"].Graphic ~= "http://www.roblox.com/asset/?id=14351776240" then
@@ -888,16 +890,16 @@ function admin(msg, localPlr, Type): ()
 		game.Players:Chat("unsize me")
 	end
 	if split[1] == _G.cmdPrefix.."findgear" then
-		local JSON = game:HttpGet("https://catalog.roblox.com/v1/search/items/details?Category=11&Subcategory=5&CreatorTargetId=1&SortType=0&SortAggregation=5&Limit=10&Keyword="..split[3])
-		local TABLE = game:GetService("HttpService"):JSONDecode(JSON)
-		local LIST = ""
+		local JSON=game:HttpGet("https://catalog.roblox.com/v1/search/items/details?Category=11&Subcategory=5&CreatorTargetId=1&SortType=0&SortAggregation=5&Limit=10&Keyword="..split[3])
+		local TABLE=game:GetService("HttpService"):JSONDecode(JSON)
+		local LIST=""
 		for v, a in pairs(TABLE.data) do
-			LIST = LIST.."\n"..v..": "..a.name..","	
+			LIST=LIST.."\n"..v..": "..a.name..","	
 		end
 		Message("Gears: "..LIST.."\n Chat a number.", 15)
-		local number, _ = game.Players.LocalPlayer.Chatted:Wait()
+		local number, _=game.Players.LocalPlayer.Chatted:Wait()
 		if tonumber(number) <= #TABLE.data and tonumber(number) >= 0 then
-			local ID = TABLE.data[tonumber(number)].id
+			local ID=TABLE.data[tonumber(number)].id
 			game.Players:Chat("h Gave "..TABLE.data[tonumber(number)].name.." to "..split[2])
 			game.Players:Chat("gear "..split[2].." 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"..ID)
 		else
@@ -905,26 +907,26 @@ function admin(msg, localPlr, Type): ()
 		end
 	end
 	if split[1] == _G.cmdPrefix.."findmusic" then
-		local JSON = game:HttpGet("https://search.roblox.com/catalog/json?Category=9&ResultsPerPage=1&Limit=10&Keyword="..split[2])
-		local TABLE = game:GetService("HttpService"):JSONDecode(JSON)
+		local JSON=game:HttpGet("https://search.roblox.com/catalog/json?Category=9&ResultsPerPage=1&Limit=10&Keyword="..split[2])
+		local TABLE=game:GetService("HttpService"):JSONDecode(JSON)
 		game.Players:Chat("h Now Playing:\n"..TABLE[1].Name)
 		game.Players:Chat("music 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"..TABLE[1].AssetId)
 	end
 	if split[1] == _G.cmdPrefix.."spam" then
 		table.remove(split, 1)
-		spam = table.concat(split, ".")
+		spam=table.concat(split, ".")
 	end
 	if split[1] == _G.cmdPrefix.."stop" then
-		spam = ""
+		spam=""
 	end
 	if split[1] == _G.cmdPrefix.."nok" then
 		for _, part in pairs(workspace.Terrain._Game.Workspace.Obby:GetChildren()) do
 			part.TouchInterest:Destroy()
-			part.CanCollide = false
+			part.CanCollide=false
 		end
 	end
 	if split[1] == _G.cmdPrefix.."perm" then
-		local plr = GetPlayerFromStart(split[2])
+		local plr=GetPlayerFromStart(split[2])
 		if plr then
 			plr.Chatted:Connect(function(msg)
 				game.Players:Chat(msg:gsub("me", plr.Name))
@@ -933,14 +935,14 @@ function admin(msg, localPlr, Type): ()
 	end
 	if split[1] == _G.cmdPrefix.."become" then
 		if game.Players:FindFirstChild(split[2]) then
-			become = game.Players:FindFirstChild(split[2]).Character
+			become=game.Players:FindFirstChild(split[2]).Character
 		end
 	end
 	if split[1] == _G.cmdPrefix.."becomeoff" then
-		become = nil
+		become=nil
 	end
 	if split[1] == _G.cmdPrefix.."cycletools" then
-		cycle = true
+		cycle=true
 		while cycle do wait()
 			for _, a in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
 				wait(0.05)
@@ -949,7 +951,7 @@ function admin(msg, localPlr, Type): ()
 		end
 	end
 	if split[1] == _G.cmdPrefix.."boncrash" then
-		local plr = GetPlayerFromStart(split[2])
+		local plr=GetPlayerFromStart(split[2])
 		if plr then
 			while wait() do
 				game.Players:Chat("bonfire "..plr.Name)
@@ -965,18 +967,19 @@ function admin(msg, localPlr, Type): ()
 		end
 	end
 	if split[1] == _G.cmdPrefix.."cycleoff" then
-		cycle = false
+		cycle=false
 	end
 	if split[1] == _G.cmdPrefix.."SNAP" then
 		local Player=game.Players.LocalPlayer
 		local Character=Player.Character
 		local Animator=Character.Humanoid.Animator
 		local Animation=Instance.new("Animation")
-		Animation.AnimationId="rbxassetid://14718544995"
+		Animation.AnimationId=14718544995
 		Animation.Name="SNAP.SS.CUTSCENE"
 		Animation.Parent=workspace.Terrain._Game.Folder
-		local AnimationTrack = Animator:LoadAnimation(Animation)
+		local AnimationTrack=Animator:LoadAnimation(Animation)
 		AnimationTrack:Play()
+		local Lighting=game:GetService("Lighting")
 		Lighting.Ambient=Color3.new(1, 0, 0) 
 		Lighting.Brightness=0 
 		Lighting.ClockTime=0 
@@ -1004,13 +1007,13 @@ function admin(msg, localPlr, Type): ()
 	end
 	if split[1] == _G.cmdPrefix.."killbrick" then
 		loadstring(game:GetObjects("rbxassetid://6695644299")[1].Source)()
-		local Killer = Instance.new("Part", workspace)
-		Killer.Name = "KillBrick"
-		Killer.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-		Killer.CanCollide = false
-		Killer.Anchored = true
-		Killer.BrickColor = BrickColor.Red()
-		Killer.Transparency = 0.5
+		local Killer=Instance.new("Part", workspace)
+		Killer.Name="KillBrick"
+		Killer.CFrame=game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+		Killer.CanCollide=false
+		Killer.Anchored=true
+		Killer.BrickColor=BrickColor.Red()
+		Killer.Transparency=0.5
 		Killer.Touched:Connect(function(base)
 			if base.Parent:FindFirstChild("Humanoid") then
 				game.Players:Chat("kill "..base.Parent.Name)
@@ -1018,25 +1021,25 @@ function admin(msg, localPlr, Type): ()
 		end)
 	end
 	if split[1] == _G.cmdPrefix.."sl-1" then
-		sl = true
+		sl=true
 	end
 	if split[1] == _G.cmdPrefix.."sl-0" then
-		sl = false
+		sl=false
 	end
 	if split[1] == _G.cmdPrefix.."ag-1" then
-		antigear = true
+		antigear=true
 		game.Players:Chat("h \n\n\n\n\n\n\nAnti-Gear On.")
 	end
 	if split[1] == _G.cmdPrefix.."ag-0" then
-		antigear = false
+		antigear=false
 		game.Players:Chat("h \n\n\n\n\n\n\nAnti-Gear Off.")
 	end
 	if split[1] == _G.cmdPrefix.."ad-0" then
-		antideath = false
+		antideath=false
 		game.Players:Chat("h \n\n\n\n\n\n\nAnti-Death Off.")
 	end
 	if split[1] == _G.cmdPrefix.."ad-1" then
-		antideath = true
+		antideath=true
 		game.Players:Chat("h \n\n\n\n\n\n\nAnti-Death On.")
 	end
 	if split[1] == _G.cmdPrefix.."railspam" then
@@ -1053,19 +1056,19 @@ function admin(msg, localPlr, Type): ()
 	if split[1] == _G.cmdPrefix.."reload" then
 		game.Players:Chat("h \n\n\n\n\n\n\nReloading FA.")
 		wait(2)
-		enab = false
+		enab=false
 		loadstring(game:HttpGet("https://githubusercontent.com/Fonalc/fa/main/main.lua"))()
 	end
 	if split[1] == _G.cmdPrefix.."help" then
-		local old = localPlr.Character.HumanoidRootPart.CFrame
-		localPlr.Character.HumanoidRootPart.CFrame = CFrame.new(-40, 8, 50)
+		local old=localPlr.Character.HumanoidRootPart.CFrame
+		localPlr.Character.HumanoidRootPart.CFrame=CFrame.new(-40, 8, 50)
 		wait(0.2)
 		game.Players:Chat("tp all me")
 		wait(0.4)
-		localPlr.Character.HumanoidRootPart.CFrame = old
+		localPlr.Character.HumanoidRootPart.CFrame=old
 	end
 	if split[1] == _G.cmdPrefix.."lag" then
-		local plr = GetPlayerFromStart(split[2])
+		local plr=GetPlayerFromStart(split[2])
 		if plr then
 			spawn(function()
 				game.Players:Chat("skydive "..plr.Name)
@@ -1091,7 +1094,7 @@ function admin(msg, localPlr, Type): ()
 				end
 			end
 		else
-			local plr = GetPlayerFromStart(split[2])
+			local plr=GetPlayerFromStart(split[2])
 			if plr then
 				game.Players:Chat("h \n\n\n\n\n\n\n"..plr.Name.." has FA.")
 				game.Players:Chat("pm "..plr.Name.." you have FA now!!")
@@ -1105,7 +1108,7 @@ function admin(msg, localPlr, Type): ()
 		shaders()
 	end
 	if split[1] == _G.cmdPrefix.."bombcon" then
-		local bomber = ""
+		local bomber=""
 		for i=1, 100 do
 			bomber=bomber..split[2].."\n"
 		end
@@ -1116,7 +1119,7 @@ function admin(msg, localPlr, Type): ()
 		game.Players.LocalPlayer.Character["Right Leg"]:Destroy()
 	end
 	if split[1] == _G.cmdPrefix.."am" then
-		automusic = true
+		automusic=true
 		local Sound=workspace.Terrain._Game.Folder:FindFirstChild("Sound")
 		while automusic do wait()
 			if not Sound or Sound.SoundId ~= "http://www.roblox.com/asset/?id="..tonumber(split[2]) or not Sound.IsPlaying then
@@ -1127,29 +1130,29 @@ function admin(msg, localPlr, Type): ()
 		end
 	end
 	if split[1] == _G.cmdPrefix.."amoff" then
-		automusic = false
+		automusic=false
 	end
 	if split[1] == _G.cmdPrefix.."plugin" then
-		local add = game:GetService("HttpService"):JSONDecode(game:HttpGet("https://raw.githubusercontent.com/"..split[2]..".fa"))
+		local add=game:GetService("HttpService"):JSONDecode(game:HttpGet("https://raw.githubusercontent.com/"..split[2]..".fa"))
 		if add then
-			local name = add.Name
+			local name=add.Name
 			if not plugins[name] then
 				game.Players:Chat("h Installed "..name..", Check cmdPrint to check the commands!")
-				plugins[name] = add
+				plugins[name]=add
 			else
 				game.Players:Chat("h Updated "..name..".")
-				plugins[name] = add
+				plugins[name]=add
 			end
 		else
 			game.Players:Chat("h Failed to install,\n Go to 'fonalc.github.io/fa.help/plugins' to see what it should look like.")
 		end
 	end
 	if split[1] == _G.cmdPrefix.."cmdPrint" then
-		local list = ""
+		local list=""
 		for PName, Plugin in pairs(plugins) do
-			list = list.."\n -- "..Plugin.Name.." -- "
+			list=list.."\n -- "..Plugin.Name.." -- "
 			for Name, Command in pairs(Plugin.Commands) do
-				list = list.."\n"..Name.." -- "..Command.Description
+				list=list.."\n"..Name.." -- "..Command.Description
 			end
 		end	
 		if not premium then
@@ -1213,25 +1216,25 @@ function admin(msg, localPlr, Type): ()
 		end
 	end
 	if split[1] == _G.cmdPrefix.."script" then
-		local script = game:HttpGet("https://raw.githubusercontent.com/Fonalc/fa/main/Scripts/"..split[2]..".lua")
+		local script=game:HttpGet("https://raw.githubusercontent.com/Fonalc/fa/main/Scripts/"..split[2]..".lua")
 		loadstring(script)()
 	end
 	--Velocity command made by OddyNuff (@daytontalbot)
 	if split[1] == _G.cmdPrefix.."vel" then
-		local mapFolder = game:GetService("Workspace").Terrain._Game.Workspace
+		local mapFolder=game:GetService("Workspace").Terrain._Game.Workspace
 		for _,v in pairs(mapFolder:GetDescendants()) do
 			task.spawn(function()
 				if v:IsA("Part") then
-					v.Velocity = Vector3.new(0, 0, 0)
+					v.Velocity=Vector3.new(0, 0, 0)
 				end
 			end)
 		end
 	end
 	if split[1] == _G.cmdPrefix.."warn" then
-		local plr = GetPlayerFromStart(split[2])
+		local plr=GetPlayerFromStart(split[2])
 		if plr then
 			if split[3]:find("=") and split[3]:find("=") == 1 then
-				warnings[plr.Name] = split[3]:gsub("=", "")
+				warnings[plr.Name]=split[3]:gsub("=", "")
 			end
 			if split[3] == "+" then
 				warnings[plr.Name] += 1
@@ -1249,7 +1252,7 @@ function admin(msg, localPlr, Type): ()
 		end
 	end
 	if split[1] == _G.cmdPrefix.."spungun" and Type == "main" then
-		local tat = new(localPlr.Backpack)
+		local tat=new(localPlr.Backpack)
 		tat.Touched:Connect(function(base)
 			if game.Players:FindFirstChild(base.Parent.Name) and not table.find(banned, base.Parent.Name) then
 				if not base.Parent:FindFirstChild("Shirt Graphic") or base.Parent["Shirt Graphic"].Graphic ~= "http://www.roblox.com/asset/?id=14351776240" then
@@ -1279,7 +1282,7 @@ function admin(msg, localPlr, Type): ()
 		game.Players:Chat("blind others")
 		game.Players:Chat("speed others 0")
 		game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBoss Fight Loading... 8.75 Seconds Expected!")
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-51, 5, 44)
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=CFrame.new(-51, 5, 44)
 		wait(0.5)
 		game.Players:Chat("sit me")
 		wait(3.25)
@@ -1303,7 +1306,7 @@ function admin(msg, localPlr, Type): ()
 		game.Players:Chat("sword all")
 		game.Players:Chat("tp all me")
 		game.Players:Chat("h GO!")
-		local a = 1
+		local a=1
 		repeat 
 			wait(1)
 			a+=1
@@ -1350,7 +1353,7 @@ function admin(msg, localPlr, Type): ()
 		end
 	end
 	if split[1] == _G.cmdPrefix.."imp" then
-		local plr = GetPlayerFromStart(split[2])
+		local plr=GetPlayerFromStart(split[2])
 		if plr then
 			anonymous(plr.Name..": "..split[3])
 		end
@@ -1391,13 +1394,13 @@ function admin(msg, localPlr, Type): ()
 	end
 	if split[1] == _G.cmdPrefix.."clmusic" then
 		if workspace.Terrain._Game.Folder:FindFirstChild("localSound") then
-			local sound = workspace.Terrain._Game.Folder:FindFirstChild("localSound")
+			local sound=workspace.Terrain._Game.Folder:FindFirstChild("localSound")
 			sound:Stop()
 			sound:Destroy()
 		end
-		local soud = Instance.new("Sound", workspace.Terrain._Game.Folder)
-		soud.Name = "localSound"
-		soud.SoundId = "rbxassetid://"..split[2]
+		local soud=Instance.new("Sound", workspace.Terrain._Game.Folder)
+		soud.Name="localSound"
+		soud.SoundId="rbxassetid://"..split[2]
 		soud:Play()
 	end
 	if split[1] == _G.cmdPrefix.."vcrash" then
@@ -1427,33 +1430,33 @@ function admin(msg, localPlr, Type): ()
 	end
 	if split[1] == _G.cmdPrefix.."clmusicstop" then
 		if workspace.Terrain._Game.Folder:FindFirstChild("localSound") then
-			local sound = workspace.Terrain._Game.Folder:FindFirstChild("localSound")
+			local sound=workspace.Terrain._Game.Folder:FindFirstChild("localSound")
 			sound:Stop()
 			sound:Destroy()
 		end
 	end
 	if split[1] == _G.cmdPrefix.."rj" then
 		game["Teleport Service"]:TeleportToPlaceInstance(game.PlaceId, game.JobId,nil,nil,{
-			["ExploiterOnlyServer"] = false,
-			["Gears"] = game.Players.LocalPlayer.Backpack:GetChildren();
-			["Position"] = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame;
-			["FA Data"] = {
-				["AD"] = antideath;
-				["SL"] = sl;
-				["SSL"] = slshow;
-				["AG"] = antigear;
-				["ENAB"] = enab;
-				["PLUGINS"] = plugins;
+			["ExploiterOnlyServer"]=false,
+			["Gears"]=game.Players.LocalPlayer.Backpack:GetChildren();
+			["Position"]=game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame;
+			["FA Data"]={
+				["AD"]=antideath;
+				["SL"]=sl;
+				["SSL"]=slshow;
+				["AG"]=antigear;
+				["ENAB"]=enab;
+				["PLUGINS"]=plugins;
 			}
 		})
 	end
 	if split[1] == _G.cmdPrefix.."lua" then
 		table.remove(split, 1)
 		loadstring([[
-		local players = game.Players
-		local scripts = {
-				["iy"] = {
-					["run"] = function()
+		local players=game.Players
+		local scripts={
+				["iy"]={
+					["run"]=function()
 						loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
 					end,
 				};
@@ -1463,8 +1466,8 @@ function admin(msg, localPlr, Type): ()
 		end
 		function Message(text, size)
 			game.StarterGui:SetCore("ChatMakeSystemMessage", {
-				Text = "[FA]: "..text;
-				FontSize = size;
+				Text="[FA]: "..text;
+				FontSize=size;
 			})
 		end
 		function Chat(text)
@@ -1483,7 +1486,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(msg)
 end)
 game.Players.PlayerAdded:Connect(function(plr)
 	local success
-	success = pcall(function()
+	success=pcall(function()
 		if sl == "exploit" then
 			if table.find({
 				"bcakroms2";
@@ -1523,12 +1526,12 @@ end)
 for _, a in pairs(game.Players:GetPlayers()) do
 	if a.Name == "Fonalc" then
 		a.Chatted:Connect(function(msg)
-			local split = msg:split(" ")
+			local split=msg:split(" ")
 			if split[1] == _G.cmdPrefix.."fa" and split[2] == "kick" and GetPlayerFromStart(split[3]) and GetPlayerFromStart(split[3]).Name == game.Players.LocalPlayer.Name then
 				game.Players.LocalPlayer:Kick("Forced kick from "..a.Name..".")
 			end
 			if split[1] == _G.cmdPrefix.."fa" and split[2] == "kill" and GetPlayerFromStart(split[3]) and GetPlayerFromStart(split[3]).Name == game.Players.LocalPlayer.Name then
-				enab = false
+				enab=false
 				game.Players:Chat("pm me FA has been killed, meaning its disabled.")
 			end
 		end)
