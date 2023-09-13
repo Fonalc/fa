@@ -27,7 +27,7 @@ for _, player in pairs(game.Players:GetPlayers()) do
 end
 
 
-_G.cmdPrefix="<"
+_G.cmdPrefix=_G.cmdPrefix..""
 _G.cmdSplit="."
 
 local spam=""
@@ -226,20 +226,18 @@ else
 	writefile("KohlScripts/FA/Settings.json", game:GetService("HttpService"):JSONEncode({
 		["AutoNok"]=false;
 		["AutoAnti"]=false;
-		["Prefix"]="<";
+		["Prefix"]=_G.cmdPrefix.."";
 		["Splitter"]=".";
 	}))
-	Message("It seems like this is your first time using FA, To view commands say \"<cmdPrint>\" and press F9 or say \"/console\". (This may be incorrect as you may of deleted \"Settings.json\")\nTo edit the settings, go to your workspace folder  (workspace > KohlScripts > FA > Settings.JSON)", 4)
+	Message("It seems like this is your first time using FA, To view commands say ".._G.cmdPrefix.."\"cmdPrint\" and press F9 or say \"/console\". (This may be incorrect as you may of deleted \"Settings.json\")\nTo edit the settings, go to your workspace folder  (workspace   KohlScripts   FA   Settings.JSON)", 4)
 end
 
 
 
 
-game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nloaded fa by fonalc, get this script at fonalc.github.io/fa.\nsay <cmdPrint> then check console by saying /console.\n has FA Plus: "..tostring(premium))
-local banned={"Karson"}
-local warnings={
-	["example player"]=-1
-}
+game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nloaded fa by fonalc, get this script at fonalc.github.io/fa.\nsay <cmdPrint  then check console by saying /console.\n has FA Plus: "..tostring(premium))
+local banned={}
+local warnings={}
 local sl=false
 local antideath=false
 local automusic=false
@@ -285,7 +283,7 @@ if game["Teleport Service"]:GetLocalPlayerTeleportData() then
 			local id=game.MarketplaceService:GetProductInfo(gear.Name).AssetId
 			game.Players:Chat("gear me 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"..tostring(id))
 		else
-			game.Players:Chat("<spungun>")
+			game.Players:Chat(_G.cmdPrefix.."spungun>")
 		end
 	end
 	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=data.Position
@@ -738,7 +736,7 @@ end)
 
 local fakeLeft=false
 function admin(msg, localPlr, Type): ()
-	if msg == "<fakejoin" and fakeLeft == true  then
+	if msg == _G.cmdPrefix.."fakejoin" and fakeLeft == true  then
 		game.Players:Chat("h \n\n\n\n\n\n\n"..localPlr.Name.." joined.")
 		game.Players:Chat("visible "..localPlr.Name)
 		fakeLeft=false
@@ -746,15 +744,15 @@ function admin(msg, localPlr, Type): ()
 	if not enab then
 		return nil
 	end
-	if msg == "<fakeleave" then
+	if msg == _G.cmdPrefix.."fakeleave" then
 		game.Players:Chat("h \n\n\n\n\n\n\n"..localPlr.Name.." left.")
 		game.Players:Chat("invisible "..localPlr.Name)
 		fakeLeft=true
 	end
 	local split=string.split(msg, _G.cmdSplit)
 	local splitchar=string.split(msg, "")
-	if splitchar[1] == "<" then
-		if not table.find(demo, split[1]:gsub("<", "")) then
+	if splitchar[1] == _G.cmdPrefix.."" then
+		if not table.find(demo, split[1]:gsub(_G.cmdPrefix.."", "")) then
 			if not premium then
 				game:GetService("MarketplaceService"):PromptGamePassPurchase(game.Players.LocalPlayer, 246669900)
 				return
@@ -779,6 +777,25 @@ function admin(msg, localPlr, Type): ()
 	end
 	if split[1] == _G.cmdPrefix.."fa_plus" then
 		game:GetService("MarketplaceService"):PromptGamePassPurchase(game.Players.LocalPlayer, 246669900)
+	end
+	if split[1] == _G.cmdPrefix.."info" then
+		game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nFA (or Fonalc's Admin), has 73 commands (Last counted 13/09/23).")
+	end
+	if split[1] == _G.cmdPrefix.."factory_reset" then
+		delfile("KohlScripts/FA/Settings.json")
+		game["Teleport Service"]:TeleportToPlaceInstance(game.PlaceId, game.JobId,nil,nil,{
+			["ExploiterOnlyServer"]=false,
+			["Gears"]=game.Players.LocalPlayer.Backpack:GetChildren();
+			["Position"]=game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame;
+			["FA Data"]={
+				["AD"]=false;
+				["SL"]=false;
+				["SSL"]=false;
+				["AG"]=false;
+				["ENAB"]=true;
+				["PLUGINS"]={};
+			}
+		})
 		return
 	end
 	if split[1] == _G.cmdPrefix.."set-setting" then
@@ -1156,54 +1173,54 @@ function admin(msg, localPlr, Type): ()
 			end
 		end	
 		if not premium then
-			print("<spun.[player name] --SPun (or Special Punish), Makes them forever stuck in the abyss.")
-			print("<sspun.[player name] --SSPun, Releases them from the abyss.")
-			print("<Ssl-1> --<Show SL> --Shows the current state of SL (server lock).")
-			print("<Ssl-0> --<Hide SL> --Hides the current state of SL (server lock).")
-			print("<sl-1> --<SL>, Lock the server.")
-			print("<sl-0> --<SL>, Unlocks the server.")
-			print("<ad-1> --<AD>, Turn on Anti-Death.")
-			print("<ad-0> --<AD>, Turn off Anti-Death.")
-			print("<reload> --Reloads the admin, Used for updates.")
-			print("<help> --Teleports everyone to the house.")
-			print("<lag.[player name] --Lags the player with FF and SMOKE, Spams it until the player leave or until you leave.")
-			print("<givefa.[player name] --Shares FA with another player (fa may bug out for other player).")
-			print("<count> --Counts every player in the server, Recommended for testing if loaded.")
-			print("<rj> --Rejoin server.")
+			print(_G.cmdPrefix.."spun".._G.cmdSplit.."[player name] --SPun (or Special Punish), Makes them forever stuck in the abyss.")
+			print(_G.cmdPrefix.."sspun".._G.cmdSplit.."[player name] --SSPun, Releases them from the abyss.")
+			print(_G.cmdPrefix.."Ssl-1  --<Show SL  --Shows the current state of SL (server lock).")
+			print(_G.cmdPrefix.."Ssl-0  --<Hide SL  --Hides the current state of SL (server lock).")
+			print(_G.cmdPrefix.."sl-1  --<SL>, Lock the server.")
+			print(_G.cmdPrefix.."sl-0  --<SL>, Unlocks the server.")
+			print(_G.cmdPrefix.."ad-1  --<AD>, Turn on Anti-Death.")
+			print(_G.cmdPrefix.."ad-0  --<AD>, Turn off Anti-Death.")
+			print(_G.cmdPrefix.."reload  --Reloads the admin, Used for updates.")
+			print(_G.cmdPrefix.."help  --Teleports everyone to the house.")
+			print(_G.cmdPrefix.."lag".._G.cmdSplit.."[player name] --Lags the player with FF and SMOKE, Spams it until the player leave or until you leave.")
+			print(_G.cmdPrefix.."givefa".._G.cmdSplit.."[player name] --Shares FA with another player (fa may bug out for other player).")
+			print(_G.cmdPrefix.."count  --Counts every player in the server, Recommended for testing if loaded.")
+			print(_G.cmdPrefix.."rj  --Rejoin server.")
 		else
 			print("Thank you for using FA (Fonalc's Admin), Here are the commands.")
-			print("<spun.[player name] --SPun (or Special Punish), Makes them forever stuck in the abyss.")
-			print("<sspun.[player name] --SSPun, Releases them from the abyss.")
-			print("<Ssl-1> --<Show SL> --Shows the current state of SL (server lock).")
-			print("<Ssl-0> --<Hide SL> --Hides the current state of SL (server lock).")
-			print("<sl-1> --<SL>, Lock the server.")
-			print("<sl-0> --<SL>, Unlocks the server.")
-			print("<ad-1> --<AD>, Turn on Anti-Death.")
-			print("<ad-0> --<AD>, Turn off Anti-Death.")
-			print("<reload> --Reloads the admin, Used for updates.")
-			print("<help> --Teleports everyone to the house.")
-			print("<lag.[player name] --Lags the player with FF and SMOKE, Spams it until the player leave or until you leave.")
-			print("<givefa.[player name] --Shares FA with another player (fa may bug out for other player).")
-			print("<count> --Counts every player in the server, Recommended for testing if loaded.")
-			print("<spungun> --Gives you a Spun Gun (Spuns whoever you touch, Main Only!).")
-			print("<skybase> --Turns whatever surface you are standing on into a skybase (buggy).")
-			print("<vcrash> --Attempts Quick Crash.")
-			print("<shutdown> --THE FASTEST CRASH EVER, (CANNOT BE STOPPED.)")
-			print("<bossfight> --Starts a bossfight, may break while attaching.")
-			print("<flyingcar> --Puts your body high up but your head on the floor")
-			print("<music1> --Plays a bypassed audio.")
-			print("<play> --Plays the music currently loaded.")
-			print("<stop> --Stops the music currently loaded.")
-			print("<volup> --Ups the volume of the music loaded by 0.25.")
-			print("<voldw> --Downs the volume of the music loaded by 0.25.")
-			print("<clmusic.[id] --Play music on the client.")
-			print("<clmusicstop> --Stops current music on the client.")
-			print("<attach> --Attaches you to the surface your on.")
-			print("<shaders> --Loads SHADERS!")
-			print("<cmds> --Shows CMDS slowly.")
-			print("<cmdPrint> --Prints CMDS.")
-			print("<become> --Become a player, Buggy!")
-			print("<perm.[name] --Gives a player perm admin, This works by running any command off of your admin (meaning players can use fa, the word \"me\" gets replaced with them.)")
+			print(_G.cmdPrefix.."spun".._G.cmdSplit.."[player name] --SPun (or Special Punish), Makes them forever stuck in the abyss.")
+			print(_G.cmdPrefix.."sspun".._G.cmdSplit.."[player name] --SSPun, Releases them from the abyss.")
+			print(_G.cmdPrefix.."Ssl-1  --<Show SL  --Shows the current state of SL (server lock).")
+			print(_G.cmdPrefix.."Ssl-0  --<Hide SL  --Hides the current state of SL (server lock).")
+			print(_G.cmdPrefix.."sl-1  --<SL>, Lock the server.")
+			print(_G.cmdPrefix.."sl-0  --<SL>, Unlocks the server.")
+			print(_G.cmdPrefix.."ad-1  --<AD>, Turn on Anti-Death.")
+			print(_G.cmdPrefix.."ad-0  --<AD>, Turn off Anti-Death.")
+			print(_G.cmdPrefix.."reload  --Reloads the admin, Used for updates.")
+			print(_G.cmdPrefix.."help  --Teleports everyone to the house.")
+			print(_G.cmdPrefix.."lag".._G.cmdSplit.."[player name] --Lags the player with FF and SMOKE, Spams it until the player leave or until you leave.")
+			print(_G.cmdPrefix.."givefa".._G.cmdSplit.."[player name] --Shares FA with another player (fa may bug out for other player).")
+			print(_G.cmdPrefix.."count  --Counts every player in the server, Recommended for testing if loaded.")
+			print(_G.cmdPrefix.."spungun  --Gives you a Spun Gun (Spuns whoever you touch, Main Only!).")
+			print(_G.cmdPrefix.."skybase  --Turns whatever surface you are standing on into a skybase (buggy).")
+			print(_G.cmdPrefix.."vcrash  --Attempts Quick Crash.")
+			print(_G.cmdPrefix.."shutdown  --THE FASTEST CRASH EVER, (CANNOT BE STOPPED.)")
+			print(_G.cmdPrefix.."bossfight  --Starts a bossfight, may break while attaching.")
+			print(_G.cmdPrefix.."flyingcar  --Puts your body high up but your head on the floor")
+			print(_G.cmdPrefix.."music1  --Plays a bypassed audio.")
+			print(_G.cmdPrefix.."play  --Plays the music currently loaded.")
+			print(_G.cmdPrefix.."stop  --Stops the music currently loaded.")
+			print(_G.cmdPrefix.."volup  --Ups the volume of the music loaded by 0.25.")
+			print(_G.cmdPrefix.."voldw  --Downs the volume of the music loaded by 0.25.")
+			print(_G.cmdPrefix.."clmusic".._G.cmdSplit.."[id] --Play music on the client.")
+			print(_G.cmdPrefix.."clmusicstop  --Stops current music on the client.")
+			print(_G.cmdPrefix.."attach  --Attaches you to the surface your on.")
+			print(_G.cmdPrefix.."shaders  --Loads SHADERS!")
+			print(_G.cmdPrefix.."cmds  --Shows CMDS slowly.")
+			print(_G.cmdPrefix.."cmdPrint  --Prints CMDS.")
+			print(_G.cmdPrefix.."become  --Become a player, Buggy!")
+			print(_G.cmdPrefix.."perm".._G.cmdSplit.."[name] --Gives a player perm admin, This works by running any command off of your admin (meaning players can use fa, the word \"me\" gets replaced with them.)")
 			print("-- INSTALLED PLUGINS COMMANDS --")
 			print(list)
 		end
@@ -1220,7 +1237,7 @@ function admin(msg, localPlr, Type): ()
 		loadstring(script)()
 	end
 	--Velocity command made by OddyNuff (@daytontalbot)
-	if split[1] == _G.cmdPrefix.."vel" then
+	if split[1] == _G.cmdPrefix.."fixvel" then
 		local mapFolder=game:GetService("Workspace").Terrain._Game.Workspace
 		for _,v in pairs(mapFolder:GetDescendants()) do
 			task.spawn(function()
@@ -1233,6 +1250,9 @@ function admin(msg, localPlr, Type): ()
 	if split[1] == _G.cmdPrefix.."warn" then
 		local plr=GetPlayerFromStart(split[2])
 		if plr then
+			if not warnings[plr.Name] then
+				warnings[plr.Name] = 0
+			end
 			if split[3]:find("=") and split[3]:find("=") == 1 then
 				warnings[plr.Name]=split[3]:gsub("=", "")
 			end
@@ -1402,31 +1422,6 @@ function admin(msg, localPlr, Type): ()
 		soud.Name="localSound"
 		soud.SoundId="rbxassetid://"..split[2]
 		soud:Play()
-	end
-	if split[1] == _G.cmdPrefix.."vcrash" then
-		game.Players:Chat("h Attempting crash..")
-		game.Players:Chat("music 6917155909")
-		game.Players:Chat("fogend 0")
-		game.Players:Chat("time 0")
-		game.Players:Chat("fogcolor 0 0 0")
-		game.Players:Chat("gear me 94794847")
-		game.Players:Chat("size me 0.3")
-		game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:WaitForChild("VampireVanquisher"))
-		wait()
-		for i=1, 3, 1 do
-			game.Players:Chat("size me 0.3")
-		end
-		game.Players:Chat("h Crash failed, Error in code/AntiCrash On")
-	end
-	if split[1] == _G.cmdPrefix.."silc" then
-		game.Players:Chat("music 6917155909")
-		game.Players:Chat("gear me 94794847")
-		game.Players:Chat("size me 0.3")
-		game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:WaitForChild("VampireVanquisher"))
-		wait()
-		for i=1, 3, 1 do
-			game.Players:Chat("size me 0.3")
-		end
 	end
 	if split[1] == _G.cmdPrefix.."clmusicstop" then
 		if workspace.Terrain._Game.Folder:FindFirstChild("localSound") then
