@@ -27,7 +27,7 @@ for _, player in pairs(game.Players:GetPlayers()) do
 end
 
 
-_G.cmdPrefix=_G.cmdPrefix..""
+_G.cmdPrefix="<"
 _G.cmdSplit="."
 
 local spam=""
