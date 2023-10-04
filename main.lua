@@ -91,7 +91,7 @@ for number, value in pairs(FA_FILE) do
 			FATIME=value[2]
 		elseif value[2] ~= "inf" then
 			game.Players:Chat("pm me [FA]:\nPlease check your console.")
-			print("Your free FA+ trial has ended, Please buy FA+ originally to continue. (TIME: '"..os.time().."', TRIAL TIME: '"..split[2].."')")
+			print("Your free FA+ trial has ended, Please buy FA+ originally to continue. (TIME: '"..os.time()..")")
 			return
 		elseif value[2] == "inf" then
 			premium=true
@@ -229,7 +229,7 @@ else
 		["Prefix"]=_G.cmdPrefix.."";
 		["Splitter"]=".";
 	}))
-	Message("It seems like this is your first time using FA, To view commands say \"".._G.cmdPrefix.."cmdPrint\" and press F9 or say \"/console\". (This may be incorrect as you may of deleted \"Settings.json\")\nTo edit the settings, go to your workspace folder, 4)
+	Message("It seems like this is your first time using FA, To view commands say \"".._G.cmdPrefix.."cmdPrint\" and press F9 or say \"/console\". (This may be incorrect as you may of deleted \"Settings.json\")\nTo edit the settings, go to your workspace folder, 4")
 end
 
 
