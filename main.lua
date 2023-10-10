@@ -162,6 +162,7 @@ end
 
 game:GetService("UserInputService").WindowFocused:Connect(function() 
 	game.Players:Chat("unff me")
+	game.Players:Chat("reset me")
 	for _, part in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
 		if part:IsA("BasePart") then
 			part.Anchored=false
