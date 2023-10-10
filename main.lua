@@ -39,6 +39,7 @@ local cos={
 	"sgoslee";
 	"SelenaIsTapped";
 	"lxebaran";
+	"ThomasPlayesGames";
 }
 
 
