@@ -56,3 +56,4 @@ for i=1, 5000 do
     CHARACTER.HumanoidRootPart.CFrame *= CFrame.new(0,0,-1)
 end
 clip()
+

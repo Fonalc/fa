@@ -3,9 +3,11 @@ local Players=game:GetService("Players")
 -- FA --
 
 --Last Counted Commands Date: 06/09/2023.
---Last Counted Commands: 71.
+--Last Counted Commands: 73.
 
-if not workspace.Terrain:FindFirstChild("_Game") then return nil end
+if not workspace.Terrain:FindFirstChild("_Game") then 
+	return
+end
 
 for a,b in pairs(workspace.Terrain._Game.Workspace["Obby Box"]:GetChildren()) do
 	b.CanCollide=false
@@ -39,6 +41,7 @@ local cos={
 	"sgoslee";
 	"SelenaIsTapped";
 	"lxebaran";
+	"masterplayerguy1234";
 }
 
 
