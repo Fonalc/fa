@@ -44,6 +44,7 @@ local cos={
 	"masterplayerguy1234";
 }
 
+-- Fonfuscator 🔛🔝
 
 spawn(function()
 	while wait() do
