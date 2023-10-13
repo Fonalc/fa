@@ -5,9 +5,13 @@ local Players=game:GetService("Players")
 --Last Counted Commands Date: 06/09/2023.
 --Last Counted Commands: 73.
 
+<<<<<<< HEAD
 if not workspace.Terrain:FindFirstChild("_Game") then 
 	return
 end
+=======
+if not workspace:FindFirstChild("Terrain"):FindFirstChild("_Game") then return nil end
+>>>>>>> 7fac2753d9514fa344c9d58ab5f180bdba667039
 
 for a,b in pairs(workspace.Terrain._Game.Workspace["Obby Box"]:GetChildren()) do
 	b.CanCollide=false
@@ -41,7 +45,11 @@ local cos={
 	"sgoslee";
 	"SelenaIsTapped";
 	"lxebaran";
+<<<<<<< HEAD
 	"masterplayerguy1234";
+=======
+	"ThomasPlayesGames";
+>>>>>>> 7fac2753d9514fa344c9d58ab5f180bdba667039
 }
 
 -- Fonfuscator 🔛🔝
@@ -95,7 +103,7 @@ for number, value in pairs(FA_FILE) do
 			FATIME=value[2]
 		elseif value[2] ~= "inf" then
 			game.Players:Chat("pm me [FA]:\nPlease check your console.")
-			print("Your free FA+ trial has ended, Please buy FA+ originally to continue. (TIME: '"..os.time().."', TRIAL TIME: '"..split[2].."')")
+			print("Your free FA+ trial has ended, Please buy FA+ originally to continue. (TIME: '"..os.time()..")")
 			return
 		elseif value[2] == "inf" then
 			premium=true
@@ -166,6 +174,7 @@ end
 
 game:GetService("UserInputService").WindowFocused:Connect(function() 
 	game.Players:Chat("unff me")
+	game.Players:Chat("reset me")
 	for _, part in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
 		if part:IsA("BasePart") then
 			part.Anchored=false
@@ -233,13 +242,13 @@ else
 		["Prefix"]=_G.cmdPrefix.."";
 		["Splitter"]=".";
 	}))
-	Message("It seems like this is your first time using FA, To view commands say ".._G.cmdPrefix.."\"cmdPrint\" and press F9 or say \"/console\". (This may be incorrect as you may of deleted \"Settings.json\")\nTo edit the settings, go to your workspace folder  (workspace   KohlScripts   FA   Settings.JSON)", 4)
+	Message("It seems like this is your first time using FA, To view commands say \"".._G.cmdPrefix.."cmdPrint\" and press F9 or say \"/console\". (This may be incorrect as you may of deleted \"Settings.json\")\nTo edit the settings, go to your workspace folder, 4")
 end
 
 
 
 
-game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nloaded fa by fonalc, get this script at fonalc.github.io/fa.\nsay <cmdPrint  then check console by saying /console.\n has FA Plus: "..tostring(premium))
+game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nloaded fa by fonalc, get this script at fonalc.github.io/fa.\nsay ".._G.cmdPrefix.."cmdPrint  then check console by saying /console.\n has FA Plus: "..tostring(premium))
 local banned={}
 local warnings={}
 local sl=false
@@ -282,14 +291,6 @@ local plugins={
 if game["Teleport Service"]:GetLocalPlayerTeleportData() then
 	game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLoaded join data from rejoin\n\n\n\n\n\n")
 	local data=game["Teleport Service"]:GetLocalPlayerTeleportData()
-	for _, gear in pairs(data.Gears) do
-		if gear.Name ~= "epicfungunlol" then
-			local id=game.MarketplaceService:GetProductInfo(gear.Name).AssetId
-			game.Players:Chat("gear me 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"..tostring(id))
-		else
-			game.Players:Chat(_G.cmdPrefix.."spungun>")
-		end
-	end
 	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=data.Position
 	antideath=data["FA Data"].AD
 	sl=data["FA Data"].SL
@@ -668,12 +669,10 @@ spawn(function()
 	while wait() do
 		for _, plr in pairs(game.Players:GetPlayers()) do
 			if table.find(banned, plr.Name) then
-				if (not plr.Character:FindFirstChild("Shirt Graphic")) or plr.Character["Shirt Graphic"].Graphic ~= "http://www.roblox.com/asset/?id=14351776240" then
-					game.Players:Chat("blind "..plr.Name)
-					game.Players:Chat("setgrav "..plr.Name.." -9e9")
-					game.Players:Chat("speed "..plr.Name.." 0")
-					wait(0.2)
-				end
+				game.Players:Chat("blind "..plr.Name)
+				game.Players:Chat("setgrav "..plr.Name.." -9e9")
+				game.Players:Chat("speed "..plr.Name.." 0")
+				wait(0.2)
 			end
 		end
 	end
