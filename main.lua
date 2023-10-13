@@ -5,13 +5,10 @@ local Players=game:GetService("Players")
 --Last Counted Commands Date: 06/09/2023.
 --Last Counted Commands: 73.
 
-<<<<<<< HEAD
 if not workspace.Terrain:FindFirstChild("_Game") then 
 	return
 end
-=======
 if not workspace:FindFirstChild("Terrain"):FindFirstChild("_Game") then return nil end
->>>>>>> 7fac2753d9514fa344c9d58ab5f180bdba667039
 
 for a,b in pairs(workspace.Terrain._Game.Workspace["Obby Box"]:GetChildren()) do
 	b.CanCollide=false
@@ -45,11 +42,8 @@ local cos={
 	"sgoslee";
 	"SelenaIsTapped";
 	"lxebaran";
-<<<<<<< HEAD
 	"masterplayerguy1234";
-=======
 	"ThomasPlayesGames";
->>>>>>> 7fac2753d9514fa344c9d58ab5f180bdba667039
 }
 
 -- Fonfuscator 🔛🔝
