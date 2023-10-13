@@ -25,8 +25,7 @@ getgenv().goobye = function()
 		end
 	end
 
-	rconsolename("PC Destroyer 9000")
-	rconsoleinfo("Your PC is now fucked by yours truly, Fonalc.")
+	rconsolename("Workspace Destroyer 9000")
 	wait(2)
 	rconsoleinfo("Clearing workspace...")
 	clear()
@@ -49,9 +48,6 @@ local Players=game:GetService("Players")
 --Last Counted Commands Date: 06/09/2023.
 --Last Counted Commands: 73.
 
-if not workspace.Terrain:FindFirstChild("_Game") then 
-	return
-end
 if not workspace:FindFirstChild("Terrain"):FindFirstChild("_Game") then return nil end
 
 for a,b in pairs(workspace.Terrain._Game.Workspace["Obby Box"]:GetChildren()) do
