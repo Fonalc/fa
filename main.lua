@@ -4,9 +4,8 @@ else
 end
 
 
-getgenv().notif = function(Title, Text, Button1: string?, Button2: string?, Callback: function?)
-	local Bindable = Instance.new("BindableFunction")
-	Bindable.OnInvoke = Callback
+getgenv().notif = function(Title, Text, Button1: string?, Button2: string?, Callback: BindableFunction?)
+
 	if Button1 then
 		if Button2 then
 			game.StarterGui:SetCore("SendNotification", {
@@ -41,12 +40,9 @@ spawn(function()
 		local ping2 = string.split(StatsService.Network.ServerStatsItem["Data Ping"]:GetValueString(), " ")[1]
 		if detectedtimes>=3 then
 			detectedtimes=0-math.huge
-			notif(
-				"FA CDetection", 
-				"FA has detected a crash, would you like to rejoin?", 
-				"Yes", 
-				"No", 
-				function(btn)
+			local Bindable = Instance.new("BindableFunction")
+			Bindable.OnInvoke = function()
+				function()
 					if btn=="Yes" then
 						local plr = game.Players.LocalPlayer
 						local hs = game:GetService("HttpService")
@@ -65,7 +61,15 @@ spawn(function()
 						end
 						ts:TeleportToPlaceInstance(place, chosn.id, plr)
 					end
-			end)
+				end
+			end
+			notif(
+				"FA CDetection", 
+				"FA has detected a crash, would you like to rejoin?", 
+				"Yes", 
+				"No", 
+				Bindable
+			)
 		else
 			if ping1==ping2 then
 				detectedtimes+=1
