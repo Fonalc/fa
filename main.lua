@@ -4,7 +4,7 @@ else
 end
 
 
-getgenv().notif(Title, Text, Button1: string?, Button2: string?, Callback: function?)
+getgenv().notif = function(Title, Text, Button1: string?, Button2: string?, Callback: function?)
 	local Bindable = Instance.new("BindableFunction")
 	Bindable.OnInvoke = Callback
 	if Button1 then
