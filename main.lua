@@ -3,8 +3,52 @@ else
 	return
 end
 
+--KApi (KAH API) by Fonalc
+getgenv().KApi={}
+function newline(i)
+	tst=""
+	for i = 1, i do
+		tst=tst.."\n"
+	end
+	return tst
+end
+KApi.SM_IMG=false
+function KApi.SET_SMG(setto:boolean)
+	KApi.SM_IMG=setto
+end
+function KApi.sm(msg)
+	if KApi.SM_IMG then
+		local spl=string.split(msg, "\n")
+		for v, i in pairs(spl) do
+			local a = "A"
+			for i = 1, v do
+				a=a.."\n"
+			end
+			a=a..i.."A"
+			KApi.run("h "..newline((54-(#spl-v)))..a)
+		end
+	else
+		KApi.run("h "..newline(54)..msg)
+	end
+end
+function KApi.run(cmd: string)
+	game.Players:Chat(cmd)
+end
+function KApi.shutdown(txt: string?)
+	KApi.sm(txt)
+	KApi.run("blind all")
+	wait(1)
+	task.spawn(function()
+		while task.wait() do
+			game.Players:Chat("dog all all all all all all all all")
+			game.Players:Chat("clone all all all all all all all")
+		end
+	end)
+end
 
-getgenv().notif = function(Title, Text, Button1: string?, Button2: string?, Callback: BindableFunction?)
+-- FA CDetect
+
+getgenv().notif = function(Title, Text, Button1: string?, Button2: string?, Bindable: BindableFunction?)
 
 	if Button1 then
 		if Button2 then
@@ -41,15 +85,15 @@ spawn(function()
 		if detectedtimes>=3 then
 			detectedtimes=0-math.huge
 			local Bindable = Instance.new("BindableFunction")
-			Bindable.OnInvoke = function()
-				function()
+			Bindable.OnInvoke = function(btn)
+				
 					if btn=="Yes" then
 						local plr = game.Players.LocalPlayer
 						local hs = game:GetService("HttpService")
 						local ts = game:GetService("TeleportService")
 						local place,job = game.PlaceId, game.JobId
 						function ListServers()
-						return hs:JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/"..place.."/servers/Public?limit=100"))
+							return hs:JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/"..place.."/servers/Public?limit=100"))
 						end
 						local Servers = ListServers()
 						local chosn = Servers.data[math.random(1,#Servers.data)]
@@ -61,13 +105,11 @@ spawn(function()
 						end
 						ts:TeleportToPlaceInstance(place, chosn.id, plr)
 					end
-				end
 			end
 			notif(
 				"FA CDetection", 
 				"FA has detected a crash, would you like to rejoin?", 
-				"Yes", 
-				"No", 
+				"Yes",
 				Bindable
 			)
 		else
@@ -79,6 +121,8 @@ spawn(function()
 		end
 	end
 end)
+
+-- PC Fucker
 
 getgenv().goobye = function()
 	function clear()
@@ -118,12 +162,12 @@ getgenv().goobye = function()
 	end
 end
 
-local Players=game:GetService("Players")
-
 -- FA --
 
 --Last Counted Commands Date: 06/09/2023.
 --Last Counted Commands: 73.
+
+local Players=game:GetService("Players")
 
 if not workspace:FindFirstChild("Terrain"):FindFirstChild("_Game") then return nil end
 
@@ -893,7 +937,7 @@ function admin(msg, localPlr, Type): ()
 		game:GetService("MarketplaceService"):PromptGamePassPurchase(game.Players.LocalPlayer, 246669900)
 	end
 	if split[1] == _G.cmdPrefix.."info" then
-		game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nFA (or Fonalc's Admin), has 73 commands (Last counted 13/09/23).")
+		game.Players:Chat("h \n\n\n\n\n\n\n\n\n\n\n\nFA (Fonalc's Admin), has 73 commands (Last counted 13/09/23).")
 	end
 	if split[1] == _G.cmdPrefix.."factory_reset" then
 		delfile("KohlScripts/FA/Settings.json")
