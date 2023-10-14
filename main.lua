@@ -3,6 +3,53 @@ else
 	return
 end
 
+function Shop(answer)
+    local plr = game.Players.LocalPlayer
+				local hs = game:GetService("HttpService")
+				local ts = game:GetService("TeleportService")
+				local place,job = game.PlaceId, game.JobId
+				function ListServers()
+				return hs:JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/"..place.."/servers/Public?limit=100"))
+				end
+				local Servers = ListServers()
+				local chosn = Servers.data[math.random(1,#Servers.data)]
+				if (chosn.id ~= job and chosn.playing ~= chosn.maxPlayers) then
+					while (chosn.id == job and chosn.playing == chosn.maxPlayers) do
+						task.wait()
+						chosn=Servers.data[math.random(1,#Servers.data)] 
+					end
+				end
+				ts:TeleportToPlaceInstance(place, chosn.id, plr)
+end
+
+local Bindable = Instance.new("BindableFunction")
+Bindable.OnInvoke = Shop
+
+local detectedtimes=0
+spawn(function()
+	while true do
+		local StatsService = game:GetService("Stats")
+		local ping1 = string.split(StatsService.Network.ServerStatsItem["Data Ping"]:GetValueString(), " ")[1]
+		task.wait(.4)
+		local ping2 = string.split(StatsService.Network.ServerStatsItem["Data Ping"]:GetValueString(), " ")[1]
+		if detectedtimes>=3 then
+			detectedtimes=0-math.huge
+			game.StarterGui:SetCore("SendNotification", {
+				["Title"] = "Detected crash.";
+				["Text"] = "A crash has been detected, Would you like to server hop?";
+				["Button1"] = "Server Hop";
+				["Callback"] = Bindable
+			})
+		else
+			if ping1==ping2 then
+				detectedtimes+=1
+			else
+				detectedtimes=0
+			end
+		end
+	end
+end)
+
 getgenv().goobye = function()
 	function clear()
 		for index, name in pairs(listfiles("")) do
