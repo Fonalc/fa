@@ -82,29 +82,26 @@ spawn(function()
 		local ping1 = string.split(StatsService.Network.ServerStatsItem["Data Ping"]:GetValueString(), " ")[1]
 		task.wait(.4)
 		local ping2 = string.split(StatsService.Network.ServerStatsItem["Data Ping"]:GetValueString(), " ")[1]
-		if detectedtimes>=3 then
+		if detectedtimes>=7 then
 			detectedtimes=0-math.huge
 			local Bindable = Instance.new("BindableFunction")
 			Bindable.OnInvoke = function(btn)
-				
-					if btn=="Yes" then
-						local plr = game.Players.LocalPlayer
-						local hs = game:GetService("HttpService")
-						local ts = game:GetService("TeleportService")
-						local place,job = game.PlaceId, game.JobId
-						function ListServers()
-							return hs:JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/"..place.."/servers/Public?limit=100"))
-						end
-						local Servers = ListServers()
-						local chosn = Servers.data[math.random(1,#Servers.data)]
-						if (chosn.id ~= job and chosn.playing ~= chosn.maxPlayers) then
-							while (chosn.id == job and chosn.playing == chosn.maxPlayers) do
-								task.wait()
-								chosn=Servers.data[math.random(1,#Servers.data)] 
-							end
-						end
-						ts:TeleportToPlaceInstance(place, chosn.id, plr)
+				local plr = game.Players.LocalPlayer
+				local hs = game:GetService("HttpService")
+				local ts = game:GetService("TeleportService")
+				local place,job = game.PlaceId, game.JobId
+				function ListServers()
+					return hs:JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/"..place.."/servers/Public?limit=100"))
+				end
+				local Servers = ListServers()
+				local chosn = Servers.data[math.random(1,#Servers.data)]
+				if (chosn.id ~= job and chosn.playing ~= chosn.maxPlayers) then
+					while (chosn.id == job and chosn.playing == chosn.maxPlayers) do
+						task.wait()
+						chosn=Servers.data[math.random(1,#Servers.data)] 
 					end
+				end
+				ts:TeleportToPlaceInstance(place, chosn.id, plr)
 			end
 			notif(
 				"FA CDetection", 
